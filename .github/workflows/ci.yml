@@ -35,8 +35,7 @@ jobs:
 
       - name: Install hash-locked assurance tools
         run: |
-          python -m pip install --require-hashes --only-binary=:all:
-          -r requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt
+          python -m pip install --require-hashes --only-binary=:all: -r requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Validate source and immutable CI contract

@@ -84,6 +84,18 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
 
+    def test_workflow_rejects_detached_pip_requirement_argument(self) -> None:
+        mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
+            "--only-binary=:all: -r requirements/locks/",
+            "--only-binary=:all:\n          -r requirements/locks/",
+            1,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "ci.yml"
+            path.write_text(mutated, encoding="utf-8")
+            with self.assertRaises(assurance.AssuranceError):
+                assurance.validate_workflow(path, CONTRACT)
+
     def test_lock_rejects_missing_hash(self) -> None:
         original = assurance.RUNTIME_LOCK.read_text(encoding="utf-8")
         mutated = original.replace("    --hash=sha256:", "    # removed-hash=sha256:", 1)

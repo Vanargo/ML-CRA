@@ -254,6 +254,7 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
     if any(token in raw for token in forbidden):
         raise AssuranceError("workflow contains a forbidden privileged, secret or artifact-upload construct")
     required_commands = [
+        "python -m pip install --require-hashes --only-binary=:all: -r requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
         "st08_09_release_assurance.py source --inventory published",
         "st08_09_release_assurance.py secrets --inventory published",
         "st08_09_release_assurance.py dependencies",
