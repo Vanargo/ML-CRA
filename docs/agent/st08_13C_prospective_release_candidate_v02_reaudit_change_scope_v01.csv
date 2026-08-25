@@ -8,7 +8,7 @@ added,docs/agent/st08_13C_prospective_release_candidate_v02_reaudit_change_scope
 modified,.github/workflows/ci.yml,Replace the historical current-tree gate with ST08_13C candidate assurance
 modified,scripts/st08_09_release_assurance.py,Route published source and secret assurance to the versioned ST08_13C candidate manifest
 modified,scripts/st08_10_documentation_assurance.py,Require only the remaining John release authorization doctor blocker
-modified,tests/test_release_assurance_st08_09.py,Assert retirement of the completed prospective v02 re-audit blocker
+modified,tests/test_release_assurance_st08_09.py,Assert retirement of the completed prospective v02 re-audit blocker and exact current published inventory
 modified,src/mlcra/application.py,Remove only the completed v02 re-audit blocker while retaining release_ready false
 modified,README.md,State the prospective audit outcome and remaining owner release gate in English
 modified,README_RU.md,State the prospective audit outcome and remaining owner release gate in Russian

@@ -48,6 +48,7 @@
     ],
     "exclusion_reason": "The manifest cannot hash itself; the evidence record is completed after candidate hosted CI and is excluded to avoid a hash cycle. Both paths remain mandatory tracked members."
   },
+  "immutable_history_representation": "SHA-256 over canonical Git index blob bytes",
   "immutable_history": [
     {"path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv", "sha256": "cd4658d6e7307b4aec26d75bb9f458e6fd6a136d108794a6bfdf4e099c5b8c66"},
     {"path": "configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json", "sha256": "46e87427425534b2f07da3270ceaf85ad10abd52318421850856160380940287"},
@@ -55,7 +56,7 @@
     {"path": "configs/project_readiness/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_contract_v01.json", "sha256": "0d1870289b078c944f000afd7d8052553368099ca6438123e0541af3eef27b75"},
     {"path": "data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json", "sha256": "404e3d3f2f3d1a11e9b34e510e3b867dc023167269d73a3a606f07c522eda1a1"},
     {"path": "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json", "sha256": "3beedf48bcb53acc2a8f9a87f720cfc38506983857d0123be1e597a14a517762"},
-    {"path": "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json", "sha256": "2fd6704d51b7163ee4b7e91dcd7e061f6afdd53ebb17135cb0828ea37fde86b5"}
+    {"path": "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json", "sha256": "7fa0d749e5cf710a9a49c597ca3483007183ad695d3da3561ec2c6064ea1b686"}
   ],
   "mandatory_observations": [
     "working_and_published_baseline",

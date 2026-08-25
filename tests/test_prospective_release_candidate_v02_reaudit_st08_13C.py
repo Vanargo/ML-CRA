@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import unittest
 
 from scripts import st08_13C_prospective_release_candidate_v02_reaudit as reaudit
@@ -82,6 +83,15 @@ class ST0813CProspectiveReleaseCandidateReauditTests(unittest.TestCase):
         self.assertEqual(result["status"], "PASS")
         self.assertEqual(result["bindings"]["requirements"]["requirements"], 24)
         self.assertEqual(result["bindings"]["protected"]["expected"], 18)
+
+    def test_immutable_history_uses_canonical_git_blobs(self) -> None:
+        self.assertEqual(
+            CONTRACT["immutable_history_representation"],
+            "SHA-256 over canonical Git index blob bytes",
+        )
+        for item in CONTRACT["immutable_history"]:
+            payload = reaudit.release_assurance.git_index_blob_bytes(item["path"])
+            self.assertEqual(hashlib.sha256(payload).hexdigest(), item["sha256"])
 
     def test_final_fixture_passes(self) -> None:
         result = self.validate(final_evidence_fixture())

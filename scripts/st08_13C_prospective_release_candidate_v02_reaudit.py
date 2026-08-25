@@ -222,9 +222,14 @@ def validate_candidate_bindings(
         raise ProspectiveReauditError("requirements v02 hash mismatch")
     _, requirements = _load_csv(requirements_path)
     requirement_summary = validate_requirements(requirements, contract)
+    if contract.get("immutable_history_representation") != "SHA-256 over canonical Git index blob bytes":
+        raise ProspectiveReauditError("immutable-history representation is not canonical Git blob bytes")
     for item in contract["immutable_history"]:
         path = root / item["path"]
-        if not path.is_file() or _sha256(path) != item["sha256"]:
+        if not path.is_file():
+            raise ProspectiveReauditError(f"immutable historical artifact missing: {item['path']}")
+        payload = release_assurance.git_index_blob_bytes(item["path"], root)
+        if _sha256_bytes(payload) != item["sha256"]:
             raise ProspectiveReauditError(f"immutable historical artifact changed: {item['path']}")
     fields, rows = _load_csv(root / MANIFEST_PATH.relative_to(PROJECT_ROOT))
     manifest_summary = validate_manifest(fields, rows, root, contract)
