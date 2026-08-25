@@ -1608,8 +1608,8 @@ server-side secret scanning, private vulnerability reporting, защита `main
 ACCEPTED_BY_JOHN: ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration
 TASK_CLOSED: ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration
 NEXT_BLOCK_AUTHORIZED: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
-ST08_13B_status: implementation_in_progress
-hosted_CI_observed: pending_first_public_run
+ST08_13B_status: technical_pass_ready_for_john_acceptance
+hosted_CI_observed: success_run_32832251575_commit_74ccb767f08def2ce4c6cf0441a2ba044db1e66a
 external_release_authorized: false
 ```
 
@@ -1620,14 +1620,23 @@ external_release_authorized: false
 его семь ключевых файлов защищены точными SHA-256, а текущий hosted gate имеет
 версию ST08_13B.
 
-До ответа GitHub фактический внешний результат не объявляется. После PASS
-потребуется отдельный readiness-аудит по v02; его выполнение не разрешено этим
-блоком.
+Официальный GitHub REST API подтвердил публичный активный репозиторий,
+успешный запуск `32832251575` для точного коммита `74ccb767...`, задание
+`assurance=success`, включённую private vulnerability reporting и активный
+ruleset `21408995` для ветви по умолчанию. Аутентифицированные снимки John
+подтверждают Dependabot alerts, secret scanning и push protection. Ruleset не
+имеет обхода, запрещает удаление и force push, требует pull request, линейную
+историю, разрешение обсуждений, актуальную ветвь и проверку `assurance`.
+
+Свежий клон удалённого репозитория совпал с коммитом и манифестом: 314 путей,
+312 хешированных файлов, 0 расхождений, 18/18 защищённых Git blobs сохранены.
+Тег, GitHub Release и пакет не публиковались. ST08_13B технически завершён и
+ожидает принятия John; отдельный readiness-аудит по v02 не разрешён и не
+выполнялся.
 
 ## 46. Задачи John
 
-1. При запросе пройти интерактивную авторизацию GitHub через системный device
-   flow; не передавать токен в чат.
-2. После итогового отчёта принять либо вернуть ST08_13B.
+1. Принять либо вернуть ST08_13B.
+2. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Не считать публичный репозиторий релизом и отдельно решать вопрос будущего
    re-audit по v02.

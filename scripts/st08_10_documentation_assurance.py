@@ -197,15 +197,21 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     if "RU_and_EN_documentation_deferred_to_ST08_10" in application:
         raise DocumentationAssuranceError("doctor still reports the completed ST08_10 deferral")
     required_blockers = [
-        "public_development_gate_not_passed",
-        "hosted_CI_run_not_observed",
-        "external_GitHub_secret_scanning_not_enabled",
-        "release_candidate_reaudit_not_passed",
+        "prospective_release_candidate_reaudit_v02_not_passed",
         "John_release_authorization_not_granted",
     ]
     missing_blockers = [token for token in required_blockers if token not in application]
     if missing_blockers:
         raise DocumentationAssuranceError(f"doctor current blockers missing: {missing_blockers}")
+    retired_blockers = [
+        "public_development_gate_not_passed",
+        "hosted_CI_run_not_observed",
+        "external_GitHub_secret_scanning_not_enabled",
+        "release_candidate_reaudit_not_passed",
+    ]
+    stale_blockers = [token for token in retired_blockers if token in application]
+    if stale_blockers:
+        raise DocumentationAssuranceError(f"doctor completed blockers still present: {stale_blockers}")
     workflow = WORKFLOW.read_text(encoding="utf-8")
     required_commands = [
         "st08_10_documentation_assurance.py source --inventory published",
@@ -216,7 +222,11 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     missing_commands = [command for command in required_commands if command not in workflow]
     if missing_commands:
         raise DocumentationAssuranceError(f"CI documentation commands missing: {missing_commands}")
-    return {"doctor_blockers": required_blockers, "CI_commands": required_commands}
+    return {
+        "doctor_blockers": required_blockers,
+        "retired_doctor_blockers": retired_blockers,
+        "CI_commands": required_commands,
+    }
 
 
 def validate_protected_hashes(inventory: str = "working") -> dict[str, Any]:

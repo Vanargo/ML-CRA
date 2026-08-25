@@ -1410,10 +1410,7 @@ def doctor_report() -> dict[str, Any]:
         "model_fit_performed": False,
         "release_ready": False,
         "release_blockers": [
-            "public_development_gate_not_passed",
-            "hosted_CI_run_not_observed",
-            "external_GitHub_secret_scanning_not_enabled",
-            "release_candidate_reaudit_not_passed",
+            "prospective_release_candidate_reaudit_v02_not_passed",
             "John_release_authorization_not_granted",
         ],
         "environment": environment,

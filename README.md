@@ -13,6 +13,10 @@ This public repository is a development snapshot, version `0.1.0.dev0`.
 It is not an authorized release. Repository publication, hosted CI, and
 repository-security observations are bounded by the
 [ST08_13B evidence record](data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json).
+For commit `74ccb767f08def2ce4c6cf0441a2ba044db1e66a`, the hosted
+`assurance` job completed successfully; the registered server-side repository
+security controls and exact fresh-clone recovery were also observed. This is
+development-infrastructure evidence, not a release decision.
 The supported user workflows are local binary tabular classification
 and bounded exchangeable-row tabular regression on Windows x64 with CPython
 3.12, plus generation of a local static English/Russian dashboard from a
@@ -214,11 +218,13 @@ are blocked; project completion and external release readiness are both
 `FAIL`. The unchanged cumulative pilot still reports eight historical FAIL gates
 and registered external checkpoints are inaccessible. ST08_13B authorizes only
 a public development repository plus observation of hosted CI and repository
-security; it does not authorize a version tag, GitHub Release, package-index
-publication, or a scientific-claim change. Real-dataset regression scientific
-validation and the local static dashboard remain valid bounded results; neither
-authorizes a release. Only John may accept the evidence, dispose of the
-remaining blockers, or authorize a later release action.
+security; those bounded controls have now passed technically and await John's
+acceptance. ST08_13B does not authorize a version tag, GitHub Release,
+package-index publication, or a scientific-claim change. The prospective v02
+release-candidate re-audit has not been performed. Real-dataset regression
+scientific validation and the local static dashboard remain valid bounded
+results; neither authorizes a release. Only John may accept the evidence,
+dispose of the remaining blockers, or authorize a later release action.
 
 <!-- ST08-10:legal-help -->
 ## License, citation, and help

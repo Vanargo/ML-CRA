@@ -35,9 +35,10 @@ CI (непрерывная интеграция) выполняет локаль
 отправке (push protection) и закрытой отправки сообщений об уязвимостях
 фиксируется в
 [`ST08_13B` evidence](data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json).
-До появления итоговой записи `PASS` эти серверные меры следует считать
-неподтверждёнными; даже после включения они не доказывают отсутствие всех
-секретов или уязвимостей.
+В ST08_13B зафиксированы включённые secret scanning, push protection,
+Dependabot alerts и private vulnerability reporting, а также активный набор
+правил для `main`. Эти меры снижают риск, но не доказывают отсутствие всех
+секретов или уязвимостей и не заменяют проверку конкретного сообщения.
 
 Основание процедуры: [GitHub — private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository)
 и [GitHub — secret scanning](https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning).
