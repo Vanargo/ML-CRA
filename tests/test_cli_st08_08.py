@@ -76,6 +76,32 @@ class TestSt0808UniversalCli(unittest.TestCase):
         self.assertGreaterEqual(summary["mean_primary_delta"], 0.05)
         self.assertEqual(summary["positive_primary_delta_folds"], summary["fold_count"])
 
+    def test_json_output_is_ascii_transport_safe(self) -> None:
+        payload = {"command": "audit", "scope_limit": "Ограниченный вывод"}
+        with tempfile.TemporaryFile(mode="w+", encoding="ascii") as stdout:
+            with contextlib.redirect_stdout(stdout):
+                cli._emit_success(payload, "json")
+            stdout.seek(0)
+            self.assertEqual(json.loads(stdout.read()), payload)
+
+        error = application.MlcraApplicationError(
+            exit_code=3,
+            error_code="MLCRA_TEST_DIAGNOSTIC",
+            phase="test",
+            artifact_or_field="stdout_encoding",
+            expected="ASCII-safe JSON transport",
+            actual="Кириллица",
+            severity="error",
+            action_taken="test_only",
+            user_action="Сохраните сообщение.",
+            rule_source="ST08_13B.hosted_CI_repair",
+        )
+        with tempfile.TemporaryFile(mode="w+", encoding="ascii") as stderr:
+            with contextlib.redirect_stderr(stderr):
+                cli._emit_error(error, "json")
+            stderr.seek(0)
+            self.assertEqual(json.loads(stderr.read()), error.diagnostic)
+
     def test_verify_passes_without_model_fit(self) -> None:
         with mock.patch.object(application, "execute_binary_audit") as forbidden_fit:
             code, stdout, stderr = call_cli(

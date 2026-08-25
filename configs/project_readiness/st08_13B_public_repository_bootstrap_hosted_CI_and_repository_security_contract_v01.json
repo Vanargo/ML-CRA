@@ -105,6 +105,8 @@
     {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
     {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
     {"change_kind": "modified", "relative_path": "scripts/st08_13_release_candidate_reaudit.py"},
+    {"change_kind": "modified", "relative_path": "src/mlcra/cli.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_cli_st08_08.py"},
     {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
     {"change_kind": "modified", "relative_path": "tests/test_documentation_st08_10.py"},
     {"change_kind": "modified", "relative_path": "tests/test_release_candidate_reaudit_st08_13.py"},
@@ -141,7 +143,8 @@
     {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release-relevant files, automate verification and retain provenance for externally supplied software."},
     {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind the intended public file bytes to SHA-256 without treating hashes as correctness proof."},
     {"source": "Git gitattributes documentation", "uri": "https://git-scm.com/docs/gitattributes", "use": "Distinguish canonical Git blob content from platform-dependent working-tree line-ending transformations."},
-    {"source": "pip local project installs", "uri": "https://pip.pypa.io/en/stable/topics/local-project-installs/", "use": "Use a regular local-project install in CI so the src-layout package is tested as an installed distribution."}
+    {"source": "pip local project installs", "uri": "https://pip.pypa.io/en/stable/topics/local-project-installs/", "use": "Use a regular local-project install in CI so the src-layout package is tested as an installed distribution."},
+    {"source": "Python 3.12 json documentation", "uri": "https://docs.python.org/3.12/library/json.html", "use": "Escape non-ASCII JSON strings for deterministic machine-readable transport across Windows pipe encodings."}
   ],
   "checkpoint_policy": {
     "zip_status": "SKIPPED_IF_REMOTE_RECOVERY_VERIFIED",

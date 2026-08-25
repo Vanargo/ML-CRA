@@ -89,7 +89,7 @@ def _requested_format(arguments: Sequence[str]) -> str:
 
 def _emit_success(payload: dict[str, Any], output_format: str) -> None:
     if output_format == "json":
-        print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+        print(json.dumps(payload, ensure_ascii=True, sort_keys=True))
         return
     if payload["command"] == "audit":
         print(
@@ -121,7 +121,7 @@ def _emit_success(payload: dict[str, Any], output_format: str) -> None:
 
 def _emit_error(error: MlcraApplicationError, output_format: str) -> None:
     if output_format == "json":
-        print(json.dumps(error.diagnostic, ensure_ascii=False, sort_keys=True), file=sys.stderr)
+        print(json.dumps(error.diagnostic, ensure_ascii=True, sort_keys=True), file=sys.stderr)
     else:
         diagnostic = error.diagnostic
         print(

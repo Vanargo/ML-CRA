@@ -11,6 +11,8 @@ modified,scripts/agent_verify.py,exclude strict local derived trees and provide 
 modified,scripts/st08_09_release_assurance.py,separate full working-tree assurance from exact published Git-tree assurance
 modified,scripts/st08_10_documentation_assurance.py,reconcile documentation paths and protected hashes against the authorized published Git inventory
 modified,scripts/st08_13_release_candidate_reaudit.py,preserve historical worktree bindings while adding canonical published Git-blob verification
+modified,src/mlcra/cli.py,emit ASCII-safe JSON without changing decoded Unicode values across Windows pipe encodings
+modified,tests/test_cli_st08_08.py,regress JSON success and diagnostic output through a strict ASCII transport
 modified,tests/test_release_assurance_st08_09.py,cover published-tree selection and workflow contract mutations
 modified,tests/test_documentation_st08_10.py,exercise documentation assurance under the workflow-selected published inventory
 modified,tests/test_release_candidate_reaudit_st08_13.py,cover the prospective published Git-blob representation without changing historical verdicts
