@@ -4,12 +4,388 @@
   "task_id": "ST08_13C_prospective_release_candidate_v02_reaudit",
   "recorded_at": "2026-08-25",
   "profile": "SCIENTIFIC_VALIDATION",
-  "status": "candidate_implementation_complete_hosted_CI_pending",
+  "status": "prospective_v02_reaudit_complete_release_not_authorized",
   "contract_path": "configs/project_readiness/st08_13C_prospective_release_candidate_v02_reaudit_contract_v01.json",
   "requirements_path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv",
-  "pending_observation": "successful hosted GitHub Actions assurance on the exact hash-bound ST08_13C candidate",
+  "candidate_manifest": {
+    "paths": 320,
+    "hashed_paths": 318,
+    "path_list_sha256": "2c04880255617c0d5bae1b2d68344899d05b6804d27996f3050f3454c0936082",
+    "manifest_sha256": "a32673c4dfaf578fe17ad03308e53ca53132dc1aaef9fc01edd609293ace669c",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json",
+      "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "candidate_hosted_CI": {
+    "run_id": 32847076268,
+    "run_number": 19,
+    "run_attempt": 1,
+    "event": "pull_request",
+    "head_sha": "2c91f2f4325945ea62a551d35a505e240e81bc32",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Vanargo/ML-CRA/actions/runs/32847076268",
+    "job_id": 97799151124,
+    "job_name": "assurance",
+    "job_conclusion": "success",
+    "job_html_url": "https://github.com/Vanargo/ML-CRA/actions/runs/32847076268/job/97799151124",
+    "environment": "windows-2022, CPython 3.12.10 x64",
+    "content_steps_observed": 20,
+    "content_steps_success": 20,
+    "observation_source": "GitHub public REST API workflow-run, job and step endpoints"
+  },
+  "requirement_results": [
+    {
+      "requirement_id": "ST08-REQ-01",
+      "dimension_id": "D01",
+      "status": "PASS",
+      "observed_evidence": "Current normative sources preserve ML-CRA as an audit of evidence for bounded registered ML claims and explicitly reject universal model ranking.",
+      "evidence_paths": ["README.md", "README_RU.md", "roadmap.md", "docs/stages/stage_01_project_scope.md"],
+      "verification_command_or_method": "documentary_semantic_trace",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-02",
+      "dimension_id": "D01",
+      "status": "PASS",
+      "observed_evidence": "Stages 1 through 8 have identifiable objectives, accepted or current dispositions, and resolving evidence links without an unresolved current contradiction.",
+      "evidence_paths": ["roadmap.md", "docs/stages/", "data_registry/"],
+      "verification_command_or_method": "requirements_traceability_matrix_and_current_documentation_assurance",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-03",
+      "dimension_id": "D01",
+      "status": "PASS",
+      "observed_evidence": "John-approved scope classifies and implements the CLI, dashboard, bilingual documentation and public development repository while keeping external release as a separate decision.",
+      "evidence_paths": ["data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json", "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json", "README.md", "README_RU.md"],
+      "verification_command_or_method": "requirements_classification_and_implemented_surface_review",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-04",
+      "dimension_id": "D02",
+      "status": "PASS",
+      "observed_evidence": "The registered claim-to-protocol-to-evidence-to-verdict chains for the bounded classification and regression examples remain complete and path-valid.",
+      "evidence_paths": ["configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv", "data_registry/openml_miniboone_stage05_current_effect_readout.csv", "data_registry/st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01.json"],
+      "verification_command_or_method": "scientific_traceability_and_protected_binding_validation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-05",
+      "dimension_id": "D02",
+      "status": "PASS",
+      "observed_evidence": "All 18 protected scientific artifacts match their canonical Git-blob bindings and the registered schemas, keys, relations, metrics and verdict semantics pass focused checks.",
+      "evidence_paths": ["configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json", "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json", "data_registry/st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01.json"],
+      "verification_command_or_method": "canonical_hash_schema_key_relation_and_mutation_validation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-06",
+      "dimension_id": "D02",
+      "status": "PASS",
+      "observed_evidence": "English and Russian public-facing text states scope, uncertainty, limitations and computational-cost boundaries without asserting universal superiority.",
+      "evidence_paths": ["README.md", "README_RU.md", "docs/stages/stage_05_claim_audit_protocol.md", "docs/stages/stage_06_packaging_and_publication.md"],
+      "verification_command_or_method": "claim_language_and_limitation_review",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-07",
+      "dimension_id": "D03",
+      "status": "PASS",
+      "observed_evidence": "Critical computation and verdict-policy logic is implemented in supported tested modules; the research notebook remains thin orchestration.",
+      "evidence_paths": ["src/mlcra/", "notebooks/04_dataset_smoke_experiments.ipynb", "docs/stages/stage_07_code_modularization.md"],
+      "verification_command_or_method": "AST_API_traceability_and_cumulative_current_checks",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-08",
+      "dimension_id": "D03",
+      "status": "PASS",
+      "observed_evidence": "Working and published baselines, focused and mutation checks, and prospective canonical assurance pass. The cumulative pilot was executed and contains exactly the eight registered historical FAIL rows with zero new FAIL or BLOCKED result.",
+      "evidence_paths": ["scripts/agent_verify.py", "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv", "data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json", "data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json"],
+      "verification_command_or_method": "current_checks_and_exact_historical_failure_set_reconciliation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-09",
+      "dimension_id": "D03",
+      "status": "PASS",
+      "observed_evidence": "The installed audit, verify, doctor and dashboard interfaces are implemented and tested; unsupported problem types and research-only paths are explicitly bounded.",
+      "evidence_paths": ["src/mlcra/cli.py", "src/mlcra/application.py", "src/mlcra/dashboard.py", "README.md", "README_RU.md"],
+      "verification_command_or_method": "interface_inventory_contract_review_and_focused_regression",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-10",
+      "dimension_id": "D04",
+      "status": "PASS",
+      "observed_evidence": "The declared CPython 3.12 environment was reconstructed from hash-locked binary dependencies locally and on windows-2022 hosted CI; pip check passed in a clean runtime environment.",
+      "evidence_paths": ["pyproject.toml", "requirements/locks/st08_07-py312-windows-x86_64.txt", ".github/workflows/ci.yml"],
+      "verification_command_or_method": "clean_environment_hash_locked_reconstruction_local_and_hosted",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-11",
+      "dimension_id": "D04",
+      "status": "PASS",
+      "observed_evidence": "The documented installed classification and regression walkthroughs produce contract-valid eight-file bundles and verify without a runtime network dependency.",
+      "evidence_paths": ["README.md", "README_RU.md", "scripts/st08_10_documentation_assurance.py"],
+      "verification_command_or_method": "fresh_installed_process_walkthrough_local_and_hosted",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-12",
+      "dimension_id": "D04",
+      "status": "PASS",
+      "observed_evidence": "The current 320-path candidate is bound by a versioned canonical Git-blob SHA-256 manifest with 318 hashed rows and two registered cycle-breaking paths. Protected artifacts, dependencies, runtime provenance, public inventory and package evidence validate; historical ZIP dispositions remain unchanged but are not prospective prerequisites.",
+      "evidence_paths": ["data_registry/st08_13C_release_candidate_v02_manifest_v01.csv", "configs/project_readiness/st08_13C_prospective_release_candidate_v02_reaudit_contract_v01.json", "data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json", "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json"],
+      "verification_command_or_method": "current_canonical_Git_blob_manifest_provenance_and_package_validation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-13",
+      "dimension_id": "D05",
+      "status": "PASS",
+      "observed_evidence": "Root English and Russian entry documents identify purpose, bounded claims, prerequisites, supported workflows, evidence, limitations and current status.",
+      "evidence_paths": ["README.md", "README_RU.md", "roadmap.md"],
+      "verification_command_or_method": "bilingual_documentation_content_assurance",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-14",
+      "dimension_id": "D05",
+      "status": "PASS",
+      "observed_evidence": "Installation, verification, reproduction and troubleshooting instructions are mutually consistent and passed both local clean-install and hosted installed-interface checks.",
+      "evidence_paths": ["README.md", "README_RU.md", "scripts/st08_10_documentation_assurance.py", ".github/workflows/ci.yml"],
+      "verification_command_or_method": "instruction_walkthrough_clean_install_and_command_test",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-15",
+      "dimension_id": "D05",
+      "status": "PASS",
+      "observed_evidence": "Current documentation uses resolved repository-relative paths, preserves protected historical records and passes bilingual documentation assurance.",
+      "evidence_paths": ["scripts/st08_10_documentation_assurance.py", "docs/stages/", "docs/archive/", "roadmap.md"],
+      "verification_command_or_method": "documentary_consistency_and_link_check",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-16",
+      "dimension_id": "D06",
+      "status": "PASS",
+      "observed_evidence": "Standard pyproject metadata defines the development package, Python range, dependencies, license, entry point and contents; hosted CI built both sdist and wheel successfully.",
+      "evidence_paths": ["pyproject.toml", "src/mlcra/", ".github/workflows/ci.yml"],
+      "verification_command_or_method": "packaging_metadata_build_and_archive_inventory",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-17",
+      "dimension_id": "D06",
+      "status": "PASS",
+      "observed_evidence": "The freshly built wheel installed offline without dependency resolution or workspace leakage; pip check, doctor, walkthrough and installed-interface tests passed locally and in hosted CI.",
+      "evidence_paths": ["pyproject.toml", "requirements/locks/st08_07-py312-windows-x86_64.txt", ".github/workflows/ci.yml"],
+      "verification_command_or_method": "fresh_artifact_install_import_and_supported_interface_smoke",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-18",
+      "dimension_id": "D06",
+      "status": "PASS",
+      "observed_evidence": "The exact public inventory and package archives exclude environments, caches, bytecode and temporary outputs; local and hosted secret-pattern scans report zero findings.",
+      "evidence_paths": ["configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json", "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv", "scripts/st08_09_release_assurance.py", ".github/workflows/ci.yml"],
+      "verification_command_or_method": "manifest_archive_allowlist_denylist_secret_and_hash_validation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-19",
+      "dimension_id": "D07",
+      "status": "PASS",
+      "observed_evidence": "The John-selected MIT license is present and agrees with project metadata; third-party data terms remain explicitly separate.",
+      "evidence_paths": ["LICENSE", "pyproject.toml", "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json"],
+      "verification_command_or_method": "license_presence_exact_text_metadata_and_owner_decision_check",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-20",
+      "dimension_id": "D07",
+      "status": "PASS",
+      "observed_evidence": "MiniBooNE and UCI Wine Quality sources, identifiers, terms, attribution and no-raw-data distribution dispositions are registered and included in package attribution artifacts.",
+      "evidence_paths": ["DATASET_ATTRIBUTION.md", "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json", "data_registry/st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01.json"],
+      "verification_command_or_method": "dataset_provenance_license_and_distribution_review",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-21",
+      "dimension_id": "D07",
+      "status": "PASS",
+      "observed_evidence": "CITATION.cff 1.2.0 validates and identifies the project, creator, ORCID and development status without inventing a release identifier.",
+      "evidence_paths": ["CITATION.cff", "README.md", "data_registry/st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01.json"],
+      "verification_command_or_method": "CFF_schema_identity_and_content_validation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-22",
+      "dimension_id": "D08",
+      "status": "PASS",
+      "observed_evidence": "Immutable workflow, source, secret, dependency, archive, package and provenance checks pass. Public repository secret scanning, push protection, vulnerability reporting and alerts are enabled, and exact-candidate hosted assurance run 32847076268 completed successfully.",
+      "evidence_paths": [".github/workflows/ci.yml", "SECURITY.md", "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json", "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json"],
+      "verification_command_or_method": "local_and_hosted_security_assurance_plus_repository_control_observation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-23",
+      "dimension_id": "D08",
+      "status": "PASS",
+      "observed_evidence": "The prospective v02 assessment has no requirement-level FAIL, BLOCKED or SKIPPED item. Residual risks and the sole owner-controlled release gate are explicit; no release is inferred or performed.",
+      "evidence_paths": ["roadmap.md", "docs/stages/stage_08_project_completion_and_release_readiness.md", "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json"],
+      "verification_command_or_method": "open_item_residual_risk_and_owner_reconciliation",
+      "finding_ids": []
+    },
+    {
+      "requirement_id": "ST08-REQ-24",
+      "dimension_id": "D08",
+      "status": "PASS",
+      "observed_evidence": "Independent fail-closed recomputation yields 24/24 requirements PASS, 8/8 dimensions PASS and project completion PASS. External release readiness is evaluated separately and remains BLOCKED solely because John has not granted release authorization.",
+      "evidence_paths": ["configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv", "scripts/st08_13C_prospective_release_candidate_v02_reaudit.py", "roadmap.md", "docs/stages/stage_08_project_completion_and_release_readiness.md"],
+      "verification_command_or_method": "independent_recalculation_of_dimensions_aggregates_and_owner_gate",
+      "finding_ids": []
+    }
+  ],
+  "dimension_results": [
+    {"dimension_id": "D01", "name": "mission_and_scope", "status": "PASS"},
+    {"dimension_id": "D02", "name": "scientific_evidence", "status": "PASS"},
+    {"dimension_id": "D03", "name": "software_verification", "status": "PASS"},
+    {"dimension_id": "D04", "name": "reproducibility_and_provenance", "status": "PASS"},
+    {"dimension_id": "D05", "name": "documentation_and_usability", "status": "PASS"},
+    {"dimension_id": "D06", "name": "packaging_and_distribution", "status": "PASS"},
+    {"dimension_id": "D07", "name": "legal_and_citation", "status": "PASS"},
+    {"dimension_id": "D08", "name": "governance_security_and_release", "status": "PASS"}
+  ],
+  "aggregate_verdict": {
+    "requirement_status_counts": {"PASS": 24, "FAIL": 0, "BLOCKED": 0, "SKIPPED": 0},
+    "dimension_status_counts": {"PASS": 8, "FAIL": 0, "BLOCKED": 0},
+    "project_completion_verdict": "PASS",
+    "external_release_readiness": "BLOCKED",
+    "release_class": "not_ready",
+    "release_blockers": ["John_release_authorization_not_granted"],
+    "John_release_decision_required": true,
+    "scientific_claim_revalidation_performed": false
+  },
+  "open_findings": [],
+  "historical_disposition": {
+    "ST08_v01_project_completion": "FAIL_PRESERVED",
+    "ST08_v01_external_release": "FAIL_PRESERVED",
+    "ST08_v01_REQ08": "FAIL_PRESERVED",
+    "ST08_v01_REQ12": "BLOCKED_PRESERVED",
+    "ST08_13A_migration": "PASS_PRESERVED",
+    "ST08_13B_external_controls": "PASS_PRESERVED"
+  },
+  "hosted_candidate_repair_history": [
+    {
+      "run_id": 32843375301,
+      "head_sha": "81dc8def506d35db14194aac8faefd74bb93cfe2",
+      "conclusion": "failure",
+      "observed_disposition": "published-inventory mutation assertion retained the pre-ST08_13C count 314 instead of 320; repaired and preserved in run history"
+    },
+    {
+      "run_id": 32844325513,
+      "head_sha": "0ae47ef9ba2e2ff44c59ec77a0d3642ad340801d",
+      "conclusion": "failure",
+      "observed_disposition": "candidate-tree failed before its tests; exact public log message was not captured, and no unsupported exact cause is asserted"
+    },
+    {
+      "run_id": 32845344457,
+      "head_sha": "43b2ddd2861214b7d0bf74f73859d4f6d1311832",
+      "conclusion": "failure",
+      "observed_disposition": "requirements v02 hash mismatch exposed worktree line-ending dependence; canonical Git-blob verification implemented"
+    },
+    {
+      "run_id": 32847076268,
+      "head_sha": "2c91f2f4325945ea62a551d35a505e240e81bc32",
+      "conclusion": "success",
+      "observed_disposition": "all 20 content steps completed successfully on the final hash-bound candidate"
+    }
+  ],
+  "observed_checks": {
+    "working_baseline": "PASS",
+    "published_baseline": "PASS_320_paths_318_hashed_18_protected_canonical_Git_blobs",
+    "prospective_candidate_tree": "PASS_24_requirements_8_dimensions_7_immutable_history_files_17_change_scope_paths",
+    "prospective_mutation_tests": "PASS_13_of_13",
+    "current_applicable_regressions_after_evidence_closure": "PASS_87_of_87_across_8_current_modules",
+    "full_unittest_discovery_historical_snapshot_replay": "EXIT_1_111_tests_109_PASS_2_expected_noncurrent_snapshot_errors_ST08_13A_registered_migration_and_ST08_13B_publication_tree_due_to_later_authorized_ST08_13C_script_and_workflow_changes",
+    "source_workflow_lock_and_manifest_assurance": "PASS_working_and_published",
+    "documentation_assurance": "PASS_32_current_links_and_only_John_release_authorization_doctor_blocker",
+    "secret_pattern_scan": "PASS_detect_secrets_1_5_0_320_files_23_plugins_0_findings",
+    "dependency_advisory_audit": "PASS_15_runtime_and_35_assurance_dependencies_0_known_vulnerabilities_on_2026_08_25",
+    "package_archives": "PASS_sdist_37_entries_wheel_22_entries_not_retained_as_release",
+    "clean_environment": "PASS_15_hash_locked_dependencies_pip_check_doctor_walkthrough_and_28_installed_tests",
+    "local_parallelism_warning": "joblib_physical_core_detection_unavailable_used_logical_cores_no_test_or_contract_failure",
+    "full_cumulative_pilot": "EXIT_1_expected_exactly_8_registered_historical_FAIL_rows_0_new_FAIL_0_BLOCKED",
+    "hosted_CI": "PASS_run_32847076268_job_97799151124_20_of_20_content_steps_success",
+    "training_runs": 0,
+    "scientific_artifact_changes": 0,
+    "release_actions_performed": 0
+  },
+  "residual_risks": [
+    {
+      "risk_id": "ST08-13C-RISK-01",
+      "risk": "A SHA-256-bound candidate can still contain an unknown implementation, documentation or scientific defect.",
+      "control": "Retain protected branch checks, mutation tests, exact manifests and future candidate-specific verification.",
+      "status": "open_controlled"
+    },
+    {
+      "risk_id": "ST08-13C-RISK-02",
+      "risk": "Dependency and secret scans are time-bounded and cannot prove absence of unknown vulnerabilities or unsupported secret forms.",
+      "control": "Keep repository scanning, push protection, dependency alerts and repeat assurance for later candidates.",
+      "status": "open_controlled"
+    },
+    {
+      "risk_id": "ST08-13C-RISK-03",
+      "risk": "Project-completion PASS may be mistaken for authorization to publish a release.",
+      "control": "Keep external_release_readiness BLOCKED and release_class not_ready until an explicit separate John release decision.",
+      "status": "open_release_blocking_owner_gate"
+    },
+    {
+      "risk_id": "ST08-13C-RISK-04",
+      "risk": "Working-tree line-ending conversion can change platform-local bytes.",
+      "control": "All candidate, requirement, historical and manifest integrity decisions use canonical Git index blob bytes; CRLF reproduction passed.",
+      "status": "controlled"
+    }
+  ],
+  "authoritative_support": [
+    "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+    "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+    "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets",
+    "https://packaging.python.org/en/latest/flow/",
+    "https://www.nationalacademies.org/read/25303/chapter/3",
+    "https://git-scm.com/docs/gitattributes"
+  ],
+  "scientific_interpretation_limit": "ST08_13C verifies project requirements, deterministic software behavior, package reconstruction, infrastructure controls and governance relations for one exact candidate. It performs no training, changes no claim, protocol, seed, split, metric or verdict, and does not establish universal model superiority or independent scientific replication.",
+  "change_reconciliation": {
+    "planned_paths": 17,
+    "actual_paths": 17,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "in_scope_repair_iterations": [
+      "updated the already-planned published inventory assertion from 314 to 320",
+      "made new ST08_13C requirement, historical and manifest digests canonical-Git-blob based after hosted line-ending evidence"
+    ],
+    "status": "PASS_same_planned_path_set_with_verified_in_scope_repairs"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The public Git repository, protected pull request and independently stored commit history provide recoverable state; no release archive or browser handoff is authorized."
+  },
   "release_performed": false,
-  "scientific_change_performed": false,
-  "technical_status": "BLOCKED",
-  "readiness": "NOT_READY"
+  "release_authorized": false,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "release_actions_performed": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
 }
