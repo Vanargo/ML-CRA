@@ -1,0 +1,7 @@
+# John/Vanargo retains review ownership of security- and release-critical files.
+* @Vanargo
+/.github/ @Vanargo
+/SECURITY.md @Vanargo
+/requirements/locks/ @Vanargo
+/scripts/st08_09_release_assurance.py @Vanargo
+

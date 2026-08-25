@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_33_stage07_closure_audit_change_scope_v01.csv,record the exact authorized Stage 7 closure-audit boundary before implementation
+added,data_registry/st07_33_stage07_closure_audit_evidence_v01.json,record the seven-criterion closure matrix observed evidence unresolved gap and fail-closed verdict
+modified,scripts/agent_verify.py,independently recompute the closure matrix documentary state protected hashes and missing verdict-policy application contract
+modified,docs/stages/stage_07_code_modularization.md,record ST07_32 acceptance the current modular reproduction instruction closure evidence and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state with the closure-audit result without closing the stage

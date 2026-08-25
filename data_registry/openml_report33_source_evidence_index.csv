@@ -1,0 +1,5 @@
+﻿source_id,source_type,url,used_for_ru
+sklearn_repeated_stratified_kfold,official_documentation,https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RepeatedStratifiedKFold.html,Основание для повторной стратифицированной k-блочной проверки.
+sklearn_cross_validation,official_documentation,https://scikit-learn.org/stable/modules/cross_validation.html,Основание для внешней проверки качества.
+sklearn_common_pitfalls,official_documentation,https://scikit-learn.org/stable/common_pitfalls.html,Основание для запрета утечки данных и использования конвейера обработки.
+sklearn_pipeline,official_documentation,https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html,Основание для использования Pipeline в логистической регрессии.

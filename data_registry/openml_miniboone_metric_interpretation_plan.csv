@@ -1,0 +1,7 @@
+﻿metric_id,metric_name_ru,optimization_direction,role_in_report33,aggregation,decision_status,source
+roc_auc,Площадь под ROC-кривой,higher_is_better,yes,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation
+pr_auc,Площадь под кривой точность-полнота,higher_is_better,yes,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation
+f1,F-мера,higher_is_better,supporting,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation
+balanced_accuracy,Сбалансированная точность,higher_is_better,supporting,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation
+log_loss,Логарифмическая потеря,lower_is_better,supporting,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation
+brier_score,Оценка Брайера,lower_is_better,supporting,mean; std; min; max; n_runs,approved_for_report33,scikit-learn model evaluation documentation

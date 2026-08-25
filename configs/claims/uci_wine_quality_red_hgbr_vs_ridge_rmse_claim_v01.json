@@ -1,0 +1,18 @@
+{
+  "schema_version": "mlcra_tabular_regression_claim_v01",
+  "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+  "task_type": "tabular_regression",
+  "target": "quality",
+  "sampling_assumption": "exchangeable_rows",
+  "candidate_model": "hist_gradient_boosting_regressor_v01",
+  "baseline_model": "ridge_regression_v01",
+  "primary_metric": "root_mean_squared_error",
+  "split_protocol": {
+    "kind": "k_fold_v01",
+    "n_splits": 5
+  },
+  "seeds": [20260824, 20260825, 20260826, 20260827, 20260828],
+  "preprocessing_policy": "numeric_complete_standardize_ridge_passthrough_hgb_regressor_v01",
+  "verdict_policy": "paired_primary_metric_consistency_v01",
+  "minimum_mean_delta": 0.05
+}

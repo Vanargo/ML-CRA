@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/stage07_closure_and_next_stage_selection_change_scope_v01.csv,record the exact Stage 7 closure-registration and next-stage-selection change boundary
+added,data_registry/stage07_closure_and_next_stage_selection_evidence_v01.json,register John closure decisions source-checkpoint integrity objective gap inventory and weighted next-task selection
+modified,scripts/agent_verify.py,verify Stage 7 closure registration protected artifacts source checkpoint weighted selection and stop boundary
+modified,docs/stages/stage_07_code_modularization.md,register John acceptance task closure stage closure and the bounded unapproved successor proposal
+modified,roadmap.md,synchronize the closed Stage 7 state and the selected but not authorized Stage 8 design block

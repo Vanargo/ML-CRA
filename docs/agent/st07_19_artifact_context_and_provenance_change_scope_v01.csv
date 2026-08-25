@@ -1,0 +1,10 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_19_artifact_context_and_provenance_change_scope_v01.csv,record the machine-readable planned and actual change boundary for authorized ST07_19
+modified,src/mlcra/nested_cv.py,define and fail-closed validate the explicit v02 artifact context before fit and derive the protocol-boundary provenance text
+modified,src/mlcra/nested_artifacts.py,derive quality-check provenance text from the same required validated artifact context
+modified,scripts/st07_16_fixture_harness.py,pass the explicit ST07_16 software-fixture context and preserve its prior artifact text exactly
+modified,scripts/st07_17_miniboone_v02_runner.py,pass the explicit MiniBooNE scientific-candidate noncanonical not-promoted context
+modified,scripts/agent_verify.py,verify the ST07_19 context contract negative cases fixture regression scientific-candidate characterization and protected boundaries
+added,data_registry/st07_19_nested_cv_v02_artifact_context_and_provenance_contract_evidence_v01.json,record reproducible software-verification evidence and protected artifact hashes
+modified,docs/stages/stage_07_code_modularization.md,record authorization implementation evidence exact Python before-after and readiness for John acceptance
+modified,roadmap.md,synchronize the authorized and technically completed ST07_19 state without authorizing revalidation or promotion

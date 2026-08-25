@@ -1,0 +1,5 @@
+﻿severity,candidate_id,protocol_id,outer_split_number,outer_repeat_number,outer_fold_number,model_id,object,warning_ru
+info,openml_miniboone_41150,miniboone_nested_cv_v02,all,all,all,all,protocol_boundary,MiniBooNE v02 scientific-validation candidate artifact; noncanonical and not promoted.
+warning,openml_miniboone_41150,miniboone_nested_cv_v02,1,1,1,hist_gradient_boosting,UserWarning,"Could not find the number of physical cores for the following reason:
+found 0 physical cores < 1
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use."

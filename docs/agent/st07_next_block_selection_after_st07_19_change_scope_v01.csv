@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_19_change_scope_v01.csv,record the machine-readable boundary for accepting ST07_19 reconciling the prior Stage 7 route and selecting one non-authorized next block
+modified,scripts/agent_verify.py,require accepted and closed ST07_19 plus the proposed-not-authorized ST07_20 boundary and protected scientific state
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance route reconciliation decision matrix proposed ST07_20 contract and mandatory stop
+modified,roadmap.md,synchronize accepted ST07_19 and register exactly one proposed next block without training promotion or canonical outputs

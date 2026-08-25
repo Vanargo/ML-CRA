@@ -1,0 +1,102 @@
+change_kind,relative_path,reason
+added,.agents/skills/ml-cra-stage-gate/SKILL.md,project stage-gate workflow
+added,.agents/skills/ml-cra-stage-gate/agents/openai.yaml,skill UI metadata
+added,AGENTS.md,durable repository agent contract
+added,docs/agent/ST07_06_agent_baseline_reconciliation_evidence.md,pilot evidence record
+added,docs/agent/agent_verification_environment_v01.csv,observed verification environment
+added,docs/agent/baseline_manifest_v13.csv,immutable source archive manifest
+added,docs/agent/pilot_change_scope_v01.csv,machine-readable allowed change set
+added,scripts/agent_verify.py,deterministic baseline and pilot checks
+modified,docs/stages/stage_06_packaging_and_publication.md,correct three mandatory artifact paths and clarify historical audit scope
+modified,docs/stages/stage_07_code_modularization.md,record accepted ST07_06 and synchronize notebook inventory
+modified,roadmap.md,record accepted ST07_06 and next gate
+added,configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json,ST08_04 bounded public product and release train design contract
+added,data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json,ST08_04 evidence record
+added,docs/agent/st08_04_public_product_scope_and_release_train_contract_design_change_scope_v01.csv,ST08_04 exact change scope
+added,configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json,ST08_05 MiniBooNE lineage license attribution and release asset disposition contract
+added,data_registry/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01.json,ST08_05 evidence record
+added,docs/agent/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_change_scope_v01.csv,ST08_05 exact change scope
+modified,data_registry/dataset_candidate_registry.csv,ST08_05 reconcile MiniBooNE upstream license metadata and attribution requirement
+modified,docs/dataset_selection/cards/dataset_card_openml_miniboone_41150.md,ST08_05 record lineage conflict conservative release control and asset dispositions
+added,LICENSE,ST08_06 exact OSI MIT project license text with John-approved copyright holder
+added,CITATION.cff,ST08_06 machine-readable software citation identity under CFF 1.2.0
+added,DATASET_ATTRIBUTION.md,ST08_06 MiniBooNE UCI OpenML provenance attribution change and no-endorsement notice
+added,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,ST08_06 fail-closed public repository asset disposition and legal artifact contract
+added,data_registry/st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01.json,ST08_06 observed verification evidence and gate disposition
+added,docs/agent/st08_06_project_license_citation_and_public_repository_legal_artifacts_change_scope_v01.csv,ST08_06 exact planned and actual change scope
+added,docs/stages/stage_08_project_completion_and_release_readiness.md,register post-baseline Stage 8 record and update it for John acceptance of ST08_05 and bounded ST08_06 execution evidence
+modified,roadmap.md,record ST08_05 closure ST08_06 outcome and only proposed next block
+added,pyproject.toml,ST08_07 standardized development distribution metadata build backend exact dependencies and namespace discovery
+added,requirements/locks/st08_07-py312-windows-x86_64.txt,ST08_07 hash-locked base runtime for the only validated clean environment
+added,configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json,ST08_07 machine-readable packaging dependency build and environment contract
+added,data_registry/st08_07_python_packaging_dependency_and_clean_environment_evidence_v01.json,ST08_07 observed build clean-install and regression evidence
+added,docs/agent/st08_07_python_packaging_dependency_and_clean_environment_change_scope_v01.csv,ST08_07 exact planned and actual change scope
+added,src/mlcra/application.py,ST08_08 deterministic application service for bounded binary classification audit bundle publication verification and environment diagnosis
+added,src/mlcra/cli.py,ST08_08 argparse command surface and controlled exit-code diagnostics
+added,src/mlcra/schemas/binary_classification_claim_v01.schema.json,ST08_08 Draft 2020-12 fail-closed claim specification schema
+added,configs/project_readiness/st08_08_universal_cli_classification_vertical_slice_contract_v01.json,ST08_08 machine-readable command protocol security and verification contract
+added,configs/cli/st08_08_registered_miniboone_software_characterization_claim_v01.json,ST08_08 registered MiniBooNE software-characterization-only CLI fixture
+added,tests/test_cli_st08_08.py,ST08_08 focused positive negative integrity no-refit and exit-code tests
+added,tests/fixtures/st08_08/binary_claim_v01.json,ST08_08 external synthetic nonlinear binary claim fixture
+added,tests/fixtures/st08_08/binary_data_v01.csv,ST08_08 external synthetic nonlinear binary CSV fixture
+added,data_registry/st08_08_universal_cli_classification_vertical_slice_evidence_v01.json,ST08_08 observed source build clean-install CLI MiniBooNE and regression evidence
+added,docs/agent/st08_08_universal_cli_classification_vertical_slice_change_scope_v01.csv,ST08_08 exact planned and actual change scope
+added,.gitignore,ST08_09 exclusion policy for local secrets caches data and build outputs
+added,SECURITY.md,ST08_09 vulnerability reporting and control boundary
+added,.github/CODEOWNERS,ST08_09 security-critical review ownership
+added,.github/dependabot.yml,ST08_09 dependency and action update policy
+added,.github/workflows/ci.yml,ST08_09 immutable least-privilege assurance workflow
+added,requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt,ST08_09 hash-locked assurance tools
+added,configs/project_readiness/st08_09_CI_security_and_release_candidate_assurance_contract_v01.json,ST08_09 machine-readable assurance contract
+added,scripts/st08_09_release_assurance.py,ST08_09 local and CI assurance runner
+added,tests/test_release_assurance_st08_09.py,ST08_09 focused mutation tests
+added,data_registry/st08_09_CI_security_and_release_candidate_assurance_evidence_v01.json,ST08_09 observed evidence and limitations
+added,docs/agent/st08_09_CI_security_and_release_candidate_assurance_change_scope_v01.csv,ST08_09 exact change scope
+added,README.md,ST08_10 English root entry point and executable onboarding
+added,README_RU.md,ST08_10 Russian peer onboarding with command parity
+added,configs/project_readiness/st08_10_root_and_bilingual_user_documentation_contract_v01.json,ST08_10 machine-readable documentation and path contract
+added,scripts/st08_10_documentation_assurance.py,ST08_10 source and installed walkthrough validator
+added,tests/test_documentation_st08_10.py,ST08_10 documentation mutation tests
+added,data_registry/st08_10_root_and_bilingual_user_documentation_evidence_v01.json,ST08_10 observed evidence and limitations
+added,docs/agent/st08_10_root_and_bilingual_user_documentation_change_scope_v01.csv,ST08_10 exact change scope
+modified,docs/stages/stage_01_project_scope.md,ST08_10 repair obsolete current report path
+modified,docs/stages/stage_02_data_and_candidate_selection.md,ST08_10 repair obsolete current report paths
+modified,docs/stages/stage_03_diagnostic_experiments.md,ST08_10 repair obsolete current report paths
+modified,docs/stages/stage_04_primary_candidate_validation.md,ST08_10 repair report and Stage 5 current paths
+added,src/mlcra/schemas/tabular_regression_claim_v01.schema.json,ST08_11 Draft 2020-12 fail-closed regression claim schema
+added,configs/project_readiness/st08_11_tabular_regression_protocol_core_and_CLI_support_contract_v01.json,ST08_11 prospective regression protocol and verification contract
+added,tests/test_cli_st08_11.py,ST08_11 regression positive failure mutation determinism and isolation tests
+added,tests/fixtures/st08_11/regression_claim_v01.json,ST08_11 synthetic regression software-characterization claim fixture
+added,tests/fixtures/st08_11/regression_data_v01.csv,ST08_11 synthetic nonlinear numeric-target CSV fixture
+added,data_registry/st08_11_tabular_regression_protocol_core_and_CLI_support_evidence_v01.json,ST08_11 observed verification and scientific-boundary evidence
+added,docs/agent/st08_11_tabular_regression_protocol_core_and_CLI_support_change_scope_v01.csv,ST08_11 exact planned and actual change scope
+added,configs/claims/uci_wine_quality_red_hgbr_vs_ridge_rmse_claim_v01.json,ST08_11A prospectively registered bounded real-dataset regression claim
+added,configs/project_readiness/st08_11A_registered_regression_dataset_claim_and_scientific_validation_contract_v01.json,ST08_11A prospective dataset protocol bias and verdict contract
+added,scripts/st08_11A_wine_quality_scientific_validation.py,ST08_11A deterministic source execution and evidence validator
+added,tests/test_scientific_validation_st08_11A.py,ST08_11A relation and mutation regression tests
+added,data_registry/st08_11A_wine_quality_red_fold_scores_v01.csv,ST08_11A canonical paired fold evidence without raw data
+added,data_registry/st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01.json,ST08_11A provenance execution verdict and limitations evidence
+added,docs/agent/st08_11A_registered_regression_dataset_claim_and_scientific_validation_change_scope_v01.csv,ST08_11A exact planned and actual change scope
+added,src/mlcra/dashboard.py,ST08_12 deterministic static dashboard renderer and golden verifier
+added,tests/test_dashboard_st08_12.py,ST08_12 dashboard positive negative security integrity and no-fit tests
+added,configs/project_readiness/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_contract_v01.json,ST08_12 dashboard architecture and verification contract
+added,data_registry/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_evidence_v01.json,ST08_12 observed evidence and limitations
+added,docs/agent/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_change_scope_v01.csv,ST08_12 exact planned and actual change scope
+added,configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json,ST08_13 immutable re-audit boundary aggregation and verification protocol
+added,scripts/st08_13_release_candidate_reaudit.py,ST08_13 independent requirement dimension aggregate finding and protected-artifact validator
+added,tests/test_release_candidate_reaudit_st08_13.py,ST08_13 fail-closed mutation and registered-evidence tests
+added,data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json,ST08_13 current 24-requirement evidence findings risks and separate readiness verdicts
+added,docs/agent/st08_13_release_candidate_completion_security_and_readiness_reaudit_change_scope_v01.csv,ST08_13 exact planned and actual change scope
+added,configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv,ST08_13A prospective REQ08 and REQ12 requirements with unchanged historical v01
+added,configs/project_readiness/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_contract_v01.json,ST08_13A exact migration integrity and authority contract
+added,scripts/st08_13A_current_canonical_hash_assurance.py,ST08_13A current-state manifest and migration validator
+added,tests/test_current_canonical_hash_assurance_st08_13A.py,ST08_13A fail-closed mutation tests
+added,data_registry/st08_13A_current_canonical_state_manifest_v01.csv,ST08_13A full current canonical SHA-256 and size manifest
+added,data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json,ST08_13A observed migration evidence and preserved history disposition
+added,docs/agent/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_change_scope_v01.csv,ST08_13A exact planned and actual change scope
+added,configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json,ST08_13B exact external authority public Git tree hosted CI security recovery and no-release contract
+added,scripts/st08_13B_public_repository_assurance.py,ST08_13B tracked publication-tree immutable-history and external-evidence validator
+added,tests/test_public_repository_assurance_st08_13B.py,ST08_13B publication security authority and hosted-evidence mutation tests
+added,data_registry/st08_13B_publication_tree_manifest_v01.csv,ST08_13B exact published Git path SHA-256 and size inventory with registered cycle breaks
+added,data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json,ST08_13B observed public repository hosted CI security and recovery evidence
+added,docs/agent/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_change_scope_v01.csv,ST08_13B exact planned and actual change scope

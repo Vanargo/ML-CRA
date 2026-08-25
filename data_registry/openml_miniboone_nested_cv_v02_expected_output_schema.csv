@@ -1,0 +1,119 @@
+protocol_id,artifact_id,canonical_path,column_position,column_name,required,comparison_class,key_role,expected_rows_policy,expected_column_count,description_ru
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,1,protocol_id,yes,A,key,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,2,candidate_id,yes,A,key,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,3,openml_dataset_id,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,4,dataset_name,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,5,target_name,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,6,target_class_0,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,7,target_class_1,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,8,positive_class_assumption,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,9,outer_split_number,yes,A,key,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,10,outer_repeat_number,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,11,outer_fold_number,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,12,outer_cv_n_splits,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,13,outer_cv_n_repeats,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,14,inner_cv_n_splits,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,15,model_id,yes,A,key,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,16,model_role,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,17,selected_parameter_set_id,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,18,selected_params_json,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,19,feature_policy_id,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,20,feature_count,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,21,feature_names,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,22,n_train,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,23,n_test,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,24,train_positive_share,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,25,test_positive_share,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,26,roc_auc,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,27,average_precision,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,28,pr_auc,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,29,f1,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,30,balanced_accuracy,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,31,log_loss,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,32,brier_score,yes,B,value,exact_30,36,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,33,fit_seconds,yes,C,value,exact_30,36,Timing: конечное и неотрицательное; точное равенство не требуется.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,34,predict_seconds,yes,C,value,exact_30,36,Timing: конечное и неотрицательное; точное равенство не требуется.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,35,row_status,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,outer_scores,data_registry/openml_miniboone_nested_v02_outer_scores.csv,36,interpretation_allowed,yes,A,value,exact_30,36,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,1,protocol_id,yes,A,key,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,2,candidate_id,yes,A,key,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,3,outer_split_number,yes,A,key,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,4,outer_repeat_number,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,5,outer_fold_number,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,6,model_id,yes,A,key,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,7,selected_parameter_set_id,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,8,selected_params_json,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,9,inner_best_average_precision,yes,B,value,exact_10,13,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,10,inner_cv_n_splits,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,11,inner_cv_random_state,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,12,inner_candidate_count,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,selected_params,data_registry/openml_miniboone_nested_v02_selected_params.csv,13,row_status,yes,A,value,exact_10,13,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,1,protocol_id,yes,A,key,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,2,candidate_id,yes,A,key,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,3,model_id,yes,A,key,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,4,model_role,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,5,n_external_blocks,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,6,outer_cv_n_splits,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,7,outer_cv_n_repeats,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,8,inner_cv_n_splits,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,9,random_state,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,10,row_status,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,11,interpretation_allowed,yes,A,value,exact_3,39,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,12,roc_auc_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,13,roc_auc_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,14,roc_auc_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,15,roc_auc_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,16,average_precision_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,17,average_precision_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,18,average_precision_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,19,average_precision_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,20,pr_auc_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,21,pr_auc_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,22,pr_auc_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,23,pr_auc_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,24,f1_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,25,f1_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,26,f1_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,27,f1_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,28,balanced_accuracy_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,29,balanced_accuracy_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,30,balanced_accuracy_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,31,balanced_accuracy_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,32,log_loss_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,33,log_loss_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,34,log_loss_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,35,log_loss_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,36,brier_score_mean,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,37,brier_score_std,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,38,brier_score_min,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,summary,data_registry/openml_miniboone_nested_v02_summary.csv,39,brier_score_max,yes,B,value,exact_3,39,Точное детерминированное численное поле после CSV roundtrip.
+miniboone_nested_cv_v02,quality_checks,data_registry/openml_miniboone_nested_v02_quality_checks.csv,1,protocol_id,yes,A,key,exact_16,4,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,quality_checks,data_registry/openml_miniboone_nested_v02_quality_checks.csv,2,check_id,yes,A,key,exact_16,4,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,quality_checks,data_registry/openml_miniboone_nested_v02_quality_checks.csv,3,check_result,yes,A,value,exact_16,4,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,quality_checks,data_registry/openml_miniboone_nested_v02_quality_checks.csv,4,details_ru,yes,A,value,exact_16,4,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,1,severity,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,2,candidate_id,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,3,protocol_id,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,4,outer_split_number,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,5,outer_repeat_number,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,6,outer_fold_number,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,7,model_id,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,8,object,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,warnings,data_registry/openml_miniboone_nested_v02_warnings.csv,9,warning_ru,yes,D,value,minimum_1,9,Полное warning-поле: точный multiset после стабильной сортировки без подавления.
+miniboone_nested_cv_v02,environment,data_registry/openml_miniboone_nested_v02_environment.csv,1,name,yes,A,key,exact_8,3,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,environment,data_registry/openml_miniboone_nested_v02_environment.csv,2,version,yes,A,value,exact_8,3,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,environment,data_registry/openml_miniboone_nested_v02_environment.csv,3,protocol_id,yes,A,key,exact_8,3,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,1,runtime_contract_id,yes,A,key,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,2,protocol_id,yes,A,key,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,3,base_protocol_id,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,4,backend_key,yes,A,key,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,5,user_api,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,6,internal_api,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,7,prefix,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,8,version,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,9,threading_layer,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,10,architecture,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,11,library_filename,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,12,num_threads,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,13,thread_limit,yes,A,value,exact_2,14,Точное контрактное или структурное поле.
+miniboone_nested_cv_v02,numeric_runtime,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,14,contract_status,yes,A,value,exact_2,14,Точное контрактное или структурное поле.

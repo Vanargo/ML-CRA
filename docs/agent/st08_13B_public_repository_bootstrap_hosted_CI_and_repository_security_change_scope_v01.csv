@@ -1,0 +1,20 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json,register the exact external authority publication tree hosted CI security recovery and no-release boundary
+added,scripts/st08_13B_public_repository_assurance.py,build and validate the tracked publication tree immutable history external evidence and canonical bindings
+added,tests/test_public_repository_assurance_st08_13B.py,exercise public-tree authority workflow and external-evidence fail-closed mutations
+added,data_registry/st08_13B_publication_tree_manifest_v01.csv,bind every non-cyclic published Git path to SHA-256 and byte size
+added,data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json,record exact repository CI security and recovery observations without a release claim
+added,docs/agent/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_change_scope_v01.csv,record exact planned and actual ST08_13B paths
+modified,.github/workflows/ci.yml,validate the published tracked tree and current ST08_13B assurance instead of the completed ST08_13A snapshot
+modified,.gitignore,make registered non-public archive sample mutator and empty-placeholder paths fail-safe against accidental tracking
+modified,scripts/agent_verify.py,exclude the Git administrative tree from project-content inventory after repository bootstrap
+modified,scripts/st08_09_release_assurance.py,separate full working-tree assurance from exact published Git-tree assurance
+modified,tests/test_release_assurance_st08_09.py,cover published-tree selection and workflow contract mutations
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh the full local policy inventory for authorized ST08_13B artifacts
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_13B files in the cumulative scope
+modified,src/mlcra/application.py,replace resolved repository hosted-CI and secret-scanning blockers with the pending v02 re-audit blocker
+modified,README.md,report the observed public repository and hosted control boundary without claiming a release
+modified,README_RU.md,report the same observed public repository and hosted control boundary in Russian
+modified,SECURITY.md,record the enabled private reporting and server-side secret controls with their limits
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record ST08_13A acceptance ST08_13B method external observations checks and limits
+modified,roadmap.md,register the current public development state recovery mechanism and proposed-only v02 re-audit

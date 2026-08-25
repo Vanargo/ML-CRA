@@ -1,0 +1,12 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json,register the authoritative source conflict conservative attribution requirements exact asset classes release dispositions exclusions and negative mutations
+added,data_registry/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01.json,record authority baseline source observations inventory checks limits uncertainty and actual change reconciliation
+added,docs/agent/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_change_scope_v01.csv,record the complete bounded ST08_05 planned change set
+modified,docs/dataset_selection/cards/dataset_card_openml_miniboone_41150.md,reconcile current UCI and OpenML source license metadata citation release conditions and current candidate status
+modified,data_registry/dataset_candidate_registry.csv,replace the unresolved MiniBooNE license and citation fields with the conservative current release-control disposition
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,register ST08_04 acceptance ST08_05 authority findings dispositions verification checkpoint decision and mandatory stop
+modified,roadmap.md,synchronize current Stage 8 state Codex-only continuity and propose but not authorize ST08_06
+modified,docs/agent/ml_cra_agent_working_contract_v01.md,replace the obsolete browser handoff operating model with Codex-only continuity and risk-based checkpoint criteria
+modified,AGENTS.md,synchronize durable repository instructions with the Codex-only and conditional checkpoint policy
+modified,.agents/skills/ml-cra-stage-gate/SKILL.md,synchronize the repeatable gate checkpoint rule with risk-based recovery rather than browser handoff
+modified,docs/agent/pilot_change_scope_v01.csv,register the three new and two modified MiniBooNE ST08_05 files required by the cumulative baseline allowlist

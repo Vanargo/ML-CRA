@@ -1,0 +1,9 @@
+change_kind,relative_path,reason
+added,docs/agent/st08_03_project_scope_release_class_owner_decision_change_scope_v01.csv,record the complete bounded ST08_03 planned change set and distinguish owner-decision resolution from later product implementation or release
+modified,AGENTS.md,require plain-Russian status interpretation and remove the fixed source-change reporting template while preserving auditable diff review
+modified,docs/agent/ml_cra_agent_working_contract_v01.md,make human-understandable status interpretation a canonical permanent agent obligation
+modified,.agents/skills/ml-cra-stage-gate/SKILL.md,make status interpretation mandatory and remove the fixed source-change reporting template from future Stage Gate handoffs
+added,data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json,register John's final scope release distribution legal citation and finding-priority decisions with their evidence and unresolved items
+modified,scripts/agent_verify.py,verify the ST08_03 decision artifact communication rule stage and roadmap synchronization and protected scientific boundaries
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record ST08_03 authorization owner decisions interpretation remaining uncertainty verification and mandatory stop
+modified,roadmap.md,synchronize the canonical ST08_03 state and propose but not authorize the bounded next public-productization branch

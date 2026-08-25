@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,data_registry/openml_miniboone_nested_cv_v02_protocol_lock.csv,prospectively lock the complete v02 scientific and validation contract before any v02 training
+added,data_registry/openml_miniboone_nested_cv_v02_expected_output_schema.csv,define seven v02 artifact schemas comparison classes row policies and future canonical paths
+added,docs/agent/st07_15_nested_cv_v02_protocol_and_validation_change_scope_v01.csv,record the machine-readable authorized change set for ST07_15
+modified,scripts/agent_verify.py,verify v02 inheritance prospective delta schema negative cases protected v01 artifacts and documentary state
+modified,docs/stages/stage_07_code_modularization.md,record ST07_14 acceptance and the ST07_15 contract evidence limits and readiness
+modified,roadmap.md,synchronize accepted ST07_14 authorized ST07_15 and the remaining Stage 7 decision boundary

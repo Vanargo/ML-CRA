@@ -1,0 +1,114 @@
+name: ML-CRA assurance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ml-cra-assurance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  assurance:
+    runs-on: windows-2022
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout without persisted credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up the declared Python cell
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12.10"
+          architecture: "x64"
+
+      - name: Install hash-locked assurance tools
+        run: |
+          python -m pip install --require-hashes --only-binary=:all:
+          -r requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Validate source and immutable CI contract
+        run: python scripts/st08_09_release_assurance.py source --inventory published
+
+      - name: Scan the public candidate for known secret patterns
+        run: python scripts/st08_09_release_assurance.py secrets --inventory published
+
+      - name: Audit known dependency vulnerabilities
+        run: python scripts/st08_09_release_assurance.py dependencies --output-dir .tmp_st08_09_ci_audits
+
+      - name: Run assurance mutation tests
+        run: python -m unittest -v tests.test_release_assurance_st08_09
+
+      - name: Validate bilingual documentation and current paths
+        run: |
+          python scripts/st08_10_documentation_assurance.py source
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_documentation_st08_10 tests.test_cli_st08_11 tests.test_dashboard_st08_12
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Validate the registered Stage 8 release-candidate re-audit
+        run: |
+          python scripts/st08_13_release_candidate_reaudit.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_release_candidate_reaudit_st08_13
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Validate the published canonical Git tree
+        run: |
+          python scripts/st08_13B_public_repository_assurance.py publication-tree
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_public_repository_assurance_st08_13B
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Build sdist and wheel without an unpinned build environment
+        run: python -m build --no-isolation --outdir .tmp_st08_09_ci_dist .
+
+      - name: Validate sdist and wheel inventories
+        run: |
+          $sdist = Get-ChildItem -LiteralPath .tmp_st08_09_ci_dist -Filter *.tar.gz
+          $wheel = Get-ChildItem -LiteralPath .tmp_st08_09_ci_dist -Filter *.whl
+          if ($sdist.Count -ne 1 -or $wheel.Count -ne 1) { throw "Expected exactly one sdist and one wheel" }
+          python scripts/st08_09_release_assurance.py archives --sdist $sdist.FullName --wheel $wheel.FullName
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Prepare hash-verified runtime wheelhouse
+        run: >-
+          python -m pip download --dest .tmp_st08_09_ci_runtime_wheels
+          -r requirements/locks/st08_07-py312-windows-x86_64.txt
+
+      - name: Create clean runtime environment
+        run: python -m venv .tmp_st08_09_ci_runtime
+
+      - name: Install runtime dependencies and local wheel offline
+        run: |
+          .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $wheel = Get-ChildItem -LiteralPath .tmp_st08_09_ci_dist -Filter *.whl
+          .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Verify clean install and CLI
+        run: |
+          .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .tmp_st08_09_ci_runtime\Scripts\mlcra.exe doctor --format json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .tmp_st08_09_ci_runtime\Scripts\python.exe -m unittest -v tests.test_cli_st08_08 tests.test_cli_st08_11 tests.test_dashboard_st08_12
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .tmp_st08_09_ci_runtime\Scripts\python.exe scripts/st08_10_documentation_assurance.py walkthrough --mlcra .tmp_st08_09_ci_runtime\Scripts\mlcra.exe
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Run deterministic baseline
+        run: python scripts/agent_verify.py --mode baseline

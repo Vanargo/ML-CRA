@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_change_scope_v01.csv,record the machine-readable planned and actual change boundary for authorized ST07_20
+added,scripts/st07_20_provenance_corrected_dual_run_revalidation.py,execute exactly two fresh-process offline MiniBooNE v02 runs and fail closed on registered comparison and corrected provenance contracts
+added,data_registry/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_evidence_v01.json,record machine-readable run comparison provenance protection and no-promotion evidence
+modified,scripts/agent_verify.py,verify the durable ST07_20 evidence contract protected boundaries negative evidence mutations and documentary state without rerunning training
+modified,docs/stages/stage_07_code_modularization.md,record ST07_20 authorization execution evidence bounded interpretation and readiness for John acceptance
+modified,roadmap.md,synchronize the authorized and technically evaluated ST07_20 state without promotion or next-task authorization

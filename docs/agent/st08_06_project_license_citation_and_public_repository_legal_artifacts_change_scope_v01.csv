@@ -1,0 +1,10 @@
+change_kind,relative_path,reason
+added,LICENSE,ST08_06 exact OSI MIT project license text with John-approved copyright holder
+added,CITATION.cff,ST08_06 machine-readable software citation identity under CFF 1.2.0
+added,DATASET_ATTRIBUTION.md,ST08_06 MiniBooNE UCI OpenML provenance attribution change and no-endorsement notice
+added,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,ST08_06 fail-closed public repository asset disposition and legal artifact contract
+added,data_registry/st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01.json,ST08_06 observed verification evidence and gate disposition
+added,docs/agent/st08_06_project_license_citation_and_public_repository_legal_artifacts_change_scope_v01.csv,ST08_06 exact planned and actual change scope
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_06 files in deterministic cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record John acceptance of ST08_05 and bounded ST08_06 execution evidence
+modified,roadmap.md,record ST08_05 closure ST08_06 outcome and only proposed next block

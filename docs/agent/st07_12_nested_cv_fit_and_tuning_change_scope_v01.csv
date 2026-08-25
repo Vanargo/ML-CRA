@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+modified,src/mlcra/nested_cv.py,extract control fitting and nested HGB tuning into the reusable software layer with explicit locked protocol controls
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace local fitting and tuning definitions with thin modular calls without executing the notebook
+modified,scripts/agent_verify.py,verify ST07_12 behavior against an independent reference implementation including outer-test isolation negative cases schemas and preserved regressions
+modified,docs/stages/stage_07_code_modularization.md,record John authorization and the complete ST07_12 implementation and objective verification evidence
+modified,roadmap.md,synchronize the canonical Stage 7 state after John authorization and ST07_12 technical completion
+added,docs/agent/st07_12_nested_cv_fit_and_tuning_change_scope_v01.csv,machine-readable authorized change set for ST07_12

@@ -1,0 +1,125 @@
+{
+  "schema_version": "st08_12_dashboard_shared_core_and_CLI_golden_equivalence_evidence_v01",
+  "evidence_id": "st08_12_dashboard_shared_core_and_CLI_golden_equivalence_evidence_v01",
+  "task_id": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "accepted_and_closed_by_John",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+    "authorized_task": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+    "John_decision": ["ACCEPTED_BY_JOHN", "TASK_CLOSED"],
+    "next_block_authorized": false,
+    "release_or_publication_authorized": false,
+    "training_or_scientific_change_authorized": false
+  },
+  "implemented_surface": {
+    "command": "mlcra dashboard --bundle run --output-dir dashboard",
+    "files": ["dashboard_view.json", "dashboard_en.html", "dashboard_ru.html", "dashboard_manifest.json"],
+    "shared_core": "verify_bundle_then_build_dashboard_view",
+    "model_fit_performed": false,
+    "network_access_performed": false,
+    "JavaScript": false,
+    "server": false,
+    "overwrite": "forbidden",
+    "publication": "atomic"
+  },
+  "verification": {
+    "dashboard_tests": "6_of_6_PASS",
+    "source_targeted_regression_suite": "47_of_47_PASS",
+    "post_documentation_correction_suite": "14_of_14_PASS",
+    "clean_installed_package_suite": "27_of_27_PASS",
+    "classification_golden": "PASS",
+    "regression_not_supported_verdict_propagation": "PASS",
+    "verify_without_fit": "PASS",
+    "HTML_injection_escape": "PASS",
+    "tampered_view_rejection": "PASS",
+    "existing_output_rejection": "PASS",
+    "bilingual_documentation": "8_of_8_PASS",
+    "release_archive_focused": {
+      "status": "PASS",
+      "sdist_file_entries": 33,
+      "sdist_sha256": "6acd130583c5aadb954a61a71668eed21aa9d6c42699d91b0c53009cf3156113",
+      "wheel_file_entries": 22,
+      "wheel_sha256": "d1ba2cad3834c07bef154adc3f771689fcd75217a0161531570494ae02a3645c",
+      "temporary_archives_retained": false
+    },
+    "clean_environment": {
+      "status": "PASS",
+      "python": "CPython_3.12_fresh_venv",
+      "dependencies": "16_hash_verified_binary_wheels_from_st08_07_lock",
+      "installed_module": "fresh_venv_Lib_site-packages_mlcra_dashboard.py",
+      "network_use": "dependency_install_only_after_John_approved_escalation",
+      "dashboard_runtime_network_use": false
+    },
+    "baseline": "PASS_missing_0_out_of_scope_0_scope_errors_0",
+    "cumulative_pilot": "CURRENT_CHECKS_PASS_with_8_expected_historical_snapshot_FAIL_rows",
+    "protected_artifacts": "18_of_18_PASS",
+    "remaining_checks": "NONE"
+  },
+  "observed_corrections": [
+    {
+      "observation": "public_candidate_manifest_count_and_digest_were_stale_after_adding_ST08_12_paths",
+      "disposition": "refreshed_to_341_paths_and_release_assurance_passed",
+      "scope_expansion": false
+    },
+    {
+      "observation": "README_status_sections_still_called_completed_regression_validation_and_dashboard_future_work",
+      "disposition": "corrected_both_languages_within_planned_README_paths_and_reran_14_tests",
+      "scope_expansion": false
+    },
+    {
+      "observation": "first_fresh_venv_inherited_no_numpy_and_sandbox_blocked_dependency_network",
+      "disposition": "used_registered_hash_locked_binary_only_install_after_John_approved_escalation_then_27_clean_installed_tests_passed",
+      "scope_expansion": false
+    },
+    {
+      "observation": "release_manifest_scan_rejected_the_temporary_full_clean_environment_while_it_existed",
+      "disposition": "removed_all_verified_temporary_and_build_artifacts_then_47_of_47_source_tests_and_exact_public_manifest_passed",
+      "scope_expansion": false
+    }
+  ],
+  "scientific_boundary": {
+    "dashboard_recomputes_models": false,
+    "dashboard_changes_verdict": false,
+    "dashboard_is_new_scientific_evidence": false,
+    "ST08_11A_not_supported_changed": false,
+    "MiniBooNE_changed": false
+  },
+  "authoritative_support": [
+    "Python_html.escape_official_documentation",
+    "OWASP_contextual_output_encoding",
+    "W3C_WCAG_2.2_and_accessible_table_markup",
+    "NIST_SP_500_234_software_VV"
+  ],
+  "change_reconciliation": {
+    "planned_paths": 17,
+    "actual_paths": 17,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_match"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Stage 8 remains open; no external handoff or hard-to-reverse change requires a ZIP."
+  },
+  "next_block_reference": {
+    "task_id": "ST08_13_release_candidate_completion_security_and_readiness_reaudit",
+    "status": "proposed_not_authorized",
+    "reason": "The task identifier was named without the reserved NEXT_BLOCK_AUTHORIZED decision label."
+  },
+  "acceptance_registration": {
+    "recorded_at": "2026-08-24",
+    "profile": "CHANGE",
+    "planned_paths": 4,
+    "actual_paths": 4,
+    "unplanned_paths": [],
+    "focused_documentation_and_release_tests": "20_of_20_PASS",
+    "baseline": "PASS_missing_0_out_of_scope_0_scope_errors_0",
+    "exact_ST08_13_authorization_labels_in_current_stage_and_roadmap": 0,
+    "scientific_or_source_code_changes": 0
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "task_closure": "TASK_CLOSED"
+}

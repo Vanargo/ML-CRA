@@ -1,0 +1,603 @@
+{
+  "aggregate_verdict": {
+    "class_a_exact": true,
+    "class_b_exact": false,
+    "class_c_valid": true,
+    "protected_exact": true,
+    "registered_primary_signal_pass": true,
+    "structures_valid": true,
+    "verdict_rule": "pass_only_if_all_true_else_fail_without_causal_attribution"
+  },
+  "bundle_validation": {
+    "passed_after_csv_roundtrip": true,
+    "passed_before_csv_roundtrip": true
+  },
+  "comparisons": {
+    "outer_scores": {
+      "artifact_id": "outer_scores",
+      "candidate_filename": "st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv",
+      "candidate_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af",
+      "candidate_shape": [
+        150,
+        43
+      ],
+      "class_a_columns": [
+        "stress_test_id",
+        "claim_id",
+        "run_group",
+        "protocol_variant_id",
+        "candidate_id",
+        "openml_dataset_id",
+        "dataset_name",
+        "target_name",
+        "target_class_0",
+        "target_class_1",
+        "positive_class_assumption",
+        "outer_random_state",
+        "outer_split_number",
+        "outer_repeat_number",
+        "outer_fold_number",
+        "outer_cv_n_splits",
+        "outer_cv_n_repeats",
+        "inner_cv_n_splits",
+        "inner_random_state",
+        "model_id",
+        "model_role",
+        "selected_parameter_set_id",
+        "selected_params_json",
+        "inner_candidate_count",
+        "feature_policy_id",
+        "feature_count",
+        "feature_names",
+        "n_train",
+        "n_test",
+        "row_status",
+        "interpretation_allowed_ru"
+      ],
+      "class_a_comparable_cells": 4650,
+      "class_a_exact": true,
+      "class_a_first_mismatch": null,
+      "class_a_mismatch_cells": 0,
+      "class_b_columns": [
+        "train_positive_share",
+        "test_positive_share",
+        "roc_auc",
+        "average_precision",
+        "pr_auc",
+        "f1",
+        "balanced_accuracy",
+        "log_loss",
+        "brier_score",
+        "inner_best_average_precision"
+      ],
+      "class_b_comparable_cells": 1500,
+      "class_b_exact": false,
+      "class_b_first_mismatch": {
+        "candidate": "0.9365105753893161",
+        "column": "roc_auc",
+        "golden": "0.9367205458954988",
+        "key": {
+          "model_id": "logistic_regression",
+          "outer_random_state": "20260507",
+          "outer_split_number": "1",
+          "stress_test_id": "ST05_02_seed_stability_grid"
+        },
+        "row_index": 2
+      },
+      "class_b_mismatch_cells": 350,
+      "class_b_numeric_deltas": {
+        "average_precision": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0026056674133584368,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "balanced_accuracy": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0031104081917998627,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "brier_score": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0010837746051014924,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "f1": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.004531404305439413,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "inner_best_average_precision": {
+          "comparable_cells": 50,
+          "max_absolute_delta": 0.0,
+          "non_numeric_or_blank_pairs": 100
+        },
+        "log_loss": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0030768845264070865,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "pr_auc": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0026056674133584368,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "roc_auc": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0016380891168620293,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "test_positive_share": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "train_positive_share": {
+          "comparable_cells": 150,
+          "max_absolute_delta": 0.0,
+          "non_numeric_or_blank_pairs": 0
+        }
+      },
+      "class_c_columns": [
+        "fit_seconds",
+        "predict_seconds"
+      ],
+      "class_c_diagnostics": {
+        "fit_seconds": {
+          "maximum": 78.606718,
+          "minimum": 0.001449,
+          "total_cells": 150,
+          "valid_cells": 150
+        },
+        "predict_seconds": {
+          "maximum": 0.315577,
+          "minimum": 0.009732,
+          "total_cells": 150,
+          "valid_cells": 150
+        }
+      },
+      "class_c_valid": true,
+      "golden_filename": "openml_miniboone_stage05_seed_stability_outer_scores.csv",
+      "golden_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+      "golden_shape": [
+        150,
+        43
+      ],
+      "schema_exact": true,
+      "shape_exact": true,
+      "structural_stop": false
+    },
+    "selected_params": {
+      "artifact_id": "selected_params",
+      "candidate_filename": "st07_25_stage05_seed_stability_candidate_selected_params_v01.csv",
+      "candidate_sha256": "79174fcc98c45bed58ec7670e420d85b306fc5b9c6035cb3c322e4200e5d651e",
+      "candidate_shape": [
+        50,
+        17
+      ],
+      "class_a_columns": [
+        "stress_test_id",
+        "claim_id",
+        "run_group",
+        "protocol_variant_id",
+        "candidate_id",
+        "outer_random_state",
+        "outer_split_number",
+        "outer_repeat_number",
+        "outer_fold_number",
+        "model_id",
+        "selected_parameter_set_id",
+        "selected_params_json",
+        "inner_cv_n_splits",
+        "inner_random_state",
+        "inner_candidate_count",
+        "row_status"
+      ],
+      "class_a_comparable_cells": 800,
+      "class_a_exact": true,
+      "class_a_first_mismatch": null,
+      "class_a_mismatch_cells": 0,
+      "class_b_columns": [
+        "inner_best_average_precision"
+      ],
+      "class_b_comparable_cells": 50,
+      "class_b_exact": true,
+      "class_b_first_mismatch": null,
+      "class_b_mismatch_cells": 0,
+      "class_b_numeric_deltas": {
+        "inner_best_average_precision": {
+          "comparable_cells": 50,
+          "max_absolute_delta": 0.0,
+          "non_numeric_or_blank_pairs": 0
+        }
+      },
+      "class_c_columns": [],
+      "class_c_diagnostics": {},
+      "class_c_valid": true,
+      "golden_filename": "openml_miniboone_stage05_seed_stability_selected_params.csv",
+      "golden_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148",
+      "golden_shape": [
+        50,
+        17
+      ],
+      "schema_exact": true,
+      "shape_exact": true,
+      "structural_stop": false
+    },
+    "summary": {
+      "artifact_id": "summary",
+      "candidate_filename": "st07_25_stage05_seed_stability_candidate_summary_v01.csv",
+      "candidate_sha256": "f320b1e6f002123ff0c55a912c8141195e2b377948bf3dfebe5e14fb0fc0d852",
+      "candidate_shape": [
+        72,
+        22
+      ],
+      "class_a_columns": [
+        "stress_test_id",
+        "claim_id",
+        "run_group",
+        "protocol_variant_id",
+        "summary_scope",
+        "outer_random_state",
+        "candidate_id",
+        "comparison_role",
+        "candidate_model_id",
+        "comparison_model_id",
+        "metric_name",
+        "metric_direction",
+        "n_blocks",
+        "candidate_positive_blocks",
+        "candidate_negative_blocks",
+        "candidate_zero_blocks",
+        "row_status",
+        "interpretation_allowed_ru"
+      ],
+      "class_a_comparable_cells": 1296,
+      "class_a_exact": true,
+      "class_a_first_mismatch": null,
+      "class_a_mismatch_cells": 0,
+      "class_b_columns": [
+        "advantage_mean",
+        "advantage_std_population",
+        "advantage_min",
+        "advantage_max"
+      ],
+      "class_b_comparable_cells": 288,
+      "class_b_exact": false,
+      "class_b_first_mismatch": {
+        "candidate": "0.09175879229687268",
+        "column": "advantage_mean",
+        "golden": "0.09173929094610608",
+        "key": {
+          "comparison_model_id": "logistic_regression",
+          "metric_name": "average_precision",
+          "outer_random_state": "all",
+          "stress_test_id": "ST05_02_seed_stability_grid",
+          "summary_scope": "all_outer_random_states"
+        },
+        "row_index": 36
+      },
+      "class_b_mismatch_cells": 144,
+      "class_b_numeric_deltas": {
+        "advantage_max": {
+          "comparable_cells": 72,
+          "max_absolute_delta": 0.0037128094550477886,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "advantage_mean": {
+          "comparable_cells": 72,
+          "max_absolute_delta": 0.0005001863442651022,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "advantage_min": {
+          "comparable_cells": 72,
+          "max_absolute_delta": 0.002306085688446202,
+          "non_numeric_or_blank_pairs": 0
+        },
+        "advantage_std_population": {
+          "comparable_cells": 72,
+          "max_absolute_delta": 0.0010944628904862998,
+          "non_numeric_or_blank_pairs": 0
+        }
+      },
+      "class_c_columns": [],
+      "class_c_diagnostics": {},
+      "class_c_valid": true,
+      "golden_filename": "openml_miniboone_stage05_seed_stability_summary.csv",
+      "golden_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5",
+      "golden_shape": [
+        72,
+        22
+      ],
+      "schema_exact": true,
+      "shape_exact": true,
+      "structural_stop": false
+    }
+  },
+  "execution": {
+    "canonical_golden_overwrites": 0,
+    "claim_or_verdict_changed": false,
+    "elapsed_seconds": 3087.451480799995,
+    "fresh_process": true,
+    "full_run_count": 1,
+    "isolated_output": true,
+    "network_attempts": 0,
+    "network_used": false,
+    "pid": 7800,
+    "training_performed": true
+  },
+  "execution_contract": {
+    "comparison_policy": {
+      "class_a": "exact_after_csv_roundtrip",
+      "class_b": "exact_after_csv_roundtrip_no_tolerance",
+      "class_c": "numeric_finite_nonnegative_excluded_from_equality",
+      "cross_environment_reproducibility_claim": "prohibited",
+      "mismatch_verdict": "fail_without_causal_attribution",
+      "post_result_tolerance_selection": "prohibited"
+    },
+    "dataset": {
+      "cache_file_count": 3,
+      "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+      "candidate_id": "openml_miniboone_41150",
+      "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+      "feature_count": 50,
+      "openml_dataset_id": 41150,
+      "rows": 130064,
+      "target_false_count": 93565,
+      "target_true_count": 36499
+    },
+    "environment": {
+      "historical_backend_thread_provenance": "unknown_not_inferred",
+      "packages": {
+        "numpy": "2.4.4",
+        "openml": "0.15.1",
+        "pandas": "3.0.2",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.6.0"
+      },
+      "platform": "Windows-2019Server-10.0.17763-SP0",
+      "python": "3.12.0",
+      "threadpools_before_fit": [
+        {
+          "architecture": "Haswell",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "user_api": "blas",
+          "version": "0.3.30"
+        },
+        {
+          "architecture": "Haswell",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "user_api": "blas",
+          "version": "0.3.31.188.0"
+        },
+        {
+          "architecture": null,
+          "internal_api": "openmp",
+          "library_filename": "vcomp140.dll",
+          "num_threads": 12,
+          "prefix": "vcomp",
+          "threading_layer": null,
+          "user_api": "openmp",
+          "version": null
+        }
+      ]
+    },
+    "network_attempts_before_fit": 0,
+    "offline_only": true,
+    "output_dir": "C:\\Users\\Vanargo\\AppData\\Local\\Temp\\mlcra_st0725_full_97c82dc2d5924874a398cb0118166efa",
+    "pid": 7800,
+    "protected_before": {
+      "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+        "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+        "match": true,
+        "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+      },
+      "configs/model_spaces/miniboone_hist_gradient_boosting_nested_space.csv": {
+        "expected_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133",
+        "match": true,
+        "observed_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133"
+      },
+      "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+        "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+        "match": true,
+        "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+        "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+        "match": true,
+        "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_selected_params.csv": {
+        "expected_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148",
+        "match": true,
+        "observed_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_summary.csv": {
+        "expected_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5",
+        "match": true,
+        "observed_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5"
+      },
+      "notebooks/04_dataset_smoke_experiments.ipynb": {
+        "expected_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1",
+        "match": true,
+        "observed_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1"
+      },
+      "src/mlcra/nested_cv.py": {
+        "expected_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea",
+        "match": true,
+        "observed_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea"
+      },
+      "src/mlcra/stress_tests.py": {
+        "expected_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d",
+        "match": true,
+        "observed_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d"
+      }
+    },
+    "protocol": {
+      "claim_id": "miniboone_hgb_vs_logreg_average_precision_v01",
+      "hgb_parameter_combinations": 16,
+      "hgb_random_state": 20260507,
+      "inner_n_splits": 3,
+      "n_jobs": 1,
+      "nested_protocol_id": "miniboone_nested_cv_v01",
+      "outer_n_repeats": 2,
+      "outer_n_splits": 5,
+      "outer_random_states": [
+        20260507,
+        20260517,
+        20260527,
+        20260606,
+        20260616
+      ],
+      "runtime_policy": "observe_current_environment_without_retrospective_enforcement",
+      "stress_test_id": "ST05_02_seed_stability_grid"
+    },
+    "status": "locked_before_first_fit",
+    "task_id": "ST07_25_stage05_seed_stability_full_miniboone_and_golden_diagnostic_validation"
+  },
+  "execution_contract_sha256": "17f225e1dc760bc9a7123ffce56759cc76b627530d007614570d57b960d13761",
+  "interpretation": {
+    "allowed": "One current-environment offline diagnostic validation of the locked MiniBooNE ST05_02 modular computation.",
+    "historical_backend_thread_provenance": "unknown_not_inferred",
+    "prohibited": "Cross-environment reproducibility, universal model superiority, or causal attribution of any mismatch without separate evidence.",
+    "tolerance": "none_predeclared_and_none_selected_after_result"
+  },
+  "protected_after": {
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+      "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+      "match": true,
+      "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+    },
+    "configs/model_spaces/miniboone_hist_gradient_boosting_nested_space.csv": {
+      "expected_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133",
+      "match": true,
+      "observed_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133"
+    },
+    "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+      "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+      "match": true,
+      "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+      "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+      "match": true,
+      "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_selected_params.csv": {
+      "expected_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148",
+      "match": true,
+      "observed_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_summary.csv": {
+      "expected_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5",
+      "match": true,
+      "observed_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5"
+    },
+    "notebooks/04_dataset_smoke_experiments.ipynb": {
+      "expected_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1",
+      "match": true,
+      "observed_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1"
+    },
+    "src/mlcra/nested_cv.py": {
+      "expected_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea",
+      "match": true,
+      "observed_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea"
+    },
+    "src/mlcra/stress_tests.py": {
+      "expected_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d",
+      "match": true,
+      "observed_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d"
+    }
+  },
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "scientific_signal": {
+    "per_seed": [
+      {
+        "advantage_mean": 0.09171231828696,
+        "majority_positive": true,
+        "mean_positive": true,
+        "negative_blocks": 0,
+        "outer_random_state": 20260507,
+        "positive_blocks": 10
+      },
+      {
+        "advantage_mean": 0.0918206940452133,
+        "majority_positive": true,
+        "mean_positive": true,
+        "negative_blocks": 0,
+        "outer_random_state": 20260517,
+        "positive_blocks": 10
+      },
+      {
+        "advantage_mean": 0.0918173224335854,
+        "majority_positive": true,
+        "mean_positive": true,
+        "negative_blocks": 0,
+        "outer_random_state": 20260527,
+        "positive_blocks": 10
+      },
+      {
+        "advantage_mean": 0.0920383219784252,
+        "majority_positive": true,
+        "mean_positive": true,
+        "negative_blocks": 0,
+        "outer_random_state": 20260606,
+        "positive_blocks": 10
+      },
+      {
+        "advantage_mean": 0.0914053047401794,
+        "majority_positive": true,
+        "mean_positive": true,
+        "negative_blocks": 0,
+        "outer_random_state": 20260616,
+        "positive_blocks": 10
+      }
+    ],
+    "registered_primary_signal_pass": true,
+    "secondary_strong_conflict_threshold": "not_numerically_registered_not_invented"
+  },
+  "status": "fail",
+  "task_id": "ST07_25_stage05_seed_stability_full_miniboone_and_golden_diagnostic_validation",
+  "task_profile": "SCIENTIFIC_VALIDATION",
+  "technical_status": "FAIL",
+  "threadpools_after_fit": [
+    {
+      "architecture": "Haswell",
+      "internal_api": "openblas",
+      "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "user_api": "blas",
+      "version": "0.3.30"
+    },
+    {
+      "architecture": "Haswell",
+      "internal_api": "openblas",
+      "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "user_api": "blas",
+      "version": "0.3.31.188.0"
+    },
+    {
+      "architecture": null,
+      "internal_api": "openmp",
+      "library_filename": "vcomp140.dll",
+      "num_threads": 12,
+      "prefix": "vcomp",
+      "threading_layer": null,
+      "user_api": "openmp",
+      "version": null
+    }
+  ]
+}

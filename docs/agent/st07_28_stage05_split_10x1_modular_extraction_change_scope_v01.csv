@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_28_stage05_split_10x1_modular_extraction_change_scope_v01.csv,machine-readable authorized change set for ST07_28
+modified,src/mlcra/nested_cv.py,add an opt-in constant inner random-state policy while preserving the existing default derivation
+modified,src/mlcra/stress_tests.py,implement the registered ST05_03a contract orchestration summary and fail-closed bundle validation
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace the three ST05_03a business-logic cells with thin modular orchestration
+modified,scripts/agent_verify.py,add independent two-run fixture CSV-roundtrip negative mutation and protected-artifact checks
+modified,docs/stages/stage_07_code_modularization.md,record ST07_28 authority implementation evidence exact before-after fragments and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_28 technical completion

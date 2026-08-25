@@ -1,0 +1,166 @@
+{
+  "evidence_schema_version": "st07_21_evidence_v01",
+  "task_id": "ST07_21_nested_cv_v02_promotion_source_and_timing_provenance_contract",
+  "task_profile": "CHANGE",
+  "authority": "NEXT_BLOCK_AUTHORIZED: ST07_21_nested_cv_v02_promotion_source_and_timing_provenance_contract",
+  "created_at_utc": "2026-08-01T13:02:57.672142+00:00",
+  "protocol_id": "miniboone_nested_cv_v02",
+  "validation_evidence_path": "data_registry/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_evidence_v01.json",
+  "validation_evidence_sha256": "abb7b31036ea0c44a48590d3cb260be8a9c7d02196fa5f1a78ca32d6fa7e04f9",
+  "source_selection_policy": "first_complete_validation_run_in_registered_execution_order",
+  "selected_source_label": "run_a",
+  "selected_source_pid": 14016,
+  "execution_order_position": 1,
+  "bundle_atomicity": "all_7_artifacts_from_one_run",
+  "selected_bundle_sha256": "07257bee44090c1168a01f7bb6080030061b606e4eab960c7ccbd766f5614576",
+  "artifact_context": "miniboone_v02_scientific_candidate",
+  "timing_policy": "preserve_selected_run_class_C_exact_no_average_no_minimum_selection",
+  "timing_class_C_column_count": 2,
+  "promotion_source_manifest_path": "data_registry/openml_miniboone_nested_v02_promotion_source_manifest_v01.csv",
+  "promotion_source_manifest_sha256": "aa823a37bb4287d6668489261c7486e3ecd70a0845a7b20f8e59e46e90a4b465",
+  "promotion_source_manifest_rows": 7,
+  "source_locator_base": "<temporary_work_root>",
+  "temporary_source_persisted_in_checkpoint": false,
+  "observed_artifact_records": {
+    "run_a": {
+      "outer_scores": {
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "sha256": "c6671f2a9ca75e174634baaa07f655c731ae230709e0231fa84b470e896921fc",
+        "rows": 30,
+        "columns": 36
+      },
+      "selected_params": {
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+        "rows": 10,
+        "columns": 13
+      },
+      "summary": {
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+        "rows": 3,
+        "columns": 39
+      },
+      "quality_checks": {
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "sha256": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13",
+        "rows": 16,
+        "columns": 4
+      },
+      "warnings": {
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "sha256": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd",
+        "rows": 2,
+        "columns": 9
+      },
+      "environment": {
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+        "rows": 8,
+        "columns": 3
+      },
+      "numeric_runtime": {
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+        "rows": 2,
+        "columns": 14
+      }
+    },
+    "run_b": {
+      "outer_scores": {
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "sha256": "cda64bcc5e9b6c044b198edf91d81d0f62ddc2233d453e8dd6c5e4092c7cb68d",
+        "rows": 30,
+        "columns": 36
+      },
+      "selected_params": {
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+        "rows": 10,
+        "columns": 13
+      },
+      "summary": {
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+        "rows": 3,
+        "columns": 39
+      },
+      "quality_checks": {
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "sha256": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13",
+        "rows": 16,
+        "columns": 4
+      },
+      "warnings": {
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "sha256": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd",
+        "rows": 2,
+        "columns": 9
+      },
+      "environment": {
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+        "rows": 8,
+        "columns": 3
+      },
+      "numeric_runtime": {
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+        "rows": 2,
+        "columns": 14
+      }
+    }
+  },
+  "canonical_output_count": 7,
+  "canonical_outputs_absent_before": true,
+  "canonical_outputs_absent_after": true,
+  "candidate_artifacts_copied": 0,
+  "candidate_artifacts_promoted": 0,
+  "training_performed": false,
+  "network_used": false,
+  "stage05_claim_or_verdict_changed": false,
+  "protected_contract_hashes": {
+    "data_registry/openml_miniboone_nested_cv_v02_protocol_lock.csv": "762f02b8b74e3fc5e9f5c75658021f9a384f974316be8d5e6b748478be7dbe9c",
+    "data_registry/openml_miniboone_nested_cv_v02_expected_output_schema.csv": "761b71c9a81438612bed59bc23ac9c382715ab447269fae53daf45f71239f672",
+    "data_registry/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_evidence_v01.json": "abb7b31036ea0c44a48590d3cb260be8a9c7d02196fa5f1a78ca32d6fa7e04f9"
+  },
+  "checks": {
+    "st07_20_evidence_pass_and_exact_hash": true,
+    "both_temporary_bundles_available_and_14_hashes_exact": true,
+    "both_bundles_schema_and_row_policies_valid": true,
+    "source_selected_by_registered_order_not_results": true,
+    "selected_source_is_atomic_run_a_7_of_7": true,
+    "class_C_timing_preserved_exact_from_selected_source": true,
+    "no_average_or_minimum_timing_selection": true,
+    "canonical_v02_outputs_absent": true,
+    "promotion_and_copy_not_performed": true,
+    "training_and_network_not_performed": true,
+    "protected_contract_hashes_exact": true,
+    "negative_mutations_fail_closed": true,
+    "claim_or_verdict_change_none": true
+  },
+  "negative_tests": {
+    "missing_artifact_row": true,
+    "duplicate_artifact_id": true,
+    "mixed_source_hash": true,
+    "wrong_source_label": true,
+    "wrong_source_pid": true,
+    "wrong_execution_order": true,
+    "result_driven_timing_policy": true,
+    "wrong_canonical_target": true,
+    "wrong_validation_evidence_sha": true,
+    "source_not_observed": true
+  },
+  "planned_change_set": [
+    "docs/agent/st07_21_nested_cv_v02_promotion_source_and_timing_provenance_change_scope_v01.csv",
+    "scripts/st07_21_promotion_source_contract.py",
+    "data_registry/openml_miniboone_nested_v02_promotion_source_manifest_v01.csv",
+    "data_registry/st07_21_nested_cv_v02_promotion_source_and_timing_provenance_contract_evidence_v01.json",
+    "scripts/agent_verify.py",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "scientific_interpretation": "promotion_source_and_timing_provenance_contract_only; not_promotion; not_new_training; not_cross_environment_reproducibility; not_universal_model_superiority; not_stage05_claim_support",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

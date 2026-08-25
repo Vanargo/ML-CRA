@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_26_stage05_seed_stability_logistic_blas_diagnostic_change_scope_v01.csv,record the exact authorized ST07_26 change boundary
+added,scripts/st07_26_seed_stability_logistic_blas_diagnostic.py,execute the predeclared offline logistic-only BLAS 4 versus 12 diagnostic
+added,data_registry/st07_26_stage05_seed_stability_logistic_blas_diagnostic_scores_v01.csv,register the 100 diagnostic logistic score rows and exact comparison results
+added,data_registry/st07_26_stage05_seed_stability_logistic_blas_diagnostic_evidence_v01.json,register execution provenance objective checks and the bounded causal diagnostic verdict
+modified,scripts/agent_verify.py,independently recompute ST07_26 artifact and documentary gates
+modified,docs/stages/stage_07_code_modularization.md,record authorization execution evidence limitations and the acceptance stop
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_26 execution

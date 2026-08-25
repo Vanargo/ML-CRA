@@ -1,0 +1,2 @@
+﻿severity,candidate_id,protocol_id,outer_split_number,outer_repeat_number,outer_fold_number,model_id,object,warning_ru
+info,openml_miniboone_41150,miniboone_nested_cv_v01,all,all,all,all,protocol_boundary,Вложенная проверка использует внешний RepeatedStratifiedKFold 5×2; выбор параметров hist_gradient_boosting выполняется только во внутреннем StratifiedKFold.

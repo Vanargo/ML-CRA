@@ -1,0 +1,13 @@
+change_kind,relative_path,reason
+added,configs/claims/uci_wine_quality_red_hgbr_vs_ridge_rmse_claim_v01.json,ST08_11A prospectively locked machine-readable bounded claim before data download
+added,configs/project_readiness/st08_11A_registered_regression_dataset_claim_and_scientific_validation_contract_v01.json,ST08_11A dataset license protocol bias verdict and interpretation contract before data download
+added,scripts/st08_11A_wine_quality_scientific_validation.py,ST08_11A deterministic source and registered-evidence validation runner
+added,tests/test_scientific_validation_st08_11A.py,ST08_11A positive relation and fail-closed mutation tests
+added,data_registry/st08_11A_wine_quality_red_fold_scores_v01.csv,ST08_11A canonical 25-block paired RMSE and MAE evidence without raw rows
+added,data_registry/st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01.json,ST08_11A provenance observed execution scientific verdict limits and change reconciliation
+modified,DATASET_ATTRIBUTION.md,add UCI Wine Quality CC BY 4.0 attribution and raw-data exclusion
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh fail-closed public candidate inventory for registered ST08_11A artifacts
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_11A files in deterministic cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record ST08_11 acceptance ST08_11A authority protocol evidence and result
+modified,roadmap.md,record ST08_11 closure ST08_11A result and one proposed next block
+added,docs/agent/st08_11A_registered_regression_dataset_claim_and_scientific_validation_change_scope_v01.csv,ST08_11A exact planned and actual change scope

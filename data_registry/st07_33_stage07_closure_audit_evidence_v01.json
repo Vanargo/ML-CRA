@@ -1,0 +1,192 @@
+{
+  "task_id": "ST07_33_stage07_closure_audit",
+  "task_profile": "CHANGE",
+  "authorization": {
+    "authorized_by_john_instruction": "Приступай к closure audit Stage 7",
+    "accepted_predecessor": "ST07_32_stage05_non_nested_optimism_probe_full_miniboone_and_golden_diagnostic_validation",
+    "stage_closure_reserved_for_john": true
+  },
+  "method": {
+    "framework": "MAPE-K plus seven-criterion requirements traceability and fail-closed closure review",
+    "local_normative_sources": [
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "docs/agent/task_templates/task_core_v01.md",
+      "docs/agent/task_templates/change_v01.md",
+      "bio_inspired_project_engineering_standard_v02.md",
+      "docs/stages/stage_07_code_modularization.md#8"
+    ],
+    "external_authoritative_sources": [
+      {
+        "source": "NASA Procedural Requirements 7123.1D",
+        "url": "https://nodis3.gsfc.nasa.gov/displayAll.cfm?Internal_ID=N_PR_7123_0001_&page_name=ALL",
+        "use": "closure review requires disposition and tracking of discrepancies and actions"
+      },
+      {
+        "source": "ISO/IEC/IEEE 15288:2023",
+        "url": "https://www.iso.org/standard/81702.html",
+        "use": "system life-cycle process framework and traceable completion criteria"
+      },
+      {
+        "source": "NASA Systems Engineering Handbook Appendix",
+        "url": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+        "use": "verification and validation method selection"
+      },
+      {
+        "source": "NIST Numerical Reproducibility",
+        "url": "https://www.nist.gov/programs-projects/numerical-reproducibility",
+        "use": "bounded numerical reproducibility and environment sensitivity"
+      }
+    ]
+  },
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v44.zip",
+    "sha256": "9a6e5968fe8af1999d9e7f2892dd47069f31963e85b941cc4969e8e928c186d3",
+    "size_bytes": 5330534,
+    "file_entries": 256,
+    "unique_entries": 256,
+    "excluded_entries": 0,
+    "missing_workspace_files": 0,
+    "workspace_mismatches_before_closure_audit": 0
+  },
+  "baseline_observation": {
+    "baseline_status": "PASS",
+    "manifest_rows": 158,
+    "scope_files_before_audit": 44,
+    "missing": 0,
+    "out_of_scope": 0,
+    "scope_errors": 0,
+    "cumulative_pilot_status": "PASS",
+    "cumulative_pilot_checks_passed": 49,
+    "cumulative_pilot_checks_failed": 0,
+    "first_pilot_attempt_disposition": "BLOCKED_BY_120_SECOND_TOOL_TIMEOUT_WITHOUT_RESULT",
+    "successful_pilot_elapsed_seconds": 142
+  },
+  "final_verification": {
+    "baseline_status": "PASS",
+    "pilot_status": "PASS",
+    "pilot_checks_passed_including_scope": 51,
+    "pilot_checks_failed": 0,
+    "python_syntax_files": 24,
+    "csv_structure_files": 138,
+    "notebook_json_valid_nonempty": 4,
+    "notebook_expected_empty": 1,
+    "stage07_closure_audit_gate": "PASS_WITH_AUDIT_VERDICT_FAIL"
+  },
+  "change_reconciliation": {
+    "planned_paths": 5,
+    "actual_paths": 5,
+    "deviations": 0,
+    "added": [
+      "docs/agent/st07_33_stage07_closure_audit_change_scope_v01.csv",
+      "data_registry/st07_33_stage07_closure_audit_evidence_v01.json"
+    ],
+    "modified": [
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ]
+  },
+  "closure_matrix": [
+    {
+      "criterion_id": "ST07-CLOSE-01",
+      "criterion": "Stage 5 logic is inventoried",
+      "status": "PASS",
+      "evidence": "Notebook inventory is 52 cells and 3308 code lines; Stage 5 extraction boundaries and accepted blocks are recorded in the active Stage 7 document."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-02",
+      "criterion": "A minimal transfer set is selected",
+      "status": "PASS",
+      "evidence": "Accepted contracts cover shared I/O, validation, metrics, model space, nested CV, numeric runtime, nested artifacts, four Stage 5 audits and three training stress-test families."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-03",
+      "criterion": "The src/mlcra modular layer exists",
+      "status": "PASS",
+      "evidence": "Ten non-empty modules expose 82 public functions or classes and pass syntax and cumulative contract checks."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-04",
+      "criterion": "No critical Stage 5 business logic remains without a modular analogue",
+      "status": "PASS",
+      "evidence": "Stage 5 cells 33, 36-39, 41-43, 45, 47, 49 and 51 contain zero top-level function definitions and use the accepted mlcra modular contracts; the remaining cell 31 helpers have analogues in nested_artifacts.py."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-05",
+      "criterion": "Stage 5 results are recoverable through modular functions or an agreed transition interface",
+      "status": "PASS",
+      "evidence": "Cumulative gates reproduce ST05_01 and ST05_04-ST05_06 exactly, validate ST05_02/ST05_03a/ST05_07 fixture contracts, and register bounded full-data diagnostics plus canonical nested_cv_v02 artifacts. Historical runtime provenance limitations remain explicit."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-06",
+      "criterion": "Minimal checks exist for configuration reading, result reading and verdict-policy application",
+      "status": "FAIL",
+      "evidence": "read_csv_checked and schema validators cover configuration/result reading, but src/mlcra/verdicts.py exposes only four audit-table builders. No executable contract or verifier gate reads miniboone_verdict_policy_v01.csv and applies its ordered category conditions to an evidence record. The manual ST05_08 table is historical documentation, not a modular application check."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-07",
+      "criterion": "roadmap.md and the active Stage 7 document reflect actual state",
+      "status": "PASS",
+      "evidence": "Both documents record ST07_32 acceptance, this closure-audit FAIL, the current modular reproduction route, the unresolved criterion ST07-CLOSE-06 and the mandatory stop before stage closure."
+    }
+  ],
+  "objective_metrics": {
+    "criteria_total": 7,
+    "criteria_pass": 6,
+    "criteria_fail": 1,
+    "criteria_blocked": 0,
+    "module_files": 10,
+    "module_public_functions_or_classes": 82,
+    "main_notebook_cells": 52,
+    "main_notebook_code_cells": 41,
+    "main_notebook_markdown_cells": 11,
+    "stage05_orchestration_cells_checked": 12,
+    "stage05_orchestration_top_level_function_definitions": 0,
+    "verdict_policy_shape": [
+      6,
+      16
+    ],
+    "verdict_policy_categories": [
+      "strongly_supported",
+      "moderately_supported",
+      "weakly_supported",
+      "fragile",
+      "unsupported",
+      "contradicted"
+    ],
+    "executable_verdict_policy_application_contracts": 0,
+    "new_training_runs": 0,
+    "network_attempts": 0,
+    "scientific_csv_changes": 0,
+    "claim_or_verdict_changes": 0
+  },
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/verdicts.py": "600425c7351da78a2fb5489f783edac63574f52e53eb6db60bb3d224509a3ce3",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e"
+  },
+  "aggregate_verdict": {
+    "status": "fail",
+    "technical_status": "FAIL",
+    "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+    "stage07_closed": false,
+    "failure_rule": "all seven closure criteria must pass; any failed criterion keeps Stage 7 open",
+    "blocking_criterion": "ST07-CLOSE-06",
+    "scientific_interpretation": "No Stage 5 scientific claim or verdict is changed by this software-closure finding."
+  },
+  "proposed_next_block": {
+    "task_id": "ST07_34_verdict_policy_application_contract_and_golden_master_design",
+    "status": "proposed_not_authorized",
+    "implementation_started": false,
+    "reason": "Define an immutable typed input/output and fail-closed golden contract for applying the registered verdict policy before any source extraction or closure revalidation."
+  }
+}

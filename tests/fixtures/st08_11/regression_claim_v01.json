@@ -1,0 +1,18 @@
+{
+  "schema_version": "mlcra_tabular_regression_claim_v01",
+  "claim_id": "st08_11_external_nonlinear_regression_fixture",
+  "task_type": "tabular_regression",
+  "target": "target",
+  "sampling_assumption": "exchangeable_rows",
+  "candidate_model": "hist_gradient_boosting_regressor_v01",
+  "baseline_model": "ridge_regression_v01",
+  "primary_metric": "root_mean_squared_error",
+  "split_protocol": {
+    "kind": "k_fold_v01",
+    "n_splits": 4
+  },
+  "seeds": [11, 29],
+  "preprocessing_policy": "numeric_complete_standardize_ridge_passthrough_hgb_regressor_v01",
+  "verdict_policy": "paired_primary_metric_consistency_v01",
+  "minimum_mean_delta": 1.0
+}

@@ -1,0 +1,502 @@
+{
+  "aggregate_verdict": {
+    "backend_identity_exact_to_st07_25": true,
+    "blas_12_exact_350_of_350": true,
+    "blas_4_exact_350_of_350": true,
+    "protected_exact": true,
+    "runtime_restored": true,
+    "split_inputs_exact": true,
+    "thread_limits_enforced": true,
+    "timing_valid": true,
+    "verdict_rule": "pass_causal_support_only_if_all_checks_true",
+    "warnings_absent": true
+  },
+  "comparisons": {
+    "12": {
+      "exact_metric_cells": 350,
+      "metric_cells": 350,
+      "metric_deltas": {
+        "average_precision": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "balanced_accuracy": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "brier_score": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "f1": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "log_loss": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "pr_auc": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "roc_auc": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        }
+      },
+      "metric_mismatch_cells": 0,
+      "metrics_exact": true,
+      "reference_artifact": "st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv",
+      "reference_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af",
+      "rows": 50,
+      "split_input_cells": 500,
+      "split_input_exact": true,
+      "split_input_mismatch_cells": 0,
+      "thread_condition": 12
+    },
+    "4": {
+      "exact_metric_cells": 350,
+      "metric_cells": 350,
+      "metric_deltas": {
+        "average_precision": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "balanced_accuracy": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "brier_score": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "f1": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "log_loss": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "pr_auc": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        },
+        "roc_auc": {
+          "max_absolute_delta": 0.0,
+          "mismatch_cells": 0
+        }
+      },
+      "metric_mismatch_cells": 0,
+      "metrics_exact": true,
+      "reference_artifact": "openml_miniboone_stage05_seed_stability_outer_scores.csv",
+      "reference_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+      "rows": 50,
+      "split_input_cells": 500,
+      "split_input_exact": true,
+      "split_input_mismatch_cells": 0,
+      "thread_condition": 4
+    }
+  },
+  "condition_runtime": {
+    "12": [
+      {
+        "architecture": "Haswell",
+        "internal_api": "openblas",
+        "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "version": "0.3.30"
+      },
+      {
+        "architecture": "Haswell",
+        "internal_api": "openblas",
+        "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "num_threads": 12,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "version": "0.3.31.188.0"
+      }
+    ],
+    "4": [
+      {
+        "architecture": "Haswell",
+        "internal_api": "openblas",
+        "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "version": "0.3.30"
+      },
+      {
+        "architecture": "Haswell",
+        "internal_api": "openblas",
+        "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "num_threads": 4,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "version": "0.3.31.188.0"
+      }
+    ]
+  },
+  "execution": {
+    "canonical_golden_overwrites": 0,
+    "claim_or_verdict_changed": false,
+    "dummy_fit_count": 0,
+    "elapsed_seconds": 211.98511440004222,
+    "fresh_process": true,
+    "hgb_fit_count": 0,
+    "inner_tuning_count": 0,
+    "isolated_output": true,
+    "logistic_fit_count": 100,
+    "network_attempts": 0,
+    "network_used": false,
+    "pid": 13692,
+    "training_performed": true
+  },
+  "execution_contract": {
+    "comparison_policy": {
+      "blas_12_reference": "st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv",
+      "blas_4_reference": "openml_miniboone_stage05_seed_stability_outer_scores.csv",
+      "cross_environment_claim": "prohibited",
+      "golden_or_claim_change": "prohibited",
+      "metric_equality": "exact_after_csv_roundtrip_no_tolerance",
+      "metrics": [
+        "roc_auc",
+        "average_precision",
+        "pr_auc",
+        "f1",
+        "balanced_accuracy",
+        "log_loss",
+        "brier_score"
+      ],
+      "pass_rule": "4_exact_350_of_350_and_12_exact_350_of_350",
+      "timing": "finite_nonnegative_excluded_from_equality"
+    },
+    "dataset": {
+      "cache_file_count": 3,
+      "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+      "candidate_id": "openml_miniboone_41150",
+      "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+      "feature_count": 50,
+      "openml_dataset_id": 41150,
+      "rows": 130064,
+      "target_false_count": 93565,
+      "target_true_count": 36499
+    },
+    "environment": {
+      "backend_identity_exact_to_st07_25": true,
+      "blas_before": [
+        {
+          "architecture": "Haswell",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "version": "0.3.30"
+        },
+        {
+          "architecture": "Haswell",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "version": "0.3.31.188.0"
+        }
+      ],
+      "packages": {
+        "numpy": "2.4.4",
+        "openml": "0.15.1",
+        "pandas": "3.0.2",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.6.0"
+      },
+      "platform": "Windows-2019Server-10.0.17763-SP0",
+      "python": "3.12.0"
+    },
+    "network_attempts_before_fit": 0,
+    "offline_only": true,
+    "output_dir": "C:\\Users\\Vanargo\\AppData\\Local\\Temp\\mlcra_st0726_full_27297d00770c44968376282ef5ef606f",
+    "pid": 13692,
+    "protected_before": {
+      "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+        "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+        "match": true,
+        "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+      },
+      "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+        "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+        "match": true,
+        "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+        "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+        "match": true,
+        "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_selected_params.csv": {
+        "expected_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148",
+        "match": true,
+        "observed_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_summary.csv": {
+        "expected_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5",
+        "match": true,
+        "observed_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5"
+      },
+      "data_registry/st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv": {
+        "expected_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af",
+        "match": true,
+        "observed_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af"
+      },
+      "data_registry/st07_25_stage05_seed_stability_candidate_selected_params_v01.csv": {
+        "expected_sha256": "79174fcc98c45bed58ec7670e420d85b306fc5b9c6035cb3c322e4200e5d651e",
+        "match": true,
+        "observed_sha256": "79174fcc98c45bed58ec7670e420d85b306fc5b9c6035cb3c322e4200e5d651e"
+      },
+      "data_registry/st07_25_stage05_seed_stability_candidate_summary_v01.csv": {
+        "expected_sha256": "f320b1e6f002123ff0c55a912c8141195e2b377948bf3dfebe5e14fb0fc0d852",
+        "match": true,
+        "observed_sha256": "f320b1e6f002123ff0c55a912c8141195e2b377948bf3dfebe5e14fb0fc0d852"
+      },
+      "data_registry/st07_25_stage05_seed_stability_full_validation_evidence_v01.json": {
+        "expected_sha256": "27cf784078c8d6897c874fa4e55b928f40725610cc57aebb9f3fb4b2335ad09a",
+        "match": true,
+        "observed_sha256": "27cf784078c8d6897c874fa4e55b928f40725610cc57aebb9f3fb4b2335ad09a"
+      },
+      "notebooks/04_dataset_smoke_experiments.ipynb": {
+        "expected_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1",
+        "match": true,
+        "observed_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1"
+      },
+      "src/mlcra/datasets.py": {
+        "expected_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+        "match": true,
+        "observed_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b"
+      },
+      "src/mlcra/metrics.py": {
+        "expected_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+        "match": true,
+        "observed_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3"
+      },
+      "src/mlcra/nested_cv.py": {
+        "expected_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea",
+        "match": true,
+        "observed_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea"
+      },
+      "src/mlcra/numeric_runtime.py": {
+        "expected_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+        "match": true,
+        "observed_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086"
+      },
+      "src/mlcra/stress_tests.py": {
+        "expected_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d",
+        "match": true,
+        "observed_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d"
+      }
+    },
+    "protocol": {
+      "claim_id": "miniboone_hgb_vs_logreg_average_precision_v01",
+      "dummy_fit_count": 0,
+      "hgb_fit_count": 0,
+      "inner_tuning_count": 0,
+      "model_fit_count": 100,
+      "model_id": "logistic_regression",
+      "nested_protocol_id": "miniboone_nested_cv_v01",
+      "outer_n_repeats": 2,
+      "outer_n_splits": 5,
+      "outer_random_states": [
+        20260507,
+        20260517,
+        20260527,
+        20260606,
+        20260616
+      ],
+      "stress_test_id": "ST05_02_seed_stability_grid",
+      "thread_conditions_in_order": [
+        4,
+        12
+      ]
+    },
+    "status": "locked_before_first_fit",
+    "task_id": "ST07_26_stage05_seed_stability_logistic_blas_4_vs_12_causal_diagnostic_validation"
+  },
+  "execution_contract_sha256": "d4673cfa8dd928e57344aea835241957f426dffee8a53d8d78cd58b8c19b7db6",
+  "interpretation": {
+    "allowed": "BLAS thread count is causally supported as the factor explaining the current same-machine ST05_02 logistic-regression mismatch.",
+    "prohibited": "Retrospective protocol ratification, golden-master change, claim/verdict change, or cross-environment reproducibility conclusion.",
+    "repeatability_scope": "same_machine_same_backend_same_data_same_splits",
+    "tolerance": "none_predeclared_and_none_selected_after_result"
+  },
+  "protected_after": {
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+      "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+      "match": true,
+      "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+    },
+    "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+      "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+      "match": true,
+      "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+      "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+      "match": true,
+      "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_selected_params.csv": {
+      "expected_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148",
+      "match": true,
+      "observed_sha256": "c9896f843b787c9211269887106713b4a4a8f37b61482773aedd81f55f9fd148"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_summary.csv": {
+      "expected_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5",
+      "match": true,
+      "observed_sha256": "a553816194654b58371687a4760394fa535b0923badfe6c9cf64a5f4e00974b5"
+    },
+    "data_registry/st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv": {
+      "expected_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af",
+      "match": true,
+      "observed_sha256": "30ae06d3883d478c1815aaeb4a6864fc03cf80c523820cb99b2e423c4bd218af"
+    },
+    "data_registry/st07_25_stage05_seed_stability_candidate_selected_params_v01.csv": {
+      "expected_sha256": "79174fcc98c45bed58ec7670e420d85b306fc5b9c6035cb3c322e4200e5d651e",
+      "match": true,
+      "observed_sha256": "79174fcc98c45bed58ec7670e420d85b306fc5b9c6035cb3c322e4200e5d651e"
+    },
+    "data_registry/st07_25_stage05_seed_stability_candidate_summary_v01.csv": {
+      "expected_sha256": "f320b1e6f002123ff0c55a912c8141195e2b377948bf3dfebe5e14fb0fc0d852",
+      "match": true,
+      "observed_sha256": "f320b1e6f002123ff0c55a912c8141195e2b377948bf3dfebe5e14fb0fc0d852"
+    },
+    "data_registry/st07_25_stage05_seed_stability_full_validation_evidence_v01.json": {
+      "expected_sha256": "27cf784078c8d6897c874fa4e55b928f40725610cc57aebb9f3fb4b2335ad09a",
+      "match": true,
+      "observed_sha256": "27cf784078c8d6897c874fa4e55b928f40725610cc57aebb9f3fb4b2335ad09a"
+    },
+    "notebooks/04_dataset_smoke_experiments.ipynb": {
+      "expected_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1",
+      "match": true,
+      "observed_sha256": "183fbd39fe84de4f3752d972e7ee003850e98776dc8c0d7b8a276d22f90347d1"
+    },
+    "src/mlcra/datasets.py": {
+      "expected_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+      "match": true,
+      "observed_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b"
+    },
+    "src/mlcra/metrics.py": {
+      "expected_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+      "match": true,
+      "observed_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3"
+    },
+    "src/mlcra/nested_cv.py": {
+      "expected_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea",
+      "match": true,
+      "observed_sha256": "97d0630a8f3104472e843730da3e0fc1f6f731053c16cff8d14bb23560c2c7ea"
+    },
+    "src/mlcra/numeric_runtime.py": {
+      "expected_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+      "match": true,
+      "observed_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086"
+    },
+    "src/mlcra/stress_tests.py": {
+      "expected_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d",
+      "match": true,
+      "observed_sha256": "3c6bc8d1628712ee3ee6eaf70c5cb0d1efc40647ac3bd7008d1f04ed51bfba0d"
+    }
+  },
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "runtime_after": [
+    {
+      "architecture": "Haswell",
+      "internal_api": "openblas",
+      "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "version": "0.3.30"
+    },
+    {
+      "architecture": "Haswell",
+      "internal_api": "openblas",
+      "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+      "num_threads": 12,
+      "prefix": "libscipy_openblas",
+      "threading_layer": "pthreads",
+      "version": "0.3.31.188.0"
+    }
+  ],
+  "runtime_restored": true,
+  "scientific_verdict": "PASS_CAUSAL_SUPPORT",
+  "scores": {
+    "filename": "st07_26_stage05_seed_stability_logistic_blas_diagnostic_scores_v01.csv",
+    "schema": [
+      "task_id",
+      "stress_test_id",
+      "claim_id",
+      "candidate_id",
+      "thread_condition",
+      "outer_random_state",
+      "outer_split_number",
+      "outer_repeat_number",
+      "outer_fold_number",
+      "outer_cv_n_splits",
+      "outer_cv_n_repeats",
+      "model_id",
+      "model_role",
+      "selected_parameter_set_id",
+      "feature_policy_id",
+      "n_train",
+      "n_test",
+      "train_positive_share",
+      "test_positive_share",
+      "roc_auc",
+      "average_precision",
+      "pr_auc",
+      "f1",
+      "balanced_accuracy",
+      "log_loss",
+      "brier_score",
+      "fit_seconds",
+      "predict_seconds",
+      "reference_artifact",
+      "metric_cells_total",
+      "exact_reference_metric_cells",
+      "exact_after_csv_roundtrip",
+      "row_status",
+      "interpretation_allowed_ru"
+    ],
+    "sha256": "dbd7d7a2889f2f19dcf76f0c18e2e9bc5ab96d61404a1da9248455d75d8de62c",
+    "shape": [
+      100,
+      34
+    ]
+  },
+  "status": "pass",
+  "task_id": "ST07_26_stage05_seed_stability_logistic_blas_4_vs_12_causal_diagnostic_validation",
+  "task_profile": "SCIENTIFIC_VALIDATION",
+  "technical_status": "PASS",
+  "timing": {
+    "details": {
+      "fit_seconds": {
+        "maximum": 2.953527,
+        "minimum": 1.24607,
+        "total_cells": 100,
+        "valid_cells": 100
+      },
+      "predict_seconds": {
+        "maximum": 0.059013,
+        "minimum": 0.027235,
+        "total_cells": 100,
+        "valid_cells": 100
+      }
+    },
+    "valid": true
+  },
+  "warnings": []
+}

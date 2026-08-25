@@ -1,0 +1,18 @@
+change_kind,relative_path,reason
+modified,src/mlcra/application.py,add verified deterministic dashboard view and remove completed regression-registration doctor blocker
+modified,src/mlcra/cli.py,add installed dashboard subcommand using the shared consumer
+added,src/mlcra/dashboard.py,render verify hash and atomically publish static bilingual dashboard
+added,tests/test_dashboard_st08_12.py,classification regression no-fit escaping tamper and overwrite tests
+modified,README.md,add executable dashboard walkthrough and four-file output explanation
+modified,README_RU.md,add command-identical Russian dashboard walkthrough and explanation
+modified,.github/workflows/ci.yml,run dashboard tests in source and clean-installed environments
+modified,configs/project_readiness/st08_09_CI_security_and_release_candidate_assurance_contract_v01.json,require dashboard module in source sdist and wheel
+modified,tests/test_release_assurance_st08_09.py,align synthetic wheel inventory with dashboard requirement
+modified,scripts/st08_10_documentation_assurance.py,remove completed regression blocker and require dashboard CI coverage
+added,configs/project_readiness/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_contract_v01.json,record architecture security accessibility verification and scientific boundary
+added,data_registry/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_evidence_v01.json,record observed golden source clean install regression and scope evidence
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh exact public candidate path inventory
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_12 files in cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record ST08_11A acceptance ST08_12 result and next proposal
+modified,roadmap.md,record ST08_11A closure ST08_12 result and next proposal
+added,docs/agent/st08_12_dashboard_shared_core_and_CLI_golden_equivalence_change_scope_v01.csv,record exact planned and actual task paths

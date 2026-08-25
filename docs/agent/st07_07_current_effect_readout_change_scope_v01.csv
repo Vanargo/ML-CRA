@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+modified,src/mlcra/verdicts.py,extract deterministic ST05_01 current-effect readout logic into the modular verdict layer
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace the independent ST05_01 computation with modular orchestration
+modified,scripts/agent_verify.py,add exact ST07_07 regression and notebook contract checks while retaining ST07_04-ST07_06
+modified,docs/stages/stage_07_code_modularization.md,record ST07_07 scope implementation verification evidence and readiness
+modified,roadmap.md,record technical completion of ST07_07 without John acceptance or next-block selection
+added,docs/agent/st07_07_current_effect_readout_change_scope_v01.csv,machine-readable authorized change set for ST07_07

@@ -1,0 +1,352 @@
+{
+  "schema_version": "stage08_public_product_scope_and_release_train_contract_v01",
+  "contract_id": "stage08_public_product_scope_and_release_train_contract_v01",
+  "task_id": "ST08_04_public_product_scope_and_release_train_contract_design",
+  "contract_status": "design_complete_not_implemented",
+  "recorded_at": "2026-08-14",
+  "authority": {
+    "accepted_previous_task": "ST08_03_project_scope_release_class_and_owner_decision_resolution",
+    "closed_previous_task": "ST08_03_project_scope_release_class_and_owner_decision_resolution",
+    "next_block_authorized": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "implementation_authorized": false,
+    "external_release_authorized": false,
+    "new_training_authorized": false
+  },
+  "product_boundary": {
+    "mission": "audit_whether_registered_experimental_evidence_supports_a_bounded_tabular_ml_claim",
+    "public_product_target": "installable_open_source_python_distribution_with_one_supported_cli",
+    "scientific_claim_boundary": "The existing MiniBooNE result remains bounded by its registered dataset, claim, protocols, metric, model space and verdict policy and is not evidence of universal model superiority or generic product validity.",
+    "required_v1_outputs": [
+      "current_technical_report",
+      "reproducible_validation_pipeline",
+      "installable_universal_cli",
+      "dashboard_using_the_same_validated_application_core",
+      "russian_and_english_documentation",
+      "public_github_repository"
+    ],
+    "excluded": [
+      "universal_model_superiority_claim",
+      "full_automl",
+      "large_scale_deep_learning_benchmarks",
+      "hosted_production_service",
+      "arbitrary_python_code_or_pickle_loading_from_users",
+      "automatic_owner_release_decision",
+      "change_to_registered_miniboone_claim_protocol_policy_or_verdict"
+    ]
+  },
+  "stakeholder_scenarios": [
+    {
+      "scenario_id": "ST08-SCN-01",
+      "priority": "P0",
+      "actor": "external_ml_researcher",
+      "goal": "audit_a_bounded_binary_tabular_classification_claim_from_local_data_and_a_versioned_specification",
+      "minimum_release": "0.1.0",
+      "entry_command": "mlcra audit --spec claim.json --data data.csv --output-dir run",
+      "required_inputs": ["local_utf8_csv", "versioned_json_claim_specification", "explicit_target_column"],
+      "success_outcome": "a_schema_valid_hash_bound_evidence_bundle_and_a_bounded_verdict_are_created_without_hidden_network_access",
+      "non_goal": "automatic_selection_of_the_best_model_or_universal_superiority",
+      "acceptance_rule": "one_clean_install_external_fixture_and_one_registered_miniboone_fixture_both_pass_the_same_public_cli_contract"
+    },
+    {
+      "scenario_id": "ST08-SCN-02",
+      "priority": "P0",
+      "actor": "independent_reviewer",
+      "goal": "verify_an_existing_evidence_bundle_without_refitting_models",
+      "minimum_release": "0.1.0",
+      "entry_command": "mlcra verify --bundle run",
+      "required_inputs": ["local_evidence_bundle", "bundle_manifest", "registered_schema_versions"],
+      "success_outcome": "integrity_schema_provenance_relations_and_verdict_recompute_or_fail_closed",
+      "non_goal": "scientific_revalidation_by_software_regression_alone",
+      "acceptance_rule": "all_positive_fixture_relations_pass_and_all_registered_tampering_mutations_are_rejected"
+    },
+    {
+      "scenario_id": "ST08-SCN-03",
+      "priority": "P0",
+      "actor": "release_maintainer",
+      "goal": "determine_whether_the_installed_environment_and_release_candidate_satisfy_declared_gates",
+      "minimum_release": "0.1.0",
+      "entry_command": "mlcra doctor --format json",
+      "required_inputs": ["installed_distribution", "declared_dependency_and_python_constraints"],
+      "success_outcome": "a_machine_readable_environment_and_release_prerequisite_report_is_emitted",
+      "non_goal": "automatic_release_or_acceptance_on_behalf_of_john",
+      "acceptance_rule": "every_declared_supported_environment_returns_the_same_contract_version_and_no_silent_blocker"
+    },
+    {
+      "scenario_id": "ST08-SCN-04",
+      "priority": "P1",
+      "actor": "tabular_regression_researcher",
+      "goal": "audit_a_bounded_tabular_regression_claim_through_the_same_cli_and_application_core",
+      "minimum_release": "1.0.0",
+      "entry_command": "mlcra audit --spec regression_claim.json --data data.csv --output-dir run",
+      "required_inputs": ["local_utf8_csv", "versioned_regression_claim_specification", "numeric_target"],
+      "success_outcome": "a_regression_specific_evidence_bundle_and_bounded_verdict_are_created",
+      "non_goal": "regression_support_before_a_separately_registered_protocol_and_validation_block",
+      "acceptance_rule": "regression_characterization_scientific_validation_failure_mutations_and_clean_install_scenarios_all_pass_before_1_0_0"
+    },
+    {
+      "scenario_id": "ST08-SCN-05",
+      "priority": "P1",
+      "actor": "non_programmer_reader",
+      "goal": "inspect_the_same_validated_result_through_a_dashboard_and_bilingual_documentation",
+      "minimum_release": "1.0.0",
+      "entry_command": "not_applicable_dashboard_consumer",
+      "required_inputs": ["validated_application_service_result", "russian_or_english_locale"],
+      "success_outcome": "the_dashboard_displays_the_same_verdict_scope_limitations_and_provenance_as_the_cli_bundle",
+      "non_goal": "a_second_independent_computation_or_verdict_path",
+      "acceptance_rule": "dashboard_to_cli_golden_equivalence_and_bilingual_task_walkthrough_pass"
+    }
+  ],
+  "problem_support_boundary": {
+    "release_0_1_0": {
+      "binary_tabular_classification": "supported_vertical_slice",
+      "multiclass_classification": "explicitly_unsupported_fail_closed",
+      "tabular_regression": "explicitly_unsupported_fail_closed",
+      "accepted_data_source": "local_csv_only",
+      "model_definition": "versioned_allowlisted_model_and_preprocessing_identifiers_only",
+      "arbitrary_import_path_callable_or_pickle": "forbidden"
+    },
+    "release_1_0_0": {
+      "binary_tabular_classification": "required_supported",
+      "tabular_regression": "required_supported",
+      "multiclass_classification": "deferred_requires_separate_owner_and_protocol_decision",
+      "accepted_data_source": "local_csv_required_other_formats_need_separate_contract",
+      "model_definition": "versioned_allowlisted_adapters_with_documented_public_contract",
+      "dashboard": "required_consumer_of_same_validated_application_core"
+    },
+    "shared_invariants": [
+      "task_type_target_metric_direction_and_claim_are_explicit_before_execution",
+      "training_and_test_data_roles_are_defined_by_a_registered_protocol",
+      "unsupported_task_model_metric_or_schema_is_rejected_before_fit",
+      "negative_or_fragile_verdict_is_not_a_software_execution_failure",
+      "scientific_scope_is_never_inferred_from_a_filename_or_metric_alone"
+    ]
+  },
+  "cli_contract": {
+    "installed_command": "mlcra",
+    "packaging_mechanism": "pyproject_project_scripts_console_entry_point",
+    "subcommands": [
+      {
+        "name": "audit",
+        "purpose": "validate_inputs_execute_a_registered_claim_audit_and_write_a_new_evidence_bundle",
+        "required_options": ["--spec", "--data", "--output-dir"],
+        "forbidden_default": "network_access_or_output_overwrite"
+      },
+      {
+        "name": "verify",
+        "purpose": "validate_and_recompute_an_existing_evidence_bundle_without_model_fit",
+        "required_options": ["--bundle"],
+        "forbidden_default": "fit_or_artifact_repair"
+      },
+      {
+        "name": "doctor",
+        "purpose": "report_environment_contract_dependency_runtime_and_release_prerequisites_without_fit",
+        "required_options": [],
+        "forbidden_default": "environment_mutation_or_dependency_installation"
+      }
+    ],
+    "global_options": ["--help", "--version", "--format=text|json", "--no-color"],
+    "input_contract": {
+      "data": {
+        "format": "CSV_compatible_with_RFC_4180_profile",
+        "encoding": "UTF-8",
+        "header": "required",
+        "columns": "nonempty_unique_names",
+        "rows": "at_least_one_after_parsing",
+        "target": "explicitly_named_and_present",
+        "path_policy": "local_regular_file_no_implicit_url"
+      },
+      "specification": {
+        "format": "JSON",
+        "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+        "required_fields": ["schema_version", "claim_id", "task_type", "target", "candidate_model", "baseline_model", "primary_metric", "split_protocol", "seeds", "preprocessing_policy"],
+        "unknown_fields": "rejected_unless_the_versioned_schema_explicitly_allows_them",
+        "executable_payloads": "forbidden"
+      },
+      "security": {
+        "pickle_joblib_cloudpickle_and_arbitrary_python_imports": "forbidden_for_user_supplied_inputs",
+        "network": "deny_by_default_and_only_future_explicit_contract_may_enable",
+        "secrets": "must_not_be_accepted_or_written_as_claim_parameters"
+      }
+    },
+    "output_contract": {
+      "overwrite_policy": "fail_if_output_directory_exists_unless_a_future_explicit_resume_contract_applies",
+      "atomicity_policy": "write_to_staging_validate_then_publish_complete_bundle_or_leave_diagnostic_failure_without_claiming_success",
+      "required_artifacts": [
+        "run_manifest.json",
+        "input_validation.json",
+        "environment.json",
+        "provenance.json",
+        "audit_summary.json",
+        "verdict.json",
+        "warnings.json",
+        "artifact_index.json"
+      ],
+      "manifest_minimum": ["contract_version", "software_version", "command", "input_hashes", "spec_hash", "artifact_hashes", "started_at", "completed_at", "exit_code", "network_attempts"],
+      "stdout": "one_human_summary_or_one_json_result_envelope_selected_by_format",
+      "stderr": "diagnostics_and_errors_only",
+      "success_disclosure": "verdict_scope_limitations_primary_metric_and_output_bundle_path_are_always_present"
+    },
+    "exit_codes": [
+      {"code": 0, "meaning": "contract_valid_execution_completed", "includes": ["supported_verdict", "negative_verdict", "fragile_verdict"]},
+      {"code": 2, "meaning": "command_line_usage_or_argument_error", "includes": ["unknown_option", "missing_required_option", "invalid_choice"]},
+      {"code": 3, "meaning": "input_or_specification_contract_error", "includes": ["missing_file", "csv_schema_error", "json_schema_error", "unsupported_task_or_model"]},
+      {"code": 4, "meaning": "evidence_blocked_or_insufficient_for_a_valid_verdict", "includes": ["missing_required_evidence", "unresolved_provenance", "protocol_precondition_not_met"]},
+      {"code": 5, "meaning": "controlled_execution_or_environment_failure", "includes": ["dependency_or_runtime_contract_failure", "fit_failure", "resource_failure"]},
+      {"code": 6, "meaning": "internal_invariant_or_bundle_integrity_failure", "includes": ["hash_mismatch", "impossible_aggregate", "partial_publish_detected"]}
+    ],
+    "diagnostic_contract": {
+      "required_fields": ["error_code", "phase", "artifact_or_field", "expected", "actual", "severity", "action_taken", "user_action", "rule_source"],
+      "uncaught_traceback_default": "forbidden_in_normal_user_mode",
+      "json_mode": "one_machine_readable_error_envelope_on_stderr",
+      "text_mode": "plain_russian_or_english_actionable_message_selected_by_locale"
+    }
+  },
+  "release_train": [
+    {
+      "gate_id": "ST08-GATE-PUBLIC-DEVELOPMENT",
+      "target": "public_development_repository",
+      "version": "unversioned_development_state",
+      "required_before_pass": [
+        "ST08_04_accepted_and_closed_by_john",
+        "miniboone_lineage_license_attribution_and_derived_artifact_dispositions_reconciled",
+        "MIT_LICENSE_and_CITATION_cff_created_and_validated",
+        "root_README_states_bounded_claim_non_release_status_and_no_support_promise",
+        "SECURITY_policy_and_secret_scan_pass",
+        "raw_data_caches_virtual_environments_secrets_and_candidate_outputs_excluded",
+        "john_explicit_public_repository_authorization"
+      ],
+      "fail_closed_rule": "any_missing_legal_documentation_security_or_owner_prerequisite_blocks_publication"
+    },
+    {
+      "gate_id": "ST08-GATE-0.1.0",
+      "target": "first_supported_installable_release",
+      "version": "0.1.0",
+      "required_before_pass": [
+        "public_development_gate_pass",
+        "standard_pyproject_metadata_builds_sdist_and_wheel",
+        "exact_supported_python_and_dependency_matrix_declared",
+        "clean_install_build_install_import_and_mlcra_command_pass_on_every_declared_environment",
+        "binary_classification_audit_verify_and_doctor_P0_scenarios_pass",
+        "unsupported_regression_multiclass_pickle_network_and_overwrite_cases_fail_closed",
+        "all_required_output_schemas_hashes_and_exit_codes_pass_positive_and_negative_tests",
+        "RU_and_EN_quickstart_install_verify_and_troubleshooting_walkthrough_pass",
+        "zero_unresolved_critical_or_high_release_security_findings_or_explicit_john_risk_acceptance",
+        "repeat_stage08_release_candidate_audit_pass_for_the_0_1_0_release_class",
+        "john_explicit_0_1_0_release_authorization"
+      ],
+      "semver_interpretation": "initial_development_public_API_may_change_but_each_released_artifact_is_immutable",
+      "fail_closed_rule": "one_failed_declared_environment_P0_scenario_security_blocker_or_owner_gate_blocks_0_1_0"
+    },
+    {
+      "gate_id": "ST08-GATE-1.0.0",
+      "target": "complete_stage1_public_product_boundary",
+      "version": "1.0.0",
+      "required_before_pass": [
+        "0_1_0_gate_pass_and_post_release_findings_disposed",
+        "public_CLI_API_input_output_exit_and_schema_contract_declared_stable",
+        "binary_classification_and_tabular_regression_scenarios_pass_separate_registered_scientific_and_software_validation",
+        "dashboard_uses_the_same_validated_application_core_and_matches_CLI_golden_results",
+        "complete_Russian_and_English_documentation_walkthroughs_pass",
+        "technical_report_reproducible_pipeline_CLI_dashboard_docs_and_public_repository_all_trace_to_stage1",
+        "all_P0_and_P1_scenarios_and_release_metrics_pass",
+        "zero_unresolved_project_or_release_blockers",
+        "repeat_stage08_project_completion_and_release_readiness_audit_pass",
+        "john_explicit_1_0_0_release_authorization"
+      ],
+      "semver_interpretation": "version_1_0_0_defines_the_documented_public_API",
+      "fail_closed_rule": "missing_regression_dashboard_bilingual_documentation_stable_API_or_owner_gate_blocks_1_0_0"
+    }
+  ],
+  "objective_metrics": [
+    {"metric_id": "ST08-MET-01", "name": "blocking_scenario_pass_rate", "calculation": "passed_P0_scenarios/registered_P0_scenarios", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-02", "name": "full_scenario_pass_rate", "calculation": "passed_required_scenarios/required_scenarios_for_gate", "threshold": "1.0", "applies_to": ["1.0.0"]},
+    {"metric_id": "ST08-MET-03", "name": "requirements_trace_coverage", "calculation": "requirements_with_source_test_and_release_gate/mandatory_requirements", "threshold": "1.0", "applies_to": ["public_development", "0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-04", "name": "declared_environment_pass_rate", "calculation": "clean_environments_passing_build_install_import_CLI/declared_supported_environments", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-05", "name": "negative_contract_rejection_rate", "calculation": "registered_invalid_cases_rejected/registered_invalid_cases", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-06", "name": "diagnostic_actionability_rate", "calculation": "negative_cases_with_all_required_diagnostic_fields/negative_cases", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-07", "name": "artifact_traceability_rate", "calculation": "required_artifacts_hash_bound_to_input_spec_protocol_software/required_artifacts", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-08", "name": "documentation_walkthrough_pass_rate", "calculation": "successful_declared_language_workflows/declared_language_workflows", "threshold": "1.0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-09", "name": "hidden_network_or_manual_code_edits", "calculation": "count_during_P0_happy_paths", "threshold": "0", "applies_to": ["0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-10", "name": "unresolved_release_blockers", "calculation": "count_at_release_decision", "threshold": "0", "applies_to": ["public_development", "0.1.0", "1.0.0"]},
+    {"metric_id": "ST08-MET-11", "name": "dashboard_CLI_golden_mismatches", "calculation": "count_for_registered_shared_core_cases", "threshold": "0", "applies_to": ["1.0.0"]},
+    {"metric_id": "ST08-MET-12", "name": "external_user_utility_observation", "calculation": "task_completion_time_errors_and_feedback_recorded_for_each_formal_external_walkthrough", "threshold": "recorded_not_yet_a_release_threshold_until_a_separate_prospective_usability_protocol_is_authorized", "applies_to": ["0.1.0", "1.0.0"]}
+  ],
+  "stage1_traceability": [
+    {"stage1_output": "technical_report", "future_block_ids": ["ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation"], "release_gate": "1.0.0", "finding_ids": ["ST08-FIND-01", "ST08-FIND-04"]},
+    {"stage1_output": "reproducible_validation_pipeline", "future_block_ids": ["ST08_07_python_packaging_dependency_and_clean_environment_contract", "ST08_09_CI_security_and_release_candidate_assurance", "ST08_13_release_candidate_completion_security_and_readiness_reaudit"], "release_gate": "0.1.0_and_1.0.0", "finding_ids": ["ST08-FIND-03", "ST08-FIND-08"]},
+    {"stage1_output": "CLI_tool", "future_block_ids": ["ST08_08_universal_CLI_classification_vertical_slice", "ST08_11_tabular_regression_protocol_core_and_CLI_support"], "release_gate": "0.1.0_and_1.0.0", "finding_ids": ["ST08-FIND-02", "ST08-FIND-05"]},
+    {"stage1_output": "dashboard", "future_block_ids": ["ST08_12_dashboard_shared_core_and_CLI_golden_equivalence"], "release_gate": "1.0.0", "finding_ids": ["ST08-FIND-02"]},
+    {"stage1_output": "bilingual_documentation", "future_block_ids": ["ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation"], "release_gate": "1.0.0", "finding_ids": ["ST08-FIND-01", "ST08-FIND-04"]},
+    {"stage1_output": "public_GitHub_repository", "future_block_ids": ["ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition", "ST08_06_project_license_citation_and_public_repository_legal_artifacts", "ST08_09_CI_security_and_release_candidate_assurance", "ST08_13_release_candidate_completion_security_and_readiness_reaudit"], "release_gate": "public_development_and_later", "finding_ids": ["ST08-FIND-06", "ST08-FIND-07", "ST08-FIND-08", "ST08-FIND-09"]},
+    {"stage1_output": "tabular_classification", "future_block_ids": ["ST08_08_universal_CLI_classification_vertical_slice"], "release_gate": "0.1.0_and_1.0.0", "finding_ids": ["ST08-FIND-02"]},
+    {"stage1_output": "tabular_regression", "future_block_ids": ["ST08_11_tabular_regression_protocol_core_and_CLI_support"], "release_gate": "1.0.0", "finding_ids": ["ST08-FIND-02"]}
+  ],
+  "proposed_release_train_blocks": [
+    {"order": 1, "task_id": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition", "objective": "resolve_ST08_FIND_07_before_any_publication", "status": "proposed_not_authorized"},
+    {"order": 2, "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts", "objective": "implement_John_approved_MIT_and_citation_identity_without_publishing", "status": "proposed_not_authorized"},
+    {"order": 3, "task_id": "ST08_07_python_packaging_dependency_and_clean_environment_contract", "objective": "define_and_validate_reconstructible_distribution_metadata_and_environment_matrix", "status": "proposed_not_authorized"},
+    {"order": 4, "task_id": "ST08_08_universal_CLI_classification_vertical_slice", "objective": "implement_audit_verify_doctor_for_bounded_binary_classification_and_fail_closed_unsupported_cases", "status": "proposed_not_authorized"},
+    {"order": 5, "task_id": "ST08_09_CI_security_and_release_candidate_assurance", "objective": "add_continuous_clean_install_contract_mutation_secret_dependency_and_archive_checks", "status": "proposed_not_authorized"},
+    {"order": 6, "task_id": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation", "objective": "repair_current_paths_and_create_executable_RU_EN_onboarding_after_the_interface_is_real", "status": "proposed_not_authorized"},
+    {"order": 7, "task_id": "ST08_11_tabular_regression_protocol_core_and_CLI_support", "objective": "design_implement_and_validate_regression_without_broadening_the_MiniBooNE_claim", "status": "proposed_not_authorized"},
+    {"order": 8, "task_id": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence", "objective": "implement_dashboard_as_a_consumer_of_the_same_validated_application_core", "status": "proposed_not_authorized"},
+    {"order": 9, "task_id": "ST08_13_release_candidate_completion_security_and_readiness_reaudit", "objective": "repeat_fail_closed_stage08_audit_and_prepare_an_owner_release_decision", "status": "proposed_not_authorized"},
+    {"order": 10, "task_id": "ST08_14_external_publication_or_release", "objective": "perform_only_the_specific_external_action_separately_authorized_by_John", "status": "proposed_not_authorized"}
+  ],
+  "design_validation": {
+    "required_counts": {"stakeholder_scenarios": 5, "exit_codes": 6, "release_gates": 3, "objective_metrics": 12, "stage1_trace_rows": 8, "proposed_blocks": 10},
+    "positive_rules": [
+      "all_identifiers_unique",
+      "every_P0_scenario_has_command_inputs_success_non_goal_and_acceptance",
+      "all_release_gates_have_prerequisites_and_fail_closed_rule",
+      "all_stage1_outputs_trace_to_at_least_one_future_block_and_release_gate",
+      "0_1_0_rejects_regression_and_1_0_0_requires_regression",
+      "negative_scientific_verdict_is_exit_zero_but_insufficient_evidence_is_nonzero",
+      "all_proposed_blocks_are_not_authorized",
+      "implementation_release_training_and_scientific_changes_are_false"
+    ],
+    "negative_mutations": [
+      "duplicate_identifier",
+      "missing_stakeholder_acceptance_rule",
+      "missing_CLI_input_schema",
+      "pickle_or_arbitrary_import_allowed",
+      "negative_verdict_mapped_to_execution_failure",
+      "insufficient_evidence_mapped_to_success",
+      "regression_claimed_supported_at_0_1_0",
+      "regression_missing_from_1_0_0",
+      "release_gate_without_owner_decision",
+      "release_gate_with_unresolved_blocker_allowed",
+      "stage1_output_without_future_block",
+      "future_block_marked_authorized",
+      "dashboard_uses_separate_verdict_logic",
+      "output_overwrite_enabled_by_default",
+      "network_enabled_by_default",
+      "scientific_claim_broadened",
+      "external_user_utility_claimed_without_observation"
+    ]
+  },
+  "authoritative_support": [
+    {"source": "ISO/IEC/IEEE 29148:2018", "uri": "https://www.iso.org/standard/72089.html", "use": "requirements_processes_information_items_and_traceable_contract_design"},
+    {"source": "NIST AI RMF 1.0 Core", "uri": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/", "use": "intended_context_users_metrics_risk_priority_and_proceed_decision"},
+    {"source": "Python Packaging pyproject.toml specification", "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/", "use": "distribution_metadata_dependencies_python_requirement_license_and_scripts"},
+    {"source": "Python Packaging entry points specification", "uri": "https://packaging.python.org/en/latest/specifications/entry-points/", "use": "installed_console_command_and_process_exit_code_contract"},
+    {"source": "Python Packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "source_to_sdist_wheel_install_release_train_boundary"},
+    {"source": "Python argparse documentation", "uri": "https://docs.python.org/3/library/argparse.html", "use": "argument_error_stderr_and_exit_code_2_convention"},
+    {"source": "Python pickle security documentation", "uri": "https://docs.python.org/3/library/pickle.html", "use": "forbid_untrusted_executable_serialization_inputs"},
+    {"source": "JSON Schema Draft 2020-12", "uri": "https://json-schema.org/draft/2020-12", "use": "versioned_machine_readable_input_and_output_validation"},
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "0_y_z_initial_development_and_1_0_0_public_API_boundary"},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "integrated_release_security_provenance_and_vulnerability_risk_practices"},
+    {"source": "ISO 9241-11:2018", "uri": "https://www.iso.org/standard/63500.html", "use": "utility_metrics_as_outcomes_for_specified_users_goals_and_context_without_inventing_a_universal_threshold"},
+    {"source": "ML-CRA Stage 1", "path": "docs/stages/stage_01_project_scope.md", "use": "accepted_outputs_and_tabular_classification_plus_regression_boundary"},
+    {"source": "ML-CRA ST08_03 owner decisions", "path": "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json", "use": "owner_approved_product_release_legal_identity_and_priority_boundary"}
+  ],
+  "remaining_uncertainty": [
+    "The exact supported CPython and dependency version matrix requires a future packaging compatibility block and is not inferred from the current venv.",
+    "A regression dataset claim protocol metrics and verdict policy require separate prospective authorization and validation.",
+    "Multiclass classification is not included in the 1.0.0 minimum without a separate owner decision.",
+    "The dashboard technology stack remains intentionally unspecified until the shared application core exists.",
+    "PyPI publication remains a separate owner decision and is not implied by building a wheel.",
+    "Actual community benefit and usability cannot be claimed before observed external use; ST08-MET-12 records evidence but sets no unsupported universal threshold.",
+    "The checkpoint ml_cra_v54.zip described by John was not accessible in the inspected workspace Desktop Documents or Downloads locations; the current workspace baseline is independently hash-bound instead."
+  ]
+}

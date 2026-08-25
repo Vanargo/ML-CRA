@@ -1,0 +1,89 @@
+{
+  "actual_change_log": [
+    "docs/agent/st07_19_artifact_context_and_provenance_change_scope_v01.csv",
+    "src/mlcra/nested_cv.py",
+    "src/mlcra/nested_artifacts.py",
+    "scripts/st07_16_fixture_harness.py",
+    "scripts/st07_17_miniboone_v02_runner.py",
+    "scripts/agent_verify.py",
+    "data_registry/st07_19_nested_cv_v02_artifact_context_and_provenance_contract_evidence_v01.json",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "authority": "NEXT_BLOCK_AUTHORIZED: ST07_19_nested_cv_v02_artifact_context_and_provenance_contract",
+  "canonical_v02_outputs_created": 0,
+  "candidate_csv_edited": false,
+  "checkpoint": {
+    "filename": "ml-cra_v32.zip",
+    "location": "C:/Users/Vanargo/Downloads/ml-cra_v32.zip",
+    "sha256_recorded_in_handoff": true,
+    "status": "created_and_verified_after_final_gate"
+  },
+  "checks": {
+    "fixture_dual_process_regression": "PASS",
+    "fixture_provenance_exact": "PASS",
+    "offline_miniboone_preflight": "PASS",
+    "python_syntax": "PASS",
+    "scientific_candidate_context_characterization": "PASS",
+    "final_agent_pilot": "PASS"
+  },
+  "code_hashes_after_implementation_before_final_documentary_sync": {
+    "scripts/agent_verify.py": "cc32ec203be957e366768f4c54fbc921bd03ef997d57611f806c7f2f568d9fb7",
+    "scripts/st07_16_fixture_harness.py": "aefd6c4c87dbd821fb690ac5082b4ecd5d4ba771c45cb19afb699f706580c5be",
+    "scripts/st07_17_miniboone_v02_runner.py": "aad089749bd2795651912afb438f547a7feba3ffb5500e52a394c978a6fa68ea",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "804050fbcd8e8a9f10f495ed11de1786677af559c15a4c7f77d955bf24fa6ba9"
+  },
+  "code_hashes_before": {
+    "scripts/agent_verify.py": "afc5b7b241e0af5ca0c38ba982ecfe0261b0357100c887a9701579b68e5033b8",
+    "scripts/st07_16_fixture_harness.py": "4967b785f324d9cabd18a06008486b2383285f0a46785952d56095e76a4d138c",
+    "scripts/st07_17_miniboone_v02_runner.py": "1387a2dbc92709274eab04b802722738972b8381e8a123d5c5bf1c7c479f89d2",
+    "src/mlcra/nested_artifacts.py": "204587e6c7c9d84a54044622140e9ebab2c6389448592618da059f990c563cad",
+    "src/mlcra/nested_cv.py": "0e0f8ae932121796618df84a3b64be9d5cbf92d7915ecdbc9a504d6ec4ba516d"
+  },
+  "context_contract": {
+    "allowed_contexts": [
+      "st07_16_software_fixture",
+      "miniboone_v02_scientific_candidate"
+    ],
+    "fixture_behavior_preserved_exact": true,
+    "invalid_or_missing_context_policy": "fail_closed_before_first_fit",
+    "scientific_candidate_label": "scientific-validation candidate artifact; noncanonical and not promoted"
+  },
+  "created_at_utc": "2026-08-01T10:30:20.8367412Z",
+  "deviations_from_planned_change_set": [],
+  "full_miniboone_training_performed": false,
+  "network_access_performed": false,
+  "negative_cases": {
+    "rejected": 8,
+    "total": 8
+  },
+  "planned_change_set": [
+    "docs/agent/st07_19_artifact_context_and_provenance_change_scope_v01.csv",
+    "src/mlcra/nested_cv.py",
+    "src/mlcra/nested_artifacts.py",
+    "scripts/st07_16_fixture_harness.py",
+    "scripts/st07_17_miniboone_v02_runner.py",
+    "scripts/agent_verify.py",
+    "data_registry/st07_19_nested_cv_v02_artifact_context_and_provenance_contract_evidence_v01.json",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "promotion_performed": false,
+  "protected_hashes": {
+    "data_registry/openml_miniboone_nested_cv_v02_expected_output_schema.csv": "761b71c9a81438612bed59bc23ac9c382715ab447269fae53daf45f71239f672",
+    "data_registry/openml_miniboone_nested_cv_v02_protocol_lock.csv": "762f02b8b74e3fc5e9f5c75658021f9a384f974316be8d5e6b748478be7dbe9c",
+    "data_registry/st07_18_nested_cv_v02_dual_run_reproducibility_validation_evidence_v01.json": "a83620fba7bc84f9e57787f2d93637d9630221be5d9b596b97908dfff435f93c"
+  },
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "scientific_interpretation": "software_verification_only; no_new_miniboone_scientific_validation; no_stage05_claim_or_verdict_change",
+  "sources": [
+    "https://www.w3.org/TR/prov-o/",
+    "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+    "https://docs.python.org/3.12/library/enum.html",
+    "bio_inspired_project_engineering_standard_v02.md sections 18 20 23 24"
+  ],
+  "task_id": "ST07_19_nested_cv_v02_artifact_context_and_provenance_contract",
+  "task_profile": "CHANGE",
+  "technical_status": "PASS"
+}

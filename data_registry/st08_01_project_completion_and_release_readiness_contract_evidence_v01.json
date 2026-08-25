@@ -1,0 +1,132 @@
+{
+  "record_id": "st08_01_project_completion_and_release_readiness_contract_evidence_v01",
+  "task_id": "ST08_01_project_completion_and_release_readiness_contract_design",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы",
+  "recorded_at": "2026-08-13",
+  "authorization": {
+    "accepted_previous_task": "STAGE07_closure_registration_and_next_stage_selection",
+    "closed_previous_task": "STAGE07_closure_registration_and_next_stage_selection",
+    "next_block_authorized": "ST08_01_project_completion_and_release_readiness_contract_design",
+    "audit_execution_authorized": false,
+    "release_authorized": false
+  },
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v51.zip",
+    "sha256": "2d3ba63540a4284f1652e9aca57a5ad7fa731d64118be9171c69757a3c706260",
+    "size_bytes": 1130649,
+    "entries": 271,
+    "files": 269,
+    "unique_entries": 271,
+    "workspace_missing_before_task": 0,
+    "workspace_extra_before_task": 0,
+    "workspace_mismatches_before_task": 0
+  },
+  "contract": {
+    "requirements_path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv",
+    "requirements_total": 24,
+    "dimensions_total": 8,
+    "requirements_per_dimension": 3,
+    "design_status": "NOT_EVALUATED",
+    "allowed_future_statuses": ["PASS", "FAIL", "BLOCKED", "SKIPPED"],
+    "conditional_requirements": ["ST08-REQ-17"],
+    "mandatory_requirements": 23
+  },
+  "dimension_contracts": [
+    {"dimension_id": "D01", "name": "mission_and_scope", "requirement_ids": ["ST08-REQ-01", "ST08-REQ-02", "ST08-REQ-03"]},
+    {"dimension_id": "D02", "name": "scientific_evidence", "requirement_ids": ["ST08-REQ-04", "ST08-REQ-05", "ST08-REQ-06"]},
+    {"dimension_id": "D03", "name": "software_verification", "requirement_ids": ["ST08-REQ-07", "ST08-REQ-08", "ST08-REQ-09"]},
+    {"dimension_id": "D04", "name": "reproducibility_and_provenance", "requirement_ids": ["ST08-REQ-10", "ST08-REQ-11", "ST08-REQ-12"]},
+    {"dimension_id": "D05", "name": "documentation_and_usability", "requirement_ids": ["ST08-REQ-13", "ST08-REQ-14", "ST08-REQ-15"]},
+    {"dimension_id": "D06", "name": "packaging_and_distribution", "requirement_ids": ["ST08-REQ-16", "ST08-REQ-17", "ST08-REQ-18"]},
+    {"dimension_id": "D07", "name": "legal_and_citation", "requirement_ids": ["ST08-REQ-19", "ST08-REQ-20", "ST08-REQ-21"]},
+    {"dimension_id": "D08", "name": "governance_security_and_release", "requirement_ids": ["ST08-REQ-22", "ST08-REQ-23", "ST08-REQ-24"]}
+  ],
+  "aggregation_rules": {
+    "dimension_pass": "all mandatory PASS and each conditional PASS or justified SKIPPED",
+    "dimension_fail": "any FAIL",
+    "dimension_blocked": "no FAIL and at least one BLOCKED or NOT_EVALUATED",
+    "project_completion_pass_dimensions": ["D01", "D02", "D03", "D04", "D05", "D08"],
+    "external_release_pass_dimensions": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08"],
+    "release_pass_requires_zero_unresolved_release_blockers": true,
+    "john_acceptance_required": true
+  },
+  "golden_audit_artifact_design": {
+    "schema_version": "stage08_project_completion_and_release_readiness_audit_v01",
+    "requirements_total": 24,
+    "dimensions_total": 8,
+    "requirement_result_fields": ["requirement_id", "status", "observed_evidence", "evidence_paths", "verification_command_or_method", "finding_id", "disposition"],
+    "aggregate_fields": ["dimension_results", "project_completion_verdict", "external_release_readiness", "release_class", "open_findings", "residual_risks", "john_decision_required"],
+    "release_classes": ["internal_research_snapshot", "documented_evidence_package", "source_release", "python_distribution", "not_ready"],
+    "negative_mutation_classes": ["duplicate_requirement_id", "unknown_dimension", "unknown_status", "missing_rule", "missing_source", "missing_evidence_path", "missing_verification_method", "premature_pass", "mandatory_skipped", "wrong_dimension_aggregate", "release_pass_with_nonpass_dimension", "silent_finding", "protected_hash_mismatch", "inferred_john_acceptance"]
+  },
+  "authoritative_support": [
+    {"source": "ISO/IEC/IEEE 15288:2023", "uri": "https://www.iso.org/standard/81702.html", "use": "system life-cycle processes and controlled transition"},
+    {"source": "ISO/IEC/IEEE 29148:2018", "uri": "https://www.iso.org/standard/72089.html", "use": "requirements engineering and traceable information items"},
+    {"source": "ISO/IEC 25010:2023", "uri": "https://www.iso.org/standard/78176.html", "use": "product quality model and acceptance criteria"},
+    {"source": "ISO/IEC 25040:2024", "uri": "https://www.iso.org/standard/83467.html", "use": "quality evaluation framework"},
+    {"source": "NASA NPR 7123.1D Chapter 5 and Appendix G", "uri": "https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7123_001D_&page_name=Chapter5", "use": "review completion, action disposition, success criteria, and decision authority"},
+    {"source": "NIST AI RMF 1.0 Core", "uri": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/", "use": "purpose, measurement, residual risk, and proceed decision"},
+    {"source": "NIST SP 500-234", "uri": "https://doi.org/10.6028/NIST.SP.500-234", "use": "software verification and validation process"},
+    {"source": "NIST IR 8397", "uri": "https://doi.org/10.6028/NIST.IR.8397", "use": "minimum developer verification techniques"},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://doi.org/10.6028/NIST.SP.800-218", "use": "release integrity, archive, security, and provenance"},
+    {"source": "National Academies Reproducibility and Replicability in Science", "uri": "https://nap.nationalacademies.org/catalog/25303/reproducibility-and-replicability-in-science", "use": "computational reproducibility and scientific integrity"},
+    {"source": "Python Packaging User Guide pyproject.toml specification", "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/", "use": "standardized Python build and project metadata"},
+    {"source": "GitHub Docs Licensing a repository", "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository", "use": "legal consequence of no license and open-source release boundary"},
+    {"source": "Citation File Format 1.2.0", "uri": "https://citation-file-format.github.io/", "use": "machine-readable research software citation metadata"}
+  ],
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st08_01_project_completion_and_release_readiness_contract_change_scope_v01.csv",
+      "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv",
+      "data_registry/st08_01_project_completion_and_release_readiness_contract_evidence_v01.json",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "scripts/agent_verify.py",
+      "roadmap.md"
+    ]
+  },
+  "objective_metrics": {
+    "requirements": 24,
+    "dimensions": 8,
+    "not_evaluated_requirements": 24,
+    "protected_artifacts": 18,
+    "protected_mismatches": 0,
+    "negative_mutation_classes_designed": 14,
+    "new_training_runs": 0,
+    "network_attempts": 0,
+    "scientific_artifact_changes": 0,
+    "audit_results_created": 0,
+    "external_side_effects": 0
+  },
+  "verification_result": {"focused_gate": "PASS", "baseline": "PASS", "cumulative_pilot": "PASS"},
+  "actual_change_log": {"planned_paths": 6, "actual_paths": 6, "deviations": 0},
+  "scientific_interpretation_limit": "ST08_01 designs project-level criteria only. It neither revalidates the Stage 5 scientific claim nor establishes project completion or release readiness.",
+  "remaining_uncertainties": [
+    "John has not yet classified CLI, dashboard, bilingual documentation, public repository, Python distribution, and release audience as required, optional, deferred, or out of current scope.",
+    "John must choose a license or explicitly approve non-open distribution before any open-source claim.",
+    "Dataset redistribution and citation sufficiency remain to be evaluated, not inferred."
+  ],
+  "proposed_next_block": {"task_id": "ST08_02_project_completion_and_release_readiness_baseline_audit", "status": "proposed_not_authorized", "implementation_started": false},
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

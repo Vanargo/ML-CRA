@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Vanargo/ML-CRA/schemas/tabular_regression_claim_v01.schema.json",
+  "title": "ML-CRA bounded tabular regression claim v01",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "claim_id",
+    "task_type",
+    "target",
+    "sampling_assumption",
+    "candidate_model",
+    "baseline_model",
+    "primary_metric",
+    "split_protocol",
+    "seeds",
+    "preprocessing_policy",
+    "verdict_policy",
+    "minimum_mean_delta"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mlcra_tabular_regression_claim_v01"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "task_type": {
+      "const": "tabular_regression"
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "sampling_assumption": {
+      "const": "exchangeable_rows"
+    },
+    "candidate_model": {
+      "const": "hist_gradient_boosting_regressor_v01"
+    },
+    "baseline_model": {
+      "const": "ridge_regression_v01"
+    },
+    "primary_metric": {
+      "const": "root_mean_squared_error"
+    },
+    "split_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "n_splits"],
+      "properties": {
+        "kind": {
+          "const": "k_fold_v01"
+        },
+        "n_splits": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10
+        }
+      }
+    },
+    "seeds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "preprocessing_policy": {
+      "const": "numeric_complete_standardize_ridge_passthrough_hgb_regressor_v01"
+    },
+    "verdict_policy": {
+      "const": "paired_primary_metric_consistency_v01"
+    },
+    "minimum_mean_delta": {
+      "type": "number",
+      "minimum": 0.0
+    }
+  }
+}

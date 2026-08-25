@@ -1,0 +1,195 @@
+{
+  "record_id": "stage07_closure_and_next_stage_selection_evidence_v01",
+  "task_id": "STAGE07_closure_registration_and_next_stage_selection",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы",
+  "recorded_at": "2026-08-13",
+  "user_decisions": {
+    "accepted_by_john": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+    "task_closed": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+    "stage_closed_by_john": "Stage_7"
+  },
+  "source_baseline": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v49.zip",
+    "sha256": "5111e1450c67f6158cbc0db1705baa600e3656180990bf2e817c57a34185be80",
+    "size_bytes": 1122982,
+    "entries": 267,
+    "unique_entries": 267,
+    "duplicate_entries": 0,
+    "workspace_missing_before_task": 0,
+    "workspace_extra_before_task": 0,
+    "workspace_mismatches_before_task": 0
+  },
+  "closure_basis": {
+    "st07_36_technical_status": "PASS",
+    "criteria_pass": 7,
+    "criteria_fail": 0,
+    "criteria_blocked": 0,
+    "john_acceptance_registered": true,
+    "john_task_closure_registered": true,
+    "john_stage_closure_registered": true,
+    "stage07_status": "closed_by_john"
+  },
+  "post_stage07_gap_inventory": {
+    "stage08_document_exists": false,
+    "root_readme_exists": false,
+    "python_packaging_metadata_exists": false,
+    "environment_lock_or_requirements_exists": false,
+    "license_file_exists": false,
+    "citation_file_exists": false,
+    "dedicated_tests_directory_exists": false,
+    "supported_cli_or_dashboard_exists": false,
+    "stage06_registered_status": "limited_publication_ready_as_documented_evidence_record",
+    "interpretation": "Stage 7 removed the registered modular-computation gap, but current evidence does not itself establish project-wide completion or release readiness. A criteria-first project-level audit contract is required before release, publication, new experiments, or product expansion."
+  },
+  "selection_method": {
+    "method": "weighted_multi_criteria_decision_analysis",
+    "scale": "1_to_5",
+    "criteria_weights": {
+      "mission_alignment": 0.30,
+      "dependency_ordering": 0.25,
+      "risk_separation": 0.20,
+      "objective_verifiability": 0.15,
+      "cost_and_reversibility": 0.10
+    },
+    "alternatives": [
+      {
+        "alternative_id": "A",
+        "name": "ST08_01_project_completion_and_release_readiness_contract_design",
+        "scores": [5, 5, 5, 5, 5],
+        "weighted_score": 5.00,
+        "selected": true
+      },
+      {
+        "alternative_id": "B",
+        "name": "immediate_project_wide_release_audit_without_baselined_criteria",
+        "scores": [4, 2, 3, 3, 4],
+        "weighted_score": 3.15,
+        "selected": false
+      },
+      {
+        "alternative_id": "C",
+        "name": "immediate_external_release_or_publication",
+        "scores": [4, 2, 1, 2, 1],
+        "weighted_score": 2.30,
+        "selected": false
+      },
+      {
+        "alternative_id": "D",
+        "name": "start_a_new_dataset_or_claim_experiment",
+        "scores": [3, 1, 2, 3, 2],
+        "weighted_score": 2.20,
+        "selected": false
+      },
+      {
+        "alternative_id": "E",
+        "name": "start_cli_or_dashboard_product_expansion",
+        "scores": [2, 1, 2, 3, 2],
+        "weighted_score": 1.90,
+        "selected": false
+      }
+    ]
+  },
+  "proposed_next_block": {
+    "task_id": "ST08_01_project_completion_and_release_readiness_contract_design",
+    "status": "proposed_not_authorized",
+    "implementation_started": false,
+    "measurable_outcome": "Create the first Stage 8 normative contract and machine-checkable requirements traceability matrix that map the bounded ML-CRA mission and Stage 1-7 outputs to project-completion and release-readiness criteria, protected artifacts, verification methods, pass-fail-blocked semantics, and explicit residual risks.",
+    "minimum_acceptance_criteria": [
+      "Stage 8 scope and exclusions are explicit and do not broaden the Stage 5 scientific claim",
+      "every project-level completion and release-readiness requirement has a source, verification method, evidence path, and PASS_FAIL_BLOCKED rule",
+      "Stage 6 limited-publication findings are re-evaluated against the accepted Stage 7 modular state rather than assumed resolved",
+      "software verification, scientific validation, documentary consistency, packaging, and external-publication readiness remain separate verdict dimensions",
+      "protected claim, protocol, policy, scientific CSV, notebook, and modular source artifacts are hash-registered before any later audit",
+      "no external publication, release, new training, new dataset, new claim, CLI, dashboard, or deployment is performed in the design block"
+    ],
+    "explicitly_not_authorized": [
+      "creation of docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "implementation or execution of Stage 8",
+      "external release or publication",
+      "new training or network access",
+      "scientific claim protocol policy verdict or golden-master changes",
+      "CLI dashboard deployment or product-scope expansion"
+    ]
+  },
+  "authoritative_support": [
+    {
+      "source": "ISO/IEC/IEEE 15288:2023",
+      "uri": "https://www.iso.org/standard/81702.html",
+      "use": "life-cycle process and stakeholder-controlled transition framework"
+    },
+    {
+      "source": "ISO/IEC/IEEE 29148:2018",
+      "uri": "https://www.iso.org/standard/72089.html",
+      "use": "requirements and requirements-information-item discipline"
+    },
+    {
+      "source": "NASA NPR 7123.1D Chapter 5 and Appendix G",
+      "uri": "https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7123_001D_&page_name=Chapter5",
+      "use": "review completion, disposition, acceptance authority, and predeclared success criteria"
+    },
+    {
+      "source": "NIST AI RMF 1.0 Core",
+      "uri": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+      "use": "determine whether the system achieves intended purpose before proceeding and document residual risks"
+    },
+    {
+      "source": "NIST SP 500-234",
+      "uri": "https://doi.org/10.6028/NIST.SP.500-234",
+      "use": "software verification and validation process reference"
+    }
+  ],
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/stage07_closure_and_next_stage_selection_change_scope_v01.csv",
+      "data_registry/stage07_closure_and_next_stage_selection_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ]
+  },
+  "objective_metrics": {
+    "protected_artifacts_expected": 18,
+    "protected_artifact_mismatches": 0,
+    "new_training_runs": 0,
+    "network_attempts": 0,
+    "scientific_csv_changes": 0,
+    "claim_protocol_policy_or_verdict_changes": 0,
+    "stage08_files_created": 0,
+    "alternatives_compared": 5,
+    "selected_weighted_score": 5.00
+  },
+  "verification_result": {
+    "focused_gate": "PASS",
+    "baseline": "PASS",
+    "cumulative_pilot": "PASS",
+    "cumulative_pilot_initial_disposition": "One historical documentary gate failed because it required the superseded pre-authorization ST07_36 status; temporal tokens were updated to the exact John-accepted successor state without weakening its historical selection evidence, and the unchanged full pilot then passed."
+  },
+  "actual_change_log": {
+    "planned_paths": 5,
+    "actual_paths": 5,
+    "deviations": 0
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,src/mlcra/model_spaces.py,extract deterministic HGB model-space parsing validation and parameter-set identifiers into the modular layer
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace four duplicated HGB model-space consumers with the shared modular contract
+modified,scripts/agent_verify.py,add exact ST07_08 model-space identifier notebook and negative-contract verification
+modified,docs/stages/stage_07_code_modularization.md,record ST07_08 scope implementation verification evidence and readiness
+modified,roadmap.md,record technical completion of ST07_08 without John acceptance or next-block selection
+added,docs/agent/st07_08_hgb_model_space_change_scope_v01.csv,machine-readable authorized change set for ST07_08

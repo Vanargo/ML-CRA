@@ -1,0 +1,12 @@
+component,version_or_value,status,interpretation
+environment_role,agent_verification_environment,observed,Не является восстановленной исходной средой научного обучения
+operating_system,Linux-6.12.47-x86_64-with-glibc2.39,present,Среда ChatGPT Work
+python,3.12.13,present,Использован для всех agent_verify проверок
+pandas,2.2.3,present,Использован для регрессионного сравнения таблиц
+numpy,2.3.5,present,Транзитивная вычислительная зависимость pandas и scikit-learn
+scikit-learn,1.8.0,present,Импортируемая зависимость проекта; обучение моделей в пилоте не выполнялось
+jupyter,,absent,Выполнение notebook как Jupyter-документа не проводилось
+nbformat,,absent,Полная schema validation notebook недоступна
+pytest,,absent,Проверки выполнены детерминированным scripts/agent_verify.py
+ruff,,absent,Линтинг не заявляется выполненным
+mypy,,absent,Статическая проверка типов не заявляется выполненной

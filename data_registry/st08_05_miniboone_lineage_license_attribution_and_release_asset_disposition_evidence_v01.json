@@ -1,0 +1,291 @@
+{
+  "schema_version": "st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01",
+  "record_id": "st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01",
+  "task_id": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы с ST08_04",
+  "recorded_at": "2026-08-20",
+  "authorization": {
+    "john_statement": "ST08_04 accepted; move further; ML-CRA is now developed only with Codex and browser ChatGPT no longer participates; question the need for project ZIP archives",
+    "accepted_previous_task": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "closed_previous_task": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "next_block_authorized": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "interpretation": "move further authorizes the single previously proposed ST08_05 block but not ST08_06 or later blocks",
+    "external_release_authorized": false,
+    "license_or_citation_file_creation_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": {
+    "contract_path": "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json",
+    "source_chain_registered": true,
+    "license_metadata_conflict_disposed": true,
+    "attribution_fields_specified": true,
+    "current_miniboone_reference_files_must_be_covered": 157,
+    "direct_sample_assets_excluded": 2,
+    "stale_metadata_mutator_assets_excluded": 1,
+    "raw_or_cache_assets_expected_in_project": 0,
+    "external_release_performed": false
+  },
+  "source_baseline": {
+    "checkpoint_path": "C:/Users/Vanargo/Downloads/ml_cra_v55.zip",
+    "checkpoint_sha256": "0b7b954eca46038ed63b9d8d2e0be450a6b131c477a626261d460b77a3a1d0b7",
+    "checkpoint_files": 280,
+    "workspace_files": 280,
+    "checkpoint_workspace_exact_before_change": true,
+    "workspace_manifest_sha256_before_change": "e0dae73f0eafaf24f5d23afea2177a024b17e913a3e43fab4c442c2eb09b242a",
+    "baseline_before_change": "PASS",
+    "git_repository_available": false
+  },
+  "local_source_observations": [
+    {
+      "path": "data_registry/openml_metadata_snapshot.csv",
+      "classification": "observed historical OpenML metadata",
+      "observation": "dataset 41150 MiniBooNE version 1; licence CC0; original_data_url points to UCI; citation empty; 130064 instances"
+    },
+    {
+      "path": "docs/dataset_selection/cards/dataset_card_openml_miniboone_41150.md",
+      "classification": "current project documentation before remediation",
+      "observation": "declared CC0 based only on OpenML and assigned maximum legal cleanliness score"
+    },
+    {
+      "path": "data_registry/dataset_candidate_registry.csv",
+      "classification": "current registered candidate metadata before remediation",
+      "observation": "license CC0; citation_required TO_VERIFY; publication use explicitly required later verification"
+    },
+    {
+      "path": "data_registry/stage08_project_completion_and_release_readiness_audit_evidence_v01.json",
+      "classification": "canonical readiness finding",
+      "observation": "ST08-FIND-07 and ST08-RISK-03 block redistribution because local CC0 conflicts with current UCI CC BY 4.0 and DOI 10.24432/C5QC87"
+    },
+    {
+      "path": "data_registry/openml_feature_preview.csv",
+      "classification": "direct sample values",
+      "observation": "stores five observed values for each of ParticleID_0 through ParticleID_49"
+    },
+    {
+      "path": "notebooks/02_openml_candidate_data_preview.ipynb",
+      "classification": "executed direct data preview",
+      "observation": "valid notebook with 11 cells; cell 7 output contains ParticleID fields and known observed MiniBooNE sample values"
+    },
+    {
+      "path": "notebooks/01_dataset_candidate_search_openml.ipynb",
+      "classification": "historical executed metadata mutator",
+      "observation": "valid notebook with 13 cells; outputs record CC0 and code can write the value into dataset_candidate_registry.csv"
+    },
+    {
+      "path": "notebooks/04_dataset_smoke_experiments.ipynb",
+      "classification": "protected scientific execution artifact",
+      "observation": "valid notebook with 52 cells; scanned outputs reference MiniBooNE protocols and derived results but did not match registered direct sample values"
+    },
+    {
+      "path": "notebooks/02_dataset_candidate_search_pmlb.ipynb",
+      "classification": "empty unrelated placeholder",
+      "observation": "0 bytes and not valid notebook JSON; no intent inferred and separate release disposition remains pending"
+    }
+  ],
+  "external_source_observations": [
+    {
+      "source": "OpenML dataset 41150 API record",
+      "uri": "https://www.openml.org/api/v1/json/data/41150",
+      "observation": "OpenML records creator Byron Roe, licence CC0, UCI original_data_url, ARFF format, target signal, 130064 rows and md5 400fbfb8eaea0c1165ecedbafd517b98"
+    },
+    {
+      "source": "UCI MiniBooNE dataset record",
+      "uri": "https://archive.ics.uci.edu/dataset/199/miniboone+particle+identification",
+      "observation": "UCI records creator Byron Roe, dataset DOI 10.24432/C5QC87, MiniBooNE_PID.txt, 130065 rows including the first count line and current license CC BY 4.0"
+    },
+    {
+      "source": "CC BY 4.0 legal code",
+      "uri": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "observation": "sharing requires retained attribution information when supplied, source URI, license marking and indication of modifications"
+    },
+    {
+      "source": "CC0 1.0 legal code",
+      "uri": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "observation": "the waiver is made only to the extent the affirmer owns relevant rights and does not clear other persons' rights"
+    },
+    {
+      "source": "NIST provenance glossary",
+      "uri": "https://csrc.nist.gov/glossary/term/provenance",
+      "observation": "provenance includes chronology of origin development ownership location and changes"
+    },
+    {
+      "source": "OpenML Terms and Citation",
+      "uri": "https://beta.openml.org/terms",
+      "observation": "OpenML presents dataset-specific license tags and requests citation of the OpenML platform in works that use it"
+    },
+    {
+      "source": "Git About Version Control",
+      "uri": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control.html",
+      "observation": "version control records changes to files over time and supports recalling earlier versions; this supports recovery but does not itself authorize repository initialization"
+    }
+  ],
+  "analytical_decisions": [
+    {
+      "decision_id": "ST08-05-D01",
+      "decision": "do not silently choose OpenML CC0 as the controlling release condition",
+      "basis": "the OpenML mirror names UCI as upstream; UCI currently states CC BY 4.0; authority for the mirror uploader to waive all upstream rights was not established",
+      "consequence": "apply CC BY 4.0 attribution conditions conservatively without claiming a legal adjudication"
+    },
+    {
+      "decision_id": "ST08-05-D02",
+      "decision": "exclude all raw cache files and direct sample-value artifacts from a public release candidate",
+      "basis": "John decision D08 plus observed row-level values in the preview CSV and notebook",
+      "consequence": "the complete dataset local cache feature preview and executed data-preview notebook cannot enter the public release manifest"
+    },
+    {
+      "decision_id": "ST08-05-D03",
+      "decision": "allow protocols aggregate evidence and implementation only conditionally after attribution and project-license artifacts exist",
+      "basis": "these artifacts are required for reproducibility but MIT cannot relicense upstream material",
+      "consequence": "ST08-FIND-07 is disposed at contract and inventory level while the public development gate remains blocked until ST08_06"
+    },
+    {
+      "decision_id": "ST08-05-D04",
+      "decision": "remove browser ChatGPT from the current operating model and stop using ZIP as an automatic per-task handoff",
+      "basis": "John's explicit current decision plus configuration-management and recovery principles",
+      "consequence": "ordinary reversible tasks use manifest evidence; ZIP remains risk-based for stage closure explicit request high-risk recovery or portable backup"
+    },
+    {
+      "decision_id": "ST08-05-D05",
+      "decision": "do not create a new ZIP for ST08_05",
+      "basis": "v55 is an exact 280-file prechange recovery point; ST08_05 changes only reversible documentation metadata and governance; no browser handoff stage closure or external action occurs",
+      "consequence": "checkpoint check is SKIPPED by the revised criterion rather than silently omitted"
+    }
+  ],
+  "prechange_inventory": {
+    "reference_regex": "(?i)miniboone|41150",
+    "reference_files": 153,
+    "class_counts": {
+      "CONDITIONAL_IMPLEMENTATION": 17,
+      "CONDITIONAL_WITH_ATTRIBUTION": 119,
+      "EXCLUDE_DIRECT_SAMPLE": 2,
+      "EXCLUDE_STALE_METADATA_MUTATOR": 1,
+      "INCLUDE_GOVERNANCE_HISTORY": 14,
+      "UNMAPPED": 0
+    }
+  },
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "paths": [
+      "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json",
+      "data_registry/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01.json",
+      "docs/agent/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_change_scope_v01.csv",
+      "docs/dataset_selection/cards/dataset_card_openml_miniboone_41150.md",
+      "data_registry/dataset_candidate_registry.csv",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md",
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "AGENTS.md",
+      ".agents/skills/ml-cra-stage-gate/SKILL.md",
+      "docs/agent/pilot_change_scope_v01.csv"
+    ],
+    "protected_scope": "18 registered scientific artifacts plus all notebooks source modules protocols seeds splits metric semantics numeric evidence and historical archive",
+    "prohibited_outputs": "LICENSE CITATION.cff README pyproject package release publication raw data deletion training scientific claim change and ST08_06 implementation"
+  },
+  "actual_change_log": {
+    "paths": [
+      "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json",
+      "data_registry/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01.json",
+      "docs/agent/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_change_scope_v01.csv",
+      "docs/dataset_selection/cards/dataset_card_openml_miniboone_41150.md",
+      "data_registry/dataset_candidate_registry.csv",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md",
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "AGENTS.md",
+      ".agents/skills/ml-cra-stage-gate/SKILL.md",
+      "docs/agent/pilot_change_scope_v01.csv"
+    ],
+    "deviations": [],
+    "verification_driven_corrections_within_planned_paths": [
+      "Corrected the projected postchange reference inventory from 156 total and 15 governance files to the observed 157 total and 16 governance files because pilot_change_scope_v01.csv itself became a new MiniBooNE reference after its planned update.",
+      "Added the two already planned modified MiniBooNE registry and dataset-card paths to the cumulative pilot allowlist after baseline correctly reported them as out of scope."
+    ]
+  },
+  "verification_attempts": [
+    {
+      "attempt": 1,
+      "check": "focused JSON CSV and inventory script",
+      "result": "FAIL_TEST_HARNESS_DEFECT",
+      "observation": "The ad hoc verifier used the nonexistent task-scope key path instead of relative_path and raised KeyError before evaluating project state.",
+      "disposition": "The verifier expression was corrected; no project artifact was changed for this harness-only defect."
+    },
+    {
+      "attempt": 2,
+      "check": "focused postchange reference inventory",
+      "result": "FAIL_EXPECTATION_MISMATCH",
+      "observation": "Observed 157 reference files and 16 governance files versus the planned 156 and 15; all 157 were classified and UNMAPPED was zero.",
+      "disposition": "The contract expectation was corrected to include the newly referencing cumulative pilot scope file, then the same check passed."
+    },
+    {
+      "attempt": 3,
+      "check": "python scripts/agent_verify.py --mode baseline",
+      "result": "FAIL_ALLOWLIST_OMISSION",
+      "observation": "modified=8 added=129 missing=0 out_of_scope=2; the two paths were dataset_candidate_registry.csv and dataset_card_openml_miniboone_41150.md.",
+      "disposition": "Both paths were already in the exact planned change set; their two rows were added to the planned cumulative allowlist file and the repeated baseline passed with out_of_scope=0."
+    },
+    {
+      "attempt": 4,
+      "check": "python scripts/agent_verify.py --mode baseline repeated",
+      "result": "PASS",
+      "observation": "manifest_rows=158 scope_files=53 modified=8 added=129 missing=0 out_of_scope=0 scope_errors=0"
+    },
+    {
+      "attempt": 5,
+      "check": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "result": "FAIL_EXTERNAL_HISTORICAL_CHECKPOINT_PREREQUISITES",
+      "observation": "Current baseline syntax CSV notebook required-path documentary protected and Stage 7 computational regressions passed. Eight historical gate checks failed because their exact external source checkpoint files v44 v45 v47 v48 v49 v51 v52 and v53 are absent from the recorded Downloads paths; v55 is present.",
+      "disposition": "Not caused by an ST08_05 source or scientific change and not repaired by weakening the protected verifier or fabricating archives. The cumulative pilot remains explicitly FAIL until the historical prerequisites are restored or a separately authorized verifier-policy reconciliation is performed."
+    }
+  ],
+  "observed_checks": {
+    "contract_JSON_parse": "PASS_2_of_2",
+    "focused_positive_contract": "PASS",
+    "focused_negative_mutations": "PASS_15_of_15_rejected",
+    "postchange_inventory_coverage": "PASS_157_of_157_counts_17_121_2_1_16_0_unmapped_0",
+    "registry_string_preserving_validation": "PASS_10_rows_32_columns",
+    "notebook_integrity": "PASS_4_nonempty_JSON_valid_1_preexisting_empty_PMLB_placeholder_explicit",
+    "baseline_after_change": "PASS_manifest_158_scope_53_modified_8_added_129_missing_0_out_of_scope_0",
+    "cumulative_pilot": "FAIL_8_historical_gates_require_absent_external_checkpoints_v44_v45_v47_v48_v49_v51_v52_v53_all_current_structural_and_scientific_regressions_listed_before_them_PASS",
+    "protected_hashes_after_change": "PASS_18_of_18",
+    "documentary_consistency": "PASS_subject_to_explicit_cumulative_pilot_disposition",
+    "forbidden_outputs_absent": "PASS_LICENSE_CITATION_README_pyproject_release_raw_cache_absent",
+    "checkpoint": "SKIPPED_revised_risk_based_policy_no_stage_closure_no_high_risk_or_external_handoff",
+    "full_model_training_runs": 0,
+    "dataset_network_accesses_by_project_commands": 0,
+    "scientific_artifact_changes": 0,
+    "external_release_actions": 0
+  },
+  "scientific_interpretation_limit": "ST08_05 is a provenance license-metadata attribution and release-asset engineering disposition. It is not legal advice or adjudication, does not revalidate or broaden the MiniBooNE scientific claim, and performs no model training.",
+  "remaining_uncertainty": [
+    "No legal opinion or proof of the OpenML uploader's authority to apply CC0 has been obtained; conservative CC BY 4.0 attribution controls the release decision.",
+    "The exact copyright or database-right status of each derived metric can vary by jurisdiction; attribution is applied to all MiniBooNE-origin artifacts rather than relying on an untested exemption.",
+    "The public repository manifest and attribution artifacts do not yet exist and must be implemented and validated in a separately authorized block.",
+    "The empty PMLB notebook remains a separately recorded placeholder and is not resolved by ST08_05.",
+    "No version-control repository is currently available; risk-based strategic ZIP or future Git configuration remains necessary for recovery even though browser handoff is retired."
+  ],
+  "proposed_next_block": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+  "proposed_next_block_status": "proposed_not_authorized",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

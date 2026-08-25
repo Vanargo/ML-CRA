@@ -1,0 +1,4 @@
+﻿candidate_id,openml_id,dataset_name,target_name,n_rows_loaded,n_features_loaded,target_missing_count,target_class_counts,target_class_proportions,feature_missing_total,feature_missing_columns_count,time_column_candidates,id_column_candidates,dtype_counts,memory_usage_mb
+openml_electricity_151,151,electricity,class,45312,8,0,DOWN=26075; UP=19237,DOWN=0.575455; UP=0.424545,0,0,date; day; period,,"{'numeric': 7, 'categorical': 1}",2.463
+openml_miniboone_41150,41150,MiniBooNE,signal,130064,50,0,False=93565; True=36499,False=0.719377; True=0.280623,0,0,,,{'numeric': 50},49.616
+openml_click_prediction_small_41434,41434,Click_prediction_small,click,39948,11,0,0=33220; 1=6728,0=0.831581; 1=0.168419,0,0,,url_hash; ad_id; advertiser_id; query_id; keyword_id; title_id; description_id; user_id,"{'categorical': 6, 'numeric': 5}",6.723

@@ -1,0 +1,64 @@
+{
+  "schema_version": "st08_12_dashboard_shared_core_and_CLI_golden_equivalence_contract_v01",
+  "contract_id": "st08_12_dashboard_shared_core_and_CLI_golden_equivalence_contract_v01",
+  "task_id": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "accepted_and_closed_by_John",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+    "authorized_block": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+    "John_decision": ["ACCEPTED_BY_JOHN", "TASK_CLOSED"],
+    "next_block_authorized": false,
+    "release_publication_or_hosted_service_authorized": false,
+    "training_or_scientific_change_authorized": false
+  },
+  "measurable_outcome": "An installed dashboard command consumes an existing verified bundle, writes deterministic bilingual static HTML and one exact JSON view, and passes golden equivalence without model fit or network access.",
+  "architecture": {
+    "entry_command": "mlcra dashboard --bundle run --output-dir dashboard",
+    "source_of_truth": "the same verify_bundle and build_dashboard_view application service used to recompute bundle relations",
+    "renderer": "stdlib_html.escape_static_semantic_HTML_no_JavaScript_no_server",
+    "output_files": ["dashboard_view.json", "dashboard_en.html", "dashboard_ru.html", "dashboard_manifest.json"],
+    "overwrite": "forbidden",
+    "publication": "atomic_staging_then_same_filesystem_rename",
+    "golden_equivalence": "rebuild the view from the verified bundle and require exact JSON object exact RU_EN HTML renders and exact SHA256 manifest",
+    "model_fit": false,
+    "network": false
+  },
+  "security_and_accessibility": {
+    "dynamic_text": "HTML escaped including quotes",
+    "scripts": "none",
+    "content_security_policy": "default-src_none_style-src_unsafe-inline",
+    "semantic_structure": ["lang", "main", "h1_h2", "table", "thead_tbody", "th_scope_col"],
+    "responsive_table": true,
+    "status_not_conveyed_by_color_alone": true
+  },
+  "verification": [
+    "classification_and_regression_bundle_consumption",
+    "exact_four_file_output",
+    "golden_view_and_HTML_equivalence",
+    "verification_without_fit",
+    "HTML_injection_escaping",
+    "tampered_view_rejection",
+    "existing_output_rejection",
+    "source_and_clean_installed_CLI_regressions",
+    "distribution_archive_contains_dashboard_module",
+    "bilingual_command_parity",
+    "protected_MiniBooNE_hashes_18_of_18",
+    "baseline_and_cumulative_pilot"
+  ],
+  "authoritative_support": [
+    {"source": "Python html.escape official documentation", "uri": "https://docs.python.org/3/library/html.html", "use": "escape dynamic bundle text before HTML insertion"},
+    {"source": "OWASP Cross Site Scripting Prevention Cheat Sheet", "uri": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html", "use": "contextual output encoding and avoidance of unsafe DOM or scripts"},
+    {"source": "W3C WCAG 2.2", "uri": "https://www.w3.org/TR/WCAG22/", "use": "perceivable structured and distinguishable static presentation"},
+    {"source": "W3C Tables Tutorial", "uri": "https://www.w3.org/WAI/tutorials/tables/", "use": "header and data-cell relationships for accessible tables"},
+    {"source": "NIST SP 500-234", "uri": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-234.pdf", "use": "independent software verification and traceable expected-to-observed comparison"}
+  ],
+  "protected_boundary": {
+    "MiniBooNE_claim_protocol_policy_evidence_verdict": "UNCHANGED",
+    "protected_artifacts": 18,
+    "dashboard_is_scientific_evidence": false,
+    "dashboard_may_change_a_verdict": false
+  },
+  "checkpoint": {"status": "SKIPPED", "reason": "Stage 8 remains open; the change is reversible and no external handoff is authorized."}
+}

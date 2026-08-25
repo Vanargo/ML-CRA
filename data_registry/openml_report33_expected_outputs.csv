@@ -1,0 +1,5 @@
+﻿output_path,content_ru,required
+data_registry/openml_miniboone_research_scores.csv,Построчные результаты по каждому внешнему блоку и каждой модели,yes
+data_registry/openml_miniboone_research_summary.csv,Сводка mean/std/min/max по метрикам,yes
+data_registry/openml_miniboone_research_warnings.csv,Предупреждения и ограничения выполнения,yes
+data_registry/openml_miniboone_research_environment.csv,Версии Python и ключевых пакетов,yes

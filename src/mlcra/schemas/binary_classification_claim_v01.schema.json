@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Vanargo/ML-CRA/schemas/binary_classification_claim_v01.schema.json",
+  "title": "ML-CRA bounded binary classification claim v01",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "claim_id",
+    "task_type",
+    "target",
+    "positive_label",
+    "candidate_model",
+    "baseline_model",
+    "primary_metric",
+    "split_protocol",
+    "seeds",
+    "preprocessing_policy",
+    "verdict_policy",
+    "minimum_mean_delta"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "mlcra_binary_classification_claim_v01"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "task_type": {
+      "const": "binary_classification"
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "positive_label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "candidate_model": {
+      "const": "hist_gradient_boosting_v01"
+    },
+    "baseline_model": {
+      "const": "logistic_regression_v01"
+    },
+    "primary_metric": {
+      "const": "average_precision"
+    },
+    "split_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "n_splits"],
+      "properties": {
+        "kind": {
+          "const": "stratified_k_fold_v01"
+        },
+        "n_splits": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10
+        }
+      }
+    },
+    "seeds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      }
+    },
+    "preprocessing_policy": {
+      "const": "numeric_complete_standardize_logistic_passthrough_hgb_v01"
+    },
+    "verdict_policy": {
+      "const": "paired_primary_metric_consistency_v01"
+    },
+    "minimum_mean_delta": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    }
+  }
+}

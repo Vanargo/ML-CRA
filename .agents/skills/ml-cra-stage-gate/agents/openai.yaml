@@ -1,0 +1,4 @@
+interface:
+  display_name: "ML-CRA: стадия"
+  short_description: "Выполняет ограниченную задачу ML-CRA до приёмки John"
+  default_prompt: "Используй $ml-cra-stage-gate для выполнения текущей измеримой задачи ML-CRA и остановись перед следующей задачей."

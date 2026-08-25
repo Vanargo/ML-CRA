@@ -1,0 +1,218 @@
+{
+  "schema_version": "st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01",
+  "evidence_id": "st08_11A_registered_regression_dataset_claim_and_scientific_validation_evidence_v01",
+  "task_id": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+  "recorded_at": "2026-08-24",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "status": "PASS_scientific_validation_completed",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+    "authorized_block": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+    "dataset_selected_by_John": "UCI_Wine_Quality_red_v01",
+    "dashboard_publication_or_release_authorized": false,
+    "MiniBooNE_scientific_change_authorized": false
+  },
+  "prospective_lock": {
+    "claim_sha256_before_download": "124264cea40a58b23321106e8a83f1663b90d84cf69bab1cd59288893108417d",
+    "initial_contract_sha256_before_download": "abb7927fa644fd437783d261730424c9a1536b3c42dfd92565c373da1e2237f0",
+    "contract_sha256_before_model_execution": "58158eeb1ef1576b42c0be1f7c90316ae5b033b791dd0919d6d9aacb270318b6",
+    "pre_execution_amendment": "After source download and structural inspection but before model execution, the already declared semicolon delimiter was operationalized as a lossless UTF-8 LF comma-CSV transformation required by the ST08_11 application input contract; claim models seeds folds metrics threshold and verdict policy were unchanged.",
+    "threshold_and_protocol_changed_after_result": false
+  },
+  "dataset_provenance": {
+    "dataset_id": "UCI_Wine_Quality_red_v01",
+    "title": "Wine Quality - red wine variant",
+    "creators": [
+      "Paulo Cortez",
+      "A. Cerdeira",
+      "F. Almeida",
+      "T. Matos",
+      "J. Reis"
+    ],
+    "repository": "UCI Machine Learning Repository",
+    "uci_dataset_id": 186,
+    "doi": "10.24432/C56S3T",
+    "official_card": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+    "official_data_file": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+    "archive_member": "winequality-red.csv",
+    "license": "CC BY 4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "expected_rows": 1599,
+    "expected_features": 11,
+    "target": "quality",
+    "missing_values_expected": 0,
+    "delimiter": ";",
+    "application_input_transformation": "parse the official UTF-8 semicolon file as strings and write the same header and 1599 rows as UTF-8 LF comma-separated CSV without index; no row column or numeric-value filtering",
+    "raw_data_release_disposition": "EXCLUDE_RAW_DATA_register_source_URI_archive_member_and_observed_SHA256_only",
+    "downloaded_archive_sha256": "3ed56667f4b828242bd732d7d1dd7f2861e54432239d7fa63877014cbb0304d4",
+    "official_member_sha256": "4a402cf041b025d4566d954c3b9ba8635a3a8a01e039005d97d6a710278cf05e",
+    "normalized_application_csv_sha256": "d22f4f11db0456ff21745d2fa96d26fa348a8cdb889efda65bde802085be45fd",
+    "observed_rows": 1599,
+    "observed_columns": 12,
+    "observed_missing_or_nonfinite_cells": 0,
+    "raw_data_retained_in_project": false
+  },
+  "observed_execution": {
+    "audit_first": {
+      "command": "audit",
+      "status": "completed",
+      "exit_code": 0,
+      "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+      "verdict": "not_supported",
+      "primary_metric": "root_mean_squared_error",
+      "mean_primary_delta": 0.04573015523955133,
+      "scope_limit": "Вердикт относится только к переданным данным, моделям, метрике, разбиениям и зернам этой спецификации; универсальное превосходство не утверждается."
+    },
+    "audit_second": {
+      "command": "audit",
+      "status": "completed",
+      "exit_code": 0,
+      "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+      "verdict": "not_supported",
+      "primary_metric": "root_mean_squared_error",
+      "mean_primary_delta": 0.04573015523955133,
+      "scope_limit": "Вердикт относится только к переданным данным, моделям, метрике, разбиениям и зернам этой спецификации; универсальное превосходство не утверждается."
+    },
+    "verify_first": {
+      "command": "verify",
+      "status": "PASS",
+      "exit_code": 0,
+      "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+      "verdict": "not_supported",
+      "verified_artifacts": 8,
+      "model_fit_performed": false
+    },
+    "verify_second": {
+      "command": "verify",
+      "status": "PASS",
+      "exit_code": 0,
+      "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+      "verdict": "not_supported",
+      "verified_artifacts": 8,
+      "model_fit_performed": false
+    },
+    "temporary_bundles": "REMOVED_after_relations_hashes_verdict_and_determinism_were_registered",
+    "scientific_payload_deterministic_excluding_timing_and_timestamps": true,
+    "network_attempts_during_each_audit": 0,
+    "model_or_hyperparameter_selection_performed": false
+  },
+  "scientific_results": {
+    "fold_count": 25,
+    "mean_primary_delta": 0.04573015523955133,
+    "mean_baseline_rmse": 0.6515954596258636,
+    "mean_candidate_rmse": 0.6058653043863123,
+    "mean_baseline_mae": 0.5050075494406517,
+    "mean_candidate_mae": 0.4530157406215613,
+    "min_primary_delta": 0.008473870664207461,
+    "max_primary_delta": 0.08817938694191596,
+    "positive_primary_delta_folds": 25,
+    "seed_mean_primary_deltas": {
+      "20260824": 0.03923954411792567,
+      "20260825": 0.047152713195651466,
+      "20260826": 0.04060339894822014,
+      "20260827": 0.052199859359714426,
+      "20260828": 0.04945526057624496
+    },
+    "verdict": "not_supported",
+    "primary_metric": "root_mean_squared_error",
+    "secondary_metric": "mean_absolute_error",
+    "minimum_mean_delta": 0.05,
+    "fold_evidence_path": "data_registry/st08_11A_wine_quality_red_fold_scores_v01.csv",
+    "fold_evidence_sha256": "11f548d96420027d249b6e7e1889ce215ecf49ee2e16040aaa4d865bdaf9a535"
+  },
+  "scientific_verdict": {
+    "category": "not_supported",
+    "scope_limit": "Вердикт относится только к переданным данным, моделям, метрике, разбиениям и зернам этой спецификации; универсальное превосходство не утверждается.",
+    "permitted_interpretation": "A scope-limited comparison on the UCI red-wine file under the exact registered preprocessing models folds seeds metrics and threshold.",
+    "forbidden_interpretations": [
+      "universal superiority of histogram gradient boosting",
+      "causal claim about wine quality",
+      "generalization to white wine other regions producers batches or future production",
+      "proof that rows are independent",
+      "clinical regulatory or production deployment readiness"
+    ]
+  },
+  "sampling_and_bias_register": {
+    "declared_assumption": "exchangeable_rows",
+    "basis": "The UCI card describes separate wine samples and does not identify temporal spatial grouped or repeated-measure keys.",
+    "unresolved_limit": "UCI does not provide wine-brand grape-type batch taster or producer identifiers, so row independence cannot be proven or group-aware splitting reconstructed.",
+    "ordinal_target_limit": "quality is an ordered sensory score; UCI explicitly permits regression, but RMSE imposes numeric distance on that ordinal score.",
+    "selection_bias_control": "dataset models metrics seeds folds threshold and verdict were fixed before dataset download and before observing model results",
+    "hyperparameter_selection": "NONE",
+    "multiple_comparison_scope": "one candidate versus one baseline on one target and one primary metric"
+  },
+  "authoritative_support": [
+    {
+      "source": "UCI Wine Quality official dataset card",
+      "uri": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+      "use": "dataset identity creators DOI task variables missingness and CC BY 4.0 license"
+    },
+    {
+      "source": "Cortez et al. 2009 Decision Support Systems DOI 10.1016/j.dss.2009.05.016",
+      "uri": "https://doi.org/10.1016/j.dss.2009.05.016",
+      "use": "peer-reviewed domain and data-collection context"
+    },
+    {
+      "source": "scikit-learn 1.8 model selection and regression metric documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/model_evaluation.html#regression-metrics",
+      "use": "registered RMSE MAE and fixed paired K-fold implementation semantics"
+    },
+    {
+      "source": "Varma and Simon 2006 DOI 10.1186/1471-2105-7-91",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/16504092/",
+      "use": "prospective protocol and avoidance of selection on assessment results"
+    }
+  ],
+  "protected_scientific_boundary": {
+    "MiniBooNE_claim_protocol_evidence_or_verdict_changed": false,
+    "expected_protected_artifacts": 18,
+    "observed_protected_artifacts": 18,
+    "mismatches": 0
+  },
+  "verification": {
+    "python_syntax": "PASS_29_files_in_cumulative_pilot",
+    "registered_evidence_recalculation": "PASS",
+    "ST08_11A_mutations": "4_of_4_PASS",
+    "focused_regressions": "45_of_45_PASS_with_PYTHONPATH_src",
+    "focused_initial_invocation": "FAIL_one_existing_subprocess_test_could_not_import_uninstalled_source_package_without_PYTHONPATH;_corrected_invocation_passed_without_source_change",
+    "baseline": "PASS_manifest_rows_158_scope_files_53_modified_12_added_182_missing_0_out_of_scope_0_scope_errors_0",
+    "public_manifest": "PASS_336_paths_unmapped_0_sha256_93a19efcf8ce4847ef45249732ff0736842513f45a0ea2c88f442cee50d54f82",
+    "cumulative_pilot": "FAIL_8_historical_checkpoint_or_ST08_03_conditions_only_all_current_syntax_29_CSV_159_notebooks_paths_documents_Stage7_regressions_and_protected_18_of_18_PASS",
+    "current_ST08_11A_specific_failure": false,
+    "first_pilot_attempt": "BLOCKED_tool_timeout_at_120_seconds_without_verdict",
+    "second_pilot_attempt": "COMPLETED_with_expected_historical_FAIL_disposition"
+  },
+  "change_reconciliation": {
+    "planned_paths": 12,
+    "actual_paths": 12,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "deviations": [
+      {
+        "disposition": "IN_SCOPE_PRE_EXECUTION_PROTOCOL_OPERATIONALIZATION",
+        "detail": "After official-source structural inspection but before model execution, the already registered semicolon delimiter was operationalized as a lossless comma-CSV transformation required by the application input contract; scientific fields were unchanged."
+      },
+      {
+        "disposition": "IN_SCOPE_RUNNER_IMPORT_REPAIR_BEFORE_MODEL_EXECUTION",
+        "detail": "The runner was changed to prepend the exact local src directory after system Python could not import mlcra; the registered venv then supplied the exact locked scientific dependencies."
+      }
+    ],
+    "status": "MATCH_WITH_TWO_NON_SCIENTIFIC_PRE_EXECUTION_REPAIRS"
+  },
+  "temporary_artifacts": {
+    "status": "PASS_REMOVED",
+    "removed": [
+      ".tmp_st08_11A_wine/wine_quality.zip",
+      ".tmp_st08_11A_wine/extracted/winequality-red.csv",
+      "normalized_application_CSV",
+      "two_eight_file_audit_bundles"
+    ],
+    "raw_dataset_rows_remaining_in_project": 0
+  },
+  "checkpoint": {
+    "default": "SKIPPED",
+    "reason": "ST08_11A does not close Stage 8; raw data remain excluded and all registered changes are reversible and evidenced."
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

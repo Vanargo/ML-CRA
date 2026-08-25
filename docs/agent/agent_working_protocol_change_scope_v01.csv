@@ -1,0 +1,9 @@
+change_kind,relative_path,reason
+added,docs/agent/agent_working_protocol_change_scope_v01.csv,machine-readable scope extension for the authorized working-protocol task
+added,docs/agent/agent_working_protocol_evidence_v01.md,evidence record for the authorized working-protocol task
+added,docs/agent/ml_cra_agent_working_contract_v01.md,canonical permanent ML-CRA agent working contract
+added,docs/agent/task_templates/analysis_only_v01.md,ANALYSIS_ONLY task profile
+added,docs/agent/task_templates/change_v01.md,CHANGE task profile
+added,docs/agent/task_templates/checkpoint_v01.md,CHECKPOINT task profile
+added,docs/agent/task_templates/scientific_validation_v01.md,SCIENTIFIC_VALIDATION task profile
+added,docs/agent/task_templates/task_core_v01.md,shared measurable-task template

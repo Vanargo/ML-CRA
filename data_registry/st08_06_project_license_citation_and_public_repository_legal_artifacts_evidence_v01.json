@@ -1,0 +1,161 @@
+{
+  "schema_version": "st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01",
+  "record_id": "st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01",
+  "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы с ST08_04",
+  "recorded_at": "2026-08-20",
+  "authorization": {
+    "john_statement": "ST08_05 accepted and closed; move further under the ML-CRA working contract",
+    "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "next_block_authorized": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "interpretation": "move further authorizes the single previously proposed ST08_06 block but not ST08_07 or later blocks",
+    "external_publication_authorized": false,
+    "repository_creation_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": {
+    "license_path": "LICENSE",
+    "citation_path": "CITATION.cff",
+    "dataset_attribution_path": "DATASET_ATTRIBUTION.md",
+    "public_manifest_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json",
+    "project_license": "MIT",
+    "citation_schema": "CFF_1.2.0",
+    "public_manifest_default": "BLOCK_UNMAPPED",
+    "external_actions_performed": 0
+  },
+  "source_baseline": {
+    "baseline_type": "independent_workspace_path_and_content_manifest",
+    "workspace_files_before_change": 283,
+    "workspace_manifest_sha256_before_change": "7eb43648c998e5f2ace4e83ae433b7bb6c061720d0fd7e27f031174a76706a97",
+    "manifest_algorithm": "SHA256_of_UTF8_sorted_relative_path_TAB_file_sha256_LF",
+    "baseline_before_change": "PASS_manifest_rows_158_scope_files_53_modified_8_added_129_missing_0_out_of_scope_0_scope_errors_0",
+    "protected_artifacts_before_change": "PASS_18_of_18",
+    "git_repository_available": false,
+    "nearest_recovery_checkpoint": {
+      "path": "C:/Users/Vanargo/Downloads/ml_cra_v55.zip",
+      "sha256": "0b7b954eca46038ed63b9d8d2e0be450a6b131c477a626261d460b77a3a1d0b7",
+      "limitation": "exact pre-ST08_05 state rather than the ST08_06 source baseline"
+    }
+  },
+  "planned_change_set": [
+    {"change_kind": "added", "path": "LICENSE", "purpose": "project MIT license"},
+    {"change_kind": "added", "path": "CITATION.cff", "purpose": "machine-readable citation identity"},
+    {"change_kind": "added", "path": "DATASET_ATTRIBUTION.md", "purpose": "MiniBooNE attribution and third-party boundary"},
+    {"change_kind": "added", "path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json", "purpose": "fail-closed public asset disposition"},
+    {"change_kind": "added", "path": "data_registry/st08_06_project_license_citation_and_public_repository_legal_artifacts_evidence_v01.json", "purpose": "observed evidence and status"},
+    {"change_kind": "added", "path": "docs/agent/st08_06_project_license_citation_and_public_repository_legal_artifacts_change_scope_v01.csv", "purpose": "exact change scope"},
+    {"change_kind": "modified", "path": "docs/agent/pilot_change_scope_v01.csv", "purpose": "cumulative verifier scope"},
+    {"change_kind": "modified", "path": "docs/stages/stage_08_project_completion_and_release_readiness.md", "purpose": "active stage synchronization"},
+    {"change_kind": "modified", "path": "roadmap.md", "purpose": "canonical roadmap synchronization"}
+  ],
+  "protected_artifacts": {
+    "source": "data_registry/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_evidence_v01.json#protected_artifact_hashes",
+    "expected_count": 18,
+    "actual_count": 18,
+    "mismatches": []
+  },
+  "professional_methods": [
+    "MAPE-K governed task analysis and evidence feedback",
+    "SPDX template equality with only year and copyright-holder substitution",
+    "official CFF 1.2.0 JSON Schema validation of parsed YAML",
+    "ISO 7064 MOD 11-2 ORCID checksum verification",
+    "priority-rule path classification with default deny and path-set hash binding",
+    "negative mutation testing of legal attribution and publication gates",
+    "deterministic baseline and cumulative regression verification",
+    "planned-versus-actual change reconciliation"
+  ],
+  "authoritative_support": [
+    {"source": "Open Source Initiative MIT License", "uri": "https://opensource.org/license/mit", "use": "approved MIT text"},
+    {"source": "SPDX MIT License and license-list JSON", "uri": "https://spdx.org/licenses/MIT.html", "use": "identifier and machine text comparison"},
+    {"source": "Citation File Format schema guide 1.2.0", "uri": "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md", "use": "required optional and typed CFF fields"},
+    {"source": "Citation File Format schema.json 1.2.0", "uri": "https://citation-file-format.github.io/1.2.0/schema.json", "use": "strict CFF validation"},
+    {"source": "GitHub About CITATION files", "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files", "use": "root citation integration"},
+    {"source": "GitHub Licensing a repository", "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository", "use": "root license and public repository practice"},
+    {"source": "ORCID identifier structure", "uri": "https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier", "use": "HTTPS representation and checksum method"},
+    {"source": "Creative Commons Attribution 4.0 International legal code", "uri": "https://creativecommons.org/licenses/by/4.0/legalcode.en", "use": "attribution license-link change and no-endorsement conditions"}
+  ],
+  "observed_local_evidence": [
+    {
+      "source": "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json",
+      "observation": "John selected MIT; author Ivan Polishchuk; ORCID 0009-0005-6596-0605; GitHub owner Vanargo; target repository ML-CRA; CITATION.cff mandatory."
+    },
+    {
+      "source": "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json",
+      "observation": "The required MiniBooNE attribution and exact direct-sample stale-mutator raw-cache dispositions are already canonical."
+    },
+    {
+      "source": "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+      "observation": "ST08_06 is order 2 and is limited to John-approved MIT and citation identity without publication; ST08_07 is order 3."
+    }
+  ],
+  "within_scope_discoveries": [
+    {
+      "observation": "Full zero-byte inventory found src/mlcra/data_registry/schema.py scoring.py and validation.py in addition to the previously recorded empty PMLB notebook.",
+      "disposition": "Add their exact paths to the already planned public manifest exclusion rule; do not edit delete or infer intended content."
+    },
+    {
+      "observation": "Temporary official CFF and SPDX validation inputs initially appeared as out-of-scope workspace files.",
+      "disposition": "Use them only for validation and remove both exact temporary paths before final baseline verification."
+    },
+    {
+      "observation": "The cumulative pilot scope first classified the post-baseline Stage 8 file as modified.",
+      "disposition": "Correct only the cumulative classification to added because the immutable baseline lacks the path; retain modified in the ST08_06 task-specific change scope."
+    }
+  ],
+  "verification": {
+    "official_CFF_schema": "PASS_CFF_1_2_0_errors_0_using_PyYAML_and_jsonschema_Draft7Validator",
+    "CFF_required_and_allowed_keys": "PASS_exact_keys_abstract_authors_cff-version_keywords_license_message_repository-code_title_type_no_version_or_date-released",
+    "SPDX_MIT_text": "PASS_exact_official_SPDX_licenseText_after_only_permitted_year_and_copyright_holder_substitution",
+    "ORCID_checksum": "PASS_ISO_7064_MOD_11_2_expected_5_observed_5",
+    "JSON_parse": "PASS_manifest_and_evidence",
+    "dataset_attribution_fields": "PASS_13_required_creator_title_source_DOI_license_mirror_change_mapping_no_endorsement_and_OpenML_citation_fields",
+    "public_manifest_inventory": "PASS_289_paths_SHA256_5a170b155e356d51136c79d352d5df4b66ba17408ad3a206b4ac338ec45204af_zero_unmapped",
+    "public_manifest_counts": "PASS_rules_01_through_07_equals_2_1_4_38_0_158_86_total_289",
+    "raw_or_cache_assets": "PASS_0_forbidden_pattern_matches",
+    "negative_mutations": "PASS_11_of_11_rejected",
+    "protected_artifact_hashes": "PASS_18_of_18_mismatches_0",
+    "task_change_scope": "PASS_9_unique_existing_paths",
+    "baseline_after_change": "PASS_manifest_rows_158_scope_files_53_modified_8_added_135_missing_0_out_of_scope_0_scope_errors_0",
+    "cumulative_pilot": "FAIL_8_historical_gates_require_absent_external_checkpoints_v44_v45_v47_v48_v49_v51_v52_v53;_ST08_03_historical_forbidden_outputs_absent_is_also_false_because_ST08_06_authorized_LICENSE_and_CITATION;_all_current_syntax_CSV_notebook_required_path_documentary_protected_and_Stage_7_computational_regressions_PASS",
+    "checkpoint": "SKIPPED_risk_based_policy_no_stage_closure_external_handoff_high_risk_change_or_explicit_request"
+  },
+  "release_gate_effect": {
+    "st08_06_legal_artifacts_prerequisite": "PASS",
+    "public_development_gate": "BLOCKED",
+    "remaining_blockers": [
+      "root_README_not_yet_created_or_validated",
+      "security_policy_and_scan_not_yet_completed",
+      "public_repository_not_created",
+      "explicit_John_publication_authorization_not_granted"
+    ],
+    "external_publication": "NOT_PERFORMED",
+    "release": "NOT_PERFORMED"
+  },
+  "scientific_interpretation_limit": "ST08_06 is license citation attribution and repository-asset engineering. It is not legal advice or adjudication does not revalidate or broaden the MiniBooNE claim and performs no model training.",
+  "actual_change_log_reconciliation": {
+    "planned_paths": 9,
+    "actual_paths": 9,
+    "unplanned_path_changes": [],
+    "scope_deviation": "NONE; within the planned manifest file three newly observed zero-byte Python placeholders were added to the exact exclusion selector; the cumulative scope classification for the post-baseline Stage 8 path was corrected from modified to added; two exact temporary official-schema inputs were created for validation and removed before final baseline"
+  },
+  "remaining_uncertainty": [
+    "No legal opinion or proof of the OpenML uploader authority to apply CC0 has been obtained; the conservative ST08_05 control remains in force.",
+    "Four zero-byte placeholders remain in the workspace but are excluded from the public candidate because their intended content is unknown.",
+    "The workspace still lacks a valid Git repository and v55 predates ST08_05; checkpoint policy therefore needs a future recovery decision even though a per-task ZIP is not justified here.",
+    "Public development remains blocked and no external publication is authorized."
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "proposed_next_block": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+  "proposed_next_block_status": "proposed_not_authorized",
+  "tasks_for_john": [
+    "Accept or return ST08_06 only.",
+    "If accepted assign ACCEPTED_BY_JOHN and TASK_CLOSED.",
+    "Separately decide whether to authorize only ST08_07.",
+    "Do not publish until remaining gates pass and an explicit external action is authorized."
+  ]
+}

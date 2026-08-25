@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_23_change_scope_v01.csv,record the machine-readable ST07_23 acceptance reconciliation remaining-block decomposition and ST07_24 selection boundary
+modified,scripts/agent_verify.py,verify ST07_23 acceptance the nine-block remaining decomposition and exactly one proposed-not-authorized ST07_24 without implementation
+modified,docs/stages/stage_07_code_modularization.md,record ST07_23 acceptance the bounded remaining Stage 7 route weighted decision and measurable proposed ST07_24 contract
+modified,roadmap.md,synchronize ST07_23 closure the nine-block remaining route and the proposed-not-authorized ST07_24 boundary

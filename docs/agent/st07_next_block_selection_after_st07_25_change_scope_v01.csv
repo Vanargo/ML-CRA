@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_25_change_scope_v01.csv,record the exact ST07_25 acceptance and next-block selection boundary
+modified,scripts/agent_verify.py,verify ST07_25 acceptance the observed corrective trigger and proposed-not-authorized ST07_26 boundary
+modified,docs/stages/stage_07_code_modularization.md,record acceptance MAPE-K alternative analysis and the measurable ST07_26 contract
+modified,roadmap.md,synchronize the canonical Stage 7 state and proposed corrective block

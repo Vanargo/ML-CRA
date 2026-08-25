@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,src/mlcra/numeric_runtime.py,implement exact BLAS backend provenance fail-fast validation and prospective single-thread enforcement
+modified,src/mlcra/nested_cv.py,apply an explicit numeric runtime contract to fit and predict while preserving legacy v01 calls
+added,configs/runtime/miniboone_nested_numeric_runtime_v01.csv,register the prospective v02 exact-backend single-thread policy before any v02 scientific run
+modified,scripts/agent_verify.py,verify the ST07_14 contract runtime enforcement negative cases protected v01 hashes and documentary state
+modified,docs/stages/stage_07_code_modularization.md,record John decisions the ST07_14 contract implementation evidence and limits
+modified,roadmap.md,synchronize accepted ST07_13 authorized ST07_14 and the prospective runtime policy
+added,docs/agent/st07_14_numeric_backend_and_thread_reproducibility_change_scope_v01.csv,machine-readable authorized change set for ST07_14

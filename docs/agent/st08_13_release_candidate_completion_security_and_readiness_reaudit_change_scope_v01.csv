@@ -1,0 +1,13 @@
+change_kind,relative_path,reason
+added,docs/agent/st08_13_release_candidate_completion_security_and_readiness_reaudit_change_scope_v01.csv,record exact planned and actual ST08_13 paths
+added,configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json,register immutable audit boundary aggregation and verification protocol
+added,scripts/st08_13_release_candidate_reaudit.py,independently validate all requirement dimension aggregate finding and protected-artifact relations
+added,tests/test_release_candidate_reaudit_st08_13.py,exercise positive and fail-closed mutation cases
+added,data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json,record 24 current requirement results findings risks observed checks and separate verdicts
+modified,.github/workflows/ci.yml,validate the registered ST08_13 audit and its mutations in configured CI
+modified,README.md,replace the pending re-audit statement with its observed non-ready result
+modified,README_RU.md,keep the Russian status semantically aligned with the English guide
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh exact candidate inventory after authorized audit artifacts
+modified,docs/agent/pilot_change_scope_v01.csv,register new ST08_13 files in the cumulative scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record authorization method results limitations and next blocked boundary
+modified,roadmap.md,record the current Stage 8 re-audit decision and proposed-only next block

@@ -1,0 +1,14 @@
+﻿protocol_id,check_id,check_result,details_ru
+miniboone_nested_cv_v01,input_model_space_exists,pass,Файл пространства параметров существует.
+miniboone_nested_cv_v01,input_protocol_lock_exists,pass,Файл фиксации протокола существует.
+miniboone_nested_cv_v01,outer_scores_row_count,pass,Ожидалось 30 строк внешних оценок.
+miniboone_nested_cv_v01,selected_params_row_count,pass,Ожидалось 10 строк выбранных параметров.
+miniboone_nested_cv_v01,summary_row_count,pass,"Ожидалось 3 строки сводки: hist_gradient_boosting, logistic_regression, dummy_prior."
+miniboone_nested_cv_v01,feature_count_locked,pass,Во всех строках должно быть feature_count=50.
+miniboone_nested_cv_v01,row_status_locked,pass,Все строки внешних оценок должны иметь row_status=nested_research_draft.
+miniboone_nested_cv_v01,hist_gradient_boosting_selected_params_within_locked_grid,pass,Все выбранные параметры hist_gradient_boosting должны входить в заранее зафиксированную сетку.
+miniboone_nested_cv_v01,outer_scores_required_columns,pass,Файл внешних оценок содержит обязательные столбцы из ожидаемой схемы.
+miniboone_nested_cv_v01,selected_params_required_columns,pass,Файл выбранных параметров содержит обязательные столбцы из ожидаемой схемы.
+miniboone_nested_cv_v01,summary_required_columns,pass,Файл сводки содержит обязательные столбцы из ожидаемой схемы.
+miniboone_nested_cv_v01,warnings_required_columns,pass,Файл предупреждений содержит обязательные столбцы из ожидаемой схемы.
+miniboone_nested_cv_v01,environment_required_columns,pass,Файл среды содержит обязательные столбцы из ожидаемой схемы.

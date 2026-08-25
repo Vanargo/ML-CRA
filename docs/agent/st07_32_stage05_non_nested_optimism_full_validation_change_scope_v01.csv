@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_32_stage05_non_nested_optimism_full_validation_change_scope_v01.csv,record the exact authorized ST07_32 implementation and evidence boundary before the first fit
+added,scripts/st07_32_non_nested_optimism_full_validation.py,execute one offline isolated ST05_07 MiniBooNE run under the predeclared numeric condition and apply the fail-closed golden diagnostic
+added,data_registry/st07_32_stage05_non_nested_optimism_candidate_v01.csv,preserve the noncanonical full-run candidate without overwriting the historical golden
+added,data_registry/st07_32_stage05_non_nested_optimism_full_validation_evidence_v01.json,record the pre-fit contract runtime comparison bounded diagnostic signal and verdict
+modified,scripts/agent_verify.py,independently recompute the ST07_32 evidence contract protected hashes and documentary state
+modified,docs/stages/stage_07_code_modularization.md,record ST07_32 authority execution evidence exact before-after fragments and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_32 technical completion

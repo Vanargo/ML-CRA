@@ -1,0 +1,13 @@
+{
+  "schema_version": "st08_13B_public_repository_hosted_CI_and_security_evidence_v01",
+  "evidence_id": "st08_13B_public_repository_hosted_CI_and_security_evidence_v01",
+  "task_id": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "bootstrap_pending_external_observation",
+  "external_evidence": null,
+  "technical_status": "BLOCKED",
+  "readiness": "NOT_READY",
+  "release_performed": false,
+  "note": "This fail-closed placeholder is committed for the first hosted run and is replaced only after exact GitHub API observations are available."
+}

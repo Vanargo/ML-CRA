@@ -1,0 +1,243 @@
+{
+  "schema_version": "st08_04_public_product_scope_and_release_train_contract_design_evidence_v01",
+  "record_id": "st08_04_public_product_scope_and_release_train_contract_design_evidence_v01",
+  "task_id": "ST08_04_public_product_scope_and_release_train_contract_design",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы с ST08_04",
+  "recorded_at": "2026-08-14",
+  "authorization": {
+    "john_statement": "continue ML-CRA development with ST08_04 after closure of ST08_03 and formation of ml_cra_v54.zip",
+    "accepted_previous_task": "ST08_03_project_scope_release_class_and_owner_decision_resolution",
+    "closed_previous_task": "ST08_03_project_scope_release_class_and_owner_decision_resolution",
+    "next_block_authorized": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "product_implementation_authorized": false,
+    "external_release_authorized": false,
+    "new_training_authorized": false
+  },
+  "source_baseline": {
+    "expected_checkpoint": "ml_cra_v54.zip",
+    "checkpoint_searched_locations": [
+      "C:/Users/Vanargo/Desktop",
+      "C:/Users/Vanargo/Documents",
+      "C:/Users/Vanargo/Downloads",
+      "C:/Users/Vanargo/Desktop/ML-CRA"
+    ],
+    "checkpoint_available": false,
+    "checkpoint_sha256": "unknown_not_inferred",
+    "workspace_git_repository_available": false,
+    "workspace_manifest_policy": "exclude_ml_cra_venv_git_pycache_and_pyc",
+    "workspace_files": 277,
+    "workspace_manifest_sha256": "a3dee65d92cc155bb99c97ac732f258c58ac95b52ba10d38ace141597787a1e7",
+    "baseline_before_change": "PASS"
+  },
+  "measurable_outcome": {
+    "contract_path": "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+    "stakeholder_scenarios": 5,
+    "CLI_commands": 3,
+    "exit_codes": 6,
+    "release_gates": 3,
+    "objective_metrics": 12,
+    "stage1_trace_rows": 8,
+    "proposed_release_train_blocks": 10,
+    "design_status": "complete_not_implemented"
+  },
+  "traceability": {
+    "john_decision": "ST08_04 authorized after ST08_03 closure",
+    "task_contract": "docs/agent/ml_cra_agent_working_contract_v01.md plus task_core_v01.md plus change_v01.md",
+    "stage1_boundary": "docs/stages/stage_01_project_scope.md",
+    "stage8_owner_decisions": "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json",
+    "readiness_findings": "data_registry/stage08_project_completion_and_release_readiness_audit_evidence_v01.json",
+    "product_contract": "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+    "canonical_state": ["docs/stages/stage_08_project_completion_and_release_readiness.md", "roadmap.md"]
+  },
+  "important_decisions": [
+    {
+      "decision_id": "ST08-04-D01",
+      "decision": "one installed mlcra command with audit verify and doctor subcommands",
+      "basis": "PyPA project scripts and console_scripts entry point specification plus John universal CLI decision",
+      "consequence": "CLI and dashboard must not develop independent verdict logic"
+    },
+    {
+      "decision_id": "ST08-04-D02",
+      "decision": "local UTF-8 CSV plus versioned JSON Schema specification and no untrusted executable serialization",
+      "basis": "JSON Schema 2020-12 and official Python pickle security warning",
+      "consequence": "pickle joblib cloudpickle arbitrary import paths implicit URLs and default network are unsupported"
+    },
+    {
+      "decision_id": "ST08-04-D03",
+      "decision": "0.1.0 supports a bounded binary classification vertical slice while 1.0.0 additionally requires tabular regression",
+      "basis": "observed current binary-only scientific and metric evidence plus John release ladder and SemVer public API boundary",
+      "consequence": "regression and multiclass are rejected fail closed in 0.1.0 rather than overclaimed"
+    },
+    {
+      "decision_id": "ST08-04-D04",
+      "decision": "negative or fragile scientific verdict exits zero when execution and evidence are valid",
+      "basis": "separation of software verification from scientific conclusion in the Stage 8 contract",
+      "consequence": "automation can distinguish a valid negative finding from a program or evidence failure"
+    },
+    {
+      "decision_id": "ST08-04-D05",
+      "decision": "public development 0.1.0 and 1.0.0 are three independent fail closed gates with John authorization",
+      "basis": "ISO requirements engineering NIST AI RMF MANAGE PyPA packaging flow SemVer and NIST SSDF",
+      "consequence": "building a wheel does not authorize publication and no gate inherits owner acceptance automatically"
+    },
+    {
+      "decision_id": "ST08-04-D06",
+      "decision": "external utility observations are recorded without inventing a universal numeric usability threshold",
+      "basis": "ISO 9241-11 usability is context user and goal specific and does not prescribe one evaluation method",
+      "consequence": "community benefit remains an empirical post-use question"
+    }
+  ],
+  "authoritative_support": [
+    {"source": "ISO/IEC/IEEE 29148:2018", "uri": "https://www.iso.org/standard/72089.html", "use": "requirements processes contents and information items"},
+    {"source": "NIST AI RMF 1.0 Core", "uri": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/", "use": "intended context users metrics risk prioritization and proceed decision"},
+    {"source": "Python Packaging pyproject.toml specification", "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/", "use": "metadata dependencies Python license and project scripts"},
+    {"source": "Python Packaging entry points specification", "uri": "https://packaging.python.org/en/latest/specifications/entry-points/", "use": "installed console command streams and integer exit code"},
+    {"source": "Python Packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "source build artifact publication and install are distinct gates"},
+    {"source": "Python argparse", "uri": "https://docs.python.org/3/library/argparse.html", "use": "usage diagnostics to stderr and exit status 2"},
+    {"source": "Python pickle security", "uri": "https://docs.python.org/3/library/pickle.html", "use": "untrusted pickle can execute arbitrary code"},
+    {"source": "JSON Schema Draft 2020-12", "uri": "https://json-schema.org/draft/2020-12", "use": "machine readable structural validation"},
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "initial development and public API boundary"},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "secure software practices integrated into the development lifecycle"},
+    {"source": "ISO 9241-11:2018", "uri": "https://www.iso.org/standard/63500.html", "use": "usability outcome bound to specified users goals and context"}
+  ],
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "initial_paths": [
+      "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+      "docs/agent/st08_04_public_product_scope_and_release_train_contract_design_change_scope_v01.csv",
+      "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md"
+    ],
+    "in_scope_extension_after_observed_baseline_failure": {
+      "path": "docs/agent/pilot_change_scope_v01.csv",
+      "reason": "The existing cumulative baseline allowlist must register the three new ST08_04 files; without this necessary documentary change the unweakened baseline correctly rejects them as out of scope."
+    },
+    "final_paths": [
+      "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+      "docs/agent/st08_04_public_product_scope_and_release_train_contract_design_change_scope_v01.csv",
+      "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md",
+      "docs/agent/pilot_change_scope_v01.csv"
+    ]
+  },
+  "actual_change_log": {
+    "paths": [
+      "configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json",
+      "docs/agent/st08_04_public_product_scope_and_release_train_contract_design_change_scope_v01.csv",
+      "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md",
+      "docs/agent/pilot_change_scope_v01.csv"
+    ],
+    "deviations": [
+      {
+        "path": "docs/agent/pilot_change_scope_v01.csv",
+        "classification": "necessary_in_scope_extension",
+        "reason": "Added after the existing unweakened baseline exposed that the three new files were not yet registered in its cumulative allowlist; no product scientific or release scope changed."
+      }
+    ]
+  },
+  "verification_attempts": [
+    {
+      "attempt": 1,
+      "command": "focused in-memory Python contract validator",
+      "result": "FAIL",
+      "cause": "Stage 1 trace rows used short ST08 number labels while the release train registry stored exact full task identifiers.",
+      "disposition": "Contract-only traceability defect corrected by using exact full task identifiers; the validator was not weakened and no product scientific or release boundary changed."
+    },
+    {
+      "attempt": 2,
+      "command": "focused in-memory Python contract validator",
+      "result": "PASS",
+      "observed": "scenarios=5 commands=3 exit_codes=6 gates=3 metrics=12 trace_rows=8 proposed_blocks=10 negative_mutations=17/17"
+    },
+    {
+      "attempt": 3,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode baseline",
+      "result": "FAIL",
+      "cause": "The cumulative pilot_change_scope_v01.csv had not yet registered the three newly added ST08_04 files and correctly reported them as out_of_scope_added.",
+      "disposition": "Added the three exact paths to the existing cumulative allowlist and added that necessary sixth file to the task change scope actual log and deviation record; the verifier was not changed or weakened."
+    },
+    {
+      "attempt": 4,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode baseline",
+      "result": "PASS",
+      "observed": "manifest_rows=158 scope_files=53 modified=6 added=126 missing=0 out_of_scope=0 scope_errors=0"
+    },
+    {
+      "attempt": 5,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "result": "BLOCKED",
+      "cause": "The first cumulative pilot invocation reached the 120.2 second command timeout before an exit code was observed.",
+      "disposition": "No project verdict was inferred; the identical command was rerun with a longer timeout."
+    },
+    {
+      "attempt": 6,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "result": "BLOCKED",
+      "cause": "The long output exceeded the interface context and its final exit code was not retained.",
+      "disposition": "No PASS was inferred; the identical command was rerun while retaining only the exit code and final diagnostic lines."
+    },
+    {
+      "attempt": 7,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot with bounded final output capture",
+      "result": "PASS",
+      "observed": "PILOT_EXIT=0 after 144.3 seconds; concluding Stage 7 and Stage 8 registered checks were PASS"
+    },
+    {
+      "attempt": 8,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode baseline after final evidence update",
+      "result": "PASS",
+      "observed": "manifest_rows=158 scope_files=53 modified=6 added=126 missing=0 out_of_scope=0 scope_errors=0"
+    }
+  ],
+  "observed_checks": {
+    "JSON_parse": "PASS",
+    "focused_positive_contract": "PASS",
+    "focused_negative_mutations": "PASS_17_of_17",
+    "baseline_after_change": "PASS",
+    "python_syntax": "PASS_AST_24_files",
+    "cumulative_pilot": "PASS",
+    "protected_hashes_after_change": "PASS_18_of_18",
+    "forbidden_product_outputs_absent": "PASS_none_present",
+    "canonical_documentary_consistency": "PASS",
+    "full_model_training_runs": 0,
+    "dataset_network_accesses": 0,
+    "scientific_artifact_changes": 0,
+    "external_release_actions": 0
+  },
+  "scientific_interpretation_limit": "ST08_04 designs a future public product contract. It does not implement or validate the CLI package dashboard classification product scenario regression scenario external usability or release readiness and does not change or broaden the registered MiniBooNE scientific claim.",
+  "remaining_uncertainty": [
+    "The expected ml_cra_v54.zip checkpoint is inaccessible and current workspace equality to that archive cannot be claimed.",
+    "The exact CPython and dependency support matrix remains for a future packaging compatibility block.",
+    "Regression requires a separate prospective dataset claim protocol metrics verdict policy implementation and scientific validation.",
+    "Multiclass classification dashboard technology and PyPI publication remain outside this contract's implemented scope.",
+    "Actual community benefit and usability require observed external use and cannot be inferred from contract verification."
+  ],
+  "proposed_next_block": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+  "proposed_next_block_status": "proposed_not_authorized",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

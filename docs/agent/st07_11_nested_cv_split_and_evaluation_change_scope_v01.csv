@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+modified,scripts/agent_verify.py,verify the ST07_11 split and fitted-estimator evaluation contracts notebook integration canonical status negative cases and preserved regressions
+added,src/mlcra/nested_cv.py,extract deterministic nested-CV split construction position mapping and fitted-estimator evaluation into the reusable software layer
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace local nested-CV split and evaluation logic with modular calls without executing the notebook
+modified,docs/stages/stage_07_code_modularization.md,record John authorization and the complete ST07_11 implementation and verification evidence
+modified,roadmap.md,synchronize the canonical Stage 7 state after John authorization and ST07_11 technical completion
+added,docs/agent/st07_11_nested_cv_split_and_evaluation_change_scope_v01.csv,machine-readable authorized change set for ST07_11

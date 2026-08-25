@@ -1,0 +1,391 @@
+{
+  "task_id": "ST07_34_verdict_policy_application_contract_and_golden_master_design",
+  "task_profile": "CHANGE",
+  "authorization": {
+    "john_decision": "NEXT_BLOCK_AUTHORIZED: ST07_34_verdict_policy_application_contract_and_golden_master_design",
+    "st07_33_acceptance_not_inferred": true,
+    "stage07_closure_reserved_for_john": true
+  },
+  "measurable_outcome": "An immutable typed input/output and fail-closed golden-master contract exists for applying the registered MiniBooNE verdict policy before any source extraction or closure revalidation.",
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v45.zip",
+    "sha256": "c31b6a5fe6b17e9998fd6d47b34709c7c2377cee6093142886a6cd061e73e57c",
+    "size_bytes": 1076585,
+    "entries": 259,
+    "unique_entries": 259,
+    "workspace_mismatches_before_task": 0
+  },
+  "method": {
+    "framework": "MAPE-K plus requirements traceability, typed design by contract, golden-master analysis and fail-closed mutation testing",
+    "local_sources": [
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "docs/agent/task_templates/task_core_v01.md",
+      "docs/agent/task_templates/change_v01.md",
+      "bio_inspired_project_engineering_standard_v02.md",
+      "docs/stages/stage_07_code_modularization.md",
+      "docs/stages/stage_05_claim_audit_protocol.md",
+      "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv",
+      "configs/verdict_policies/miniboone_verdict_policy_v01.csv",
+      "data_registry/openml_miniboone_nested_quality_checks.csv",
+      "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv",
+      "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv",
+      "data_registry/openml_miniboone_stage05_metric_conflict_audit.csv",
+      "data_registry/openml_miniboone_stage05_parameter_selection_stability.csv",
+      "data_registry/openml_miniboone_stage05_cost_quality_audit.csv",
+      "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv",
+      "src/mlcra/verdicts.py"
+    ],
+    "external_sources": [
+      {
+        "source": "ISO/IEC/IEEE 29148:2018",
+        "url": "https://www.iso.org/standard/72089.html",
+        "use": "requirements information items and traceable requirements engineering"
+      },
+      {
+        "source": "NASA Systems Engineering Handbook Appendix D",
+        "url": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+        "use": "unique requirement identifiers and definitive verification matrix"
+      },
+      {
+        "source": "NIST SP 500-234",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-234.pdf",
+        "use": "software V&V traceability and checking intended and unintended behavior"
+      }
+    ]
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st07_34_verdict_policy_application_contract_change_scope_v01.csv",
+      "data_registry/st07_34_verdict_policy_application_contract_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ],
+    "prohibited_side_effects": [
+      "source implementation",
+      "notebook modification or execution",
+      "model training",
+      "network access",
+      "registered policy or claim modification",
+      "scientific CSV or Stage 5 verdict modification",
+      "Stage 7 closure"
+    ]
+  },
+  "future_module_boundary": {
+    "target": "src/mlcra/verdicts.py",
+    "implementation_in_this_task": false,
+    "public_contracts": [
+      {
+        "name": "build_verdict_evidence_record",
+        "input": "registered claim plus canonical ST05_01-ST05_07 DataFrames",
+        "output": "VerdictEvidenceRecordV01",
+        "responsibility": "validate identities, schemas and provenance and derive typed facts without selecting a category"
+      },
+      {
+        "name": "evaluate_registered_verdict_conditions",
+        "input": "validated policy plus VerdictEvidenceRecordV01",
+        "output": "one VerdictConditionEvaluationV01 per category and clause",
+        "responsibility": "bind each prose policy clause to a versioned category-specific evaluator; emit indeterminate rather than guess an undefined qualitative threshold"
+      },
+      {
+        "name": "apply_registered_verdict_policy",
+        "input": "validated policy, evidence record and condition evaluations",
+        "output": "VerdictPolicyApplicationResultV01",
+        "responsibility": "apply categories in strict descending decision_rank order and stop fail-closed on incomplete or indeterminate higher-rank evidence"
+      },
+      {
+        "name": "validate_verdict_policy_application_bundle",
+        "input": "policy, evidence record, condition evaluations and result",
+        "output": "None or ValueError",
+        "responsibility": "verify identity, completeness, ordering, hashes, result derivation and language/disclosure constraints"
+      }
+    ]
+  },
+  "typed_input_contract": {
+    "schema_id": "VerdictEvidenceRecordV01",
+    "identity_fields": [
+      "policy_id",
+      "claim_id",
+      "candidate_id",
+      "candidate_model_id",
+      "baseline_model_id",
+      "primary_metric"
+    ],
+    "fact_fields": {
+      "quality": [
+        "required_check_count:int",
+        "passed_check_count:int",
+        "error_count:int",
+        "fatal_warning_count:int"
+      ],
+      "primary": [
+        "paired_block_count:int",
+        "candidate_positive_blocks:int",
+        "positive_share:finite_float",
+        "directional_delta_mean:finite_float",
+        "directional_delta_q05_linear:finite_float"
+      ],
+      "secondary": [
+        "metric_names:ordered_tuple[str]",
+        "paired_blocks_per_metric:int",
+        "support_share_by_metric:map[str,finite_float]",
+        "systematic_conflict_metric_count:int"
+      ],
+      "stability": [
+        "required_family_ids:ordered_tuple[str]",
+        "positive_current_readout:bool",
+        "positive_seed_family:bool",
+        "metric_conflict_status:str",
+        "parameter_stability_status:str"
+      ],
+      "cost": [
+        "fit_seconds_ratio_of_means:finite_nonnegative_float",
+        "total_seconds_ratio_of_means:finite_nonnegative_float",
+        "high_training_cost:bool"
+      ],
+      "diagnostic": [
+        "non_nested_comparison_count:int",
+        "non_nested_delta_mean:finite_float",
+        "non_nested_audit_scope:str"
+      ],
+      "provenance": [
+        "source_sha256:map[repository_relative_path,sha256]",
+        "evaluator_contract_id:str"
+      ]
+    },
+    "invariants": [
+      "all identity fields are nonblank and exactly match the registered claim and every policy row",
+      "all required source hashes and schemas are validated before facts are derived",
+      "all counts are internally consistent and all numeric facts are finite",
+      "primary and secondary comparisons use paired outer validation blocks and directional candidate advantage",
+      "the evidence record contains facts only and cannot supply a selected category",
+      "unknown or ambiguous source state is represented as indeterminate and never coerced to pass"
+    ]
+  },
+  "condition_evaluation_contract": {
+    "schema_id": "VerdictConditionEvaluationV01",
+    "key": [
+      "policy_id",
+      "claim_id",
+      "category_id",
+      "clause_id"
+    ],
+    "required_clause_ids": [
+      "quality_gate",
+      "primary_metric",
+      "secondary_metric",
+      "stability",
+      "cost"
+    ],
+    "allowed_outcomes": [
+      "PASS",
+      "FAIL",
+      "INDETERMINATE",
+      "NOT_EVALUATED_AFTER_MATCH"
+    ],
+    "required_fields": [
+      "decision_rank:int",
+      "evaluator_id:str",
+      "evaluator_version:str",
+      "outcome:enum",
+      "observed_fact_ids:ordered_tuple[str]",
+      "reason_code:str"
+    ],
+    "semantic_rule": "The engine never parses Russian prose heuristically. A versioned evaluator implements each category clause. Undefined terms such as near zero or systematically must yield INDETERMINATE until their policy semantics are explicitly registered by an authorized task."
+  },
+  "application_algorithm": [
+    "validate the policy as exactly six unique rows with one policy_id, one claim_id, unique category_id and decision_rank, nonblank five clauses and ranks 6 through 1",
+    "validate the evidence record identity, facts, source hashes and evaluator_contract_id",
+    "sort policy rows by decision_rank descending irrespective of CSV row order",
+    "for each category require exactly five keyed condition evaluations from the registered evaluator version",
+    "if any clause is INDETERMINATE before a category match, return INDETERMINATE_FAIL_CLOSED with no selected category",
+    "if all five clauses are PASS, select that category, copy its exact allowed and forbidden language, calculate mandatory disclosures and mark all lower ranks NOT_EVALUATED_AFTER_MATCH",
+    "if at least one clause is FAIL and none is indeterminate, continue to the next lower rank",
+    "if no category matches, return NO_CATEGORY_MATCH_FAIL_CLOSED with no selected category",
+    "validate the resulting category, rank, clause outcomes, disclosure flags and source digest against the inputs"
+  ],
+  "typed_output_contract": {
+    "schema_id": "VerdictPolicyApplicationResultV01",
+    "required_fields": [
+      "application_id:str",
+      "policy_id:str",
+      "claim_id:str",
+      "application_status:enum[APPLIED,INDETERMINATE_FAIL_CLOSED,NO_CATEGORY_MATCH_FAIL_CLOSED]",
+      "selected_category_id:optional_str",
+      "selected_decision_rank:optional_int",
+      "selected_category_ru:optional_str",
+      "quality_gate_outcome:enum",
+      "primary_metric_outcome:enum",
+      "secondary_metric_outcome:enum",
+      "stability_outcome:enum",
+      "cost_outcome:enum",
+      "required_disclosures:ordered_tuple[str]",
+      "allowed_language_ru:optional_str",
+      "forbidden_language_ru:optional_str",
+      "evidence_record_sha256:sha256",
+      "policy_sha256:sha256",
+      "row_status:str",
+      "interpretation_limit_ru:str"
+    ],
+    "invariants": [
+      "a selected category exists if and only if application_status is APPLIED",
+      "selected rank and language are copied from exactly one validated policy row",
+      "a cost ratio greater than 10 requires high_training_cost disclosure",
+      "result cannot broaden the claim beyond MiniBooNE and registered protocols",
+      "result generation performs no training and does not modify source evidence"
+    ]
+  },
+  "golden_master": {
+    "golden_id": "miniboone_verdict_policy_application_v01_historical_st05_08",
+    "reference_only_not_new_scientific_validation": true,
+    "observed_facts": {
+      "policy_shape": [6, 16],
+      "policy_category_order_by_rank": [
+        "strongly_supported",
+        "moderately_supported",
+        "weakly_supported",
+        "fragile",
+        "unsupported",
+        "contradicted"
+      ],
+      "policy_decision_ranks": [6, 5, 4, 3, 2, 1],
+      "quality_checks": "13/13 pass",
+      "primary_paired_blocks": 80,
+      "primary_positive_blocks": 80,
+      "primary_positive_share": 1.0,
+      "primary_delta_mean": 0.09121044365165432,
+      "primary_delta_min": 0.08205557253161389,
+      "primary_delta_q05_linear": 0.08625925727315661,
+      "secondary_metric_count": 5,
+      "secondary_support_share_min": 1.0,
+      "systematic_conflict_metric_count": 0,
+      "current_readout_positive_blocks": "10/10",
+      "seed_family_positive_mean_states": "5/5",
+      "metric_conflict_status": "no_metric_conflict_detected",
+      "parameter_stability_status": "partially_stable",
+      "fit_seconds_ratio_of_means": 55.195823,
+      "total_seconds_ratio_of_means": 54.506784,
+      "non_nested_comparisons": 15,
+      "non_nested_delta_mean": -0.00018960346465566916
+    },
+    "expected_condition_outcomes": {
+      "quality_gate": "PASS",
+      "primary_metric": "PASS",
+      "secondary_metric": "PASS",
+      "stability": "PASS",
+      "cost": "PASS"
+    },
+    "expected_result": {
+      "application_status": "APPLIED",
+      "selected_category_id": "strongly_supported",
+      "selected_decision_rank": 6,
+      "required_disclosures": [
+        "high_training_cost",
+        "miniboone_and_registered_protocol_scope",
+        "partial_l2_selection_instability",
+        "non_nested_probe_is_diagnostic_only"
+      ],
+      "historical_stage05_verdict_changed": false
+    }
+  },
+  "boundary_rules": {
+    "strongly_supported": {
+      "primary_positive_share_min_inclusive": 0.95,
+      "primary_delta_mean_min_inclusive": 0.03,
+      "primary_delta_q05_min_exclusive": 0.01,
+      "secondary_support_share_min_inclusive": 0.9,
+      "high_cost_fit_ratio_trigger_exclusive": 10.0
+    },
+    "non_operational_terms_policy": "INDETERMINATE_FAIL_CLOSED",
+    "no_automatic_policy_revision": true
+  },
+  "verification_design": {
+    "positive_checks": [
+      "exact policy identity, 6x16 schema, ranks and category order",
+      "independent reconstruction of all golden facts from protected canonical evidence",
+      "all five strongly_supported clauses pass",
+      "ranked selection returns strongly_supported and exact policy language",
+      "fit ratio 55.195823 triggers high_training_cost disclosure",
+      "golden result matches historical ST05_08 category without changing it"
+    ],
+    "boundary_checks": [
+      "positive share 0.95 passes and a value below 0.95 fails",
+      "mean delta 0.03 passes and a value below 0.03 fails",
+      "q05 above 0.01 passes while exactly 0.01 fails",
+      "secondary support share 0.90 passes and a value below 0.90 fails",
+      "fit ratio exactly 10 does not trigger high-cost disclosure while a value above 10 does"
+    ],
+    "negative_mutations": [
+      "missing policy row",
+      "duplicate category_id",
+      "duplicate decision_rank",
+      "missing rank",
+      "wrong policy_id",
+      "wrong claim_id",
+      "blank policy clause",
+      "unknown category_id",
+      "missing evidence identity",
+      "wrong evidence claim_id",
+      "non-finite numeric fact",
+      "inconsistent paired counts",
+      "missing source hash",
+      "wrong evaluator_contract_id",
+      "missing condition evaluation",
+      "duplicate condition evaluation key",
+      "unknown condition outcome",
+      "indeterminate higher-rank clause",
+      "forged selected rank",
+      "selected language not copied from policy",
+      "missing high-cost disclosure",
+      "forged evidence-record digest"
+    ],
+    "negative_mutation_count": 22
+  },
+  "protected_artifacts": {
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "data_registry/openml_miniboone_nested_quality_checks.csv": "1751215f046505aa90ea1ba6debf9082769b680bba50ca93ebd7a1475b0e8225",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_metric_conflict_audit.csv": "f82e3611924e47b775995b3458989a25486b22527e1fa1be2389a860fe03acc6",
+    "data_registry/openml_miniboone_stage05_parameter_selection_stability.csv": "52167633e25cc93d4444c6c0b4870b5a09e09c8cea407236ec6f4485c2cbc5be",
+    "data_registry/openml_miniboone_stage05_cost_quality_audit.csv": "0f453e31c34d017a90fc504c6fbaf6101d00e8a9050d02e091a342df9c6d6e9b",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "src/mlcra/verdicts.py": "600425c7351da78a2fb5489f783edac63574f52e53eb6db60bb3d224509a3ce3",
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52"
+  },
+  "verification_result": {
+    "prechange_baseline": "PASS",
+    "prechange_cumulative_pilot": "PASS_51_OF_51",
+    "postchange_python_syntax": "PASS_24_FILES",
+    "postchange_csv_structure": "PASS_139_FILES",
+    "postchange_notebook_structure": "PASS_4_VALID_1_EXPECTED_EMPTY",
+    "postchange_baseline": "PASS_MANIFEST_158_SCOPE_46_MODIFIED_6_ADDED_107_MISSING_0_OUT_OF_SCOPE_0_ERRORS_0",
+    "postchange_cumulative_pilot": "PASS_52_OF_52",
+    "st07_34_gate": "PASS_POLICY_6X16_BOUNDARIES_10_OF_10_MUTATIONS_22_PROTECTED_12_OF_12_SOURCE_IMPLEMENTATION_0",
+    "initial_postchange_pilot_disposition": "FAIL_THREE_LEGACY_GATES_COUPLED_TO_SUPERSEDED_GLOBAL_STATUS",
+    "repair": "Historical ST07_31-ST07_33 gates now verify task-specific evidence and durable chain facts rather than requiring their old status to remain the current global status.",
+    "scientific_validation": "SKIPPED_DESIGN_ONLY",
+    "model_training": "SKIPPED_NOT_AUTHORIZED",
+    "network": "SKIPPED_NOT_AUTHORIZED"
+  },
+  "design_verdict": {
+    "status": "PASS",
+    "st07_close_06_after_task": "FAIL_PENDING_SOURCE_IMPLEMENTATION_AND_GOLDEN_VALIDATION",
+    "stage07_closed": false,
+    "scientific_claim_or_verdict_changed": false,
+    "uncertainty": "The lower-rank policy rows contain qualitative terms that are not fully operationalized. The contract requires INDETERMINATE_FAIL_CLOSED rather than silently inventing thresholds."
+  },
+  "actual_change_log": {
+    "planned_paths": 5,
+    "actual_paths": 5,
+    "deviations": 0
+  },
+  "proposed_next_block": {
+    "task_id": "ST07_35_verdict_policy_application_modular_extraction_and_golden_master_validation",
+    "status": "proposed_not_authorized",
+    "implementation_started": false,
+    "measurable_outcome": "Implement the ST07_34 contracts in src/mlcra/verdicts.py and validate the historical strongly_supported golden path plus all boundary and fail-closed mutations without changing policy, evidence or verdict."
+  }
+}

@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/st08_02_project_completion_and_release_readiness_baseline_audit_change_scope_v01.csv,Register the exact authorized ST08_02 change boundary.
+added,data_registry/stage08_project_completion_and_release_readiness_audit_evidence_v01.json,Record all 24 requirement results findings aggregates evidence and limitations.
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Register the authorized baseline audit result without remediation or release.
+modified,scripts/agent_verify.py,Add an executable fail-closed validator for the ST08_02 audit artifact and preserve the ST08_01 historical snapshot.
+modified,roadmap.md,Synchronize the canonical Stage 8 state decision registry and next proposed block.

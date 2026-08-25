@@ -1,0 +1,259 @@
+{
+  "schema_version": "st08_03_owner_decision_resolution_evidence_v01",
+  "record_id": "st08_03_project_scope_release_class_owner_decision_evidence_v01",
+  "task_id": "ST08_03_project_scope_release_class_and_owner_decision_resolution",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы",
+  "recorded_at": "2026-08-14",
+  "authorization": "NEXT_BLOCK_AUTHORIZED: ST08_03_project_scope_release_class_and_owner_decision_resolution",
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v53.zip",
+    "sha256": "2223a1d29937e70baaad1c05b8118038cdbab31300451f257f4b6e0188bc5988",
+    "size_bytes": 1164020
+  },
+  "owner_decisions": [
+    {
+      "decision_id": "D01",
+      "status": "accepted_by_john",
+      "normalized_decision": "original_public_product_outputs_remain_required",
+      "plain_russian_interpretation": "Конечной целью остаётся публичный исследовательский программный продукт с техническим отчётом, воспроизводимым контуром, универсальным CLI, панелью, русской и английской документацией и открытым GitHub-репозиторием; классификация и регрессия входят в границу версии 1.0.0."
+    },
+    {
+      "decision_id": "D02",
+      "status": "accepted_by_john",
+      "normalized_decision": "preserve_bounded_scientific_claim_and_current_technical_report",
+      "plain_russian_interpretation": "Текущий MiniBooNE-результат остаётся ограниченным зарегистрированными данными и протоколами и не доказывает универсальное превосходство модели или готовность публичного продукта."
+    },
+    {
+      "decision_id": "D03",
+      "status": "accepted_by_john",
+      "normalized_decision": "universal_cli_is_required_supported_interface",
+      "plain_russian_interpretation": "Внешний пользователь должен работать через единый устанавливаемый командный интерфейс с явно ограниченными и проверяемыми сценариями табличной классификации и регрессии."
+    },
+    {
+      "decision_id": "D04",
+      "status": "accepted_by_john",
+      "normalized_decision": "public_github_product_not_controlled_private_handoff",
+      "plain_russian_interpretation": "Целевой канал — публичный GitHub-проект для сообщества; частная передача научному руководителю или техническому проверяющему не является поддерживаемым сценарием."
+    },
+    {
+      "decision_id": "D05",
+      "status": "accepted_by_john",
+      "normalized_decision": "reconstructible_python_distribution_and_clean_install_required",
+      "plain_russian_interpretation": "До поддерживаемого релиза проект должен собираться и устанавливаться в чистом окружении с воспроизводимыми зависимостями и проверяемой командой запуска."
+    },
+    {
+      "decision_id": "D06",
+      "status": "accepted_by_john",
+      "normalized_decision": "MIT",
+      "plain_russian_interpretation": "Оригинальный код и сопутствующая документация ML-CRA должны распространяться по MIT License; условия сторонних данных и материалов сохраняются отдельно и не переопределяются MIT."
+    },
+    {
+      "decision_id": "D07",
+      "status": "accepted_by_john",
+      "normalized_decision": "citation_identity_and_public_repository_target_registered",
+      "plain_russian_interpretation": "Публичный автор — Иван Полищук, ORCID — https://orcid.org/0009-0005-6596-0605, GitHub-владелец — Vanargo, целевой репозиторий — https://github.com/Vanargo/ML-CRA; CITATION.cff обязателен."
+    },
+    {
+      "decision_id": "D08",
+      "status": "accepted_by_john",
+      "normalized_decision": "exclude_raw_cache_and_reconcile_derived_evidence_terms",
+      "plain_russian_interpretation": "Сырые данные и локальный OpenML-кэш не включаются в релиз; производные доказательства можно включать только с проверенным происхождением, атрибуцией и согласованными условиями UCI MiniBooNE."
+    },
+    {
+      "decision_id": "D09",
+      "status": "accepted_by_john",
+      "normalized_decision": "risk_and_dependency_order",
+      "plain_russian_interpretation": "Работы упорядочиваются по зависимости и риску: сначала границы продукта и права, затем воспроизводимая упаковка и интерфейсы, после этого документация, безопасность, релизная проверка и только затем публикация."
+    }
+  ],
+  "product_scope": {
+    "mission": "public_research_grade_ml_claim_reliability_auditor",
+    "supported_interface_target": "universal_cli",
+    "supported_problem_types_for_v1_0_0": [
+      "tabular_classification",
+      "tabular_regression"
+    ],
+    "required_outputs_for_v1_0_0": [
+      "current_technical_report",
+      "reproducible_validation_pipeline",
+      "installable_universal_cli",
+      "dashboard_using_the_same_validated_core",
+      "russian_and_english_documentation",
+      "public_github_repository"
+    ],
+    "excluded_from_current_product_branch": [
+      "universal_model_superiority_claim",
+      "full_automl",
+      "large_scale_deep_learning_benchmarks",
+      "hosted_production_service",
+      "change_to_registered_miniboone_claim_protocol_policy_or_verdict"
+    ]
+  },
+  "release_policy": {
+    "release_class_target": "public_installable_python_distribution",
+    "source_repository_target": "https://github.com/Vanargo/ML-CRA",
+    "python_distribution_required": true,
+    "public_development_repository_gate": "legal_documentation_and_security_minimum_pass",
+    "first_supported_release_version": "0.1.0",
+    "first_supported_release_gate": "clean_installable_working_cli_pass",
+    "version_1_0_0_gate": "classification_regression_dashboard_and_bilingual_documentation_pass",
+    "pypi_publication": "deferred_to_separate_owner_decision",
+    "public_repository_creation_authorized_in_st08_03": false,
+    "external_release_authorized_in_st08_03": false
+  },
+  "legal_and_citation_policy": {
+    "project_license": "MIT",
+    "license_file_creation": "pending_separately_authorized_implementation",
+    "third_party_terms_overridden": false,
+    "dataset_terms_reconciliation_required": true,
+    "citation_file": "CITATION.cff",
+    "citation_file_creation": "pending_separately_authorized_implementation",
+    "creator": {
+      "given_names": "Иван",
+      "family_names": "Полищук",
+      "orcid": "https://orcid.org/0009-0005-6596-0605",
+      "github_owner": "Vanargo"
+    }
+  },
+  "communication_policy_change": {
+    "machine_status_plain_russian_interpretation_required": true,
+    "fixed_source_change_reporting_template_required": false,
+    "future_governing_rule_files_updated": [
+      "AGENTS.md",
+      ".agents/skills/ml-cra-stage-gate/SKILL.md",
+      "docs/agent/ml_cra_agent_working_contract_v01.md"
+    ],
+    "historical_stage_records_rewritten": false,
+    "plain_russian_interpretation": "Будущие отчёты больше не обязаны использовать шаблон «Как было → Как стало». Агент по-прежнему проверяет фактическую разницу файлов и ведёт проверяемый журнал изменений; старые упоминания сохранены только как исторические доказательства уже закрытых задач."
+  },
+  "finding_dispositions": [
+    {"priority":1,"finding_id":"ST08-FIND-02","decision":"owner_scope_resolved_product_contract_required","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":2,"finding_id":"ST08-FIND-07","decision":"reconcile_miniboone_lineage_terms_and_attribution_before_publication","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":3,"finding_id":"ST08-FIND-06","decision":"MIT_and_citation_identity_resolved_artifacts_pending","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":4,"finding_id":"ST08-FIND-03","decision":"create_reconstructible_dependency_and_clean_environment_contract","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":5,"finding_id":"ST08-FIND-05","decision":"public_python_distribution_selected_packaging_pending","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":6,"finding_id":"ST08-FIND-04","decision":"create_root_user_entry_document_after_interface_contract","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":7,"finding_id":"ST08-FIND-01","decision":"repair_current_documentation_paths_with_traceable_mapping","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":8,"finding_id":"ST08-FIND-08","decision":"complete_release_security_assurance_before_publication","owner":"ML-CRA_agent_after_separate_authorization"},
+    {"priority":9,"finding_id":"ST08-FIND-09","decision":"repeat_completion_and_release_audit_after_all_required_remediation","owner":"John_and_ML-CRA_agent"}
+  ],
+  "next_branch_boundary": {
+    "branch_id": "stage08_public_productization_release_train_v01",
+    "objective": "convert_the_bounded_research_evidence_package_into_a_public_installable_and_testable_product_without_broadening_the_registered_scientific_claim",
+    "first_block": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "first_block_status": "proposed_not_authorized",
+    "first_block_implementation_started": false,
+    "first_block_required_outputs": [
+      "stakeholder_and_external_user_scenarios",
+      "bounded_universal_cli_input_output_and_failure_contract",
+      "classification_and_regression_support_boundary",
+      "release_train_gates_for_public_development_0_1_0_and_1_0_0",
+      "traceability_from_stage1_outputs_to_stage8_remediation_blocks",
+      "objective_pre_release_utility_and_readiness_metrics"
+    ],
+    "first_block_forbidden_actions": [
+      "cli_implementation",
+      "dashboard_implementation",
+      "license_or_citation_file_creation",
+      "github_repository_creation",
+      "external_publication",
+      "training_or_scientific_artifact_change"
+    ]
+  },
+  "authoritative_support": [
+    {"source":"ML-CRA Stage 1","path":"docs/stages/stage_01_project_scope.md","use":"original product outputs and classification plus regression MVP boundary"},
+    {"source":"ML-CRA Stage 8 baseline audit","path":"data_registry/stage08_project_completion_and_release_readiness_audit_evidence_v01.json","use":"nine open findings and fail-closed release boundary"},
+    {"source":"NIST AI RMF 1.0 Core","uri":"https://airc.nist.gov/airmf-resources/airmf/5-sec-core/","use":"intended context stakeholder requirements TEVV and risk-priority order"},
+    {"source":"Python Packaging User Guide pyproject.toml specification","uri":"https://packaging.python.org/en/latest/specifications/pyproject-toml/","use":"installable Python distribution metadata boundary"},
+    {"source":"GitHub Docs Licensing a repository","uri":"https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository","use":"explicit license requirement for open reuse"},
+    {"source":"MIT License reference","uri":"https://choosealicense.com/licenses/mit/","use":"permissive license permissions conditions and limitations"},
+    {"source":"Citation File Format","uri":"https://citation-file-format.github.io/","use":"machine-readable citation identity"},
+    {"source":"ORCID identifier structure","uri":"https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier","use":"full HTTPS ORCID representation"},
+    {"source":"UCI MiniBooNE particle identification","uri":"https://archive.ics.uci.edu/dataset/199/miniboone+particle+identification","use":"dataset DOI attribution and current CC BY 4.0 metadata"}
+  ],
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st08_03_project_scope_release_class_owner_decision_change_scope_v01.csv",
+      "AGENTS.md",
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      ".agents/skills/ml-cra-stage-gate/SKILL.md",
+      "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md"
+    ]
+  },
+  "actual_change_log": {
+    "paths": [
+      "docs/agent/st08_03_project_scope_release_class_owner_decision_change_scope_v01.csv",
+      "AGENTS.md",
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      ".agents/skills/ml-cra-stage-gate/SKILL.md",
+      "data_registry/st08_03_project_scope_release_class_owner_decision_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_08_project_completion_and_release_readiness.md",
+      "roadmap.md"
+    ]
+  },
+  "change_set_deviations": [],
+  "observed_checks": {
+    "owner_decisions_complete": true,
+    "plain_russian_status_rule_present": true,
+    "fixed_source_change_template_absent_from_future_governing_rules": true,
+    "historical_stage_records_preserved": true,
+    "protected_hashes_match": true,
+    "forbidden_product_and_release_outputs_absent": true,
+    "training_runs": 0,
+    "network_dataset_accesses": 0,
+    "external_release_actions": 0,
+    "baseline": "PASS",
+    "python_syntax": "PASS",
+    "pilot": "PASS"
+  },
+  "verification_attempts": [
+    {
+      "attempt": 1,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "result": "FAIL",
+      "cause": "The new documentary check incorrectly required uppercase Stage status tokens and lowercase roadmap status tokens to be textually identical in both documents.",
+      "disposition": "Verifier-only defect corrected by checking the two documented representations separately; no owner decision, product boundary, scientific artifact, or acceptance threshold changed."
+    },
+    {
+      "attempt": 2,
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "result": "PASS"
+    }
+  ],
+  "scientific_interpretation_limit": "ST08_03 resolves owner policy and product-scope decisions only. It does not add scientific evidence, broaden the MiniBooNE claim, validate classification or regression product scenarios, or prove external community adoption.",
+  "remaining_uncertainty": [
+    "The exact universal CLI input schema model-support boundary and failure contract remain for ST08_04 design.",
+    "The MiniBooNE OpenML-versus-UCI license metadata conflict remains unresolved until a separate remediation block.",
+    "PyPI publication remains a separate owner decision.",
+    "Actual community benefit can only be measured after public use and feedback."
+  ],
+  "proposed_next_block": "ST08_04_public_product_scope_and_release_train_contract_design",
+  "proposed_next_block_status": "proposed_not_authorized",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

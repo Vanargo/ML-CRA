@@ -1,0 +1,2 @@
+﻿severity,candidate_id,protocol_id,cv_split_number,cv_repeat_number,cv_fold_number,model_id,object,warning_ru
+info,openml_miniboone_41150,report33_miniboone_minimal_research,all,all,all,all,hyperparameter_tuning,Подбор гиперпараметров не выполнялся; результаты допустимы только как минимальная внешняя проверка утвержденного контура.

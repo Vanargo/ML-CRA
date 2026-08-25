@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_27_change_scope_v01.csv,record the exact ST07_27 acceptance reconciliation and bounded ST07_28 selection
+modified,scripts/agent_verify.py,verify ST07_27 acceptance the six-block remaining route and exactly one proposed-not-authorized ST07_28 without implementation
+modified,docs/stages/stage_07_code_modularization.md,record ST07_27 acceptance MAPE-K alternative analysis and the measurable proposed ST07_28 extraction contract
+modified,roadmap.md,synchronize ST07_27 closure the six-block remaining route and the proposed-not-authorized ST07_28 boundary

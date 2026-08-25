@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use ML-CRA, please cite the software using these metadata."
+title: "ML Claim Reliability Auditor"
+type: software
+authors:
+  - family-names: "Полищук"
+    given-names: "Иван"
+    orcid: "https://orcid.org/0009-0005-6596-0605"
+abstract: "ML-CRA audits whether registered experimental evidence supports a bounded machine-learning claim."
+keywords:
+  - "machine learning"
+  - "claim audit"
+  - "reproducibility"
+license: MIT
+repository-code: "https://github.com/Vanargo/ML-CRA"

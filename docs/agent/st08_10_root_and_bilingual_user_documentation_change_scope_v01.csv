@@ -1,0 +1,21 @@
+change_kind,relative_path,reason
+added,README.md,ST08_10 English root entry and executable bounded onboarding
+added,README_RU.md,ST08_10 Russian peer root entry with command parity
+added,configs/project_readiness/st08_10_root_and_bilingual_user_documentation_contract_v01.json,ST08_10 machine-readable documentation path and walkthrough contract
+added,scripts/st08_10_documentation_assurance.py,ST08_10 fail-closed bilingual link path metadata and walkthrough validator
+added,tests/test_documentation_st08_10.py,ST08_10 focused positive and mutation tests
+added,data_registry/st08_10_root_and_bilingual_user_documentation_evidence_v01.json,ST08_10 observed documentation walkthrough and reconciliation evidence
+added,docs/agent/st08_10_root_and_bilingual_user_documentation_change_scope_v01.csv,ST08_10 exact planned and actual change scope
+modified,pyproject.toml,replace temporary inline description with the validated root README
+modified,src/mlcra/application.py,remove the completed ST08_10 documentation deferral from doctor blockers
+modified,.github/workflows/ci.yml,run documentation source tests and installed walkthrough in the existing assurance job
+modified,docs/stages/stage_01_project_scope.md,reconcile current archive report locators
+modified,docs/stages/stage_02_data_and_candidate_selection.md,reconcile current archive report locators
+modified,docs/stages/stage_03_diagnostic_experiments.md,reconcile current archive report locators
+modified,docs/stages/stage_04_primary_candidate_validation.md,reconcile archive report and current Stage 5 locators
+modified,docs/stages/stage_06_packaging_and_publication.md,reconcile historical hypothetical stage package with the current implemented module paths
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh fail-closed public candidate inventory and documentation gate blockers
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_10 files in deterministic cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record John acceptance of ST08_09 and bounded ST08_10 evidence
+modified,roadmap.md,record ST08_09 closure ST08_10 result and only proposed next block
+modified,scripts/st08_09_release_assurance.py,necessary regression repair requiring a per-command CI exit guard after ST08_10 added commands

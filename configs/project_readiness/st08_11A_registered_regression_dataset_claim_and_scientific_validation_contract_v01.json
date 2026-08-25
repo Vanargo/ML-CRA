@@ -1,0 +1,102 @@
+{
+  "schema_version": "st08_11A_registered_regression_dataset_claim_and_scientific_validation_contract_v01",
+  "contract_id": "st08_11A_registered_regression_dataset_claim_and_scientific_validation_contract_v01",
+  "task_id": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+  "recorded_at": "2026-08-24",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "status": "prospective_locked_before_dataset_download_or_model_execution",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+    "authorized_block": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+    "dataset_selected_by_John": "UCI_Wine_Quality_red_v01",
+    "dashboard_publication_or_release_authorized": false,
+    "MiniBooNE_scientific_change_authorized": false
+  },
+  "research_question": "Within the registered UCI Wine Quality red-wine dataset and fixed repeated paired K-fold protocol, does the fixed HistGradientBoostingRegressor reduce RMSE relative to the fixed Ridge baseline by at least 0.05 quality-score units on average?",
+  "dataset_registration": {
+    "dataset_id": "UCI_Wine_Quality_red_v01",
+    "title": "Wine Quality - red wine variant",
+    "creators": ["Paulo Cortez", "A. Cerdeira", "F. Almeida", "T. Matos", "J. Reis"],
+    "repository": "UCI Machine Learning Repository",
+    "uci_dataset_id": 186,
+    "doi": "10.24432/C56S3T",
+    "official_card": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+    "official_data_file": "https://archive.ics.uci.edu/static/public/186/wine+quality.zip",
+    "archive_member": "winequality-red.csv",
+    "license": "CC BY 4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "expected_rows": 1599,
+    "expected_features": 11,
+    "target": "quality",
+    "missing_values_expected": 0,
+    "delimiter": ";",
+    "application_input_transformation": "parse the official UTF-8 semicolon file as strings and write the same header and 1599 rows as UTF-8 LF comma-separated CSV without index; no row column or numeric-value filtering",
+    "raw_data_release_disposition": "EXCLUDE_RAW_DATA_register_source_URI_archive_member_and_observed_SHA256_only"
+  },
+  "prospective_claim": {
+    "claim_path": "configs/claims/uci_wine_quality_red_hgbr_vs_ridge_rmse_claim_v01.json",
+    "claim_id": "uci_wine_quality_red_hgbr_vs_ridge_rmse_v01",
+    "candidate": "hist_gradient_boosting_regressor_v01",
+    "baseline": "ridge_regression_v01",
+    "primary_metric": "root_mean_squared_error",
+    "secondary_metric": "mean_absolute_error",
+    "metric_direction": "lower_is_better",
+    "paired_delta": "RMSE_baseline_minus_RMSE_candidate",
+    "n_splits": 5,
+    "seeds": [20260824, 20260825, 20260826, 20260827, 20260828],
+    "paired_blocks": 25,
+    "minimum_mean_delta": 0.05,
+    "supported": "mean_delta_at_least_0.05_and_positive_delta_in_all_25_blocks",
+    "fragile": "mean_delta_at_least_0.05_but_not_positive_in_all_25_blocks",
+    "not_supported": "mean_delta_below_0.05"
+  },
+  "sampling_and_bias_register": {
+    "declared_assumption": "exchangeable_rows",
+    "basis": "The UCI card describes separate wine samples and does not identify temporal spatial grouped or repeated-measure keys.",
+    "unresolved_limit": "UCI does not provide wine-brand grape-type batch taster or producer identifiers, so row independence cannot be proven or group-aware splitting reconstructed.",
+    "ordinal_target_limit": "quality is an ordered sensory score; UCI explicitly permits regression, but RMSE imposes numeric distance on that ordinal score.",
+    "selection_bias_control": "dataset models metrics seeds folds threshold and verdict were fixed before dataset download and before observing model results",
+    "hyperparameter_selection": "NONE",
+    "multiple_comparison_scope": "one candidate versus one baseline on one target and one primary metric"
+  },
+  "required_validation": {
+    "source_integrity": ["HTTPS_download", "archive_member_exact_name", "SHA256_archive_and_member", "row_column_header_missing_and_finite_checks"],
+    "software": ["registered_claim_schema", "audit_exit_0", "verify_exit_0_without_refit", "exact_25_paired_rows", "derived_relation_recomputation", "deterministic_scientific_payload"],
+    "scientific": ["paired_RMSE_and_MAE_per_block", "prospective_verdict_application", "seed_level_summary", "limitations_and_forbidden_interpretations"],
+    "regressions": ["ST08_11_focused_tests", "baseline", "protected_MiniBooNE_hashes_18_of_18"]
+  },
+  "permitted_interpretation": "A scope-limited comparison on the UCI red-wine file under the exact registered preprocessing models folds seeds metrics and threshold.",
+  "forbidden_interpretations": [
+    "universal superiority of histogram gradient boosting",
+    "causal claim about wine quality",
+    "generalization to white wine other regions producers batches or future production",
+    "proof that rows are independent",
+    "clinical regulatory or production deployment readiness"
+  ],
+  "authoritative_support": [
+    {
+      "source": "UCI Wine Quality official dataset card",
+      "uri": "https://archive.ics.uci.edu/dataset/186/wine+quality",
+      "use": "dataset identity creators DOI task variables missingness and CC BY 4.0 license"
+    },
+    {
+      "source": "Cortez et al. 2009 Decision Support Systems DOI 10.1016/j.dss.2009.05.016",
+      "uri": "https://doi.org/10.1016/j.dss.2009.05.016",
+      "use": "peer-reviewed domain and data-collection context"
+    },
+    {
+      "source": "scikit-learn 1.8 model selection and regression metric documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/model_evaluation.html#regression-metrics",
+      "use": "registered RMSE MAE and fixed paired K-fold implementation semantics"
+    },
+    {
+      "source": "Varma and Simon 2006 DOI 10.1186/1471-2105-7-91",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/16504092/",
+      "use": "prospective protocol and avoidance of selection on assessment results"
+    }
+  ],
+  "checkpoint": {
+    "default": "SKIPPED",
+    "reason": "ST08_11A does not close Stage 8; raw data remain excluded and all registered changes are reversible and evidenced."
+  }
+}

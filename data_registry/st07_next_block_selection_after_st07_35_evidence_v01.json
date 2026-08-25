@@ -1,0 +1,191 @@
+{
+  "task_id": "ST07_next_block_selection_after_ST07_35",
+  "task_profile": "CHANGE",
+  "authorization": {
+    "john_decision": "ST07_35 принимаю. Двигайся дальше",
+    "accepted_task": "ST07_35_verdict_policy_application_modular_extraction_and_golden_master_validation",
+    "task_closed_not_inferred": true,
+    "next_block_execution_authorized": false,
+    "stage07_closure_reserved_for_john": true
+  },
+  "measurable_outcome": "Synchronize John's acceptance of ST07_35 and select exactly one next Stage 7 block from current observable evidence without executing it or closing Stage 7.",
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v47.zip",
+    "sha256": "23970f4da3870eabfedabcaf4538cb6e44ca120787d51992f5ba789d928a2869",
+    "size_bytes": 1106534,
+    "entries": 263,
+    "unique_entries": 263,
+    "workspace_mismatches_before_task": 0
+  },
+  "method": {
+    "framework": "MAPE-K plus seven-criterion requirements traceability, dependency ordering and weighted decision analysis",
+    "local_sources": [
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "docs/agent/task_templates/task_core_v01.md",
+      "docs/agent/task_templates/change_v01.md",
+      "bio_inspired_project_engineering_standard_v02.md",
+      "docs/stages/stage_07_code_modularization.md#8",
+      "data_registry/st07_33_stage07_closure_audit_evidence_v01.json",
+      "data_registry/st07_35_verdict_policy_application_modular_extraction_evidence_v01.json",
+      "src/mlcra/verdicts.py",
+      "scripts/agent_verify.py",
+      "roadmap.md"
+    ],
+    "external_sources": [
+      {
+        "source": "NASA Procedural Requirements 7123.1D",
+        "url": "https://nodis3.gsfc.nasa.gov/displayAll.cfm?Internal_ID=N_PR_7123_0001_&page_name=ALL",
+        "use": "closure review discrepancy disposition and action tracking"
+      },
+      {
+        "source": "ISO/IEC/IEEE 15288:2023",
+        "url": "https://www.iso.org/standard/81702.html",
+        "use": "life-cycle process and traceable stage transition discipline"
+      },
+      {
+        "source": "NASA Systems Engineering Handbook Appendix D",
+        "url": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+        "use": "verification method and requirements matrix"
+      },
+      {
+        "source": "NIST Numerical Reproducibility",
+        "url": "https://www.nist.gov/programs-projects/numerical-reproducibility",
+        "use": "bounded interpretation of numerical reproducibility evidence"
+      }
+    ]
+  },
+  "monitor": {
+    "baseline": "PASS_MANIFEST_158_SCOPE_47_MODIFIED_6_ADDED_109_MISSING_0_OUT_OF_SCOPE_0_ERRORS_0",
+    "module_files": 10,
+    "public_functions_or_classes": 89,
+    "stage05_orchestration_cells": 12,
+    "stage05_top_level_function_definitions": 0,
+    "st07_35_gate": "PASS_PUBLIC_4_POLICY_6X16_SOURCES_9_STRONG_5_OF_5_BOUNDARIES_10_OF_10_MUTATIONS_22_OF_22_PROTECTED_12_OF_12",
+    "regressions": "PASS_ST07_04_TO_ST07_07_EXACT",
+    "historical_closure_matrix": "PASS_6_FAIL_1_BLOCKED_0",
+    "historical_blocking_criterion": "ST07-CLOSE-06",
+    "historical_blocking_cause_after_st07_35": "implementation_now_exists_but_full_matrix_not_yet_reaudited"
+  },
+  "selection_criteria": {
+    "closure_value": 0.30,
+    "dependency_order": 0.25,
+    "risk_separation": 0.20,
+    "verifiability": 0.15,
+    "cost_and_recovery": 0.10,
+    "score_scale": "1_worst_to_5_best"
+  },
+  "alternatives": [
+    {
+      "alternative_id": "A",
+      "action": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+      "scores": [5, 5, 5, 5, 5],
+      "weighted_score": 5.00,
+      "disposition": "selected_proposed_not_authorized"
+    },
+    {
+      "alternative_id": "B",
+      "action": "close_stage07_immediately",
+      "scores": [2, 1, 1, 2, 5],
+      "weighted_score": 1.85,
+      "disposition": "rejected_requires_unperformed_reaudit_and_john_closure"
+    },
+    {
+      "alternative_id": "C",
+      "action": "operationalize_lower_rank_verdict_policy_terms",
+      "scores": [1, 2, 1, 2, 2],
+      "weighted_score": 1.50,
+      "disposition": "rejected_scientific_policy_change_not_required_for_stage07_closure"
+    },
+    {
+      "alternative_id": "D",
+      "action": "start_stage08",
+      "scores": [1, 1, 1, 2, 3],
+      "weighted_score": 1.35,
+      "disposition": "rejected_stage_transition_before_closure"
+    },
+    {
+      "alternative_id": "E",
+      "action": "run_additional_miniboone_training",
+      "scores": [1, 1, 2, 2, 1],
+      "weighted_score": 1.35,
+      "disposition": "rejected_no_unresolved_training_dependency"
+    }
+  ],
+  "selected_next_block": {
+    "task_id": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+    "status": "proposed_not_authorized",
+    "implementation_started": false,
+    "task_profile": "CHANGE",
+    "measurable_outcome": "Re-run the seven ST07-CLOSE criteria against the accepted ST07_35 implementation and current reproducible state, register PASS/FAIL/BLOCKED for every criterion, and stop without automatically closing Stage 7.",
+    "minimum_completion_criteria": [
+      "all seven criteria are independently re-evaluated against current artifacts",
+      "ST07-CLOSE-06 executes the registered policy application gate rather than inferring success from source tokens",
+      "cumulative pilot and protected-artifact hashes pass or receive explicit dispositions",
+      "a machine-readable closure matrix and current reproduction route are registered",
+      "Stage 7 closure remains reserved for John"
+    ],
+    "prohibited": [
+      "model training",
+      "network access",
+      "policy claim protocol scientific CSV or historical verdict modification",
+      "automatic Stage 7 closure",
+      "Stage 8 work"
+    ]
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st07_next_block_selection_after_st07_35_change_scope_v01.csv",
+      "data_registry/st07_next_block_selection_after_st07_35_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ]
+  },
+  "protected_artifacts": {
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_metric_conflict_audit.csv": "f82e3611924e47b775995b3458989a25486b22527e1fa1be2389a860fe03acc6",
+    "data_registry/openml_miniboone_stage05_parameter_selection_stability.csv": "52167633e25cc93d4444c6c0b4870b5a09e09c8cea407236ec6f4485c2cbc5be",
+    "data_registry/openml_miniboone_stage05_cost_quality_audit.csv": "0f453e31c34d017a90fc504c6fbaf6101d00e8a9050d02e091a342df9c6d6e9b",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e"
+  },
+  "verification_result": {
+    "focused_gate": "PASS",
+    "baseline": "PASS",
+    "cumulative_pilot": "PASS",
+    "cumulative_pilot_disposition": {
+      "earlier_run_in_same_task": "PASS",
+      "intermediate_run": "FAIL_MISSING_EXTERNAL_CHECKPOINTS_V44_V45",
+      "final_run_after_john_restoration": "PASS",
+      "restored_checkpoint_v44_sha256_exact": true,
+      "restored_checkpoint_v45_sha256_exact": true,
+      "failed_gates": [],
+      "missing_external_files": [],
+      "all_other_pilot_gates": "PASS",
+      "historical_hash_requirements_preserved": true,
+      "weaker_substitution_used": false
+    },
+    "scientific_validation": "SKIPPED_SELECTION_ONLY",
+    "training": "SKIPPED_NOT_AUTHORIZED",
+    "network": "SKIPPED_NOT_AUTHORIZED"
+  },
+  "actual_change_log": {
+    "planned_paths": 5,
+    "actual_paths": 5,
+    "deviations": 0
+  },
+  "self_review_repairs": [
+    "corrected the copied src/mlcra/verdicts.py SHA-256 to the observed current digest before final PASS",
+    "corrected weighted arithmetic for alternatives B and D without changing the selected alternative"
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "stage07_closed": false,
+  "residual_uncertainty": "John accepted ST07_35 in natural language but did not assign the reserved TASK_CLOSED token. The project records acceptance and keeps formal task closure pending John. John restored exact checkpoints v44 and v45; their registered sizes and SHA-256 values and the full cumulative pilot now pass. The selected ST07_36 may still return FAIL or BLOCKED after the separate full re-audit."
+}

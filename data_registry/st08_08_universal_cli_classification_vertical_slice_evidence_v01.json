@@ -1,0 +1,213 @@
+{
+  "schema_version": "st08_08_universal_cli_classification_vertical_slice_evidence_v01",
+  "evidence_id": "st08_08_universal_cli_classification_vertical_slice_evidence_v01",
+  "task_id": "ST08_08_universal_CLI_classification_vertical_slice",
+  "recorded_at": "2026-08-20",
+  "profile": "CHANGE",
+  "authority": {
+    "accepted_previous_task": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "closed_previous_task": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "authorized_block": "ST08_08_universal_CLI_classification_vertical_slice",
+    "next_block_authorized": false,
+    "release_or_publication_authorized": false,
+    "scientific_claim_protocol_evidence_or_verdict_change_authorized": false
+  },
+  "source_baseline": {
+    "baseline_before_change": "PASS",
+    "baseline_before_change_summary": "manifest_rows=158; scope_files=53; modified=8; added=140; missing=0; out_of_scope=0; scope_errors=0",
+    "candidate_path_count_before_change": 294,
+    "candidate_path_list_sha256_before_change": "9c2d691e4b4afd88e0033bb2fbf50c798767c1179d8cb1b2b0ab0d25915775b3",
+    "prechange_content_manifest_sha256": "71be3a342ee58b8c36280bf3b38fad09e27b6e558a3028707641f5b68782edf6",
+    "protected_scientific_artifacts": 18,
+    "protected_mismatches_before_change": 0
+  },
+  "implemented_surface": {
+    "console_script": "mlcra=mlcra.cli:main",
+    "commands": [
+      "audit",
+      "verify",
+      "doctor"
+    ],
+    "claim_schema": "src/mlcra/schemas/binary_classification_claim_v01.schema.json",
+    "claim_schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "supported_problem": "binary_tabular_classification_only",
+    "exact_bundle_file_count": 8,
+    "verify_refits_models": false,
+    "network_during_audit": "deny_by_default_and_observed",
+    "executable_deserialization": "not_supported",
+    "existing_output_overwrite": "forbidden"
+  },
+  "verification": {
+    "python_syntax": {
+      "status": "PASS",
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe -m py_compile src\\mlcra\\application.py src\\mlcra\\cli.py"
+    },
+    "focused_tests": {
+      "status": "PASS",
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe -m unittest -v tests.test_cli_st08_08",
+      "tests_run": 11,
+      "tests_failed": 0,
+      "covered_exit_codes": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "covered_controls": [
+        "exact_success_bundle",
+        "verify_without_model_fit",
+        "tamper_detection",
+        "regression_and_unknown_specification_rejection",
+        "multiclass_rejection",
+        "insufficient_class_evidence",
+        "no_overwrite",
+        "usage_error",
+        "controlled_model_failure",
+        "controlled_internal_failure_without_traceback",
+        "doctor_read_only_release_blockers"
+      ]
+    },
+    "wheel_build": {
+      "status": "PASS",
+      "method": "pip_wheel_no_dependencies_no_build_isolation_with_setuptools_82_0_1_from_validated_project_environment",
+      "filename": "ml_cra-0.1.0.dev0-py3-none-any.whl",
+      "sha256": "b596a73d1aa41ce407280350f372987cd0bc4be16cadb7674c0e22b8bba1fab2",
+      "entry_count": 20,
+      "contains_console_entry_point": true,
+      "contains_claim_schema": true,
+      "retained_as_release_artifact": false
+    },
+    "clean_install": {
+      "status": "PASS",
+      "environment": "CPython_3_12_0_Windows_Server_2019_AMD64",
+      "dependency_install": "require_hashes_exact_15_distributions",
+      "local_wheel_install": "no_deps",
+      "console_script_version": "0.1.0.dev0",
+      "doctor_exit_code": 0,
+      "doctor_environment_pass": true,
+      "doctor_release_ready": false,
+      "doctor_network_access_performed": false,
+      "doctor_model_fit_performed": false,
+      "final_rebuild_after_usage_diagnostic_repair": {
+        "status": "PASS",
+        "doctor_exit_code": 0,
+        "json_usage_error_exit_code": 2,
+        "json_usage_error_has_all_9_required_diagnostic_fields": true,
+        "synthetic_audit_exit_code": 0,
+        "synthetic_verify_exit_code": 0
+      },
+      "initial_sandbox_network_attempt": {
+        "status": "EXPECTED_BLOCKED",
+        "reason": "WinError_10013_network_access_denied_by_sandbox",
+        "resolution": "rerun_with_explicit_escalation_and_unchanged_hash_locked_requirements"
+      }
+    },
+    "synthetic_external_fixture": {
+      "status": "PASS",
+      "execution_environment": "clean_installed_wheel",
+      "audit_exit_code": 0,
+      "verify_exit_code": 0,
+      "claim_id": "st08_08_external_nonlinear_fixture",
+      "fold_count": 8,
+      "mean_primary_delta": 0.5158023952204487,
+      "minimum_mean_delta": 0.05,
+      "positive_primary_delta_folds": 8,
+      "verdict": "supported",
+      "scope": "synthetic_software_acceptance_fixture_not_universal_scientific_claim"
+    },
+    "registered_miniboone_software_characterization": {
+      "status": "PASS",
+      "scientific_validation_performed": false,
+      "canonical_scientific_evidence_modified": false,
+      "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+      "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+      "dataset_rows": 130064,
+      "feature_count": 50,
+      "target_false_count": 93565,
+      "target_true_count": 36499,
+      "cache_load_network_attempts": 0,
+      "cli_csv_sha256": "891c768138757e4b2272b3793b47a7ab9ec9bed4a71a9dfdeada22d87de1f046",
+      "claim_spec_sha256": "359e1c854d3034cc01d4047316628bce2655f00860c1c461ecfce00a4bd267e5",
+      "audit_exit_code": 0,
+      "verify_exit_code": 0,
+      "verify_model_fit_performed": false,
+      "fold_count": 2,
+      "mean_primary_delta": 0.09079498654089707,
+      "min_primary_delta": 0.09044558831465332,
+      "max_primary_delta": 0.09114438476714082,
+      "positive_primary_delta_folds": 2,
+      "verdict": "supported",
+      "interpretation": "software_characterization_of_the_ST08_08_interface_only_not_a_replacement_or_extension_of_the_registered_MiniBooNE_scientific_verdict"
+    },
+    "baseline_after_change": {
+      "status": "PASS",
+      "command": "python scripts/agent_verify.py --mode baseline",
+      "exit_code": 0,
+      "summary": "manifest_rows=158; scope_files=53; modified=8; added=150; missing=0; out_of_scope=0; scope_errors=0"
+    },
+    "pilot_after_change": {
+      "status": "EXPECTED_HISTORICAL_FAIL_WITH_CURRENT_REGRESSIONS_PASS",
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "exit_code": 1,
+      "historical_fail_count": 8,
+      "historical_reason": "missing_external_checkpoint_ZIPs_v44_v45_v47_v48_v49_v51_v52_v53_and_the_known_ST08_03_forbidden_outputs_condition_after_authorized_legal_artifacts",
+      "current_checks_passed": [
+        "baseline_and_change_scope",
+        "python_syntax_26_files",
+        "csv_structure_153_files",
+        "notebook_structure",
+        "required_paths_75",
+        "documentary_consistency",
+        "all_current_Stage_7_computational_regressions",
+        "stage07_text_corruption_absent"
+      ],
+      "new_ST08_08_specific_failure": false
+    },
+    "protected_artifacts_after_change": {
+      "status": "PASS",
+      "expected_count": 18,
+      "observed_count": 18,
+      "mismatches": 0
+    }
+  },
+  "temporary_artifacts": {
+    "status": "PASS_REMOVED",
+    "removed": [
+      ".tmp_st08_08_build",
+      ".tmp_st08_08_clean_env",
+      ".tmp_st08_08_dependency_wheels",
+      ".tmp_st08_08_miniboone_bundle",
+      ".tmp_st08_08_miniboone_characterization.csv",
+      "build",
+      "src/ml_cra.egg-info"
+    ],
+    "recoverability": "all_were_generated_and_can_be_recreated_from_registered_sources_and_commands"
+  },
+  "planned_change_set": {
+    "path_count": 16,
+    "actual_path_count": 16,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "MATCH"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "ST08_08_does_not_close_a_stage_or_authorize_external_handoff_and_the_verified_source_changes_are_reversible;_Codex_is_now_the_only_development_agent"
+  },
+  "limitations": [
+    "development_version_0_1_0_dev0_is_not_a_release",
+    "only_CPython_3_12_Windows_AMD64_clean_environment_is_declared_and_tested",
+    "only_complete_numeric_local_CSV_binary_classification_is_supported",
+    "model_identifiers_and_hyperparameters_are_allowlisted_not_user_extensible",
+    "no_hyperparameter_selection_or_nested_model_selection_is_performed_by_the_CLI",
+    "CI_security_regression_assurance_is_deferred_to_ST08_09",
+    "RU_EN_public_documentation_and_release_candidate_reaudit_are_deferred_to_ST08_10",
+    "publication_and_release_remain_unauthorized"
+  ],
+  "status": {
+    "technical_status": "PASS",
+    "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+  }
+}

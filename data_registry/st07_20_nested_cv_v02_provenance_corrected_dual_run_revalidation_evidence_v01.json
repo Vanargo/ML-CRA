@@ -1,0 +1,332 @@
+{
+  "artifact_context_required": "miniboone_v02_scientific_candidate",
+  "artifact_errors": {},
+  "artifact_records": {
+    "run_a": {
+      "environment": {
+        "columns": 3,
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "rows": 8,
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039"
+      },
+      "numeric_runtime": {
+        "columns": 14,
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "rows": 2,
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f"
+      },
+      "outer_scores": {
+        "columns": 36,
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "rows": 30,
+        "sha256": "c6671f2a9ca75e174634baaa07f655c731ae230709e0231fa84b470e896921fc"
+      },
+      "quality_checks": {
+        "columns": 4,
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "rows": 16,
+        "sha256": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13"
+      },
+      "selected_params": {
+        "columns": 13,
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "rows": 10,
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c"
+      },
+      "summary": {
+        "columns": 39,
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "rows": 3,
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491"
+      },
+      "warnings": {
+        "columns": 9,
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "rows": 2,
+        "sha256": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd"
+      }
+    },
+    "run_b": {
+      "environment": {
+        "columns": 3,
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "rows": 8,
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039"
+      },
+      "numeric_runtime": {
+        "columns": 14,
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "rows": 2,
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f"
+      },
+      "outer_scores": {
+        "columns": 36,
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "rows": 30,
+        "sha256": "cda64bcc5e9b6c044b198edf91d81d0f62ddc2233d453e8dd6c5e4092c7cb68d"
+      },
+      "quality_checks": {
+        "columns": 4,
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "rows": 16,
+        "sha256": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13"
+      },
+      "selected_params": {
+        "columns": 13,
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "rows": 10,
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c"
+      },
+      "summary": {
+        "columns": 39,
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "rows": 3,
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491"
+      },
+      "warnings": {
+        "columns": 9,
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "rows": 2,
+        "sha256": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd"
+      }
+    }
+  },
+  "authoritative_comparator_error": null,
+  "authoritative_comparator_result": {
+    "class_column_counts": {
+      "A": 69,
+      "B": 38,
+      "C": 2,
+      "D": 9
+    },
+    "status": "pass"
+  },
+  "authority": "NEXT_BLOCK_AUTHORIZED: ST07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation",
+  "candidate_artifacts_promoted": 0,
+  "canonical_output_count": 7,
+  "canonical_outputs_absent_after": true,
+  "canonical_outputs_absent_before": true,
+  "changed_protected_paths": [],
+  "checks": {
+    "candidate_artifacts_and_row_policies": true,
+    "canonical_v02_outputs_absent": true,
+    "claim_or_verdict_change_none": true,
+    "corrected_scientific_candidate_provenance": true,
+    "exactly_two_fresh_process_full_runs": true,
+    "offline_registered_cache_and_zero_network": true,
+    "promotion_not_performed": true,
+    "protected_project_state_unchanged_during_runs": true,
+    "protected_scientific_contract_hashes_exact": true,
+    "quality_checks_16_of_16_per_run": true,
+    "registered_comparison_A_B_D_exact_C_finite_nonnegative": true,
+    "runtime_two_backends_one_thread_per_run": true,
+    "separate_noncanonical_output_directories": true
+  },
+  "comparison_classes": {
+    "A": {
+      "column_count": 69,
+      "errors": [],
+      "status": "pass"
+    },
+    "B": {
+      "column_count": 38,
+      "errors": [],
+      "status": "pass"
+    },
+    "C": {
+      "column_count": 2,
+      "errors": [],
+      "status": "pass"
+    },
+    "D": {
+      "column_count": 9,
+      "errors": [],
+      "status": "pass"
+    }
+  },
+  "created_at_utc": "2026-08-01T12:13:42.798144+00:00",
+  "evidence_schema_version": "st07_20_evidence_v01",
+  "expected_artifact_rows": {
+    "environment": 8,
+    "numeric_runtime": 2,
+    "outer_scores": 30,
+    "quality_checks": 16,
+    "selected_params": 10,
+    "summary": 3,
+    "warnings": null
+  },
+  "fresh_process_invocations": 2,
+  "planned_change_set": [
+    "docs/agent/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_change_scope_v01.csv",
+    "scripts/st07_20_provenance_corrected_dual_run_revalidation.py",
+    "data_registry/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_evidence_v01.json",
+    "scripts/agent_verify.py",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "process_records": [
+    {
+      "command": [
+        "<python>",
+        "scripts/st07_17_miniboone_v02_runner.py",
+        "--full-run",
+        "--cache-server-dir",
+        "<registered_local_cache>",
+        "--output-dir",
+        "<run_a_noncanonical_output>"
+      ],
+      "elapsed_seconds": 623.0449301000917,
+      "label": "run_a",
+      "parse_error": null,
+      "return_code": 0,
+      "runner_result": {
+        "artifact_context": "miniboone_v02_scientific_candidate",
+        "artifact_count": 7,
+        "artifact_rows": {
+          "environment": 8,
+          "numeric_runtime": 2,
+          "outer_scores": 30,
+          "quality_checks": 16,
+          "selected_params": 10,
+          "summary": 3,
+          "warnings": 2
+        },
+        "cache_file_count": 3,
+        "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+        "candidate_id": "openml_miniboone_41150",
+        "canonical_v02_outputs_created": 0,
+        "claim_or_verdict_changed": false,
+        "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+        "dataset_rows": 130064,
+        "elapsed_seconds": 620.3589742999757,
+        "feature_count": 50,
+        "mode": "full_validation_candidate",
+        "network_attempts": 0,
+        "network_used": false,
+        "pid": 14016,
+        "promotion_performed": false,
+        "protocol_id": "miniboone_nested_cv_v02",
+        "quality_pass_count": 16,
+        "runtime_backend_count": 2,
+        "runtime_threads": [
+          1,
+          1
+        ],
+        "status": "pass",
+        "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+        "training_performed": true
+      },
+      "stderr_sha256": "77e6da8004cb592c980d0cc5b4c41a28bfdfbbb30511b0bcc8ef7db47f6d62fb",
+      "stderr_text": "  File \"C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\context.py\", line 255, in _count_physical_cores\n    raise ValueError(f\"found {cpu_count_physical} physical cores < 1\")\n",
+      "stdout_line_count": 1
+    },
+    {
+      "command": [
+        "<python>",
+        "scripts/st07_17_miniboone_v02_runner.py",
+        "--full-run",
+        "--cache-server-dir",
+        "<registered_local_cache>",
+        "--output-dir",
+        "<run_b_noncanonical_output>"
+      ],
+      "elapsed_seconds": 674.3925358999986,
+      "label": "run_b",
+      "parse_error": null,
+      "return_code": 0,
+      "runner_result": {
+        "artifact_context": "miniboone_v02_scientific_candidate",
+        "artifact_count": 7,
+        "artifact_rows": {
+          "environment": 8,
+          "numeric_runtime": 2,
+          "outer_scores": 30,
+          "quality_checks": 16,
+          "selected_params": 10,
+          "summary": 3,
+          "warnings": 2
+        },
+        "cache_file_count": 3,
+        "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+        "candidate_id": "openml_miniboone_41150",
+        "canonical_v02_outputs_created": 0,
+        "claim_or_verdict_changed": false,
+        "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+        "dataset_rows": 130064,
+        "elapsed_seconds": 670.6143118999898,
+        "feature_count": 50,
+        "mode": "full_validation_candidate",
+        "network_attempts": 0,
+        "network_used": false,
+        "pid": 12556,
+        "promotion_performed": false,
+        "protocol_id": "miniboone_nested_cv_v02",
+        "quality_pass_count": 16,
+        "runtime_backend_count": 2,
+        "runtime_threads": [
+          1,
+          1
+        ],
+        "status": "pass",
+        "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+        "training_performed": true
+      },
+      "stderr_sha256": "77e6da8004cb592c980d0cc5b4c41a28bfdfbbb30511b0bcc8ef7db47f6d62fb",
+      "stderr_text": "  File \"C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\context.py\", line 255, in _count_physical_cores\n    raise ValueError(f\"found {cpu_count_physical} physical cores < 1\")\n",
+      "stdout_line_count": 1
+    }
+  ],
+  "protected_contract_hashes": {
+    "data_registry/openml_miniboone_nested_cv_v02_expected_output_schema.csv": "761b71c9a81438612bed59bc23ac9c382715ab447269fae53daf45f71239f672",
+    "data_registry/openml_miniboone_nested_cv_v02_protocol_lock.csv": "762f02b8b74e3fc5e9f5c75658021f9a384f974316be8d5e6b748478be7dbe9c",
+    "data_registry/st07_18_nested_cv_v02_dual_run_reproducibility_validation_evidence_v01.json": "a83620fba7bc84f9e57787f2d93637d9630221be5d9b596b97908dfff435f93c",
+    "data_registry/st07_19_nested_cv_v02_artifact_context_and_provenance_contract_evidence_v01.json": "8e617d0d3f8d5f471ced7be9985e617b26f3c8c5db624e10ef1fddaa5134602a",
+    "scripts/st07_17_miniboone_v02_runner.py": "aad089749bd2795651912afb438f547a7feba3ffb5500e52a394c978a6fa68ea",
+    "scripts/st07_18_dual_run_validation.py": "112d1ba0c41af85062711b35c35fddd45136a75c36d49573d34de108cf382d1f",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "804050fbcd8e8a9f10f495ed11de1786677af559c15a4c7f77d955bf24fa6ba9"
+  },
+  "protected_file_count": 202,
+  "protected_manifest_sha256_after": "634fe56cc4849b198c055e74de6ede66c99f33f1c28bdc305ba2e7b7b4fc70cd",
+  "protected_manifest_sha256_before": "634fe56cc4849b198c055e74de6ede66c99f33f1c28bdc305ba2e7b7b4fc70cd",
+  "protocol_id": "miniboone_nested_cv_v02",
+  "provenance_records": {
+    "run_a": {
+      "artifact_context": "miniboone_v02_scientific_candidate",
+      "checks": {
+        "fixture_provenance_absent": true,
+        "protocol_boundary_warning_exact": true,
+        "quality_details_exact": true,
+        "scientific_candidate_row_policy_exact": true
+      },
+      "protocol_boundary_row_count": 1,
+      "quality_row_count": 16,
+      "status": "pass",
+      "warning_row_count": 2
+    },
+    "run_b": {
+      "artifact_context": "miniboone_v02_scientific_candidate",
+      "checks": {
+        "fixture_provenance_absent": true,
+        "protocol_boundary_warning_exact": true,
+        "quality_details_exact": true,
+        "scientific_candidate_row_policy_exact": true
+      },
+      "protocol_boundary_row_count": 1,
+      "quality_row_count": 16,
+      "status": "pass",
+      "warning_row_count": 2
+    }
+  },
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "scientific_interpretation": "same_environment_repeatability_of_provenance_corrected_v02_candidate_artifacts_only; not_cross_environment_reproducibility; not_universal_model_superiority; not_stage05_claim_support",
+  "separate_noncanonical_directories": [
+    "run_a",
+    "run_b"
+  ],
+  "stage05_claim_or_verdict_changed": false,
+  "task_id": "ST07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation",
+  "task_profile": "SCIENTIFIC_VALIDATION",
+  "technical_status": "PASS",
+  "validation_run_count": 2
+}

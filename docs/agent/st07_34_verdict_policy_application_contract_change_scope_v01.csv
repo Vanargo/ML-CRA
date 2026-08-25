@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_34_verdict_policy_application_contract_change_scope_v01.csv,record the exact authorized ST07_34 design-only change boundary
+added,data_registry/st07_34_verdict_policy_application_contract_evidence_v01.json,register the typed input output fail-closed application algorithm golden facts mutation plan and objective design evidence
+modified,scripts/agent_verify.py,add an independent machine-readable gate for the ST07_34 contract golden master protected hashes and design-only boundary
+modified,docs/stages/stage_07_code_modularization.md,record ST07_34 authorization MAPE-K design contract golden master observed evidence limits and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state and next unaccepted implementation candidate after ST07_34 design completion

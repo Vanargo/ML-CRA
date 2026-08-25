@@ -1,0 +1,168 @@
+{
+  "task_id": "ST07_35_verdict_policy_application_modular_extraction_and_golden_master_validation",
+  "task_profile": "CHANGE",
+  "authorization": {
+    "accepted_previous_task": "ST07_34_verdict_policy_application_contract_and_golden_master_design",
+    "john_decision": "NEXT_BLOCK_AUTHORIZED: ST07_35_verdict_policy_application_modular_extraction_and_golden_master_validation",
+    "stage07_closure_reserved_for_john": true
+  },
+  "measurable_outcome": "The four ST07_34 verdict-policy contracts are implemented in src/mlcra/verdicts.py and the protected historical Stage 5 evidence deterministically selects strongly_supported rank 6 while all ten boundaries and twenty-two fail-closed mutations pass.",
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v46.zip",
+    "sha256": "15ca603d0f559746858c08345b4920c2487774f83d6b5c41e0f4e257cecfcd16",
+    "size_bytes": 1090191,
+    "entries": 261,
+    "unique_entries": 261,
+    "workspace_mismatches_before_task": 0
+  },
+  "method": {
+    "framework": "MAPE-K, requirements traceability, immutable typed design by contract, golden-master regression, boundary analysis and fail-closed mutation testing",
+    "local_sources": [
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "docs/agent/task_templates/task_core_v01.md",
+      "docs/agent/task_templates/change_v01.md",
+      "bio_inspired_project_engineering_standard_v02.md",
+      "docs/stages/stage_07_code_modularization.md",
+      "data_registry/st07_34_verdict_policy_application_contract_evidence_v01.json",
+      "configs/verdict_policies/miniboone_verdict_policy_v01.csv",
+      "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv",
+      "data_registry/openml_miniboone_nested_quality_checks.csv",
+      "data_registry/openml_miniboone_stage05_current_effect_readout.csv",
+      "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv",
+      "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv",
+      "data_registry/openml_miniboone_stage05_metric_conflict_audit.csv",
+      "data_registry/openml_miniboone_stage05_parameter_selection_stability.csv",
+      "data_registry/openml_miniboone_stage05_cost_quality_audit.csv",
+      "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv"
+    ],
+    "external_sources": [
+      {
+        "source": "ISO/IEC/IEEE 29148:2018",
+        "url": "https://www.iso.org/standard/72089.html",
+        "use": "requirements information items and traceability"
+      },
+      {
+        "source": "NASA Systems Engineering Handbook Appendix D",
+        "url": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+        "use": "unique requirements and verification matrices"
+      },
+      {
+        "source": "NIST SP 500-234",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-234.pdf",
+        "use": "software verification and validation, traceability, intended and unintended behavior"
+      }
+    ]
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st07_35_verdict_policy_application_modular_extraction_change_scope_v01.csv",
+      "src/mlcra/verdicts.py",
+      "data_registry/st07_35_verdict_policy_application_modular_extraction_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ],
+    "prohibited_side_effects": [
+      "notebook modification or execution",
+      "model training",
+      "network-dependent data access",
+      "registered policy or claim modification",
+      "scientific CSV or historical Stage 5 verdict modification",
+      "Stage 7 closure"
+    ]
+  },
+  "public_contracts": [
+    "build_verdict_evidence_record",
+    "evaluate_registered_verdict_conditions",
+    "apply_registered_verdict_policy",
+    "validate_verdict_policy_application_bundle"
+  ],
+  "typed_schemas": [
+    "VerdictEvidenceRecordV01",
+    "VerdictConditionEvaluationV01",
+    "VerdictPolicyApplicationResultV01"
+  ],
+  "implementation_rules": {
+    "immutable_dataclasses": true,
+    "heuristic_russian_prose_parsing": false,
+    "rank_order": "decision_rank_descending",
+    "non_operational_lower_rank_terms": "INDETERMINATE_FAIL_CLOSED",
+    "policy_row_order_affects_result": false,
+    "training_performed": false,
+    "scientific_artifacts_modified": false
+  },
+  "golden_validation": {
+    "golden_id": "miniboone_verdict_policy_application_v01_historical_st05_08",
+    "reference_only_not_new_scientific_validation": true,
+    "source_count": 9,
+    "quality_checks": "13/13 pass",
+    "primary_paired_blocks": 80,
+    "primary_positive_blocks": 80,
+    "primary_delta_mean": 0.09121044365165432,
+    "primary_delta_q05_linear": 0.08625925727315661,
+    "secondary_metric_count": 5,
+    "secondary_support_share_min": 1.0,
+    "systematic_conflict_metric_count": 0,
+    "metric_conflict_status": "no_metric_conflict_detected",
+    "parameter_stability_status": "partially_stable",
+    "fit_seconds_ratio_of_means": 55.195823,
+    "total_seconds_ratio_of_means": 54.506784,
+    "non_nested_comparison_count": 15,
+    "non_nested_delta_mean": -0.00018960346465566916,
+    "strong_clause_passes": 5,
+    "selected_category_id": "strongly_supported",
+    "selected_decision_rank": 6,
+    "required_disclosures": [
+      "high_training_cost",
+      "miniboone_and_registered_protocol_scope",
+      "partial_l2_selection_instability",
+      "non_nested_probe_is_diagnostic_only"
+    ],
+    "historical_stage05_verdict_changed": false
+  },
+  "boundary_checks": 10,
+  "negative_mutations": 22,
+  "protected_artifacts": {
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "data_registry/openml_miniboone_nested_quality_checks.csv": "1751215f046505aa90ea1ba6debf9082769b680bba50ca93ebd7a1475b0e8225",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_metric_conflict_audit.csv": "f82e3611924e47b775995b3458989a25486b22527e1fa1be2389a860fe03acc6",
+    "data_registry/openml_miniboone_stage05_parameter_selection_stability.csv": "52167633e25cc93d4444c6c0b4870b5a09e09c8cea407236ec6f4485c2cbc5be",
+    "data_registry/openml_miniboone_stage05_cost_quality_audit.csv": "0f453e31c34d017a90fc504c6fbaf6101d00e8a9050d02e091a342df9c6d6e9b",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52"
+  },
+  "verification_result": {
+    "direct_golden_smoke": "PASS_REVALIDATED_WITH_DIRECT_ST05_01_INPUT",
+    "python_syntax": "PASS_24_FILES",
+    "csv_structure": "PASS_140_FILES",
+    "notebook_structure": "PASS_4_VALID_1_EXPECTED_EMPTY",
+    "baseline": "PASS_MANIFEST_158_SCOPE_47_MODIFIED_6_ADDED_109_MISSING_0_OUT_OF_SCOPE_0_ERRORS_0",
+    "cumulative_pilot": "PASS_53_OF_53_IN_135_0_SECONDS_AFTER_DIRECT_ST05_01_TRACEABILITY_REPAIR",
+    "st07_35_gate": "PASS_PUBLIC_4_POLICY_6X16_SOURCES_9_STRONG_5_OF_5_BOUNDARIES_10_OF_10_MUTATIONS_22_OF_22_PROTECTED_12_OF_12",
+    "scientific_validation": "SKIPPED_HISTORICAL_GOLDEN_REGRESSION_ONLY",
+    "model_training": "SKIPPED_NOT_AUTHORIZED",
+    "network_data_access": "SKIPPED_NOT_AUTHORIZED"
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "stage07_closed": false,
+  "stage07_status": "active_pending_post_ST07_35_closure_reaudit",
+  "scientific_claim_or_verdict_changed": false,
+  "actual_change_log": {
+    "planned_paths": 6,
+    "actual_paths": 6,
+    "deviations": 0
+  },
+  "residual_uncertainty": "Lower-rank policy clauses remain intentionally non-operational where ST07_34 identified qualitative terms. If the fully operational strongly_supported category fails, the v01 engine stops with INDETERMINATE_FAIL_CLOSED instead of inventing scientific thresholds.",
+  "proposed_next_block": {
+    "task_id": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+    "status": "proposed_not_authorized",
+    "implementation_started": false,
+    "measurable_outcome": "Re-run the seven-criterion Stage 7 closure matrix against the accepted ST07_35 implementation and current reproducible evidence without automatically closing Stage 7."
+  }
+}

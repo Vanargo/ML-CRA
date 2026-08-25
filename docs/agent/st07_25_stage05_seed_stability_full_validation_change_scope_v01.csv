@@ -1,0 +1,10 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_25_stage05_seed_stability_full_validation_change_scope_v01.csv,record the exact authorized ST07_25 implementation and evidence boundary
+added,scripts/st07_25_seed_stability_full_validation.py,execute one offline isolated ST05_02 MiniBooNE run and fail-closed golden diagnostic comparison
+added,data_registry/st07_25_stage05_seed_stability_candidate_outer_scores_v01.csv,preserve the noncanonical full-run outer-score evidence without overwriting historical golden
+added,data_registry/st07_25_stage05_seed_stability_candidate_selected_params_v01.csv,preserve the noncanonical full-run selected-parameter evidence without overwriting historical golden
+added,data_registry/st07_25_stage05_seed_stability_candidate_summary_v01.csv,preserve the noncanonical full-run summary evidence without overwriting historical golden
+added,data_registry/st07_25_stage05_seed_stability_full_validation_evidence_v01.json,record execution environment comparison diagnostics verdict and protected hashes
+modified,scripts/agent_verify.py,verify the ST07_25 evidence contract protected artifacts and documentary state
+modified,docs/stages/stage_07_code_modularization.md,record authorization execution evidence scientific limits and technical verdict
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_25 technical completion

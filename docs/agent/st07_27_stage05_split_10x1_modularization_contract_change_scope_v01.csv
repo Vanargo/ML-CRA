@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_27_stage05_split_10x1_modularization_contract_change_scope_v01.csv,record the exact authorized ST07_27 design-only change boundary
+modified,scripts/agent_verify.py,register and independently verify the ST05_03a source protocol schema key ordering pairing metric-direction golden-class and negative-test contracts without training
+modified,docs/stages/stage_07_code_modularization.md,record ST07_27 authorization modular boundary golden-master design observed evidence and mandatory stop for John acceptance
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_27 technical completion

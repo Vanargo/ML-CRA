@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/stage08_public_product_scope_and_release_train_contract_v01.json,register the bounded public product stakeholder CLI problem support release train traceability metric and fail closed design contract before implementation
+added,docs/agent/st08_04_public_product_scope_and_release_train_contract_design_change_scope_v01.csv,record the complete bounded ST08_04 planned change set
+added,data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json,record authority sources baseline protected hashes checks limits uncertainty and actual change reconciliation
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,register ST08_03 acceptance ST08_04 authorization contract interpretation verification and mandatory stop
+modified,roadmap.md,synchronize canonical Stage 8 state and propose but not authorize the first risk ordered implementation block
+modified,docs/agent/pilot_change_scope_v01.csv,register the three new ST08_04 files in the existing cumulative baseline allowlist after the initial baseline correctly rejected them as out of scope

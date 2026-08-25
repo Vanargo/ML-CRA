@@ -1,0 +1,281 @@
+{
+  "schema_version": "st08_06_public_repository_asset_manifest_v01",
+  "manifest_id": "st08_06_public_repository_asset_manifest_v01",
+  "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+  "recorded_at": "2026-08-20",
+  "status": "candidate_policy_validated_not_published",
+  "authority": {
+    "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "authorized_block": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "external_publication_authorized": false,
+    "repository_creation_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "license_boundary": {
+    "project_original_code_and_documentation": "MIT",
+    "project_license_path": "LICENSE",
+    "spdx_identifier": "MIT",
+    "third_party_material_relicensed_by_MIT": false,
+    "miniboone_release_control": "CC-BY-4.0_attribution_applied_conservatively",
+    "dataset_attribution_path": "DATASET_ATTRIBUTION.md"
+  },
+  "citation_identity": {
+    "citation_file": "CITATION.cff",
+    "cff_schema_version": "1.2.0",
+    "title": "ML Claim Reliability Auditor",
+    "author": "Иван Полищук",
+    "orcid": "https://orcid.org/0009-0005-6596-0605",
+    "repository_code": "https://github.com/Vanargo/ML-CRA",
+    "release_version_intentionally_omitted": true,
+    "reason": "No ML-CRA release or release version has been authorized or created."
+  },
+  "inventory_universe": {
+    "root": ".",
+    "path_encoding": "repository_relative_posix",
+    "infrastructure_excluded_before_rule_evaluation": [
+      ".git/",
+      "ml-cra-venv/",
+      "**/__pycache__/",
+      "**/*.pyc",
+      ".venv/",
+      "venv/",
+      "build/",
+      "dist/",
+      "**/*.egg-info/",
+      ".tmp_st08_06_cff_schema.json",
+      ".tmp_st08_09*/"
+    ],
+    "default_disposition": "BLOCK_UNMAPPED",
+    "exactly_one_highest_priority_rule_required": true,
+    "publication_requires_zero_unmapped_paths": true,
+    "approved_path_count": 359,
+    "approved_path_list_sha256": "1784c78be83391d8c3682ed04dc085de1b2f05c7c7325bed197a7997b7fad7e8",
+    "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
+    "publication_requires_exact_path_count_and_digest_match": true
+  },
+  "rules": [
+    {
+      "rule_id": "ST08-06-MANIFEST-01",
+      "priority": 1,
+      "selector_type": "exact_paths",
+      "selectors": [
+        "data_registry/openml_feature_preview.csv",
+        "notebooks/02_openml_candidate_data_preview.ipynb"
+      ],
+      "disposition": "EXCLUDE_DIRECT_SAMPLE",
+      "reason": "The artifacts contain direct MiniBooNE sample values."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-02",
+      "priority": 2,
+      "selector_type": "exact_paths",
+      "selectors": [
+        "notebooks/01_dataset_candidate_search_openml.ipynb"
+      ],
+      "disposition": "EXCLUDE_STALE_METADATA_MUTATOR",
+      "reason": "The executed notebook can write the unreconciled OpenML CC0 value."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-03",
+      "priority": 3,
+      "selector_type": "exact_paths",
+      "selectors": [
+        "notebooks/02_dataset_candidate_search_pmlb.ipynb",
+        "src/mlcra/data_registry/schema.py",
+        "src/mlcra/data_registry/scoring.py",
+        "src/mlcra/data_registry/validation.py"
+      ],
+      "disposition": "EXCLUDE_INVALID_EMPTY_PLACEHOLDER",
+      "reason": "The zero-byte files have no inspectable implementation; the notebook is invalid JSON and every intended content remains unknown. Exclusion does not infer or delete them."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-04",
+      "priority": 4,
+      "selector_type": "path_prefixes",
+      "selectors": [
+        "docs/archive/"
+      ],
+      "disposition": "EXCLUDE_HISTORICAL_ARCHIVE",
+      "reason": "Historical documents are non-normative and are not part of the supported public product surface."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-05",
+      "priority": 5,
+      "selector_type": "forbidden_names_or_path_fragments",
+      "selectors": [
+        "MiniBooNE_PID.txt",
+        "MiniBooNE.arff",
+        "dataset_41150.pkl.py3",
+        "dataset_41150.pq",
+        "openml/org/openml/www/datasets/41150/"
+      ],
+      "disposition": "EXCLUDE_RAW_OR_CACHE_DATA",
+      "reason": "John excluded raw data and local caches from project publication and checkpoints."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-06",
+      "priority": 6,
+      "selector_type": "miniboone_reference_inventory_extended_from_st08_05",
+      "selectors": [
+        "UTF8_text_regex_(?i)miniboone|41150",
+        "configs/project_readiness/st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01.json#inventory_contract"
+      ],
+      "disposition": "INCLUDE_WITH_DATASET_ATTRIBUTION",
+      "required_companion": "DATASET_ATTRIBUTION.md",
+      "reason": "MiniBooNE-derived implementation, protocols, metadata and derived evidence require provenance and attribution; higher-priority exclusions remain excluded."
+    },
+    {
+      "rule_id": "ST08-06-MANIFEST-07",
+      "priority": 7,
+      "selector_type": "remaining_project_files",
+      "selectors": [
+        "**"
+      ],
+      "disposition": "INCLUDE_PROJECT_MIT",
+      "required_companion": "LICENSE",
+      "reason": "Remaining original ML-CRA source, active documentation and governance artifacts are covered by the project MIT license."
+    }
+  ],
+  "validated_inventory_counts": {
+    "ST08-06-MANIFEST-01": 2,
+    "ST08-06-MANIFEST-02": 1,
+    "ST08-06-MANIFEST-03": 4,
+    "ST08-06-MANIFEST-04": 38,
+    "ST08-06-MANIFEST-05": 0,
+    "ST08-06-MANIFEST-06": 181,
+    "ST08-06-MANIFEST-07": 133,
+    "BLOCK_UNMAPPED": 0,
+    "TOTAL": 359
+  },
+  "inventory_refreshes": [
+    {
+      "task_id": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+      "recorded_at": "2026-08-20",
+      "reason": "Authorized packaging metadata dependency lock contract evidence and change-scope additions changed the candidate path set.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_08_universal_CLI_classification_vertical_slice",
+      "recorded_at": "2026-08-20",
+      "reason": "Authorized CLI implementation schema fixtures tests contract evidence and change-scope additions changed the candidate path set.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_09_CI_security_and_release_candidate_assurance",
+      "recorded_at": "2026-08-20",
+      "reason": "Authorized CI security dependency secret archive policy runner tests contract evidence and change-scope additions changed the candidate path set.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+      "recorded_at": "2026-08-20",
+      "reason": "Authorized bilingual root documentation path reconciliation validator tests contract evidence and change-scope additions changed the candidate path set.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized regression schema fixtures tests contract evidence and change-scope additions changed the candidate path set.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_11A_registered_regression_dataset_claim_and_scientific_validation",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized prospective real-dataset claim contract validator tests aggregated evidence and change-scope additions changed the candidate path set; raw UCI rows remain excluded.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized shared-core dashboard source tests contract evidence and change-scope additions changed the candidate path set without including generated dashboards or raw data.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_13_release_candidate_completion_security_and_readiness_reaudit",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized fail-closed release-candidate audit contract validator tests evidence and change-scope additions changed the candidate path set without publication or scientific changes.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized prospective REQ08 and REQ12 migration added versioned requirements, full current-state hash assurance, mutation tests, evidence and exact scope without rewriting ST08_13 or performing publication.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
+      "recorded_at": "2026-08-24",
+      "reason": "Authorized external bootstrap adds a separate SHA-256-bound tracked publication tree, hosted-CI and repository-security assurance, evidence and exact scope while retaining all excluded local paths outside Git.",
+      "external_publication_performed": false
+    }
+  ],
+  "mandatory_public_legal_artifacts": [
+    "LICENSE",
+    "CITATION.cff",
+    "DATASET_ATTRIBUTION.md",
+    "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"
+  ],
+  "publication_gate": {
+    "st08_06_legal_artifacts_condition": "SATISFIED_AFTER_VALIDATION",
+    "public_development_gate": "BLOCKED",
+    "remaining_blockers": [
+      "hosted_CI_run_not_observed",
+      "external_GitHub_secret_scanning_not_enabled",
+      "release_candidate_reaudit_not_passed",
+      "public_repository_not_created",
+      "explicit_John_publication_authorization_not_granted"
+    ],
+    "external_actions_performed": 0
+  },
+  "authoritative_support": [
+    {
+      "source": "Open Source Initiative MIT License",
+      "uri": "https://opensource.org/license/mit",
+      "use": "canonical MIT text and license identity"
+    },
+    {
+      "source": "SPDX MIT License",
+      "uri": "https://spdx.org/licenses/MIT.html",
+      "use": "SPDX short identifier MIT and license text matching"
+    },
+    {
+      "source": "Citation File Format schema guide 1.2.0",
+      "uri": "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md",
+      "use": "required keys optional release version repository-code license and YAML constraints"
+    },
+    {
+      "source": "GitHub About CITATION files",
+      "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files",
+      "use": "root CITATION.cff placement and repository citation behavior"
+    },
+    {
+      "source": "GitHub Licensing a repository",
+      "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "use": "root license best practice and license boundary"
+    },
+    {
+      "source": "ORCID identifier structure",
+      "uri": "https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier",
+      "use": "HTTPS ORCID representation and MOD 11-2 checksum"
+    },
+    {
+      "source": "Creative Commons Attribution 4.0 International legal code",
+      "uri": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "use": "credit license link change indication and no-endorsement conditions"
+    }
+  ],
+  "negative_mutations": [
+    "change_MIT_text",
+    "claim_MIT_relicenses_MiniBooNE",
+    "omit_required_CFF_key",
+    "invent_release_version_or_date",
+    "omit_dataset_creator_DOI_license_URI_or_change_notice",
+    "include_direct_sample_or_stale_mutator_assets",
+    "treat_empty_placeholder_as_valid_notebook",
+    "allow_unmapped_path",
+    "claim_public_development_gate_ready",
+    "perform_external_publication"
+  ]
+}

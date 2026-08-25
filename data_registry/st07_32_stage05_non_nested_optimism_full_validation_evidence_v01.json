@@ -1,0 +1,484 @@
+{
+  "aggregate_verdict": {
+    "class_a_exact": true,
+    "class_b_exact": true,
+    "class_c_valid": true,
+    "openmp_exact_before_during_after_by_executed_control_flow": true,
+    "protected_exact": true,
+    "runtime_restored_by_executed_control_flow": true,
+    "structures_valid": true,
+    "thread_limit_enforced_by_executed_control_flow": true,
+    "verdict_rule": "pass_only_if_all_true_else_fail_without_causal_attribution"
+  },
+  "bundle_validation": {
+    "passed_after_round_trip_parser_repair": true,
+    "passed_before_csv_roundtrip_in_executed_run": true
+  },
+  "comparison": {
+    "candidate_filename": "st07_32_stage05_non_nested_optimism_candidate_v01.csv",
+    "candidate_sha256": "c7b16041bffdc436ee699ebc9647b04f662327b6cedb018c67dbeb7aacb5c306",
+    "candidate_shape": [
+      15,
+      39
+    ],
+    "class_a_columns": [
+      "stress_test_id",
+      "claim_id",
+      "run_group",
+      "protocol_variant_id",
+      "candidate_id",
+      "openml_dataset_id",
+      "dataset_name",
+      "target_name",
+      "target_class_0",
+      "target_class_1",
+      "positive_class_assumption",
+      "model_id",
+      "model_role",
+      "feature_policy_id",
+      "feature_count",
+      "single_level_cv_method",
+      "single_level_cv_n_splits",
+      "single_level_cv_n_repeats",
+      "single_level_cv_random_state",
+      "single_level_cv_blocks",
+      "parameter_space_policy",
+      "grid_candidate_count",
+      "comparison_reference_id",
+      "comparison_reference_source_file",
+      "comparison_reference_stress_test_id",
+      "comparison_reference_protocol_variant_id",
+      "comparison_reference_random_state_scope",
+      "nested_outer_blocks",
+      "row_status",
+      "interpretation_allowed_ru"
+    ],
+    "class_a_comparable_cells": 450,
+    "class_a_exact": true,
+    "class_a_first_mismatch": null,
+    "class_a_mismatch_cells": 0,
+    "class_b_columns": [
+      "selected_parameter_set_id",
+      "selected_params_json",
+      "non_nested_average_precision_mean",
+      "non_nested_average_precision_std_for_selected_params",
+      "nested_average_precision_mean",
+      "optimism_delta_non_nested_minus_nested",
+      "audit_status",
+      "audit_status_ru"
+    ],
+    "class_b_comparable_cells": 120,
+    "class_b_exact": true,
+    "class_b_first_mismatch": null,
+    "class_b_mismatch_cells": 0,
+    "class_b_numeric_deltas": {
+      "nested_average_precision_mean": {
+        "comparable_cells": 15,
+        "max_absolute_delta": 0.0,
+        "mismatch_cells": 0
+      },
+      "non_nested_average_precision_mean": {
+        "comparable_cells": 15,
+        "max_absolute_delta": 0.0,
+        "mismatch_cells": 0
+      },
+      "non_nested_average_precision_std_for_selected_params": {
+        "comparable_cells": 15,
+        "max_absolute_delta": 0.0,
+        "mismatch_cells": 0
+      },
+      "optimism_delta_non_nested_minus_nested": {
+        "comparable_cells": 15,
+        "max_absolute_delta": 0.0,
+        "mismatch_cells": 0
+      }
+    },
+    "class_c_columns": [
+      "fit_seconds"
+    ],
+    "class_c_diagnostics": {
+      "maximum": 264.82430869998643,
+      "minimum": 227.83476399997016,
+      "total_cells": 15,
+      "valid_cells": 15
+    },
+    "class_c_valid": true,
+    "golden_filename": "openml_miniboone_stage05_non_nested_optimism_probe.csv",
+    "golden_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+    "golden_shape": [
+      15,
+      39
+    ],
+    "keys_and_order_exact": true,
+    "schema_exact": true,
+    "shape_exact": true,
+    "structural_stop": false
+  },
+  "execution": {
+    "canonical_golden_overwrites": 0,
+    "claim_or_verdict_changed": false,
+    "cv_candidate_fold_fit_count": 480,
+    "fit_seconds_by_seed": {
+      "20260507": 234.54322680004407,
+      "20260517": 264.82430869998643,
+      "20260527": 227.83476399997016
+    },
+    "fit_seconds_sum_across_three_grid_searches": 727.2022995000007,
+    "fresh_process": true,
+    "full_run_count": 1,
+    "grid_search_count": 3,
+    "initial_short_invocation_fit_count": 0,
+    "isolated_output": true,
+    "network_attempts": 0,
+    "network_used": false,
+    "pid": 8600,
+    "refit_count": 3,
+    "training_performed": true
+  },
+  "execution_contract": {
+    "comparison_policy": {
+      "class_a": "exact_after_csv_roundtrip",
+      "class_a_columns": 30,
+      "class_b": "exact_after_csv_roundtrip_no_tolerance",
+      "class_b_columns": [
+        "selected_parameter_set_id",
+        "selected_params_json",
+        "non_nested_average_precision_mean",
+        "non_nested_average_precision_std_for_selected_params",
+        "nested_average_precision_mean",
+        "optimism_delta_non_nested_minus_nested",
+        "audit_status",
+        "audit_status_ru"
+      ],
+      "class_c": "numeric_finite_nonnegative_excluded_from_equality",
+      "class_c_columns": [
+        "fit_seconds"
+      ],
+      "mismatch_verdict": "fail_without_causal_attribution",
+      "post_result_tolerance_selection": "prohibited"
+    },
+    "dataset": {
+      "cache_file_count": 3,
+      "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+      "candidate_id": "openml_miniboone_41150",
+      "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+      "feature_count": 50,
+      "openml_dataset_id": 41150,
+      "rows": 130064,
+      "target_false_count": 93565,
+      "target_true_count": 36499
+    },
+    "environment": {
+      "diagnostic_blas_threads": 4,
+      "historical_blas_provenance": "unknown_not_inferred",
+      "historical_openmp_provenance": "unknown_not_inferred",
+      "packages": {
+        "numpy": "2.4.4",
+        "openml": "0.15.1",
+        "pandas": "3.0.2",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.1",
+        "threadpoolctl": "3.6.0"
+      },
+      "platform": "Windows-2019Server-10.0.17763-SP0",
+      "prospective_openmp_condition": {
+        "internal_api": "openmp",
+        "library_filename": "vcomp140.dll",
+        "num_threads": 12,
+        "prefix": "vcomp",
+        "user_api": "openmp"
+      },
+      "python": "3.12.0",
+      "threadpool_before": [
+        {
+          "architecture": "Haswell",
+          "filepath": "C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "user_api": "blas",
+          "version": "0.3.31.188.0"
+        },
+        {
+          "architecture": "Haswell",
+          "filepath": "C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+          "internal_api": "openblas",
+          "library_filename": "libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+          "num_threads": 12,
+          "prefix": "libscipy_openblas",
+          "threading_layer": "pthreads",
+          "user_api": "blas",
+          "version": "0.3.30"
+        },
+        {
+          "architecture": null,
+          "filepath": "C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+          "internal_api": "openmp",
+          "library_filename": "vcomp140.dll",
+          "num_threads": 12,
+          "prefix": "vcomp",
+          "threading_layer": null,
+          "user_api": "openmp",
+          "version": null
+        }
+      ]
+    },
+    "network_attempts_before_fit": 0,
+    "offline_only": true,
+    "output_dir": "C:\\Users\\Vanargo\\AppData\\Local\\Temp\\2\\mlcra_st0732_full_22be6f9072144644a8e1b152a2f9c6e6\\output",
+    "pid": 8600,
+    "protected_before": {
+      "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+        "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+        "match": true,
+        "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+      },
+      "configs/model_spaces/miniboone_hist_gradient_boosting_nested_space.csv": {
+        "expected_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133",
+        "match": true,
+        "observed_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133"
+      },
+      "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+        "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+        "match": true,
+        "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+      },
+      "data_registry/openml_miniboone_nested_summary.csv": {
+        "expected_sha256": "3d99c077131f34aaefc3c538301f9dafd6f2cc8251bd354945abd6176989f657",
+        "match": true,
+        "observed_sha256": "3d99c077131f34aaefc3c538301f9dafd6f2cc8251bd354945abd6176989f657"
+      },
+      "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": {
+        "expected_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+        "match": true,
+        "observed_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+      },
+      "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+        "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+        "match": true,
+        "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+      },
+      "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": {
+        "expected_sha256": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+        "match": true,
+        "observed_sha256": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970"
+      },
+      "data_registry/st07_26_stage05_seed_stability_logistic_blas_diagnostic_evidence_v01.json": {
+        "expected_sha256": "e07ad5bec329903266eff66436fa9d2e5045de3fa707e14a13da38b89c52bc44",
+        "match": true,
+        "observed_sha256": "e07ad5bec329903266eff66436fa9d2e5045de3fa707e14a13da38b89c52bc44"
+      },
+      "notebooks/04_dataset_smoke_experiments.ipynb": {
+        "expected_sha256": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+        "match": true,
+        "observed_sha256": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52"
+      },
+      "src/mlcra/datasets.py": {
+        "expected_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+        "match": true,
+        "observed_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b"
+      },
+      "src/mlcra/io.py": {
+        "expected_sha256": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+        "match": true,
+        "observed_sha256": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0"
+      },
+      "src/mlcra/model_spaces.py": {
+        "expected_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+        "match": true,
+        "observed_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b"
+      },
+      "src/mlcra/numeric_runtime.py": {
+        "expected_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+        "match": true,
+        "observed_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086"
+      },
+      "src/mlcra/stress_tests.py": {
+        "expected_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+        "match": true,
+        "observed_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146"
+      }
+    },
+    "protocol": {
+      "claim_id": "miniboone_hgb_vs_logreg_average_precision_v01",
+      "cv_blocks_per_seed": 10,
+      "cv_candidate_fold_fit_count": 480,
+      "error_score": "raise",
+      "full_run_count": 1,
+      "golden_shape": [
+        15,
+        39
+      ],
+      "grid_candidate_count": 16,
+      "grid_search_count": 3,
+      "n_jobs": 1,
+      "n_repeats": 2,
+      "n_splits": 5,
+      "protocol_variant_id": "non_nested_grid_search_cv_v01",
+      "random_states": [
+        20260507,
+        20260517,
+        20260527
+      ],
+      "reference_shape": [
+        9,
+        7
+      ],
+      "refit": true,
+      "refit_count": 3,
+      "return_train_score": false,
+      "scoring": "average_precision",
+      "stress_test_id": "ST05_07_non_nested_optimism_probe"
+    },
+    "status": "locked_before_first_fit",
+    "task_id": "ST07_32_stage05_non_nested_optimism_probe_full_miniboone_and_golden_diagnostic_validation"
+  },
+  "execution_contract_sha256": "6d543f4bb498a25d7ff8bd4ccdc1f65a337aca73578ae36088308c50424839e4",
+  "execution_provenance": {
+    "control_flow_fact": "The executed runner wrote candidate only after fit completion, zero network attempts, exact during-runtime controller equality, exact post-context restoration, and pre-roundtrip bundle validation.",
+    "current_runner_sha256": "cd9f25a34cfb117be79cf6edfeca2cee7f5828976a2f8f4f36c2fff957637918",
+    "executed_runner_sha256": "e5f1e407272ee773534aaa9b6baf8dd735c58d5b4dc8e98cb753750ef3a09578",
+    "maximum_parser_induced_relation_delta": 2.922466955934677e-16,
+    "post_fit_stop": "strict_relation_validator_after_default_csv_float_parse",
+    "refit_performed_for_repair": false,
+    "repair": "pandas_float_precision_round_trip_then_same_exact_relation_validator",
+    "tolerance_introduced": false
+  },
+  "interpretation": {
+    "allowed": "One same-machine offline diagnostic reproduction of locked MiniBooNE ST05_07 under the predeclared BLAS=4 and OpenMP=12 condition.",
+    "historical_blas_provenance": "unknown_not_inferred",
+    "historical_openmp_provenance": "unknown_not_inferred",
+    "prohibited": "Historical runtime attribution, cross-environment reproducibility, universal model comparison, or causal attribution of any mismatch.",
+    "stage05_verdict_change": "prohibited_and_not_performed",
+    "tolerance": "none_predeclared_and_none_selected_after_result"
+  },
+  "protected_after": {
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": {
+      "expected_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+      "match": true,
+      "observed_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49"
+    },
+    "configs/model_spaces/miniboone_hist_gradient_boosting_nested_space.csv": {
+      "expected_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133",
+      "match": true,
+      "observed_sha256": "88e4cc64f0d9b0ba8697b24db54224a5cdece9cece75d580c2ab6b433a873133"
+    },
+    "configs/stress_tests/miniboone_stress_test_plan_v01.csv": {
+      "expected_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d",
+      "match": true,
+      "observed_sha256": "214661b40941caa8d68ce12b366b971cfdcc166a5a92b2720dfdb1abdf11087d"
+    },
+    "data_registry/openml_miniboone_nested_summary.csv": {
+      "expected_sha256": "3d99c077131f34aaefc3c538301f9dafd6f2cc8251bd354945abd6176989f657",
+      "match": true,
+      "observed_sha256": "3d99c077131f34aaefc3c538301f9dafd6f2cc8251bd354945abd6176989f657"
+    },
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": {
+      "expected_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317",
+      "match": true,
+      "observed_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+    },
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": {
+      "expected_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+      "match": true,
+      "observed_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687"
+    },
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": {
+      "expected_sha256": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+      "match": true,
+      "observed_sha256": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970"
+    },
+    "data_registry/st07_26_stage05_seed_stability_logistic_blas_diagnostic_evidence_v01.json": {
+      "expected_sha256": "e07ad5bec329903266eff66436fa9d2e5045de3fa707e14a13da38b89c52bc44",
+      "match": true,
+      "observed_sha256": "e07ad5bec329903266eff66436fa9d2e5045de3fa707e14a13da38b89c52bc44"
+    },
+    "notebooks/04_dataset_smoke_experiments.ipynb": {
+      "expected_sha256": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+      "match": true,
+      "observed_sha256": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52"
+    },
+    "src/mlcra/datasets.py": {
+      "expected_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+      "match": true,
+      "observed_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b"
+    },
+    "src/mlcra/io.py": {
+      "expected_sha256": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+      "match": true,
+      "observed_sha256": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0"
+    },
+    "src/mlcra/model_spaces.py": {
+      "expected_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+      "match": true,
+      "observed_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b"
+    },
+    "src/mlcra/numeric_runtime.py": {
+      "expected_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+      "match": true,
+      "observed_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086"
+    },
+    "src/mlcra/stress_tests.py": {
+      "expected_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+      "match": true,
+      "observed_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146"
+    }
+  },
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "scientific_signal": {
+    "interpretation": "bounded_selection_bias_diagnostic_only_not_nested_external_estimate_and_no_stage05_verdict_change",
+    "maximum": 0.0001783442432519,
+    "mean": -0.00018960346465566916,
+    "minimum": -0.0007246604801806,
+    "nonpositive_count": 8,
+    "per_seed": [
+      {
+        "audit_status_counts": {
+          "non_nested_score_above_nested_reference": 3,
+          "non_nested_score_not_above_nested_reference": 2
+        },
+        "maximum": 0.0001783442432519,
+        "mean": -0.00013258629937348,
+        "minimum": -0.0005899214666403,
+        "nonpositive_count": 2,
+        "positive_count": 3,
+        "reference_count": 5,
+        "single_level_cv_random_state": 20260507
+      },
+      {
+        "audit_status_counts": {
+          "non_nested_score_above_nested_reference": 3,
+          "non_nested_score_not_above_nested_reference": 2
+        },
+        "maximum": 0.0001474671602184,
+        "mean": -0.0001468799557244756,
+        "minimum": -0.0005849304432171,
+        "nonpositive_count": 2,
+        "positive_count": 3,
+        "reference_count": 5,
+        "single_level_cv_random_state": 20260517
+      },
+      {
+        "audit_status_counts": {
+          "non_nested_score_above_nested_reference": 1,
+          "non_nested_score_not_above_nested_reference": 4
+        },
+        "maximum": 2.834849272836948e-05,
+        "mean": -0.0002893441388690519,
+        "minimum": -0.0007246604801806,
+        "nonpositive_count": 4,
+        "positive_count": 1,
+        "reference_count": 5,
+        "single_level_cv_random_state": 20260527
+      }
+    ],
+    "positive_count": 7,
+    "row_count": 15
+  },
+  "status": "pass",
+  "task_id": "ST07_32_stage05_non_nested_optimism_probe_full_miniboone_and_golden_diagnostic_validation",
+  "task_profile": "SCIENTIFIC_VALIDATION",
+  "technical_status": "PASS"
+}

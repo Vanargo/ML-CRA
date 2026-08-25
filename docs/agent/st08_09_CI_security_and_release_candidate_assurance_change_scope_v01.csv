@@ -1,0 +1,19 @@
+change_kind,relative_path,reason
+added,.gitignore,ST08_09 exclude local environments caches raw data secret files and candidate outputs
+added,SECURITY.md,ST08_09 vulnerability reporting supported-state and automated-control boundary
+added,.github/CODEOWNERS,ST08_09 review ownership for security and release critical files
+added,.github/dependabot.yml,ST08_09 scheduled dependency and action update proposals after repository publication
+added,.github/workflows/ci.yml,ST08_09 least-privilege immutable-action clean-build install test security and archive workflow
+added,requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt,ST08_09 exact hash-locked professional assurance tool environment
+added,configs/project_readiness/st08_09_CI_security_and_release_candidate_assurance_contract_v01.json,ST08_09 machine-readable CI security dependency secret and archive assurance contract
+added,scripts/st08_09_release_assurance.py,ST08_09 fail-closed local and CI source dependency secret archive and protected-hash runner
+added,tests/test_release_assurance_st08_09.py,ST08_09 focused positive and contract mutation tests
+added,data_registry/st08_09_CI_security_and_release_candidate_assurance_evidence_v01.json,ST08_09 observed local verification external CI disposition and limitations
+added,docs/agent/st08_09_CI_security_and_release_candidate_assurance_change_scope_v01.csv,ST08_09 exact planned and actual change scope
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh fail-closed candidate path inventory after authorized ST08_09 changes
+modified,configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json,record ST08_09 security supersession of the originally observed setuptools build backend
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_09 files in deterministic cumulative verification scope
+modified,pyproject.toml,replace vulnerable setuptools 82.0.1 build backend with fixed 83.0.0 after pip-audit finding
+modified,src/mlcra/application.py,replace obsolete deferred-ST08_09 doctor blocker with the exact unobserved hosted CI and external secret-scanning blockers
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record John acceptance of ST08_08 and bounded ST08_09 evidence
+modified,roadmap.md,record ST08_08 closure ST08_09 result and only proposed next block

@@ -1,0 +1,6 @@
+﻿step_id,target_artifact,action_ru,requires_john_action,notes_ru
+report31_step_01,data_registry/dataset_candidate_registry.csv,подготовить проект обновления статусов кандидатов без изменения строк вручную в текущем отчете,yes,"потребуется актуальный файл реестра из проекта, если он отличается от версии архива"
+report31_step_02,openml_miniboone_41150,предложить статус primary_tabular_candidate,approval,основание — стабильные результаты по 5 зернам случайности
+report31_step_03,openml_electricity_151,предложить статус temporal_sensitivity_candidate,approval,основание — просадка качества на временном удержанном разбиении относительно случайного
+report31_step_04,openml_click_prediction_small_41434,предложить статус leakage_risk_diagnostic_or_hold,approval,основание — слабый безопасный контур и предупреждение leakage-risk для идентификаторов
+report31_step_05,docs/reports/REPORT_31_openml_candidate_status_update.md,"зафиксировать решение, самокритику и границы интерпретации",no,до утверждения не менять статусы в рабочем реестре

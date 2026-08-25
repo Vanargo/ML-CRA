@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_31_stage05_non_nested_optimism_probe_modular_extraction_change_scope_v01.csv,machine-readable authorized change set for ST07_31
+modified,src/mlcra/stress_tests.py,implement the registered ST05_07 contract reference assembly GridSearchCV runner and fail-closed bundle validation
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace the 609-line ST05_07 business-logic cell with thin modular orchestration
+modified,scripts/agent_verify.py,add independent two-run real-fit fixture CSV-roundtrip mutation and protected-artifact checks
+modified,docs/stages/stage_07_code_modularization.md,record ST07_31 authority implementation evidence exact before-after fragments and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_31 technical completion

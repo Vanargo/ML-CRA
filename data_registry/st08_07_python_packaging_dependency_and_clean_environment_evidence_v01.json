@@ -1,0 +1,236 @@
+{
+  "schema_version": "st08_07_python_packaging_dependency_and_clean_environment_evidence_v01",
+  "record_id": "st08_07_python_packaging_dependency_and_clean_environment_evidence_v01",
+  "task_id": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+  "task_profile": "CHANGE",
+  "chat_task_name": "ML-CRA/Продолжение работы с ST08_04",
+  "recorded_at": "2026-08-20",
+  "authorization": {
+    "john_statement": "ST08_06 accepted and closed; move further under the ML-CRA working contract",
+    "accepted_previous_task": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "closed_previous_task": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "next_block_authorized": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "interpretation": "move further authorizes the single previously proposed ST08_07 block but not ST08_08 or later blocks",
+    "cli_implementation_authorized": false,
+    "external_publication_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": {
+    "metadata_path": "pyproject.toml",
+    "dependency_lock_path": "requirements/locks/st08_07-py312-windows-x86_64.txt",
+    "contract_path": "configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json",
+    "distribution_name": "ml-cra",
+    "development_version": "0.1.0.dev0",
+    "declared_environment_cells": 1,
+    "validated_environment_cells": 1,
+    "sdist_built": true,
+    "wheel_built_from_sdist": true,
+    "clean_offline_dependency_install": "PASS",
+    "clean_wheel_install_import_and_pip_check": "PASS",
+    "console_command_created": false,
+    "external_actions_performed": 0
+  },
+  "source_baseline": {
+    "baseline_type": "independent_workspace_path_and_content_manifest",
+    "workspace_files_before_change": 289,
+    "workspace_manifest_sha256_before_change": "429561fb337ef5cc1789a8c8519c2ad8fc239a567516062a3657ca65b48e9ab9",
+    "manifest_algorithm": "SHA256_of_UTF8_sorted_relative_path_TAB_file_sha256_LF",
+    "baseline_before_change": "PASS_manifest_rows_158_scope_files_53_modified_8_added_135_missing_0_out_of_scope_0_scope_errors_0",
+    "git_repository_available": false,
+    "checkpoint_input_required": false
+  },
+  "planned_change_set": [
+    {"change_kind": "added", "path": "pyproject.toml", "purpose": "standard distribution metadata build dependency and namespace discovery"},
+    {"change_kind": "added", "path": "requirements/locks/st08_07-py312-windows-x86_64.txt", "purpose": "hash-locked validated base runtime"},
+    {"change_kind": "added", "path": "configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json", "purpose": "machine-readable packaging and environment contract"},
+    {"change_kind": "added", "path": "data_registry/st08_07_python_packaging_dependency_and_clean_environment_evidence_v01.json", "purpose": "observed evidence and status"},
+    {"change_kind": "added", "path": "docs/agent/st08_07_python_packaging_dependency_and_clean_environment_change_scope_v01.csv", "purpose": "exact change scope"},
+    {"change_kind": "modified", "path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json", "purpose": "refresh fail-closed path inventory"},
+    {"change_kind": "modified", "path": "docs/agent/pilot_change_scope_v01.csv", "purpose": "cumulative verifier scope"},
+    {"change_kind": "modified", "path": "docs/stages/stage_08_project_completion_and_release_readiness.md", "purpose": "active stage synchronization"},
+    {"change_kind": "modified", "path": "roadmap.md", "purpose": "canonical roadmap synchronization"}
+  ],
+  "observed_dependency_analysis": {
+    "distributed_module_count": 10,
+    "direct_third_party_imports": ["numpy", "pandas", "scikit-learn", "threadpoolctl"],
+    "lazy_research_import": "openml",
+    "base_direct_dependencies": ["numpy==2.4.4", "pandas==3.0.2", "scikit-learn==1.8.0", "threadpoolctl==3.6.0"],
+    "base_transitive_locked": ["joblib==1.5.3", "python-dateutil==2.9.0.post0", "scipy==1.17.1", "six==1.17.0", "tzdata==2026.2"],
+    "research_extra": "openml==0.15.1",
+    "research_extra_validation": "NOT_PERFORMED_not_part_of_supported_core_matrix",
+    "ordinary_python_dependency_state": "Python_3.12.0_with_pip_23.2.1_and_no_build_or_runtime_packages",
+    "existing_project_venv_state": "Python_3.12.0_pip_26.1.1_pip_check_PASS_but_not_used_as_clean_environment_evidence"
+  },
+  "professional_methods": [
+    "MAPE-K governed task analysis and evidence feedback",
+    "PEP 517 isolated backend build through the PyPA build frontend",
+    "PEP 621 and current pyproject metadata validation through tomllib and installed core metadata",
+    "PEP 440 development-version normalization and ordering through packaging",
+    "exact direct and transitive dependency pinning",
+    "SHA-256 hash-checking mode and binary-only offline wheelhouse installation",
+    "fresh venv clean installation with isolated imports and pip check",
+    "sdist and wheel allowlist inventory inspection",
+    "negative metadata mutation testing",
+    "protected-artifact hashing and cumulative regression verification",
+    "planned-versus-actual change reconciliation"
+  ],
+  "authoritative_support": [
+    {"source": "Python Packaging pyproject.toml specification", "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/", "use": "build and project metadata"},
+    {"source": "Python Packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "source sdist wheel install and publication separation"},
+    {"source": "setuptools package discovery and namespace packages", "uri": "https://setuptools.pypa.io/en/stable/userguide/package_discovery.html", "use": "src layout implicit namespace and exact package discovery"},
+    {"source": "setuptools PEP 639 license migration", "uri": "https://setuptools.pypa.io/en/stable/userguide/license_migration.html", "use": "SPDX expression license-files and backend minimum"},
+    {"source": "pip repeatable installs", "uri": "https://pip.pypa.io/en/stable/topics/repeatable-installs/", "use": "pins hashes and offline wheelhouse"},
+    {"source": "pip requirements file format", "uri": "https://pip.pypa.io/en/stable/reference/requirements-file-format/", "use": "hash and binary-only lock syntax"},
+    {"source": "PEP 440", "uri": "https://peps.python.org/pep-0440/", "use": "development version semantics"}
+  ],
+  "observed_build_evidence": {
+    "build_frontend": "build==1.5.0",
+    "build_backend": "setuptools==82.0.1",
+    "build_mode": "isolated_sdist_then_wheel_from_sdist",
+    "sdist": {
+      "filename": "ml_cra-0.1.0.dev0.tar.gz",
+      "sha256": "747552cf1636ebbe2dd0d8faf075c968ff8ebfa09575909b35309cbd692211e7",
+      "size_bytes": 59526,
+      "entry_count": 24
+    },
+    "wheel": {
+      "filename": "ml_cra-0.1.0.dev0-py3-none-any.whl",
+      "sha256": "a099262560517cecf2699a553c5beb44bd73f0bf0e153e82587a146be37cd2aa",
+      "size_bytes": 65970,
+      "entry_count": 16,
+      "distributed_module_count": 10,
+      "tag": "py3-none-any"
+    },
+    "inventory": "PASS_required_modules_LICENSE_and_DATASET_ATTRIBUTION_present_forbidden_placeholders_notebooks_data_configs_scripts_venv_caches_absent",
+    "build_warning": "RECORDED_sdist_standard_README_absent_root_README_is_deferred_to_ST08_10_and_inline_metadata_description_is_used",
+    "retention": "temporary_artifacts_removed_after_validation_not_a_release"
+  },
+  "observed_clean_environment_evidence": {
+    "environment_id": "ST08-ENV-CORE-PY312-WIN-X86_64",
+    "python": "3.12.0",
+    "platform": "Windows-2019Server-10.0.17763-SP0",
+    "dependency_install": "PASS_offline_no_index_binary_only_require_hashes_9_of_9",
+    "installed_dependency_versions": "PASS_exact_9_of_9",
+    "wheel_install": "PASS_no_index_no_deps",
+    "pip_check": "PASS_no_broken_requirements",
+    "isolated_imports": "PASS_mlcra_namespace_plus_10_distributed_modules_11_of_11",
+    "workspace_leakage": "PASS_mlcra_search_location_only_clean_venv_site_packages",
+    "installed_metadata": "PASS_name_ml-cra_version_0.1.0.dev0_requires_python_3.12_only_license_MIT_and_exact_requires_dist",
+    "placeholder_exclusion": "PASS_mlcra.data_registry_not_installed",
+    "console_script_absence": "PASS_expected_false_until_ST08_08"
+  },
+  "verification_attempts": [
+    {
+      "attempt": 1,
+      "check": "prechange_workspace_manifest",
+      "result": "INVALID_ATTEMPT",
+      "cause": "Windows PowerShell runtime lacked System.IO.Path.GetRelativePath and recursively traversed the excluded venv before filtering.",
+      "disposition": "Recomputed with rg --files and pre-traversal exclusions; exact 289-file manifest recorded."
+    },
+    {
+      "attempt": 2,
+      "check": "dependency_wheel_download",
+      "result": "BLOCKED_THEN_PASS",
+      "cause": "Sandbox denied outbound sockets.",
+      "disposition": "Repeated after explicit escalation; nine exact wheels downloaded and SHA-256 recorded."
+    },
+    {
+      "attempt": 3,
+      "check": "pip_dry_run_cross_python_negative_probe",
+      "result": "INVALID_TOOL_PROBE",
+      "cause": "pip 23.2.1 local-wheel dry-run accepted the wheel when --python-version was overridden and therefore did not provide a reliable Requires-Python rejection test.",
+      "disposition": "No compatibility claim was based on this probe; packaging 26.3 independently verified 3.11 false 3.12 true and 3.13 false against the declared specifier."
+    },
+    {
+      "attempt": 4,
+      "check": "positive_contract_mutation_validator",
+      "result": "VALIDATOR_DEFECT_THEN_PASS",
+      "cause": "The first inline PowerShell-to-Python validator compared a Cyrillic literal after console re-encoding.",
+      "disposition": "Compared the author value between two UTF-8 parsed artifacts instead; positive contract PASS and all 11 mutations remained rejected."
+    },
+    {
+      "attempt": 5,
+      "check": "distribution_legal_companion_self_review",
+      "result": "FAIL_THEN_PASS",
+      "cause": "The first technically installable wheel included LICENSE but omitted DATASET_ATTRIBUTION.md even though the accepted ST08_06 manifest requires that companion for distributed MiniBooNE-derived material.",
+      "disposition": "Added both files to standardized project.license-files, rebuilt the sdist and wheel from source, repeated the clean offline install and replaced all artifact hashes and inventory counts with the final observed values."
+    },
+    {
+      "attempt": 6,
+      "check": "final_packaging_meta_validator_environment",
+      "result": "INVALID_ENVIRONMENT_THEN_PASS",
+      "cause": "The minimal clean runtime environment correctly lacked the non-runtime packaging library required only by the PEP 440 meta-validator.",
+      "disposition": "Kept clean-runtime evidence separate and repeated the meta-validator in the registered research environment; positive contract PASS and all 13 contract-listed negative mutations were rejected."
+    }
+  ],
+  "verification": {
+    "pyproject_TOML_parse": "PASS",
+    "PEP_440_version": "PASS_normalized_0.1.0.dev0_development_true_before_0.1.0_true",
+    "requires_python_boundary": "PASS_3.11.9_false_3.12.0_true_3.12.99_true_3.13.0_false",
+    "lock_hash_inventory": "PASS_9_exact_requirements_9_SHA256_hashes",
+    "positive_contract": "PASS",
+    "negative_mutations": "PASS_13_of_13_rejected",
+    "isolated_build": "PASS_sdist_1_wheel_1_wheel_from_sdist",
+    "artifact_inventory": "PASS",
+    "offline_clean_dependency_install": "PASS",
+    "clean_wheel_install_import_and_metadata": "PASS",
+    "protected_artifact_hashes": "PASS_18_of_18_mismatches_0",
+    "public_manifest_inventory": "PASS_294_paths_SHA256_9c2d691e4b4afd88e0033bb2fbf50c798767c1179d8cb1b2b0ab0d25915775b3_counts_2_1_4_38_0_160_89_unmapped_0",
+    "task_change_scope": "PASS_9_unique_existing_paths;_cumulative_scope_32_rows_31_unique_paths_with_the_two_preexisting_historical_roadmap_entries_retained",
+    "baseline_after_change": "PASS_manifest_rows_158_scope_files_53_modified_8_added_140_missing_0_out_of_scope_0_scope_errors_0",
+    "cumulative_pilot": "FAIL_8_historical_gates_require_absent_external_checkpoints_v44_v45_v47_v48_v49_v51_v52_v53;_ST08_03_historical_forbidden_outputs_absent_is_false_after_authorized_later_outputs;_all_current_syntax_24_CSV_151_notebook_required_path_documentary_protected_and_Stage_7_computational_regressions_PASS",
+    "checkpoint": "SKIPPED_risk_based_policy_no_stage_closure_external_handoff_high_risk_change_or_explicit_request"
+  },
+  "release_gate_effect": {
+    "ST08_FIND_03": "PARTIALLY_RESOLVED",
+    "ST08_FIND_05": "PARTIALLY_RESOLVED",
+    "ST08_GATE_PUBLIC_DEVELOPMENT": "BLOCKED",
+    "ST08_GATE_0_1_0": "BLOCKED",
+    "remaining_packaging_blockers": [
+      "supported_mlcra_command_not_implemented_until_ST08_08",
+      "research_openml_extra_not_in_supported_hash_locked_matrix",
+      "cross_platform_and_additional_Python_matrix_not_validated",
+      "root_README_and_RU_EN_walkthrough_deferred_to_ST08_10",
+      "CI_and_security_assurance_deferred_to_ST08_09",
+      "John_release_authorization_not_granted"
+    ],
+    "external_publication": "NOT_PERFORMED",
+    "release": "NOT_PERFORMED"
+  },
+  "scientific_interpretation_limit": "ST08_07 validates packaging metadata build artifacts and one clean software environment only. It performs no model training does not revalidate or broaden the MiniBooNE claim and does not establish scientific reproducibility across environments.",
+  "actual_change_log_reconciliation": {
+    "planned_paths": 9,
+    "actual_paths": 9,
+    "unplanned_path_changes": [],
+    "temporary_validation_paths": [
+      ".tmp_st08_07_wheelhouse/",
+      ".tmp_st08_07_clean/",
+      ".tmp_st08_07_build/",
+      ".tmp_st08_07_dist/",
+      "build/",
+      "src/ml_cra.egg-info/"
+    ],
+    "temporary_validation_disposition": "removed_before_final_baseline",
+    "scope_deviation": "NONE"
+  },
+  "remaining_uncertainty": [
+    "Only the declared core CPython 3.12 Windows x86_64 environment is validated.",
+    "The Python 3.12 minor range is declared from one observed 3.12.0 patch and needs CI coverage before release.",
+    "The research-openml extra is declared but is not part of the hash-locked supported core matrix.",
+    "The root README build warning persists by design until ST08_10.",
+    "Dependency vulnerability assurance remains for ST08_09.",
+    "No external index name availability reservation publication or release was performed."
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "proposed_next_block": "ST08_08_universal_CLI_classification_vertical_slice",
+  "proposed_next_block_status": "proposed_not_authorized",
+  "tasks_for_john": [
+    "Accept or return ST08_07 only.",
+    "If accepted assign ACCEPTED_BY_JOHN and TASK_CLOSED.",
+    "Separately decide whether to authorize only ST08_08.",
+    "Do not publish or treat 0.1.0.dev0 as a release."
+  ]
+}

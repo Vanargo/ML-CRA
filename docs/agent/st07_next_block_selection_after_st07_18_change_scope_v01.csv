@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_18_change_scope_v01.csv,record the machine-readable change set for accepting ST07_18 and selecting one non-authorized next block
+modified,scripts/agent_verify.py,verify accepted ST07_18 current state the observed artifact-context defect and the non-authorized ST07_19 boundary
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance candidate artifact semantic provenance analysis decision matrix and proposed ST07_19 contract
+modified,roadmap.md,synchronize accepted ST07_18 and one proposed-not-authorized ST07_19 without promotion training or canonical outputs

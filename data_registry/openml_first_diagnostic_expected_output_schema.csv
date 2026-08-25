@@ -1,0 +1,24 @@
+﻿file_path;column_name;dtype_policy_ru;required;meaning_ru
+data_registry/openml_first_diagnostic_scores.csv;candidate_id;string;yes;идентификатор OpenML-кандидата
+data_registry/openml_first_diagnostic_scores.csv;openml_dataset_id;integer;yes;идентификатор набора данных OpenML
+data_registry/openml_first_diagnostic_scores.csv;dataset_name;string;yes;название набора данных
+data_registry/openml_first_diagnostic_scores.csv;target_name;string;yes;целевая переменная
+data_registry/openml_first_diagnostic_scores.csv;positive_class_assumption;string;yes;диагностически принятый положительный класс
+data_registry/openml_first_diagnostic_scores.csv;feature_count;integer;yes;число признаков в безопасной матрице X
+data_registry/openml_first_diagnostic_scores.csv;feature_names;semicolon_string;yes;список использованных признаков
+data_registry/openml_first_diagnostic_scores.csv;split_protocol_id;string;yes;протокол разбиения данных
+data_registry/openml_first_diagnostic_scores.csv;random_seed;integer;yes;зерно случайности
+data_registry/openml_first_diagnostic_scores.csv;model_id;string;yes;идентификатор модели
+data_registry/openml_first_diagnostic_scores.csv;roc_auc;float;yes;площадь под ROC-кривой
+data_registry/openml_first_diagnostic_scores.csv;pr_auc;float;yes;площадь под кривой точность-полнота
+data_registry/openml_first_diagnostic_scores.csv;f1;float;yes;гармоническое среднее точности и полноты
+data_registry/openml_first_diagnostic_scores.csv;balanced_accuracy;float;yes;сбалансированная точность
+data_registry/openml_first_diagnostic_scores.csv;log_loss;float;yes;логарифмическая потеря
+data_registry/openml_first_diagnostic_scores.csv;brier_score;float;yes;оценка Брайера
+data_registry/openml_first_diagnostic_scores.csv;row_status;string;yes;статус строки: diagnostic_draft
+data_registry/openml_first_diagnostic_warnings.csv;severity;string;yes;уровень сообщения
+data_registry/openml_first_diagnostic_warnings.csv;candidate_id;string;yes;идентификатор кандидата
+data_registry/openml_first_diagnostic_warnings.csv;object;string;yes;объект предупреждения
+data_registry/openml_first_diagnostic_warnings.csv;warning_ru;string;yes;текст предупреждения
+data_registry/openml_first_diagnostic_environment.csv;name;string;yes;компонент окружения
+data_registry/openml_first_diagnostic_environment.csv;version;string;yes;версия компонента

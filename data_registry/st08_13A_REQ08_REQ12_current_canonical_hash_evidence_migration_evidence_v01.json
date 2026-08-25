@@ -1,0 +1,167 @@
+{
+  "schema_version": "st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01",
+  "evidence_id": "st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01",
+  "task_id": "ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "prospective_migration_complete_not_reaudited",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_13_release_candidate_completion_security_and_readiness_reaudit",
+    "john_decision_text": "Выбираю авторизовать отдельную перспективную миграцию REQ08/REQ12 на текущее хеш-связанное каноническое состояние, не переписывая исторические FAIL.",
+    "reserved_NEXT_BLOCK_AUTHORIZED_label_claimed_by_agent": false,
+    "external_repository_action_authorized": false,
+    "publication_or_release_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "contract_path": "configs/project_readiness/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_contract_v01.json",
+  "historical_integrity": {
+    "files": [
+      {
+        "path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv",
+        "sha256": "cd4658d6e7307b4aec26d75bb9f458e6fd6a136d108794a6bfdf4e099c5b8c66"
+      },
+      {
+        "path": "configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json",
+        "sha256": "46e87427425534b2f07da3270ceaf85ad10abd52318421850856160380940287"
+      },
+      {
+        "path": "scripts/st08_13_release_candidate_reaudit.py",
+        "sha256": "7cd84abcb905d88643d5d031113c157a91e2fb1f3ac376cde361447a734ec3a1"
+      },
+      {
+        "path": "tests/test_release_candidate_reaudit_st08_13.py",
+        "sha256": "bda962758e326fca5ed67cf5a011e87c71955a7a34766328fcaca8e5d8311f8f"
+      },
+      {
+        "path": "data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json",
+        "sha256": "dfa626fc62f977c2e8067f66e0fa6dc7660dd8dd7b21e02b841fc4bc1fa2e81c"
+      }
+    ],
+    "status": "PASS_UNCHANGED"
+  },
+  "requirements_migration": {
+    "historical_requirements_sha256": "cd4658d6e7307b4aec26d75bb9f458e6fd6a136d108794a6bfdf4e099c5b8c66",
+    "prospective_requirements_sha256": "cf0fbfb98c45ca9c8f1e359214f75a372a9e1ad75ae5f3d849954b7b2adc88db",
+    "rows": 24,
+    "changed_requirement_ids": ["ST08-REQ-08", "ST08-REQ-12"],
+    "changed_fields": [
+      "authoritative_basis",
+      "blocked_rule",
+      "fail_rule",
+      "local_evidence_paths",
+      "pass_rule",
+      "requirement",
+      "verification_method"
+    ],
+    "status": "PASS_MIGRATED_NOT_REAUDITED"
+  },
+  "canonical_state_manifest": {
+    "entries": 351,
+    "eligible_path_list_sha256": "4788ff792d9073d0f31f2dc8063c096b6f48b5cd8efbe11a9b8f717085bbd3fa",
+    "manifest_sha256": "e05506a87d6ed67ffed3a32d7a07ee9dcb761824b56dc4e3f0317404b0dbbfcb",
+    "excluded_paths": [
+      "data_registry/st08_13A_current_canonical_state_manifest_v01.csv",
+      "data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json"
+    ],
+    "algorithm": "SHA-256",
+    "status": "PASS"
+  },
+  "public_path_inventory": {
+    "paths": 353,
+    "path_list_sha256": "c6b961738c04adfec72d58a9597dc58b0df0e1f25f47e7f872216b64a62b5579",
+    "status": "PASS"
+  },
+  "protected_artifacts": {
+    "expected": 18,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "prospective_disposition": {
+    "ST08-REQ-08": "MIGRATED_NOT_REAUDITED",
+    "ST08-REQ-12": "MIGRATED_NOT_REAUDITED",
+    "historical_ST08_13_REQ08": "FAIL_PRESERVED",
+    "historical_ST08_13_REQ12": "BLOCKED_PRESERVED"
+  },
+  "observed_checks": {
+    "prechange_baseline": "PASS_manifest_rows_158_scope_files_53_missing_0_out_of_scope_0_scope_errors_0",
+    "requirements_v01_to_v02_relation": "PASS_24_rows_only_REQ08_REQ12_changed_in_7_authorized_fields",
+    "historical_ST08_13_hashes": "PASS_5_of_5_unchanged",
+    "canonical_state_manifest": "PASS_351_entries_2_registered_cycle_breaking_exclusions",
+    "public_path_manifest": "PASS_353_paths_0_unmapped",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "focused_mutation_tests": "PASS_12_of_12",
+    "historical_ST08_13_regression": "PASS_validator_and_12_of_12_mutations",
+    "release_source_assurance": "PASS_registered_ml_cra_venv_15_runtime_35_tools_353_paths_18_protected",
+    "release_source_assurance_invalid_first_invocation": "INVALID_INVOCATION_system_python_missing_PyYAML_not_a_product_failure",
+    "documentation_assurance": "PASS_source_and_8_of_8_mutations_28_local_links_0_broken",
+    "postchange_baseline": "PASS_manifest_rows_158_scope_files_53_modified_12_added_199_missing_0_out_of_scope_0_scope_errors_0",
+    "full_cumulative_pilot": "EXIT_1_with_exactly_8_registered_historical_FAIL_rows_0_new_FAIL_0_BLOCKED"
+  },
+  "registered_historical_pilot_fail_rows": [
+    "stage07_closure_audit",
+    "stage07_verdict_policy_application_contract_design",
+    "stage07_next_block_after_st0735",
+    "stage07_post_verdict_policy_closure_reaudit",
+    "stage07_closure_and_next_stage_selection",
+    "stage08_project_completion_and_release_readiness_contract",
+    "stage08_project_completion_and_release_readiness_baseline_audit",
+    "stage08_project_scope_release_class_owner_decisions"
+  ],
+  "methodological_interpretation": {
+    "hash_claim": "SHA-256 establishes byte-identity against this registered manifest with very high change-detection probability; it does not prove correctness, authorship, scientific validity, or external execution.",
+    "configuration_claim": "A new v02 baseline records an authorized prospective rule change while v01 and its observed ST08_13 result remain immutable historical configuration evidence.",
+    "reaudit_claim": "No v02 requirement result, dimension status, project-completion verdict, or external-release verdict is assigned in ST08_13A."
+  },
+  "residual_risks": [
+    {
+      "risk_id": "ST08-13A-RISK-01",
+      "risk": "A hash-bound file can still contain an implementation, documentation, or scientific defect.",
+      "control": "Retain independent baseline, focused, mutation, protected-artifact, package, scientific, and future readiness checks.",
+      "status": "open_controlled"
+    },
+    {
+      "risk_id": "ST08-13A-RISK-02",
+      "risk": "The two cycle-breaking files are not listed as rows inside the state manifest.",
+      "control": "Register both exact paths in the contract and evidence; the evidence binds the manifest hash and both remain in the exact public path inventory.",
+      "status": "open_controlled"
+    },
+    {
+      "risk_id": "ST08-13A-RISK-03",
+      "risk": "Prospective v02 may be mistaken for a passed re-audit.",
+      "control": "Keep every v02 design status NOT_EVALUATED and preserve the ST08_13 FAIL/not_ready result until a separately authorized audit.",
+      "status": "open_project_blocking"
+    },
+    {
+      "risk_id": "ST08-13A-RISK-04",
+      "risk": "Hosted CI, repository secret scanning, and public-repository controls remain unobserved.",
+      "control": "Keep external release blocked and propose a separate external-evidence block without release.",
+      "status": "open_release_blocking"
+    }
+  ],
+  "authoritative_support": [
+    "NIST_FIPS_180_4_Secure_Hash_Standard",
+    "NIST_SP_800_218_SSDF_1_1_PS2_PS3",
+    "NIST_SP_800_53_Rev5_CM2_CM3"
+  ],
+  "change_reconciliation": {
+    "planned_paths": 12,
+    "actual_paths": 12,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_match"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "John selected a local hash-linked canonical state; Stage 8 remains open, browser handoff is absent, and no external or difficult-to-reverse action occurred."
+  },
+  "next_block_reference": {
+    "task_id": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
+    "status": "proposed_not_authorized",
+    "reason": "External repository, hosted CI, and server-side secret-scanning evidence remain release blockers and require separate John authorization; no release is included."
+  },
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "external_actions_performed": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

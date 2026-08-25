@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_15_change_scope_v01.csv,record the machine-readable change set for ST07_15 acceptance reconciliation and next-block selection
+modified,scripts/agent_verify.py,verify accepted and closed ST07_15 plus proposed but not authorized ST07_16 documentary state
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance dependency analysis alternative assessment and the bounded proposed ST07_16 contract
+modified,roadmap.md,synchronize accepted ST07_15 and register the proposed next block without authorizing execution

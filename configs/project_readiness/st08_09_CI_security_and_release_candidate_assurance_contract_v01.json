@@ -1,0 +1,242 @@
+{
+  "schema_version": "st08_09_CI_security_and_release_candidate_assurance_contract_v01",
+  "contract_id": "st08_09_CI_security_and_release_candidate_assurance_contract_v01",
+  "task_id": "ST08_09_CI_security_and_release_candidate_assurance",
+  "recorded_at": "2026-08-20",
+  "profile": "CHANGE",
+  "status": "technical_pass_ready_for_john_acceptance",
+  "authority": {
+    "accepted_previous_task": "ST08_08_universal_CLI_classification_vertical_slice",
+    "closed_previous_task": "ST08_08_universal_CLI_classification_vertical_slice",
+    "authorized_block": "ST08_09_CI_security_and_release_candidate_assurance",
+    "interpretation": "John's instruction to move further authorizes the single exact next block proposed after ST08_08 and does not authorize ST08_10, publication or release.",
+    "next_block_authorized": false,
+    "external_repository_action_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "scientific_claim_protocol_evidence_or_verdict_change_authorized": false
+  },
+  "measurable_outcome": {
+    "workflow": ".github/workflows/ci.yml",
+    "local_assurance_runner": "scripts/st08_09_release_assurance.py",
+    "focused_tests": "tests/test_release_assurance_st08_09.py",
+    "security_policy": "SECURITY.md",
+    "dependency_update_policy": ".github/dependabot.yml",
+    "review_ownership": ".github/CODEOWNERS",
+    "assurance_tool_lock": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+    "required_controls": [
+      "least_privilege_immutable_action_CI",
+      "hash_locked_clean_build_install_import_CLI_and_test",
+      "known_vulnerability_audit_of_runtime_and_assurance_dependencies",
+      "professional_secret_pattern_scan_over_publication_candidate",
+      "fail_closed_source_and_sdist_wheel_inventory_validation",
+      "contract_mutation_rejection",
+      "protected_scientific_artifact_hash_verification"
+    ]
+  },
+  "ci_contract": {
+    "events": ["push_to_main", "pull_request_to_main", "workflow_dispatch"],
+    "forbidden_events": ["pull_request_target", "workflow_run"],
+    "permissions": {"contents": "read"},
+    "secrets_required": false,
+    "runner": "windows-2022",
+    "runner_reason": "The previously observed Windows Server 2019 image was retired by GitHub; windows-2022 is an explicit currently supported x64 label and avoids the moving windows-latest alias.",
+    "python": "3.12.10",
+    "python_reason": "Python 3.12.10 is the final CPython 3.12 release with official Windows binary installers; later 3.12 security releases are source-only. The exact Windows cell is reproducible but does not contain later source-only interpreter security fixes and remains configured-not-executed until a hosted run is observed.",
+    "architecture": "x64",
+    "actions": [
+      {
+        "repository": "actions/checkout",
+        "release_tag": "v7.0.1",
+        "commit_sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "persist_credentials": false,
+        "verified_via": "official_GitHub_API_tag_object"
+      },
+      {
+        "repository": "actions/setup-python",
+        "release_tag": "v7.0.0",
+        "commit_sha": "5fda3b95a4ea91299a34e894583c3862153e4b97",
+        "verified_via": "official_GitHub_API_tag_object"
+      }
+    ],
+    "external_execution_status": "CONFIGURED_NOT_EXECUTED",
+    "external_execution_reason": "No GitHub repository publication or external workflow run is authorized in ST08_09.",
+    "release_artifact_upload": false
+  },
+  "environment_boundary": {
+    "locally_observed_cell": {
+      "environment_id": "ST08-ENV-CORE-PY312-WIN-X86_64",
+      "python": "CPython_3.12.10",
+      "operating_system": "Windows_Server_2019_AMD64",
+      "status": "LOCALLY_VALIDATED"
+    },
+    "hosted_ci_cell": {
+      "environment_id": "ST08-ENV-CI-PY312-WINDOWS2022-X64",
+      "python": "CPython_3.12.0",
+      "operating_system": "GitHub_hosted_windows_2022_x64",
+      "status": "DECLARED_CONFIGURED_NOT_EXECUTED",
+      "support_effect": "does_not_expand_validated_compatibility_until_an_observed_hosted_run_passes"
+    },
+    "not_claimed": ["Linux", "macOS", "PyPy", "ARM64", "Python_outside_3.12"]
+  },
+  "tooling": {
+    "lock_path": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+    "lock_properties": ["exact_direct_and_transitive_versions", "SHA256_for_every_wheel", "binary_only", "require_hashes"],
+    "top_level_tools": {
+      "build": "1.5.0",
+      "detect-secrets": "1.5.0",
+      "pip-audit": "2.10.1",
+      "setuptools": "83.0.0"
+    },
+    "observed_security_remediation": {
+      "affected_dependency": "setuptools==82.0.1",
+      "advisory_ids": ["PYSEC-2026-3447", "CVE-2026-59890", "GHSA-h35f-9h28-mq5c"],
+      "fixed_dependency": "setuptools==83.0.0",
+      "reason": "pip-audit reported a Unicode-normalization bypass of sdist exclusion rules before 83.0.0; archive inventory is independently checked after the upgrade.",
+      "historical_ST08_07_evidence_rewritten": false
+    },
+    "pip_audit_policy": {
+      "inputs": [
+        "requirements/locks/st08_07-py312-windows-x86_64.txt",
+        "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
+      ],
+      "require_hashes": true,
+      "disable_dependency_resolution": true,
+      "vulnerability_service": "PyPI_advisory_database",
+      "automatic_fix": false,
+      "pass_rule": "zero_reported_known_vulnerabilities_and_no_collection_error",
+      "temporal_limit": "result_is_a_time_stamped_query_not_a_permanent_clearance"
+    },
+    "secret_scan_policy": {
+      "engine": "detect-secrets_1.5.0",
+      "network_verification": false,
+      "scan_universe": "all_regular_text_paths_in_the_current_ST08_06_publication_candidate",
+      "plugins": [
+        "ArtifactoryDetector", "AWSKeyDetector", "AzureStorageKeyDetector",
+        "BasicAuthDetector", "CloudantDetector", "DiscordBotTokenDetector",
+        "GitHubTokenDetector", "GitLabTokenDetector", "IbmCloudIamDetector",
+        "IbmCosHmacDetector", "JwtTokenDetector", "MailchimpDetector",
+        "NpmDetector", "OpenAIDetector", "PrivateKeyDetector", "PypiTokenDetector",
+        "SendGridDetector", "SlackDetector", "SoftlayerDetector",
+        "SquareOAuthDetector", "StripeDetector", "TelegramBotTokenDetector",
+        "TwilioKeyDetector"
+      ],
+      "intentionally_disabled_plugins": {
+        "Base64HighEntropyString": "The repository intentionally contains many SHA-256 and scientific identifiers; regex detectors remain enabled and entropy-only findings would require a separately audited baseline.",
+        "HexHighEntropyString": "The repository intentionally contains many SHA-256 digests; exact secret formats are scanned instead.",
+        "KeywordDetector": "Historical evidence contains explanatory words such as token and password; regex detectors are used without a broad unaudited suppression baseline.",
+        "IPPublicDetector": "Public documentation legitimately contains public network addresses and URIs; this plugin does not identify credentials."
+      },
+      "pass_rule": "zero_findings",
+      "residual_limit": "no_pattern_scanner_proves_absence_of_all_secrets"
+    }
+  },
+  "source_assurance": {
+    "required_paths": [
+      ".github/CODEOWNERS", ".github/dependabot.yml", ".github/workflows/ci.yml",
+      ".gitignore", "SECURITY.md", "CITATION.cff", "DATASET_ATTRIBUTION.md",
+      "LICENSE", "pyproject.toml", "src/mlcra/application.py", "src/mlcra/cli.py", "src/mlcra/dashboard.py",
+      "src/mlcra/schemas/binary_classification_claim_v01.schema.json"
+    ],
+    "forbidden_candidate_fragments": [
+      ".git/", "ml-cra-venv/", "/__pycache__/", ".pyc", ".pyo",
+      ".env", ".pem", ".key", ".p12", ".pfx", ".tmp", "build/", "dist/",
+      "MiniBooNE_PID.txt", "MiniBooNE.arff", "dataset_41150.pkl.py3",
+      "dataset_41150.pq", "openml/org/openml/www/datasets/41150/"
+    ],
+    "public_manifest": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json",
+    "manifest_rule": "exact_count_and_sorted_path_SHA256_match_with_zero_unmapped"
+  },
+  "archive_assurance": {
+    "artifacts": ["sdist", "wheel"],
+    "build_protocol": "python_-m_build_--no-isolation_from_hash_locked_build_tool_environment",
+    "required_sdist_suffix": ".tar.gz",
+    "required_wheel_suffix": ".whl",
+    "must_reject": [
+      "absolute_or_parent_traversal_path", "backslash_path", "non_regular_tar_member",
+      "raw_data_or_cache", "virtual_environment", "secret_file", "temporary_or_build_cache",
+      "compiled_bytecode", "unexpected_second_distribution"
+    ],
+    "sdist_must_include": [
+      "pyproject.toml", "LICENSE", "DATASET_ATTRIBUTION.md", "src/mlcra/application.py",
+      "src/mlcra/cli.py", "src/mlcra/dashboard.py", "src/mlcra/schemas/binary_classification_claim_v01.schema.json",
+      "src/mlcra/schemas/tabular_regression_claim_v01.schema.json"
+    ],
+    "wheel_must_include_suffixes": [
+      "mlcra/application.py", "mlcra/cli.py", "mlcra/dashboard.py",
+      "mlcra/schemas/binary_classification_claim_v01.schema.json",
+      "mlcra/schemas/tabular_regression_claim_v01.schema.json",
+      ".dist-info/entry_points.txt", ".dist-info/licenses/LICENSE",
+      ".dist-info/licenses/DATASET_ATTRIBUTION.md"
+    ],
+    "retention": "temporary_validation_only_not_a_release_candidate_publication"
+  },
+  "negative_mutations": [
+    "replace_action_SHA_with_tag", "grant_write_permission", "enable_pull_request_target",
+    "enable_checkout_credentials", "use_moving_runner_alias", "change_python_patch",
+    "remove_native_command_exit_guard",
+    "remove_hash_from_tool_or_runtime_lock", "remove_required_security_path",
+    "inject_private_key_pattern", "add_raw_data_to_candidate", "add_archive_path_traversal",
+    "add_archive_symlink", "remove_required_archive_member", "add_bytecode_to_wheel",
+    "alter_protected_scientific_artifact_hash"
+  ],
+  "release_gate_effect": {
+    "ST08_FIND_08": "can_be_partially_resolved_only_after_local_controls_pass;_hosted_CI_remains_unobserved",
+    "ST08_GATE_PUBLIC_DEVELOPMENT": "BLOCKED_until_root_documentation_hosted_controls_public_repository_and_John_authorization",
+    "ST08_GATE_0_1_0": "BLOCKED_until_remaining_release_train_checks_and_John_release_decision",
+    "external_publication": "NOT_PERFORMED",
+    "release": "NOT_PERFORMED"
+  },
+  "protected_scientific_artifact_source": "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json#protected_artifacts",
+  "authoritative_support": [
+    {
+      "source": "NIST SP 800-218 SSDF 1.1",
+      "uri": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "use": "integrate secure development provenance dependency and release verification practices"
+    },
+    {
+      "source": "GitHub Actions secure use reference",
+      "uri": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "use": "least privilege immutable full commit SHA and untrusted pull request controls"
+    },
+    {
+      "source": "GitHub-hosted runners reference",
+      "uri": "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+      "use": "current explicit Windows x64 runner labels and fresh hosted virtual machines"
+    },
+    {
+      "source": "GitHub building and testing Python",
+      "uri": "https://docs.github.com/en/actions/tutorials/build-and-test-code/python",
+      "use": "setup Python dependencies and tests in Actions"
+    },
+    {
+      "source": "PyPA packaging flow",
+      "uri": "https://packaging.python.org/en/latest/flow/",
+      "use": "separate source sdist wheel installation and publication"
+    },
+    {
+      "source": "pip-audit official documentation",
+      "uri": "https://pypa.github.io/pip-audit/",
+      "use": "known vulnerability audit hashed requirements and fail exit codes"
+    },
+    {
+      "source": "Yelp detect-secrets documentation",
+      "uri": "https://github.com/Yelp/detect-secrets",
+      "use": "plugin based repository secret detection with explicit precision recall boundary"
+    },
+    {
+      "source": "Python 3.12.10 release",
+      "uri": "https://www.python.org/downloads/release/python-31210/",
+      "use": "final CPython 3.12 release with official Windows binary installers"
+    },
+    {
+      "source": "GitHub Advisory Database GHSA-h35f-9h28-mq5c",
+      "uri": "https://github.com/advisories/GHSA-h35f-9h28-mq5c",
+      "use": "setuptools sdist exclusion bypass affected and fixed versions"
+    }
+  ],
+  "checkpoint": {
+    "default_for_this_reversible_block": "SKIPPED_unless_verification_exposes_checkpoint_need",
+    "reason": "No stage closure external handoff release or difficult-to-reverse scientific change is authorized."
+  }
+}

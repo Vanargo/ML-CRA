@@ -1,0 +1,8 @@
+﻿source_id,source_type,path_or_url,used_for_ru
+internal_report31_registry,internal_project_file,data_registry/dataset_candidate_registry.csv,Рабочая роль openml_miniboone_41150 как primary_tabular_candidate.
+internal_second_summary,internal_project_file,data_registry/openml_second_diagnostic_summary.csv,Фактическая диагностическая устойчивость моделей на MiniBooNE.
+sklearn_common_pitfalls,official_documentation,https://scikit-learn.org/stable/common_pitfalls.html,Запрет утечки данных и необходимость подгонять преобразования только на обучающей части.
+sklearn_pipeline,official_documentation,https://scikit-learn.org/stable/modules/compose.html,Обоснование Pipeline как конвейера обработки.
+sklearn_repeated_stratified_kfold,official_documentation,https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RepeatedStratifiedKFold.html,Обоснование повторной стратифицированной k-блочной проверки.
+sklearn_model_evaluation,official_documentation,https://scikit-learn.org/stable/modules/model_evaluation.html,Обоснование набора метрик классификации.
+openml_miniboone_41150,official_dataset_page,https://www.openml.org/d/41150,Идентификация набора MiniBooNE на OpenML.

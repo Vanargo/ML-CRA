@@ -1,0 +1,18 @@
+{
+  "schema_version": "mlcra_binary_classification_claim_v01",
+  "claim_id": "st08_08_miniboone_software_characterization_only",
+  "task_type": "binary_classification",
+  "target": "signal",
+  "positive_label": "1",
+  "candidate_model": "hist_gradient_boosting_v01",
+  "baseline_model": "logistic_regression_v01",
+  "primary_metric": "average_precision",
+  "split_protocol": {
+    "kind": "stratified_k_fold_v01",
+    "n_splits": 2
+  },
+  "seeds": [20260507],
+  "preprocessing_policy": "numeric_complete_standardize_logistic_passthrough_hgb_v01",
+  "verdict_policy": "paired_primary_metric_consistency_v01",
+  "minimum_mean_delta": 0.0
+}

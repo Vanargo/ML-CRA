@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+modified,scripts/agent_verify.py,decouple accepted ST07_08 historical evidence from the mutable verifier and verify the ST07_09 contract and canonical status
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance of ST07_08 and the complete ST07_09 nested CV and golden-master design evidence
+modified,roadmap.md,synchronize the canonical Stage 7 state after John acceptance and ST07_09 technical completion
+added,docs/agent/st07_09_nested_cv_contract_change_scope_v01.csv,machine-readable authorized change set for ST07_09

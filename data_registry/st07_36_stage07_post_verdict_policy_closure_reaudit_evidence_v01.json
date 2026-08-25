@@ -1,0 +1,183 @@
+{
+  "task_id": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+  "task_profile": "SCIENTIFIC_VALIDATION",
+  "authorization": {
+    "task_closed_by_john": "ST07_35_verdict_policy_application_modular_extraction_and_golden_master_validation",
+    "next_block_authorized_by_john": "ST07_36_stage07_post_verdict_policy_closure_reaudit",
+    "stage07_closure_reserved_for_john": true,
+    "stage08_authorized": false
+  },
+  "research_question": "Do all seven pre-registered Stage 7 closure criteria pass against the accepted ST07_35 implementation and the current reproducible state?",
+  "bounded_claim": "The current Stage 7 engineering result satisfies all seven local closure criteria; this does not expand or independently reconfirm the Stage 5 scientific claim.",
+  "source_checkpoint": {
+    "path": "C:/Users/Vanargo/Downloads/ml-cra_v48.zip",
+    "sha256": "3658f8505c9075f4bf7c490b103e83b60e0037b63aeb800a621e5bf4d4da5e57",
+    "size_bytes": 1115338,
+    "entries": 265,
+    "unique_entries": 265,
+    "workspace_mismatches_before_task": 0
+  },
+  "method": {
+    "framework": "MAPE-K plus requirements traceability matrix and fail-closed closure review",
+    "decision_rule": "PASS only if every ST07-CLOSE criterion passes; any FAIL keeps Stage 7 open; any BLOCKED prevents a closure conclusion",
+    "verification_methods": ["inspection", "analysis", "test", "demonstration"],
+    "local_normative_sources": [
+      "docs/agent/ml_cra_agent_working_contract_v01.md",
+      "docs/agent/task_templates/task_core_v01.md",
+      "docs/agent/task_templates/scientific_validation_v01.md",
+      "bio_inspired_project_engineering_standard_v02.md",
+      "docs/stages/stage_07_code_modularization.md#8"
+    ],
+    "external_authoritative_sources": [
+      {
+        "source": "NASA Procedural Requirements 7123.1D",
+        "url": "https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7123_001D_&page_name=AppendixG",
+        "use": "life-cycle review success criteria require open actions to be resolved or explicitly dispositioned"
+      },
+      {
+        "source": "ISO/IEC/IEEE 15288:2023",
+        "url": "https://www.iso.org/standard/81702.html",
+        "use": "iterative life-cycle processes and stakeholder-controlled transition"
+      },
+      {
+        "source": "NASA Systems Engineering Handbook Appendix D",
+        "url": "https://www.nasa.gov/reference/appendix-d-requirements-verification-matrix/",
+        "use": "each requirement receives an identifier source verification method and result"
+      },
+      {
+        "source": "NIST Numerical Reproducibility",
+        "url": "https://www.nist.gov/programs-projects/numerical-reproducibility",
+        "use": "numerical evidence remains bounded by registered environment and provenance"
+      }
+    ]
+  },
+  "closure_matrix": [
+    {
+      "criterion_id": "ST07-CLOSE-01",
+      "criterion": "Stage 5 logic is inventoried",
+      "verification_method": "inspection_and_AST_analysis",
+      "status": "PASS",
+      "objective_evidence": "The main notebook has 52 cells (41 code and 11 markdown); the active Stage 7 record retains the accepted inventory and extraction boundaries."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-02",
+      "criterion": "A minimal transfer set is selected",
+      "verification_method": "requirements_traceability_analysis",
+      "status": "PASS",
+      "objective_evidence": "Accepted Stage 7 contracts cover shared I/O, validation, metrics, model space, nested CV, numeric runtime, nested artifacts, four audit builders, three stress-test families and verdict-policy application."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-03",
+      "criterion": "The src/mlcra modular layer exists",
+      "verification_method": "AST_analysis_and_test",
+      "status": "PASS",
+      "objective_evidence": "Ten non-empty src/mlcra modules expose 89 public functions or classes and pass Python syntax plus cumulative contract gates."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-04",
+      "criterion": "No critical Stage 5 business logic remains without a modular analogue",
+      "verification_method": "AST_analysis_and_traceability_inspection",
+      "status": "PASS",
+      "objective_evidence": "Stage 5 orchestration cells 33,36-39,41-43,45,47,49,51 have zero top-level function definitions; the three legacy cell-31 helpers have explicit analogues in nested_artifacts.py and validation.py."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-05",
+      "criterion": "Stage 5 results are recoverable through modular functions or an agreed transition interface",
+      "verification_method": "cumulative_test_and_registered_artifact_analysis",
+      "status": "PASS",
+      "objective_evidence": "Cumulative gates reproduce ST05_01 and ST05_04-ST05_06 exactly, validate ST05_02/ST05_03a/ST05_07 contracts and full-data diagnostics, and validate canonical nested_cv_v02 artifacts with registered provenance."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-06",
+      "criterion": "Minimal checks exist for configuration reading, result reading and verdict-policy application",
+      "verification_method": "executed_production_policy_gate",
+      "status": "PASS",
+      "objective_evidence": "read_csv_checked and validators cover configuration/result reading; the ST07_35 production gate reads the 6x16 policy and nine evidence sources, executes build/evaluate/apply/validate, selects strongly_supported rank 6 deterministically, passes 10/10 boundaries and rejects 22/22 mutations."
+    },
+    {
+      "criterion_id": "ST07-CLOSE-07",
+      "criterion": "roadmap.md and the active Stage 7 document reflect actual state",
+      "verification_method": "documentary_consistency_test",
+      "status": "PASS",
+      "objective_evidence": "Both current documents record ST07_35 closure, ST07_36 authorization and technical audit result while leaving formal Stage 7 closure reserved for John."
+    }
+  ],
+  "objective_metrics": {
+    "criteria_total": 7,
+    "criteria_pass": 7,
+    "criteria_fail": 0,
+    "criteria_blocked": 0,
+    "module_files": 10,
+    "module_public_functions_or_classes": 89,
+    "main_notebook_cells": 52,
+    "main_notebook_code_cells": 41,
+    "main_notebook_markdown_cells": 11,
+    "stage05_orchestration_cells_checked": 12,
+    "stage05_orchestration_top_level_function_definitions": 0,
+    "legacy_cell31_helpers": 3,
+    "legacy_cell31_helpers_with_modular_analogues": 3,
+    "verdict_policy_shape": [6, 16],
+    "verdict_policy_application_contracts": 4,
+    "verdict_policy_boundary_checks": 10,
+    "verdict_policy_negative_mutations": 22,
+    "new_training_runs": 0,
+    "network_attempts": 0,
+    "scientific_csv_changes": 0,
+    "claim_or_stage05_verdict_changes": 0
+  },
+  "protected_artifacts": {
+    "notebooks/04_dataset_smoke_experiments.ipynb": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52",
+    "src/mlcra/datasets.py": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b",
+    "src/mlcra/io.py": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0",
+    "src/mlcra/metrics.py": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+    "src/mlcra/model_spaces.py": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b",
+    "src/mlcra/nested_artifacts.py": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723",
+    "src/mlcra/nested_cv.py": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727",
+    "src/mlcra/numeric_runtime.py": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086",
+    "src/mlcra/stress_tests.py": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146",
+    "src/mlcra/validation.py": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff",
+    "src/mlcra/verdicts.py": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47",
+    "configs/verdict_policies/miniboone_verdict_policy_v01.csv": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637",
+    "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49",
+    "docs/stages/stage_05_claim_audit_protocol.md": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e",
+    "data_registry/openml_miniboone_stage05_current_effect_readout.csv": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8",
+    "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687",
+    "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970",
+    "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317"
+  },
+  "planned_change_set": {
+    "paths": [
+      "docs/agent/st07_36_stage07_post_verdict_policy_closure_reaudit_change_scope_v01.csv",
+      "data_registry/st07_36_stage07_post_verdict_policy_closure_reaudit_evidence_v01.json",
+      "scripts/agent_verify.py",
+      "docs/stages/stage_07_code_modularization.md",
+      "roadmap.md"
+    ]
+  },
+  "verification_result": {
+    "focused_gate": "PASS",
+    "baseline": "PASS",
+    "cumulative_pilot": "PASS",
+    "scientific_validation": "PASS_BOUNDED_STAGE07_ENGINEERING_CLOSURE_CRITERIA",
+    "training": "SKIPPED_NOT_AUTHORIZED_OR_REQUIRED",
+    "network_for_data": "SKIPPED_NOT_AUTHORIZED_OR_REQUIRED"
+  },
+  "aggregate_verdict": {
+    "status": "pass",
+    "technical_status": "PASS",
+    "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+    "stage07_closure_criteria_satisfied": true,
+    "stage07_closed": false,
+    "closure_decision_reserved_for_john": true,
+    "blocking_criterion": null,
+    "scientific_interpretation": "This validates the Stage 7 engineering closure contract only; it does not broaden or independently reconfirm the bounded Stage 5 model-comparison claim."
+  },
+  "actual_change_log": {
+    "planned_paths": 5,
+    "actual_paths": 5,
+    "deviations": 0
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "residual_uncertainty": "No technical closure criterion remains unresolved. Formal acceptance and Stage 7 closure remain reserved for John."
+}

@@ -1,0 +1,7 @@
+﻿review_step_id,input_file,check_ru,expected_result_ru,next_action_ru
+row_count_scores,openml_miniboone_research_scores.csv,Проверить число строк результатов.,30 строк: 10 внешних блоков × 3 модели.,Если строк меньше или больше — остановить анализ.
+row_count_summary,openml_miniboone_research_summary.csv,Проверить число строк сводки.,3 строки: по одной на модель.,Если строк больше или меньше — проверить группировку.
+status_control,openml_miniboone_research_scores.csv,Проверить row_status и interpretation_allowed.,row_status=research_draft; interpretation_allowed=limited_protocol_review_only.,Не повышать статус без отдельного отчета.
+metric_stability,openml_miniboone_research_summary.csv,Проверить средние и стандартные отклонения метрик.,Нет формального порога на REPORT_33; анализ только в REPORT_34.,Подготовить REPORT_34.
+warning_review,openml_miniboone_research_warnings.csv,Проверить предупреждения выполнения.,Нет критических ошибок выполнения; информационные ограничения допустимы.,Если есть ConvergenceWarning — зафиксировать.
+environment_review,openml_miniboone_research_environment.csv,Проверить версии среды.,Версии зафиксированы для воспроизводимости.,Сохранить файл без правок.

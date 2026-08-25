@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_24_change_scope_v01.csv,record the machine-readable ST07_24 acceptance reconciliation and bounded ST07_25 selection
+modified,scripts/agent_verify.py,verify ST07_24 acceptance the eight-block remaining route and exactly one proposed-not-authorized ST07_25 without execution
+modified,docs/stages/stage_07_code_modularization.md,record ST07_24 acceptance objective alternatives and the measurable proposed ST07_25 validation contract
+modified,roadmap.md,synchronize ST07_24 closure the eight-block remaining route and the proposed-not-authorized ST07_25 boundary

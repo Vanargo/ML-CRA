@@ -1,0 +1,15 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_change_scope_v01.csv,register the exact authorized ST07_22 change boundary
+added,scripts/st07_22_transactional_promotion.py,implement fail-closed prepare validate lock commit verify or rollback promotion
+added,data_registry/openml_miniboone_nested_v02_outer_scores.csv,promote the registered run_a outer scores without transformation
+added,data_registry/openml_miniboone_nested_v02_selected_params.csv,promote the registered run_a selected parameters without transformation
+added,data_registry/openml_miniboone_nested_v02_summary.csv,promote the registered run_a summary without transformation
+added,data_registry/openml_miniboone_nested_v02_quality_checks.csv,promote the registered run_a quality checks without transformation
+added,data_registry/openml_miniboone_nested_v02_warnings.csv,promote the registered run_a warning multiset without transformation
+added,data_registry/openml_miniboone_nested_v02_environment.csv,promote the registered run_a environment record without transformation
+added,data_registry/openml_miniboone_nested_v02_numeric_runtime.csv,promote the registered run_a numeric runtime record without transformation
+added,data_registry/st07_22_nested_cv_v02_promotion_transaction_journal_v01.json,record durable transaction phases commit inventory and terminal state
+added,data_registry/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_evidence_v01.json,record checks negative tests provenance and technical verdict
+modified,scripts/agent_verify.py,verify exact canonical bundle journal evidence protected hashes and current boundary
+modified,docs/stages/stage_07_code_modularization.md,record authorized execution objective evidence and stop boundary
+modified,roadmap.md,synchronize the technically completed ST07_22 state without authorizing another block

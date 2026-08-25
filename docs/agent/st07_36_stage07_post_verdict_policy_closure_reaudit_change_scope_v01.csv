@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_36_stage07_post_verdict_policy_closure_reaudit_change_scope_v01.csv,record the exact authorized ST07_36 scientific-validation change boundary
+added,data_registry/st07_36_stage07_post_verdict_policy_closure_reaudit_evidence_v01.json,register the seven-criterion current closure matrix and bounded verdict
+modified,scripts/agent_verify.py,execute and validate the current seven-criterion closure matrix including the real policy gate
+modified,docs/stages/stage_07_code_modularization.md,record ST07_35 closure ST07_36 authorization current audit result and mandatory John closure boundary
+modified,roadmap.md,synchronize the current Stage 7 closure-audit result without closing the stage

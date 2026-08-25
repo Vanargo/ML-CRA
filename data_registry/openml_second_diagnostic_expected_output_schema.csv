@@ -1,0 +1,19 @@
+﻿file_name,column_name,required,description_ru
+openml_second_diagnostic_scores.csv,candidate_id,yes,Идентификатор кандидата.
+openml_second_diagnostic_scores.csv,contour_id,yes,Идентификатор второго диагностического контура.
+openml_second_diagnostic_scores.csv,feature_policy_id,yes,Политика использования признаков.
+openml_second_diagnostic_scores.csv,split_protocol_id,yes,Протокол разбиения.
+openml_second_diagnostic_scores.csv,model_id,yes,Идентификатор модели.
+openml_second_diagnostic_scores.csv,roc_auc,yes,ROC-AUC.
+openml_second_diagnostic_scores.csv,pr_auc,yes,PR-AUC / average precision.
+openml_second_diagnostic_scores.csv,f1,yes,F1-мера.
+openml_second_diagnostic_scores.csv,balanced_accuracy,yes,Сбалансированная точность.
+openml_second_diagnostic_scores.csv,log_loss,yes,Логарифмическая потеря.
+openml_second_diagnostic_scores.csv,brier_score,yes,Оценка Брайера.
+openml_second_diagnostic_summary.csv,n_runs,yes,Число запусков в агрегированной строке.
+openml_second_diagnostic_summary.csv,*_mean,yes,Среднее значение метрики.
+openml_second_diagnostic_summary.csv,*_std,yes,Стандартное отклонение метрики.
+openml_second_diagnostic_summary.csv,*_min,yes,Минимальное значение метрики.
+openml_second_diagnostic_summary.csv,*_max,yes,Максимальное значение метрики.
+openml_second_diagnostic_warnings.csv,severity,yes,Уровень предупреждения.
+openml_second_diagnostic_warnings.csv,warning_ru,yes,Текст предупреждения на русском языке.

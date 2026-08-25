@@ -1,0 +1,4 @@
+﻿model_id,model_family_ru,preprocessing_ru,fixed_parameters,role_ru,tuning_allowed
+dummy_prior,Базовый контрольный классификатор,Без масштабирования,strategy=prior,Нижняя контрольная линия,no
+logistic_regression,Линейная вероятностная модель,StandardScaler внутри Pipeline,max_iter=1000; random_state=20260507,Интерпретируемый линейный ориентир,no
+hist_gradient_boosting,Нелинейная древовидная градиентная модель,Без обязательного масштабирования,max_iter=100; learning_rate=0.1; random_state=20260507,Сильный нелинейный ориентир,no

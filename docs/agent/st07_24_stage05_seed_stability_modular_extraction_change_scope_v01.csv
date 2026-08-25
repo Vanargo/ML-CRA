@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_24_stage05_seed_stability_modular_extraction_change_scope_v01.csv,machine-readable authorized change set for ST07_24
+modified,src/mlcra/nested_cv.py,separate the estimator random state from the inner CV base random state while preserving the existing default contract
+added,src/mlcra/stress_tests.py,implement the registered ST05_02 orchestration row adapters summary builder and fail-closed bundle validation
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace the four ST05_02 business-logic cells with thin modular imports validation orchestration and output handling
+modified,scripts/agent_verify.py,add independent same-process legacy-versus-modular fixture negative contract and protected-artifact regression checks
+modified,docs/stages/stage_07_code_modularization.md,record ST07_24 authorization implementation evidence exact before-after fragments and mandatory stop
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_24 technical completion

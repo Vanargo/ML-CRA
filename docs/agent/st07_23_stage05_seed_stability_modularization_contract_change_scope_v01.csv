@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_23_stage05_seed_stability_modularization_contract_change_scope_v01.csv,machine-readable authorized change set for ST07_23
+modified,scripts/agent_verify.py,register and verify the ST05_02 source schema key ordering metric-direction golden-class and negative-test contracts without training
+modified,docs/stages/stage_07_code_modularization.md,record ST07_23 authorization modular boundary golden-master design observed evidence and mandatory stop for John acceptance
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_23 technical completion

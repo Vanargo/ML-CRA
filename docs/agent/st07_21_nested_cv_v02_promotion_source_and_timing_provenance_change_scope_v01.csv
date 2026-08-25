@@ -1,0 +1,8 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_21_nested_cv_v02_promotion_source_and_timing_provenance_change_scope_v01.csv,record the machine-readable planned and actual change boundary for authorized ST07_21
+added,scripts/st07_21_promotion_source_contract.py,select and fail-closed validate one atomic seven-artifact source bundle without promotion or canonical writes
+added,data_registry/openml_miniboone_nested_v02_promotion_source_manifest_v01.csv,register the selected source provenance hashes shapes canonical targets and timing preservation policy
+added,data_registry/st07_21_nested_cv_v02_promotion_source_and_timing_provenance_contract_evidence_v01.json,record machine-readable source selection validation negative tests protected hashes and no-promotion evidence
+modified,scripts/agent_verify.py,verify the durable ST07_21 manifest evidence protected boundaries negative mutations and documentary state without requiring temporary source directories
+modified,docs/stages/stage_07_code_modularization.md,record ST07_21 authorization implementation evidence bounded interpretation and readiness for John acceptance
+modified,roadmap.md,synchronize the authorized and technically evaluated ST07_21 state without promotion or next-task authorization

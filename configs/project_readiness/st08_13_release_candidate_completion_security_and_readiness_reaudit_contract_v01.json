@@ -1,0 +1,127 @@
+{
+  "schema_version": "st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01",
+  "contract_id": "st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01",
+  "task_id": "ST08_13_release_candidate_completion_security_and_readiness_reaudit",
+  "recorded_at": "2026-08-24",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_12_dashboard_shared_core_and_CLI_golden_equivalence",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_13_release_candidate_completion_security_and_readiness_reaudit",
+    "release_or_publication_authorized": false,
+    "external_repository_action_authorized": false,
+    "remediation_authorized": false,
+    "scientific_claim_protocol_or_verdict_change_authorized": false
+  },
+  "objective": "repeat_fail_closed_stage08_audit_and_prepare_an_owner_release_decision",
+  "assessment_object": {
+    "requirements_path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv",
+    "requirements_sha256_before_audit": "cd4658d6e7307b4aec26d75bb9f458e6fd6a136d108794a6bfdf4e099c5b8c66",
+    "baseline_audit_path": "data_registry/stage08_project_completion_and_release_readiness_audit_evidence_v01.json",
+    "baseline_audit_sha256": "56c79c0fd3acc8f6276b74a8cbeaa51e8f847fd9ee2db691c5f4377b71f8c353",
+    "requirement_count": 24,
+    "dimension_count": 8,
+    "allowed_requirement_statuses": ["PASS", "FAIL", "BLOCKED", "SKIPPED"],
+    "not_evaluated_allowed_in_result": false
+  },
+  "aggregation": {
+    "dimension_fail": "any_requirement_FAIL",
+    "dimension_blocked": "no_FAIL_and_any_BLOCKED",
+    "dimension_pass": "all_mandatory_PASS_and_conditional_PASS_or_justified_SKIPPED",
+    "project_completion_dimensions": ["D01", "D02", "D03", "D04", "D05", "D08"],
+    "external_release_dimensions": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08"],
+    "external_release_PASS_requires_zero_release_blockers": true,
+    "john_acceptance_and_release_decision_required": true
+  },
+  "mandatory_observations": [
+    "baseline",
+    "focused_tests",
+    "full_cumulative_pilot",
+    "source_and_workflow_assurance",
+    "local_secret_pattern_scan",
+    "current_dependency_advisory_audit",
+    "sdist_and_wheel_inventory",
+    "clean_install_and_walkthrough",
+    "protected_scientific_hashes",
+    "hosted_CI_observation",
+    "external_GitHub_secret_scanning_observation",
+    "checkpoint_availability"
+  ],
+  "protected_artifacts_source": {
+    "path": "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json",
+    "sha256_before_audit": "a1372262c622cfc8578ef63c4f49ff8b2ffc0a3ea488d50d403eae00b3e8d7f5",
+    "json_key": "protected_artifacts",
+    "expected_count": 18
+  },
+  "evidence_rules": {
+    "each_requirement_exactly_once": true,
+    "mandatory_requirement_cannot_be_SKIPPED": true,
+    "every_non_PASS_has_registered_finding": true,
+    "every_finding_has_owner_consequence_and_disposition": true,
+    "aggregate_counts_recomputed_not_trusted": true,
+    "local_PASS_does_not_prove_external_control": true,
+    "dependency_audit_is_time_bounded_to_recorded_execution": true,
+    "audit_procedure_status_is_separate_from_audited_object_verdict": true
+  },
+  "verification_commands": [
+    ".\\ml-cra-venv\\Scripts\\python.exe scripts\\st08_13_release_candidate_reaudit.py",
+    ".\\ml-cra-venv\\Scripts\\python.exe -m unittest -v tests.test_release_candidate_reaudit_st08_13",
+    ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode baseline",
+    ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot"
+  ],
+  "authoritative_support": [
+    {
+      "source": "NIST SP 800-218 SSDF 1.1",
+      "uri": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "use": "outcome-oriented secure development and release-risk review"
+    },
+    {
+      "source": "GitHub Actions secure use reference",
+      "uri": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "use": "least privilege and immutable full commit SHA controls"
+    },
+    {
+      "source": "GitHub workflow run history",
+      "uri": "https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history",
+      "use": "hosted execution requires an observed run and logs"
+    },
+    {
+      "source": "GitHub secret scanning",
+      "uri": "https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning",
+      "use": "external repository scanning capability and its repository boundary"
+    },
+    {
+      "source": "Python Packaging User Guide packaging flow",
+      "uri": "https://packaging.python.org/en/latest/flow/",
+      "use": "sdist wheel and clean-install verification"
+    },
+    {
+      "source": "PyPA pip-audit",
+      "uri": "https://github.com/pypa/pip-audit",
+      "use": "known-vulnerability audit and explicit tool limitations"
+    }
+  ],
+  "planned_change_set": [
+    "docs/agent/st08_13_release_candidate_completion_security_and_readiness_reaudit_change_scope_v01.csv",
+    "configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json",
+    "scripts/st08_13_release_candidate_reaudit.py",
+    "tests/test_release_candidate_reaudit_st08_13.py",
+    "data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json",
+    ".github/workflows/ci.yml",
+    "README.md",
+    "README_RU.md",
+    "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json",
+    "docs/agent/pilot_change_scope_v01.csv",
+    "docs/stages/stage_08_project_completion_and_release_readiness.md",
+    "roadmap.md"
+  ],
+  "stop_conditions": [
+    "any_scientific_claim_protocol_metric_seed_split_or_verdict_change",
+    "any_remediation_not_required_to_record_or_validate_the_audit",
+    "any_external_repository_publication_or_release_action",
+    "any_attempt_to_start_ST08_14_without_John_authorization"
+  ],
+  "next_block_boundary": {
+    "task_id": "ST08_14_public_repository_publication_and_external_release",
+    "status": "proposed_not_authorized"
+  }
+}

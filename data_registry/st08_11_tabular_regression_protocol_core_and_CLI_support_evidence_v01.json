@@ -1,0 +1,194 @@
+{
+  "schema_version": "st08_11_tabular_regression_protocol_core_and_CLI_support_evidence_v01",
+  "evidence_id": "st08_11_tabular_regression_protocol_core_and_CLI_support_evidence_v01",
+  "task_id": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "PASS_ready_for_John_acceptance",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+    "authorized_task": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+    "next_task_authorized": false,
+    "dashboard_publication_or_release_authorized": false,
+    "MiniBooNE_scientific_change_authorized": false,
+    "named_real_regression_scientific_validation_authorized": false
+  },
+  "source_baseline": {
+    "baseline_before_change": "PASS",
+    "baseline_before_change_summary": "manifest_rows=158; scope_files=53; modified=12; added=168; missing=0; out_of_scope=0; scope_errors=0",
+    "prechange_content_manifest_sha256": "cbf59be934b6fc3c805cdb596b50e6a373655399e3f0b67b24d0dd6b0032b883",
+    "note": "The task contract and change-scope records were created before the content manifest; no executable source had been edited.",
+    "protected_scientific_artifacts": 18,
+    "protected_mismatches_before_change": 0
+  },
+  "implemented_surface": {
+    "claim_schema": "src/mlcra/schemas/tabular_regression_claim_v01.schema.json",
+    "task_type": "tabular_regression",
+    "sampling_assumption": "exchangeable_rows",
+    "models": ["ridge_regression_v01", "hist_gradient_boosting_regressor_v01"],
+    "primary_metric": "root_mean_squared_error",
+    "secondary_metric": "mean_absolute_error",
+    "splitter": "KFold_shuffle_true_per_predeclared_seed",
+    "hyperparameter_selection": "NONE",
+    "bundle_files": 8,
+    "verify_refits_models": false,
+    "network_policy": "deny_by_default"
+  },
+  "verification": {
+    "python_syntax": {
+      "status": "PASS",
+      "files": ["src/mlcra/application.py", "src/mlcra/cli.py"]
+    },
+    "focused_and_regression_tests": {
+      "status": "PASS",
+      "source_total": "41_of_41",
+      "binary_classification": "11_of_11",
+      "tabular_regression": "10_of_10_test_methods_with_schema_target_relation_determinism_and_cross_dispatch_mutations",
+      "documentation": "8_of_8",
+      "release_assurance": "12_of_12",
+      "clean_installed_CLI": "21_of_21_binary_and_regression"
+    },
+    "synthetic_regression_characterization": {
+      "status": "PASS",
+      "claim_id": "st08_11_external_nonlinear_regression_fixture",
+      "rows": 41,
+      "features": 1,
+      "fold_count": 8,
+      "minimum_mean_delta": 1.0,
+      "mean_primary_delta": 6.47927764243067,
+      "min_primary_delta": 3.8855420933033527,
+      "max_primary_delta": 7.761861075766374,
+      "positive_primary_delta_folds": 8,
+      "verdict": "supported",
+      "deterministic_payload_excluding_timing": true,
+      "scientific_role": "software_characterization_only"
+    },
+    "bundle_verification": {
+      "status": "PASS",
+      "required_files": 8,
+      "verify_model_fit_performed": false,
+      "false_delta_after_self_consistent_rehash_rejected": "MLCRA_BUNDLE_PRIMARY_DELTA_RELATION_FAILURE_exit_6",
+      "application_network_attempts": 0
+    },
+    "bilingual_documentation": {
+      "status": "PASS",
+      "sections_each": 12,
+      "byte_identical_PowerShell_blocks_each": 3,
+      "local_links": 28,
+      "broken_links": 0,
+      "installed_classification_and_regression_walkthroughs": "PASS"
+    },
+    "distribution": {
+      "status": "PASS",
+      "sdist_entries": 30,
+      "sdist_sha256": "469cc6b0d3630dec934e5e191c9c95cf2c970df82ccd32023a28d06c99c848d1",
+      "wheel_entries": 21,
+      "wheel_sha256": "c2a1c752f31563e7e10c3d33b0dc7b2383c604241b967833b654a41031318192",
+      "wheel_contains_both_claim_schemas": true
+    },
+    "clean_install": {
+      "status": "PASS",
+      "environment": "CPython_3.12.0_Windows_Server_2019_AMD64",
+      "runtime_distributions_hash_locked": 15,
+      "installation": "dependencies_require_hashes_then_local_wheel_no_index_no_deps",
+      "pip_check": "PASS",
+      "doctor_environment_pass": true,
+      "doctor_release_ready": false,
+      "installed_regression_schema": true,
+      "classification_and_regression_walkthroughs": "PASS",
+      "network_during_doctor_audit_verify": 0,
+      "dependency_download_network_boundary": "explicit_pip_download_only_after_sandbox_WinError_10013_and_John_tool_approval"
+    },
+    "public_candidate_and_security": {
+      "status": "PASS_with_declared_pattern_scan_limit",
+      "paths": 329,
+      "path_list_sha256": "869e9d50dd21ce966633a4b1addacddc6e3d57a1f290559d32c366f83f291370",
+      "unmapped": 0,
+      "secret_pattern_files_scanned": 284,
+      "secret_detector_plugins": 23,
+      "secret_findings": 0,
+      "network_verification": false
+    },
+    "protected_scientific_artifacts": {
+      "status": "PASS",
+      "expected": 18,
+      "mismatches": 0,
+      "metrics_py_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+      "MiniBooNE_protocol_claim_evidence_or_verdict_changed": false
+    },
+    "baseline_after_change": {
+      "status": "PASS",
+      "summary": "manifest_rows=158; scope_files=53; modified=12; added=175; missing=0; out_of_scope=0; scope_errors=0"
+    },
+    "cumulative_pilot": {
+      "status": "FAIL_expected_historical_only_current_regressions_PASS",
+      "historical_fail_count": 8,
+      "historical_causes": "missing_checkpoint_ZIPs_v44_v45_v47_v48_v49_v51_v52_v53_and_ST08_03_forbidden_outputs_condition_after_authorized_legal_artifacts",
+      "current_ST08_11_specific_failure": false,
+      "current_checks": "baseline_syntax_28_CSV_157_notebooks_paths_documents_all_Stage7_computational_regressions_and_text_corruption_PASS"
+    }
+  },
+  "scientific_validation": {
+    "synthetic_fixture_software_characterization": "PASS_not_scientific_validation",
+    "real_regression_dataset_claim_protocol_and_verdict": "SKIPPED_not_named_or_authorized",
+    "MiniBooNE_scientific_effect": "NONE_protected_hashes_18_of_18",
+    "release_1_0_0_disposition": "BLOCKED_until_a_separate_registered_real_dataset_scientific_validation_passes"
+  },
+  "change_reconciliation": {
+    "initial_planned_paths": 19,
+    "final_planned_paths": 20,
+    "actual_paths": 20,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "deviations": [
+      {
+        "path": "src/mlcra/metrics.py",
+        "disposition": "REMOVED_FROM_CHANGE_SET_AND_RESTORED_BYTE_IDENTICAL",
+        "reason": "The protected scientific hash check correctly rejected an additive regression-metric edit; regression metrics were moved into the unprotected application module.",
+        "restoration_source": "local_ml_cra_v55.zip_single_file_only_after_exact_registered_SHA256_match",
+        "expected_and_restored_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3",
+        "scope_expansion": false
+      },
+      {
+        "path": "tests/test_release_assurance_st08_09.py",
+        "disposition": "ADDED_AS_NECESSARY_IN_SCOPE_REGRESSION_REPAIR",
+        "reason": "The archive contract correctly required the new regression schema, so the synthetic wheel fixture had to include that required member.",
+        "focused_recheck": "12_of_12_PASS",
+        "scope_expansion": false
+      }
+    ],
+    "status": "MATCH_AFTER_TWO_EXPLAINED_SUBSTITUTED_PATHS"
+  },
+  "temporary_artifacts": {
+    "status": "PASS_REMOVED",
+    "removed": [
+      ".tmp_st08_11_probe",
+      ".tmp_st08_11_dist",
+      ".tmp_st08_11_runtime_wheels",
+      ".tmp_st08_11_clean_env",
+      "src/ml_cra.egg-info"
+    ],
+    "recoverability": "all_are_reproducible_from_registered_sources_locks_and_commands"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "ST08_11 does not close Stage 8 or authorize external handoff; source changes are reversible and Codex is the sole development agent with John."
+  },
+  "limitations": [
+    "Only_CPython_3.12.0_Windows_Server_2019_AMD64_was_observed_locally.",
+    "Configured_GitHub_Actions_CPython_3.12.10_windows_2022_remains_unobserved.",
+    "KFold_support_is_bounded_to_exchangeable_rows_and_does_not_cover_time_group_spatial_or_repeated_measure_dependence.",
+    "The_exchangeability_assumption_is_declared_but_cannot_be_inferred_from_a_CSV_by_software.",
+    "No_real_regression_dataset_license_domain_claim_sampling_protocol_or_scientific_verdict_was_registered_or_validated.",
+    "The_synthetic_supported_verdict_is_not_evidence_of_universal_model_superiority.",
+    "Pattern_scanning_cannot_prove_the_absence_of_every_secret.",
+    "Hosted_CI_external_secret_scanning_publication_dashboard_release_candidate_reaudit_and_John_release_authorization_remain_open."
+  ],
+  "authoritative_method_support": [
+    "scikit-learn_1.8_KFold_Ridge_HistGradientBoostingRegressor_RMSE_and_MAE_documentation",
+    "Varma_and_Simon_2006_DOI_10.1186_1471-2105-7-91",
+    "JSON_Schema_Draft_2020-12_validation_specification"
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

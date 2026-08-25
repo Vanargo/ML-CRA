@@ -1,0 +1,176 @@
+{
+  "schema_version": "st08_08_universal_cli_classification_vertical_slice_contract_v01",
+  "contract_id": "st08_08_universal_cli_classification_vertical_slice_contract_v01",
+  "task_id": "ST08_08_universal_CLI_classification_vertical_slice",
+  "recorded_at": "2026-08-20",
+  "status": "technical_pass_ready_for_john_acceptance",
+  "authority": {
+    "accepted_previous_task": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "closed_previous_task": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "authorized_block": "ST08_08_universal_CLI_classification_vertical_slice",
+    "next_block_authorized": false,
+    "release_authorized": false,
+    "publication_authorized": false,
+    "scientific_claim_change_authorized": false
+  },
+  "purpose": "Provide one installable, fail-closed command-line vertical slice for auditing a bounded binary tabular classification claim and verifying its evidence bundle without refitting.",
+  "boundary": {
+    "supported_task": "binary_classification",
+    "input_data": "local_UTF8_comma_separated_CSV_with_complete_finite_numeric_features",
+    "claim_specification": "local_JSON_valid_under_binary_classification_claim_v01_Draft_2020_12",
+    "positive_class": "explicit_string_label",
+    "candidate_model": "hist_gradient_boosting_v01",
+    "baseline_model": "logistic_regression_v01",
+    "primary_metric": "average_precision",
+    "split_protocol": "stratified_k_fold_v01",
+    "preprocessing": "numeric_complete_standardize_logistic_passthrough_hgb_v01",
+    "verdict_policy": "paired_primary_metric_consistency_v01",
+    "unsupported_and_rejected": [
+      "regression",
+      "multiclass_classification",
+      "missing_or_nonfinite_features",
+      "categorical_features",
+      "model_or_code_import_from_claim_specification",
+      "remote_URL_or_network_input",
+      "pickle_joblib_or_cloudpickle_input",
+      "overwrite_of_existing_output_directory"
+    ]
+  },
+  "commands": {
+    "audit": "mlcra audit --spec claim.json --data data.csv --output-dir run",
+    "verify": "mlcra verify --bundle run",
+    "doctor": "mlcra doctor --format json"
+  },
+  "audit_protocol": {
+    "splitter": {
+      "implementation": "sklearn.model_selection.StratifiedKFold",
+      "shuffle": true,
+      "n_splits_source": "claim_specification",
+      "random_state_source": "each_registered_seed"
+    },
+    "baseline": {
+      "implementation": "sklearn.pipeline.Pipeline(StandardScaler, LogisticRegression)",
+      "max_iter": 1000
+    },
+    "candidate": {
+      "implementation": "sklearn.ensemble.HistGradientBoostingClassifier",
+      "learning_rate": 0.1,
+      "max_iter": 100,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 5,
+      "l2_regularization": 0.1
+    },
+    "reported_metrics": [
+      "average_precision",
+      "roc_auc",
+      "f1",
+      "balanced_accuracy",
+      "log_loss",
+      "brier_score"
+    ],
+    "verdict_categories": {
+      "supported": "mean_primary_delta_meets_registered_threshold_and_candidate_wins_every_registered_fold",
+      "fragile": "mean_primary_delta_meets_registered_threshold_but_candidate_does_not_win_every_registered_fold",
+      "not_supported": "mean_primary_delta_does_not_meet_registered_threshold"
+    },
+    "scientific_scope_limit": "A verdict is limited to the supplied data, allowlisted models, metric, split count, seeds and threshold; it is not a universal model ranking."
+  },
+  "output_contract": {
+    "publication": "write_complete_staging_directory_then_same_filesystem_atomic_directory_rename",
+    "overwrite": "forbidden",
+    "exact_files": [
+      "run_manifest.json",
+      "input_validation.json",
+      "environment.json",
+      "provenance.json",
+      "audit_summary.json",
+      "verdict.json",
+      "warnings.json",
+      "artifact_index.json"
+    ],
+    "integrity": "SHA256_bindings_plus_cross_artifact_relation_checks_plus_verdict_recomputation",
+    "verify_refits_models": false
+  },
+  "exit_codes": {
+    "0": "command_completed_or_bounded_scientific_verdict_produced",
+    "2": "command_line_usage_error",
+    "3": "invalid_input_specification_or_output_precondition",
+    "4": "insufficient_evidence_or_missing_bundle",
+    "5": "execution_environment_or_model_execution_failure",
+    "6": "bundle_integrity_or_internal_invariant_failure"
+  },
+  "security_controls": {
+    "network_during_audit": "denied_and_observed",
+    "arbitrary_code_loading": "not_supported",
+    "deserialization_formats": [
+      "JSON",
+      "CSV"
+    ],
+    "traceback_for_controlled_failure": false,
+    "diagnostic_required_fields": [
+      "error_code",
+      "phase",
+      "artifact_or_field",
+      "expected",
+      "actual",
+      "severity",
+      "action_taken",
+      "user_action",
+      "rule_source"
+    ]
+  },
+  "verification_plan": {
+    "focused_automated_tests": "tests/test_cli_st08_08.py",
+    "synthetic_external_fixture": "tests/fixtures/st08_08",
+    "registered_miniboone_software_fixture": "configs/cli/st08_08_registered_miniboone_software_characterization_claim_v01.json",
+    "clean_install": "hash_locked_dependencies_then_locally_built_wheel_with_no_deps",
+    "required_regressions": [
+      "python scripts/agent_verify.py --mode baseline",
+      ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot"
+    ],
+    "protected_scientific_artifacts_must_change": false
+  },
+  "authoritative_support": [
+    {
+      "source": "Python 3.12 argparse documentation",
+      "uri": "https://docs.python.org/3/library/argparse.html",
+      "use": "subcommands_and_usage_error_semantics"
+    },
+    {
+      "source": "PyPA pyproject.toml specification",
+      "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/",
+      "use": "project_scripts_console_entry_point"
+    },
+    {
+      "source": "JSON Schema validation documentation for jsonschema 4.26",
+      "uri": "https://python-jsonschema.readthedocs.io/en/stable/validate/",
+      "use": "Draft_2020_12_schema_validation"
+    },
+    {
+      "source": "scikit-learn 1.8 StratifiedKFold documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/generated/sklearn.model_selection.StratifiedKFold.html",
+      "use": "repeatable_stratified_split_protocol"
+    },
+    {
+      "source": "scikit-learn 1.8 average_precision_score documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/generated/sklearn.metrics.average_precision_score.html",
+      "use": "primary_metric_definition"
+    },
+    {
+      "source": "Python 3.12 os.replace documentation",
+      "uri": "https://docs.python.org/3.12/library/os.html#os.replace",
+      "use": "same_filesystem_atomic_publication_semantics"
+    },
+    {
+      "source": "Python 3.12 pickle documentation",
+      "uri": "https://docs.python.org/3.12/library/pickle.html",
+      "use": "reject_untrusted_executable_deserialization"
+    }
+  ],
+  "deferred": [
+    "ST08_09_CI_security_and_release_candidate_assurance",
+    "ST08_10_public_documentation_and_release_candidate_reaudit",
+    "public_release_or_publication",
+    "new_scientific_validation_or_change_to_registered_miniboone_verdict"
+  ]
+}

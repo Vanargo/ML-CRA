@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,scripts/st07_17_miniboone_v02_runner.py,provide a durable preflight-only MiniBooNE v02 entry point with explicit cache and safe output boundaries
+added,docs/agent/st07_17_nested_cv_v02_offline_miniboone_runner_change_scope_v01.csv,record the machine-readable authorized change set for ST07_17
+modified,src/mlcra/datasets.py,add fail-closed network guard exact three-file OpenML cache staging and strict MiniBooNE loading evidence
+modified,scripts/agent_verify.py,verify two fresh preflight processes deterministic evidence negative cases protected artifacts no fit or canonical outputs and stabilize the inherited ST07_16 subprocess CPU discovery diagnostic under the accepted single-thread contract
+modified,docs/stages/stage_07_code_modularization.md,record ST07_17 authority implementation evidence limitations and readiness
+modified,roadmap.md,synchronize authorized and technically completed ST07_17 without authorizing scientific validation

@@ -1,0 +1,13 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv,register prospective REQ08 and REQ12 rules while preserving all v01 rows as historical evidence
+added,configs/project_readiness/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_contract_v01.json,register authorization boundary immutable history exact migration and current-state manifest policy
+added,scripts/st08_13A_current_canonical_hash_assurance.py,independently validate requirements migration full current-state hashes evidence CI and canonical documentation
+added,tests/test_current_canonical_hash_assurance_st08_13A.py,exercise positive and fail-closed migration manifest historical and authority mutations
+added,data_registry/st08_13A_current_canonical_state_manifest_v01.csv,bind the current canonical project file set to SHA-256 and exact byte sizes
+added,data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json,record observed migration checks limitations and prospective versus historical dispositions
+added,docs/agent/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_change_scope_v01.csv,record exact planned and actual ST08_13A paths
+modified,.github/workflows/ci.yml,run the current canonical hash assurance and mutation tests after immutable ST08_13 validation
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh exact candidate path inventory after authorized migration artifacts
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_13A files in the cumulative scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record ST08_13 acceptance prospective migration method results and preserved historical statuses
+modified,roadmap.md,register ST08_13 closure current prospective requirements state and proposed-only next boundary

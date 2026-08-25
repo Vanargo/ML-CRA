@@ -1,0 +1,125 @@
+{
+  "schema_version": "st08_10_root_and_bilingual_user_documentation_evidence_v01",
+  "evidence_id": "st08_10_root_and_bilingual_user_documentation_evidence_v01",
+  "task_id": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+  "recorded_at": "2026-08-20",
+  "profile": "CHANGE",
+  "status": "PASS_ready_for_John_acceptance",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_09_CI_security_and_release_candidate_assurance",
+    "authorized_task": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+    "next_task_authorized": false,
+    "publication_or_release_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "observed_results": {
+    "root_entries": {
+      "english": "README.md",
+      "russian": "README_RU.md",
+      "required_sections_each": 12,
+      "identical_PowerShell_blocks_each": 3,
+      "resolved_local_links": 26,
+      "broken_local_links": 0,
+      "packaging_long_description": "README.md"
+    },
+    "current_path_reconciliation": {
+      "active_documents_checked": 5,
+      "required_fragments": 23,
+      "obsolete_current_fragments": 0,
+      "protected_historical_exception": 1
+    },
+    "clean_source_install_walkthrough": {
+      "environment": "CPython_3.12.0_Windows_Server_2019_AMD64",
+      "assurance_dependencies_hash_locked": 35,
+      "runtime_dependencies_hash_locked": 15,
+      "pip_check": "PASS",
+      "doctor_exit_code": 0,
+      "doctor_environment_pass": true,
+      "doctor_release_ready": false,
+      "audit_exit_code": 0,
+      "fixture_verdict": "supported",
+      "bundle_files": 8,
+      "verify_exit_code": 0,
+      "verify_status": "PASS",
+      "verify_model_fit_performed": false,
+      "application_network_attempts": 0,
+      "scientific_registration_effect": "NONE_fixture_only"
+    },
+    "distribution_build": {
+      "sdist_entries": 28,
+      "sdist_sha256": "27bcba33ea524b000c627566fb18df90779ca68699f74bd89213991eac3f6e99",
+      "wheel_entries": 20,
+      "wheel_sha256": "84e8586ef240122056752f99040f16d2e863d4654dec5d729bad258438ad8409",
+      "archive_assurance": "PASS"
+    },
+    "security_and_dependency_recheck": {
+      "public_candidate_files_scanned": 277,
+      "secret_detector_plugins": 23,
+      "secret_findings": 0,
+      "runtime_dependencies_audited": 15,
+      "assurance_dependencies_audited": 35,
+      "known_vulnerabilities": 0,
+      "network_used_only_for_install_and_current_advisory_lookup": true
+    },
+    "focused_and_regression_tests": {
+      "documentation_mutations": "8_of_8_PASS",
+      "release_assurance_mutations": "12_of_12_PASS",
+      "combined_unittest_suite": "31_of_31_PASS",
+      "necessary_regression_repair": "each_native_command_in_a_multicommand_PowerShell_step_requires_its_own_exit_guard"
+    },
+    "public_candidate_manifest": {
+      "approved_paths": 322,
+      "path_list_sha256": "50fe2d8425f786cfc86f7d21bcc93c074bfd766430d51e4ca088db3a98d22ea5",
+      "unmapped": 0,
+      "root_README_blocker_removed": true
+    },
+    "protected_scientific_artifacts": {
+      "expected": 18,
+      "mismatches": 0,
+      "scientific_protocol_claim_evidence_or_verdict_changed": false
+    }
+  },
+  "verification_disposition": {
+    "documentation_source_assurance": "PASS",
+    "clean_install_and_user_walkthrough": "PASS",
+    "package_build_and_archive_assurance": "PASS",
+    "security_pattern_scan": "PASS_with_pattern_detection_limit",
+    "dependency_advisory_audit": "PASS_at_2026_08_20_with_database_and_tool_limits",
+    "baseline": "PASS",
+    "cumulative_pilot": "FAIL_expected_historical_only_after_current_scope_cleanup",
+    "hosted_CI": "SKIPPED_not_executed",
+    "external_secret_scanning": "SKIPPED_not_enabled",
+    "publication": "SKIPPED_not_authorized",
+    "checkpoint_ZIP": "SKIPPED_risk_based_no_external_handoff_or_stage_closure"
+  },
+  "change_reconciliation": {
+    "initial_planned_paths": 19,
+    "actual_paths": 20,
+    "added_paths": 7,
+    "modified_paths": 13,
+    "deviation": {
+      "path": "scripts/st08_09_release_assurance.py",
+      "reason": "ST08_10 added guarded commands to CI and exposed that the old minimum-count rule no longer rejected removal of one guard; the validator was strengthened per command to restore the existing fail-closed guarantee.",
+      "scope_expansion": false,
+      "protected_artifact": false,
+      "focused_regression": "12_of_12_PASS"
+    }
+  },
+  "residual_limits": [
+    "Only CPython 3.12.0 on Windows Server 2019 AMD64 was executed locally.",
+    "The configured GitHub Actions CPython 3.12.10 windows-2022 cell has not been observed.",
+    "The documentation covers only the currently supported binary tabular classification workflow.",
+    "CLI diagnostics are currently Russian only.",
+    "Pattern scanning and advisory databases cannot prove the absence of every secret or vulnerability.",
+    "The project remains a 0.1.0.dev0 development snapshot and is not release-ready."
+  ],
+  "authoritative_method_support": [
+    "GitHub Docs About READMEs",
+    "PyPA pyproject.toml specification",
+    "Python 3.12 venv documentation",
+    "pip secure installs and local project installs documentation",
+    "Diataxis documentation framework"
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

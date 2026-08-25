@@ -1,0 +1,63 @@
+{
+  "attempt_number": 1,
+  "candidate_generation_completed": true,
+  "candidate_sets": {
+    "run_a": {
+      "artifact_count": 7,
+      "artifact_rows": {
+        "environment": 8,
+        "numeric_runtime": 2,
+        "outer_scores": 30,
+        "quality_checks": 16,
+        "selected_params": 10,
+        "summary": 3,
+        "warnings": 2
+      },
+      "artifact_sha256": {
+        "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+        "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+        "outer_scores": "48aa94d65fbe51d6ea41a48b2cac5ce8ff5d137264f0986bcf5667775f6caf00",
+        "quality_checks": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a",
+        "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+        "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+        "warnings": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+      },
+      "quality_pass_count": 16
+    },
+    "run_b": {
+      "artifact_count": 7,
+      "artifact_rows": {
+        "environment": 8,
+        "numeric_runtime": 2,
+        "outer_scores": 30,
+        "quality_checks": 16,
+        "selected_params": 10,
+        "summary": 3,
+        "warnings": 2
+      },
+      "artifact_sha256": {
+        "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+        "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+        "outer_scores": "f8c8cd957c0f434aea64de95bdefa9417cb7a35b70f78a8576a989d32c126f43",
+        "quality_checks": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a",
+        "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+        "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+        "warnings": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+      },
+      "quality_pass_count": 16
+    }
+  },
+  "failure": {
+    "error_message": "KeyError: column_order",
+    "error_type": "implementation_defect",
+    "location": "scripts/st07_18_dual_run_validation.py: schema_rows",
+    "root_cause": "the new diagnostic comparator used column_order instead of the registered schema field column_position"
+  },
+  "network_attempts": "not_durably_captured_after_orchestrator_exception",
+  "registered_candidate_artifact_validation": "pass_both_runs",
+  "scientific_comparison_completed": false,
+  "scientific_result": "not_evaluated",
+  "scientific_verdict_eligible": false,
+  "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+  "validator_sha256_before_fix": "56dffb7625e1e4c8790b269d190779485ca5fce0d86e1ad56de24c3ece03985b"
+}

@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_21_change_scope_v01.csv,record the machine-readable acceptance reconciliation and next-block selection boundary after ST07_21
+modified,scripts/agent_verify.py,verify ST07_21 acceptance protected promotion prerequisites and exactly one proposed-not-authorized ST07_22
+modified,docs/stages/stage_07_code_modularization.md,record ST07_21 acceptance dependency analysis weighted decision and measurable proposed ST07_22 contract
+modified,roadmap.md,synchronize ST07_21 closure and the proposed-not-authorized ST07_22 boundary

@@ -1,0 +1,183 @@
+{
+  "schema_version": "st08_10_root_and_bilingual_user_documentation_contract_v01",
+  "contract_id": "st08_10_root_and_bilingual_user_documentation_contract_v01",
+  "task_id": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+  "recorded_at": "2026-08-20",
+  "profile": "CHANGE",
+  "status": "technical_pass_ready_for_john_acceptance",
+  "authority": {
+    "accepted_previous_task": "ST08_09_CI_security_and_release_candidate_assurance",
+    "closed_previous_task": "ST08_09_CI_security_and_release_candidate_assurance",
+    "authorized_block": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+    "interpretation": "John's instruction to move further authorizes only the exact next block proposed after ST08_09.",
+    "ST08_11_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "measurable_outcome": {
+    "english_root_entry": "README.md",
+    "russian_root_entry": "README_RU.md",
+    "packaging_long_description": "README.md",
+    "documentation_assurance": "scripts/st08_10_documentation_assurance.py",
+    "required_results": [
+      "both_language_guides_cover_the_same_bounded_supported_workflow",
+      "all_declared_PowerShell_walkthrough_blocks_are_byte_identical",
+      "all_local_Markdown_links_in_both_guides_resolve",
+      "current_normative_stage_paths_are_reconciled_without_rewriting_protected_history",
+      "source_install_doctor_audit_verify_walkthrough_passes_in_a_clean_declared_environment",
+      "obsolete_doctor_documentation_blocker_is_removed"
+    ]
+  },
+  "documentation_architecture": {
+    "method": "root_orientation_plus_task_walkthrough_reference_explanation_and_troubleshooting",
+    "english_default_reason": "GitHub surfaces the root README and the package metadata uses it as the full description for an international public-product target.",
+    "russian_peer_reason": "John's project language and Stage 1 require a complete Russian user path; the peer document links back to the same default entry.",
+    "language_switch": {"README.md": "README_RU.md", "README_RU.md": "README.md"},
+    "section_markers": [
+      "status", "purpose", "prerequisites", "installation", "quickstart",
+      "inputs", "exit-codes", "troubleshooting", "verification",
+      "scientific-boundary", "project-status", "legal-help"
+    ],
+    "powershell_blocks": 3,
+    "required_shared_tokens": [
+      "0.1.0.dev0",
+      "mlcra audit",
+      "mlcra verify",
+      "mlcra.exe doctor --format json",
+      "requirements/locks/st08_07-py312-windows-x86_64.txt",
+      "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+      "tests/fixtures/st08_08/binary_claim_v01.json",
+      "tests/fixtures/st08_08/binary_data_v01.csv",
+      "supported",
+      "fragile",
+      "not_supported",
+      "strongly_supported",
+      "SECURITY.md",
+      "DATASET_ATTRIBUTION.md",
+      "CITATION.cff"
+    ],
+    "forbidden_claims": [
+      "production-ready",
+      "universal superiority is proven",
+      "release_ready=true",
+      "public release is authorized"
+    ]
+  },
+  "supported_user_boundary": {
+    "task": "binary_tabular_classification_only",
+    "data": "local_UTF8_CSV_complete_finite_numeric_features_exactly_two_labels",
+    "claim": "versioned_JSON_Schema_allowlisted_models_metric_protocol_and_verdict_policy",
+    "environment": "CPython_3.12_Windows_x64_only",
+    "locally_observed": "CPython_3.12.0_Windows_Server_2019_AMD64",
+    "hosted_configured_not_executed": "CPython_3.12.10_GitHub_windows_2022_x64",
+    "unsupported": [
+      "regression", "multiclass_classification", "Linux", "macOS", "ARM64",
+      "PyPy", "URL_inputs", "untrusted_pickle_joblib_cloudpickle",
+      "arbitrary_model_import", "automatic_hyperparameter_selection", "dashboard"
+    ]
+  },
+  "walkthrough_contract": {
+    "installation_network_boundary": "pip_may_access_the_configured_package_index_during_explicit_install_commands",
+    "application_network_boundary": "doctor_audit_verify_make_zero_network_attempts",
+    "fixture_claim": "tests/fixtures/st08_08/binary_claim_v01.json",
+    "fixture_data": "tests/fixtures/st08_08/binary_data_v01.csv",
+    "doctor": {"exit_code": 0, "environment_pass": true, "release_ready": false},
+    "audit": {"exit_code": 0, "verdict": "supported", "bundle_files": 8},
+    "verify": {"exit_code": 0, "status": "PASS", "verified_artifacts": 8, "model_fit_performed": false},
+    "network_attempts": 0,
+    "scientific_registration_effect": "NONE_fixture_only"
+  },
+  "current_path_reconciliation": [
+    {
+      "document": "docs/stages/stage_01_project_scope.md",
+      "forbidden_current_fragments": ["ml-cra_v01.zip/docs/reports/"],
+      "required_current_fragments": ["docs/archive/reports/REPORT_04_project_definition.md"]
+    },
+    {
+      "document": "docs/stages/stage_02_data_and_candidate_selection.md",
+      "forbidden_current_fragments": ["ml-cra_v01.zip/docs/reports/", "generated/REPORT_", "docs/reports/"],
+      "required_current_fragments": [
+        "docs/archive/reports/REPORT_06_dataset_sourcing_strategy.md",
+        "docs/archive/reports/REPORT_07_dataset_candidate_registry_protocol.md",
+        "docs/archive/reports/REPORT_31_openml_candidate_status_update.md"
+      ]
+    },
+    {
+      "document": "docs/stages/stage_03_diagnostic_experiments.md",
+      "forbidden_current_fragments": ["ml-cra_v01.zip/docs/reports/", "generated/REPORT_", "docs/reports/"],
+      "required_current_fragments": [
+        "docs/archive/reports/REPORT_21_openml_first_diagnostic_contour_plan.md",
+        "docs/archive/reports/REPORT_24_openml_minimal_model_protocol.md",
+        "docs/archive/reports/REPORT_25_openml_feature_preprocessing_protocol.md",
+        "docs/archive/reports/REPORT_31_openml_candidate_status_update.md"
+      ]
+    },
+    {
+      "document": "docs/stages/stage_04_primary_candidate_validation.md",
+      "forbidden_current_fragments": ["docs/reports/", "docs/stages/stage_05_methodological_stress_testing.md"],
+      "required_current_fragments": [
+        "docs/archive/reports/REPORT_34_openml_miniboone_research_results_review.md",
+        "docs/stages/stage_05_claim_audit_protocol.md",
+        "docs/archive/stages/stage_05_methodological_stress_testing_superseded.md"
+      ]
+    },
+    {
+      "document": "docs/stages/stage_06_packaging_and_publication.md",
+      "forbidden_current_fragments": ["`src/mlcra/stage05/`"],
+      "required_current_fragments": ["src/mlcra/application.py", "docs/stages/stage_07_code_modularization.md"]
+    }
+  ],
+  "protected_historical_exception": {
+    "document": "docs/stages/stage_05_claim_audit_protocol.md",
+    "reason": "The protected scientific document already labels the superseded path and points to the exact archived successor; its registered SHA-256 must not change.",
+    "required_archive_path": "docs/archive/stages/stage_05_methodological_stress_testing_superseded.md"
+  },
+  "authoritative_support": [
+    {
+      "source": "GitHub Docs About READMEs",
+      "uri": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+      "use": "root entry purpose expected onboarding content and repository-relative links"
+    },
+    {
+      "source": "PyPA pyproject.toml specification",
+      "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/",
+      "use": "README file as UTF-8 Markdown distribution full description"
+    },
+    {
+      "source": "Python venv documentation",
+      "uri": "https://docs.python.org/3.12/library/venv.html",
+      "use": "isolated environment creation and Windows command paths"
+    },
+    {
+      "source": "pip secure installs",
+      "uri": "https://pip.pypa.io/en/stable/topics/secure-installs/",
+      "use": "require-hashes and only-binary installation controls"
+    },
+    {
+      "source": "pip local project installs",
+      "uri": "https://pip.pypa.io/en/stable/topics/local-project-installs/",
+      "use": "regular local project installation for deployment-like behavior"
+    },
+    {
+      "source": "Diataxis documentation framework",
+      "uri": "https://diataxis.fr/start-here/",
+      "use": "separate onboarding action reference explanation and troubleshooting needs"
+    }
+  ],
+  "negative_mutations": [
+    "remove_language_switch",
+    "remove_required_section_marker",
+    "change_one_language_command",
+    "add_broken_local_link",
+    "restore_obsolete_current_path",
+    "restore_inline_pyproject_readme",
+    "restore_ST08_10_doctor_blocker",
+    "claim_unsupported_problem_or_platform",
+    "change_protected_scientific_hash"
+  ],
+  "checkpoint": {
+    "default": "SKIPPED",
+    "reason": "The documentation and path changes are reversible, do not close Stage 8, and do not require external handoff."
+  }
+}

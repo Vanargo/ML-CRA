@@ -1,0 +1,235 @@
+{
+  "schema_version": "st08_11_tabular_regression_protocol_core_and_CLI_support_contract_v01",
+  "contract_id": "st08_11_tabular_regression_protocol_core_and_CLI_support_contract_v01",
+  "task_id": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+  "recorded_at": "2026-08-24",
+  "profile": "CHANGE",
+  "status": "technical_pass_ready_for_john_acceptance",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+    "authorized_block": "ST08_11_tabular_regression_protocol_core_and_CLI_support",
+    "interpretation": "John's instruction to move further authorizes only the exact next block proposed after ST08_10.",
+    "next_block_authorized": false,
+    "dashboard_authorized": false,
+    "publication_or_release_authorized": false,
+    "MiniBooNE_scientific_change_authorized": false,
+    "named_real_regression_dataset_or_canonical_scientific_claim_authorized": false
+  },
+  "measurable_outcome": {
+    "objective": "design_implement_and_validate_regression_without_broadening_the_MiniBooNE_claim",
+    "supported_entry": "mlcra audit --spec regression_claim.json --data data.csv --output-dir run",
+    "required_results": [
+      "versioned_regression_claim_schema_is_fail_closed",
+      "numeric_complete_local_CSV_regression_executes_through_the_shared_application_core",
+      "fixed_allowlisted_regressors_are_evaluated_on_reproducible_paired_KFold_splits",
+      "RMSE_and_MAE_are_recorded_and_the_primary_delta_direction_is_unambiguous",
+      "eight_file_regression_bundle_is_verified_without_refitting",
+      "classification_behavior_and_registered_MiniBooNE_scientific_artifacts_are_unchanged",
+      "positive_negative_mutation_determinism_source_and_clean_install_checks_pass",
+      "synthetic_software_validation_is_not_misrepresented_as_real_dataset_scientific_validation"
+    ]
+  },
+  "MAPE_K": {
+    "monitor": [
+      "claim_schema_version_and_task_type",
+      "CSV_structure_numeric_finiteness_and_target_variation",
+      "fold_metric_and_delta_relations",
+      "bundle_hashes_provenance_and_zero_network_attempts",
+      "classification_regressions_and_protected_scientific_hashes"
+    ],
+    "analyze": {
+      "primary_failure_modes": [
+        "silent_dispatch_to_the_wrong_task_protocol",
+        "target_or_feature_coercion_hides_invalid_input",
+        "loss_direction_is_inverted",
+        "temporal_or_grouped_rows_are_treated_as_exchangeable",
+        "hyperparameter_selection_leaks_into_assessment",
+        "synthetic_fixture_is_misreported_as_scientific_validation",
+        "verify_refits_or_accepts_inconsistent_derived_values"
+      ],
+      "risk_method": "FMEA_style_severity_likelihood_detectability_review_with_fail_closed_controls"
+    },
+    "plan": "prospective_schema_then_shared_core_dispatch_then_fixed_protocol_then_relational_verifier_then_mutation_and_clean_install_validation",
+    "execute": "smallest_traced_change_set_in_docs_agent_st08_11_change_scope",
+    "knowledge": "contract_schema_tests_evidence_stage_record_roadmap_and_authoritative_source_links"
+  },
+  "regression_claim_contract": {
+    "schema": "src/mlcra/schemas/tabular_regression_claim_v01.schema.json",
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "schema_version": "mlcra_tabular_regression_claim_v01",
+    "task_type": "tabular_regression",
+    "target": "one_named_complete_finite_numeric_column_with_at_least_two_distinct_values",
+    "features": "one_or_more_complete_finite_numeric_columns",
+    "sampling_assumption": "exchangeable_rows",
+    "unsupported_sampling": [
+      "time_ordered_rows",
+      "grouped_or_clustered_rows",
+      "repeated_measurements_without_independence",
+      "spatially_dependent_rows"
+    ],
+    "model_allowlist": {
+      "baseline": "ridge_regression_v01",
+      "candidate": "hist_gradient_boosting_regressor_v01"
+    },
+    "preprocessing_policy": "numeric_complete_standardize_ridge_passthrough_hgb_regressor_v01",
+    "hyperparameter_selection": "NONE_fixed_implementations_only"
+  },
+  "evaluation_protocol": {
+    "splitter": "sklearn.model_selection.KFold",
+    "split_protocol_id": "k_fold_v01",
+    "shuffle": true,
+    "random_state": "each_predeclared_seed",
+    "n_splits": {"minimum": 2, "maximum": 10},
+    "minimum_rows": "2_times_n_splits",
+    "pairing": "both_models_use_the_same_train_and_test_indices_for_every_seed_and_fold",
+    "primary_metric": "root_mean_squared_error",
+    "secondary_metrics": ["mean_absolute_error"],
+    "metric_direction": "lower_is_better",
+    "primary_delta": "baseline_root_mean_squared_error_minus_candidate_root_mean_squared_error",
+    "positive_delta_meaning": "candidate_has_lower_error",
+    "verdict_policy": "paired_primary_metric_consistency_v01",
+    "supported": "mean_delta_at_or_above_predeclared_threshold_and_candidate_wins_every_fold",
+    "fragile": "mean_delta_at_or_above_threshold_but_candidate_does_not_win_every_fold",
+    "not_supported": "mean_delta_below_threshold"
+  },
+  "model_implementations": {
+    "ridge_regression_v01": "StandardScaler_then_Ridge_alpha_1_solver_svd",
+    "hist_gradient_boosting_regressor_v01": "HistGradientBoostingRegressor_squared_error_lr_0.1_iter_100_leaf_15_min_leaf_3_l2_0.1_early_stopping_false",
+    "reason": "Ridge supplies a regularized linear baseline; histogram gradient boosting supplies a fixed nonlinear candidate. Scaling is inside the Ridge pipeline so it is fitted only on each training fold. No model or hyperparameter selection is performed."
+  },
+  "bundle_contract": {
+    "required_file_count": 8,
+    "verify_refits_models": false,
+    "required_relations": [
+      "task_type_matches_summary_verdict_and_provenance_schema",
+      "each_primary_delta_recomputes_from_recorded_model_metrics",
+      "aggregate_delta_fields_recompute_from_fold_rows",
+      "verdict_recomputes_from_registered_policy",
+      "manifest_index_and_artifact_hashes_match",
+      "application_network_attempts_equal_zero"
+    ],
+    "overwrite": "forbidden"
+  },
+  "scientific_boundary": {
+    "synthetic_fixture_role": "software_characterization_and_protocol_mutation_fixture_only",
+    "canonical_regression_scientific_validation": "NOT_PERFORMED_no_named_accepted_dataset_claim_or_sampling_protocol",
+    "candidate_registry_note": "The current regression candidates are temporal and have unresolved license or acceptance fields, so the exchangeable-row KFold protocol cannot silently validate them.",
+    "MiniBooNE_effect": "NONE",
+    "release_1_0_0_effect": "regression_software_slice_can_pass_but_separate_real_dataset_scientific_validation_remains_required"
+  },
+  "verification_plan": {
+    "software": [
+      "python_syntax",
+      "existing_ST08_08_classification_tests",
+      "ST08_11_positive_and_failure_mutations",
+      "bilingual_documentation_source_and_walkthrough",
+      "distribution_archive_inventory",
+      "clean_offline_wheel_install_and_both_CLI_walkthroughs",
+      "determinism_same_inputs_same_scientific_payload_excluding_timing_and_run_timestamps",
+      "baseline_and_cumulative_pilot_with_historical_failures_separated"
+    ],
+    "scientific": [
+      "protected_MiniBooNE_hashes_18_of_18",
+      "explicit_SKIPPED_real_regression_dataset_scientific_validation"
+    ],
+    "negative_mutations": [
+      "unknown_schema_version",
+      "unknown_claim_field",
+      "nonnumeric_or_nonfinite_target",
+      "constant_target",
+      "insufficient_rows_for_folds",
+      "wrong_sampling_assumption",
+      "model_execution_failure",
+      "tampered_bundle_hash",
+      "self_consistent_hashes_with_false_primary_delta",
+      "classification_claim_regression_data_cross_dispatch",
+      "network_attempt_during_audit"
+    ]
+  },
+  "documentation_architecture": {
+    "section_markers": [
+      "status", "purpose", "prerequisites", "installation", "quickstart",
+      "inputs", "exit-codes", "troubleshooting", "verification",
+      "scientific-boundary", "project-status", "legal-help"
+    ],
+    "powershell_blocks": 3,
+    "required_shared_tokens": [
+      "0.1.0.dev0",
+      "mlcra audit",
+      "mlcra verify",
+      "mlcra.exe doctor --format json",
+      "requirements/locks/st08_07-py312-windows-x86_64.txt",
+      "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+      "tests/fixtures/st08_08/binary_claim_v01.json",
+      "tests/fixtures/st08_08/binary_data_v01.csv",
+      "tests/fixtures/st08_11/regression_claim_v01.json",
+      "tests/fixtures/st08_11/regression_data_v01.csv",
+      "root_mean_squared_error",
+      "exchangeable_rows",
+      "supported",
+      "fragile",
+      "not_supported",
+      "strongly_supported",
+      "SECURITY.md",
+      "DATASET_ATTRIBUTION.md",
+      "CITATION.cff"
+    ],
+    "forbidden_claims": [
+      "production-ready",
+      "universal superiority is proven",
+      "release_ready=true",
+      "public release is authorized",
+      "regression scientific validation passed"
+    ]
+  },
+  "walkthrough_contract": {
+    "classification_fixture": "tests/fixtures/st08_08",
+    "regression_fixture": "tests/fixtures/st08_11",
+    "doctor": {"exit_code": 0, "environment_pass": true, "release_ready": false},
+    "classification_audit_verify": "PASS_eight_file_bundle",
+    "regression_audit_verify": "PASS_eight_file_bundle",
+    "network_attempts": 0,
+    "scientific_registration_effect": "NONE_synthetic_fixtures_only"
+  },
+  "authoritative_support": [
+    {
+      "source": "scikit-learn 1.8 KFold official documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/generated/sklearn.model_selection.KFold.html",
+      "use": "fold semantics shuffle and integer random_state reproducibility"
+    },
+    {
+      "source": "scikit-learn 1.8 Ridge official documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/generated/sklearn.linear_model.Ridge.html",
+      "use": "regularized linear least-squares baseline and fixed alpha"
+    },
+    {
+      "source": "scikit-learn 1.8 HistGradientBoostingRegressor official documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html",
+      "use": "fixed nonlinear candidate parameters reproducible random state and disabled early stopping"
+    },
+    {
+      "source": "scikit-learn 1.8 root_mean_squared_error and mean_absolute_error official documentation",
+      "uri": "https://scikit-learn.org/1.8/modules/model_evaluation.html#regression-metrics",
+      "use": "loss interpretation and lower-is-better direction"
+    },
+    {
+      "source": "Varma and Simon 2006 BMC Bioinformatics DOI 10.1186/1471-2105-7-91",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/16504092/",
+      "use": "avoid selecting or tuning models on the same cross-validation results used for assessment"
+    },
+    {
+      "source": "JSON Schema Draft 2020-12 validation specification",
+      "uri": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "use": "versioned fail-closed machine-readable claim validation"
+    }
+  ],
+  "protected_artifacts": {
+    "source": "data_registry/st08_04_public_product_scope_and_release_train_contract_design_evidence_v01.json#protected_artifacts",
+    "expected_count": 18,
+    "allowed_changes": 0
+  },
+  "checkpoint": {
+    "default": "SKIPPED",
+    "reason": "ST08_11 does not close Stage 8 or authorize external handoff; source changes are reversible and Codex is the sole development agent with John."
+  }
+}

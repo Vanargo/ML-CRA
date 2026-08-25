@@ -1,0 +1,17 @@
+change_kind,relative_path,reason
+added,src/mlcra/application.py,ST08_08 deterministic application service for bounded binary classification audit bundle publication verification and environment diagnosis
+added,src/mlcra/cli.py,ST08_08 argparse command surface and controlled exit-code diagnostics
+added,src/mlcra/schemas/binary_classification_claim_v01.schema.json,ST08_08 Draft 2020-12 fail-closed claim specification schema
+added,configs/project_readiness/st08_08_universal_cli_classification_vertical_slice_contract_v01.json,ST08_08 machine-readable command protocol security and verification contract
+added,configs/cli/st08_08_registered_miniboone_software_characterization_claim_v01.json,ST08_08 registered MiniBooNE software-characterization-only CLI fixture
+added,tests/test_cli_st08_08.py,ST08_08 focused positive negative integrity no-refit and exit-code tests
+added,tests/fixtures/st08_08/binary_claim_v01.json,ST08_08 external synthetic nonlinear binary claim fixture
+added,tests/fixtures/st08_08/binary_data_v01.csv,ST08_08 external synthetic nonlinear binary CSV fixture
+added,data_registry/st08_08_universal_cli_classification_vertical_slice_evidence_v01.json,ST08_08 observed source build clean-install CLI MiniBooNE and regression evidence
+added,docs/agent/st08_08_universal_cli_classification_vertical_slice_change_scope_v01.csv,ST08_08 exact planned and actual change scope
+modified,pyproject.toml,ST08_08 console entry point schema package data and direct jsonschema dependency
+modified,requirements/locks/st08_07-py312-windows-x86_64.txt,ST08_08 exact hashes for jsonschema and its runtime dependency closure
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh fail-closed candidate path inventory after authorized ST08_08 changes
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_08 files in deterministic cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record John acceptance of ST08_07 and bounded ST08_08 execution evidence
+modified,roadmap.md,record ST08_07 closure ST08_08 outcome and only proposed next block

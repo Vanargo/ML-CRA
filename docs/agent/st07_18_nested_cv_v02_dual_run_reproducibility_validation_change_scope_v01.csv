@@ -1,0 +1,9 @@
+change_kind,relative_path,reason
+modified,scripts/st07_17_miniboone_v02_runner.py,add the explicitly authorized noncanonical full-run mode while preserving the registered v02 scientific constants and offline preflight
+added,scripts/st07_18_dual_run_validation.py,execute exactly two fresh-process isolated offline runs and evaluate the registered comparison quality runtime protection and no-promotion gates
+added,data_registry/st07_18_nested_cv_v02_dual_run_reproducibility_validation_evidence_v01.json,record machine-readable run hashes comparisons checks and the bounded scientific interpretation
+added,data_registry/st07_18_nested_cv_v02_implementation_attempt_01_v01.json,record the excluded first dual-run attempt that completed candidate generation but stopped on an implementation defect before scientific comparison
+added,docs/agent/st07_18_nested_cv_v02_dual_run_reproducibility_validation_change_scope_v01.csv,record the machine-readable authorized change set for ST07_18
+modified,scripts/agent_verify.py,verify the durable ST07_18 evidence contract negative cases and documentary state without rerunning the expensive experiment
+modified,docs/stages/stage_07_code_modularization.md,record ST07_18 authority execution evidence interpretation limitations and readiness
+modified,roadmap.md,synchronize the authorized and technically evaluated ST07_18 state without promotion or next-task authorization

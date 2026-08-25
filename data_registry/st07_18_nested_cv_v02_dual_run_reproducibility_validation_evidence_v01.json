@@ -1,0 +1,343 @@
+{
+  "artifact_errors": {},
+  "artifact_records": {
+    "run_a": {
+      "environment": {
+        "columns": 3,
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "rows": 8,
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039"
+      },
+      "numeric_runtime": {
+        "columns": 14,
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "rows": 2,
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f"
+      },
+      "outer_scores": {
+        "columns": 36,
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "rows": 30,
+        "sha256": "b1e96b8b77f82232a54822416234b26f5adaa863d7972df74e7fb8a5fe38eaf0"
+      },
+      "quality_checks": {
+        "columns": 4,
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "rows": 16,
+        "sha256": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a"
+      },
+      "selected_params": {
+        "columns": 13,
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "rows": 10,
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c"
+      },
+      "summary": {
+        "columns": 39,
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "rows": 3,
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491"
+      },
+      "warnings": {
+        "columns": 9,
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "rows": 2,
+        "sha256": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+      }
+    },
+    "run_b": {
+      "environment": {
+        "columns": 3,
+        "filename": "openml_miniboone_nested_v02_environment.csv",
+        "rows": 8,
+        "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039"
+      },
+      "numeric_runtime": {
+        "columns": 14,
+        "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+        "rows": 2,
+        "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f"
+      },
+      "outer_scores": {
+        "columns": 36,
+        "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+        "rows": 30,
+        "sha256": "07804a9d05eb55ca6058c83869f4b78d82c6138e9fae9c29b956cf9deca4b5ec"
+      },
+      "quality_checks": {
+        "columns": 4,
+        "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+        "rows": 16,
+        "sha256": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a"
+      },
+      "selected_params": {
+        "columns": 13,
+        "filename": "openml_miniboone_nested_v02_selected_params.csv",
+        "rows": 10,
+        "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c"
+      },
+      "summary": {
+        "columns": 39,
+        "filename": "openml_miniboone_nested_v02_summary.csv",
+        "rows": 3,
+        "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491"
+      },
+      "warnings": {
+        "columns": 9,
+        "filename": "openml_miniboone_nested_v02_warnings.csv",
+        "rows": 2,
+        "sha256": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+      }
+    }
+  },
+  "authoritative_comparator_error": null,
+  "authoritative_comparator_result": {
+    "class_column_counts": {
+      "A": 69,
+      "B": 38,
+      "C": 2,
+      "D": 9
+    },
+    "status": "pass"
+  },
+  "candidate_artifacts_promoted": 0,
+  "canonical_output_count": 7,
+  "canonical_outputs_absent_after": true,
+  "canonical_outputs_absent_before": true,
+  "changed_protected_paths": [],
+  "checks": {
+    "candidate_artifacts_and_row_policies": true,
+    "canonical_v02_outputs_absent": true,
+    "claim_or_verdict_change_none": true,
+    "offline_network_attempts_zero": true,
+    "promotion_not_performed": true,
+    "protected_artifacts_unchanged": true,
+    "quality_checks_16_of_16_per_run": true,
+    "registered_comparison": true,
+    "run_processes_and_exit_status": true,
+    "runtime_two_backends_one_thread_per_run": true
+  },
+  "comparison_classes": {
+    "A": {
+      "column_count": 69,
+      "errors": [],
+      "status": "pass"
+    },
+    "B": {
+      "column_count": 38,
+      "errors": [],
+      "status": "pass"
+    },
+    "C": {
+      "column_count": 2,
+      "errors": [],
+      "status": "pass"
+    },
+    "D": {
+      "column_count": 9,
+      "errors": [],
+      "status": "pass"
+    }
+  },
+  "created_at_utc": "2026-08-01T08:42:22.901038+00:00",
+  "evidence_schema_version": "st07_18_evidence_v01",
+  "expected_artifact_rows": {
+    "environment": 8,
+    "numeric_runtime": 2,
+    "outer_scores": 30,
+    "quality_checks": 16,
+    "selected_params": 10,
+    "summary": 3,
+    "warnings": null
+  },
+  "fresh_process_invocations": 2,
+  "implementation_attempts": [
+    {
+      "attempt_number": 1,
+      "candidate_generation_completed": true,
+      "candidate_sets": {
+        "run_a": {
+          "artifact_count": 7,
+          "artifact_rows": {
+            "environment": 8,
+            "numeric_runtime": 2,
+            "outer_scores": 30,
+            "quality_checks": 16,
+            "selected_params": 10,
+            "summary": 3,
+            "warnings": 2
+          },
+          "artifact_sha256": {
+            "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+            "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+            "outer_scores": "48aa94d65fbe51d6ea41a48b2cac5ce8ff5d137264f0986bcf5667775f6caf00",
+            "quality_checks": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a",
+            "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+            "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+            "warnings": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+          },
+          "quality_pass_count": 16
+        },
+        "run_b": {
+          "artifact_count": 7,
+          "artifact_rows": {
+            "environment": 8,
+            "numeric_runtime": 2,
+            "outer_scores": 30,
+            "quality_checks": 16,
+            "selected_params": 10,
+            "summary": 3,
+            "warnings": 2
+          },
+          "artifact_sha256": {
+            "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+            "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+            "outer_scores": "f8c8cd957c0f434aea64de95bdefa9417cb7a35b70f78a8576a989d32c126f43",
+            "quality_checks": "e8e5379852ec2cd2cadaaa21a940993b5f5173ef57d6cae5ae77e94b676b9b1a",
+            "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+            "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+            "warnings": "7576da4cbbd39d6c26c1a641486ebb7e3f3f9cb8cf634c35c9e1ee3e736c7860"
+          },
+          "quality_pass_count": 16
+        }
+      },
+      "failure": {
+        "error_message": "KeyError: column_order",
+        "error_type": "implementation_defect",
+        "location": "scripts/st07_18_dual_run_validation.py: schema_rows",
+        "root_cause": "the new diagnostic comparator used column_order instead of the registered schema field column_position"
+      },
+      "network_attempts": "not_durably_captured_after_orchestrator_exception",
+      "registered_candidate_artifact_validation": "pass_both_runs",
+      "scientific_comparison_completed": false,
+      "scientific_result": "not_evaluated",
+      "scientific_verdict_eligible": false,
+      "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+      "validator_sha256_before_fix": "56dffb7625e1e4c8790b269d190779485ca5fce0d86e1ad56de24c3ece03985b"
+    }
+  ],
+  "process_records": [
+    {
+      "command": [
+        "<python>",
+        "scripts/st07_17_miniboone_v02_runner.py",
+        "--full-run",
+        "--cache-server-dir",
+        "<registered_local_cache>",
+        "--output-dir",
+        "<run_a_noncanonical_output>"
+      ],
+      "elapsed_seconds": 612.533882400021,
+      "label": "run_a",
+      "parse_error": null,
+      "return_code": 0,
+      "runner_result": {
+        "artifact_count": 7,
+        "artifact_rows": {
+          "environment": 8,
+          "numeric_runtime": 2,
+          "outer_scores": 30,
+          "quality_checks": 16,
+          "selected_params": 10,
+          "summary": 3,
+          "warnings": 2
+        },
+        "cache_file_count": 3,
+        "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+        "candidate_id": "openml_miniboone_41150",
+        "canonical_v02_outputs_created": 0,
+        "claim_or_verdict_changed": false,
+        "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+        "dataset_rows": 130064,
+        "elapsed_seconds": 609.7621894999174,
+        "feature_count": 50,
+        "mode": "full_validation_candidate",
+        "network_attempts": 0,
+        "network_used": false,
+        "pid": 13436,
+        "promotion_performed": false,
+        "protocol_id": "miniboone_nested_cv_v02",
+        "quality_pass_count": 16,
+        "runtime_backend_count": 2,
+        "runtime_threads": [
+          1,
+          1
+        ],
+        "status": "pass",
+        "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+        "training_performed": true
+      },
+      "stderr_sha256": "77e6da8004cb592c980d0cc5b4c41a28bfdfbbb30511b0bcc8ef7db47f6d62fb",
+      "stderr_text": "  File \"C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\context.py\", line 255, in _count_physical_cores\n    raise ValueError(f\"found {cpu_count_physical} physical cores < 1\")\n",
+      "stdout_line_count": 1
+    },
+    {
+      "command": [
+        "<python>",
+        "scripts/st07_17_miniboone_v02_runner.py",
+        "--full-run",
+        "--cache-server-dir",
+        "<registered_local_cache>",
+        "--output-dir",
+        "<run_b_noncanonical_output>"
+      ],
+      "elapsed_seconds": 633.3311349999858,
+      "label": "run_b",
+      "parse_error": null,
+      "return_code": 0,
+      "runner_result": {
+        "artifact_count": 7,
+        "artifact_rows": {
+          "environment": 8,
+          "numeric_runtime": 2,
+          "outer_scores": 30,
+          "quality_checks": 16,
+          "selected_params": 10,
+          "summary": 3,
+          "warnings": 2
+        },
+        "cache_file_count": 3,
+        "cache_manifest_sha256": "a6ae3314752c8dce595fb9ef491f27674806e54583bea7d650a3d46878eb7318",
+        "candidate_id": "openml_miniboone_41150",
+        "canonical_v02_outputs_created": 0,
+        "claim_or_verdict_changed": false,
+        "dataset_content_sha256": "e9b0d482a8d4a542ecb81f0e50ba1043b7f85a4487c5c9825e5c62a406981284",
+        "dataset_rows": 130064,
+        "elapsed_seconds": 629.4371761999791,
+        "feature_count": 50,
+        "mode": "full_validation_candidate",
+        "network_attempts": 0,
+        "network_used": false,
+        "pid": 12072,
+        "promotion_performed": false,
+        "protocol_id": "miniboone_nested_cv_v02",
+        "quality_pass_count": 16,
+        "runtime_backend_count": 2,
+        "runtime_threads": [
+          1,
+          1
+        ],
+        "status": "pass",
+        "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+        "training_performed": true
+      },
+      "stderr_sha256": "77e6da8004cb592c980d0cc5b4c41a28bfdfbbb30511b0bcc8ef7db47f6d62fb",
+      "stderr_text": "  File \"C:\\Users\\Vanargo\\Desktop\\ML-CRA\\ml-cra-venv\\Lib\\site-packages\\joblib\\externals\\loky\\backend\\context.py\", line 255, in _count_physical_cores\n    raise ValueError(f\"found {cpu_count_physical} physical cores < 1\")\n",
+      "stdout_line_count": 1
+    }
+  ],
+  "protected_file_count": 196,
+  "protected_manifest_sha256_after": "e8f950e42dbf995bc8868f9988ce0523859e8ef3f02e47a58d6aea67a6ebdaa6",
+  "protected_manifest_sha256_before": "e8f950e42dbf995bc8868f9988ce0523859e8ef3f02e47a58d6aea67a6ebdaa6",
+  "protocol_id": "miniboone_nested_cv_v02",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "scientific_interpretation": "same_environment_computational_reproducibility_only; not_universal_model_superiority; not_stage05_claim_support",
+  "separate_noncanonical_directories": [
+    "run_a",
+    "run_b"
+  ],
+  "stage05_claim_or_verdict_changed": false,
+  "task_id": "ST07_18_nested_cv_v02_dual_run_reproducibility_validation",
+  "technical_status": "PASS",
+  "validation_run_count": 2
+}

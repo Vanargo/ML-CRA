@@ -1,0 +1,5 @@
+﻿severity,candidate_id,object,warning_ru
+info,openml_electricity_151,temporal_order,Временное разбиение использует date/day/period только для порядка строк; эти поля не включены в модельные признаки.
+info,openml_miniboone_41150,repeated_stratified_random,"Повторные разбиения проверяют устойчивость к зерну случайности, но не проверяют временной или групповой дрейф."
+warning,openml_click_prediction_small_41434,identifier_ablation,Контур с идентификаторами имеет статус leakage-risk: его нельзя использовать как финальную оценку качества модели.
+info,openml_click_prediction_small_41434,identifier_encoding_limit,"Идентификаторы кодируются ограниченным прямым кодированием с max_categories=50; это диагностический стресс-тест, а не утвержденная финальная предобработка."

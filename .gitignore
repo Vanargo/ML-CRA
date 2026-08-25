@@ -1,0 +1,47 @@
+# Local Python environments
+ml-cra-venv/
+.venv/
+venv/
+
+# Python and test caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Build and candidate outputs
+build/
+dist/
+*.egg-info/
+.tmp*/
+
+# Local data and OpenML caches excluded from the public product
+MiniBooNE_PID.txt
+MiniBooNE.arff
+dataset_41150.pkl.py3
+dataset_41150.pq
+openml/org/openml/www/datasets/41150/
+data/raw/
+.cache/
+
+# Registered non-public project artifacts
+docs/archive/
+data_registry/openml_feature_preview.csv
+notebooks/01_dataset_candidate_search_openml.ipynb
+notebooks/02_dataset_candidate_search_pmlb.ipynb
+notebooks/02_openml_candidate_data_preview.ipynb
+src/mlcra/data_registry/schema.py
+src/mlcra/data_registry/scoring.py
+src/mlcra/data_registry/validation.py
+
+# Local secrets and private keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx

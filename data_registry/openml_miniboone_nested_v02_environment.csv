@@ -1,0 +1,9 @@
+﻿name,version,protocol_id
+python,"3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",miniboone_nested_cv_v02
+platform,Windows-2019Server-10.0.17763-SP0,miniboone_nested_cv_v02
+openml,0.15.1,miniboone_nested_cv_v02
+sklearn,1.8.0,miniboone_nested_cv_v02
+pandas,3.0.2,miniboone_nested_cv_v02
+numpy,2.4.4,miniboone_nested_cv_v02
+scipy,1.17.1,miniboone_nested_cv_v02
+threadpoolctl,3.6.0,miniboone_nested_cv_v02

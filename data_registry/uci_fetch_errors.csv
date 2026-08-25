@@ -1,0 +1,6 @@
+﻿candidate_id,uci_id,dataset_name,error_type,error_message,decision_needed
+uci_online_shoppers,468,Online Shoppers Purchasing Intention,ConnectionError,ConnectionError('Error connecting to server'),manual_review_required
+uci_appliances_energy,374,Appliances Energy Prediction,ConnectionError,ConnectionError('Error connecting to server'),manual_review_required
+uci_metro_traffic,492,Metro Interstate Traffic Volume,ConnectionError,ConnectionError('Error connecting to server'),manual_review_required
+uci_bank_marketing,222,Bank Marketing,ConnectionError,ConnectionError('Error connecting to server'),manual_review_required
+uci_cdc_diabetes,891,CDC Diabetes Health Indicators,ConnectionError,ConnectionError('Error connecting to server'),manual_review_required

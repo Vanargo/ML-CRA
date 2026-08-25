@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_35_verdict_policy_application_modular_extraction_change_scope_v01.csv,record the exact authorized ST07_35 implementation and validation boundary
+modified,src/mlcra/verdicts.py,implement the immutable typed evidence evaluation ranked application and bundle validation contracts designed in ST07_34
+added,data_registry/st07_35_verdict_policy_application_modular_extraction_evidence_v01.json,register objective golden boundary mutation regression and protected-artifact evidence
+modified,scripts/agent_verify.py,add an executable ST07_35 gate and reconcile historical ST07_33 and ST07_34 gates with the later implementation state
+modified,docs/stages/stage_07_code_modularization.md,record authorization MAPE-K implementation verification limitations and mandatory stop
+modified,roadmap.md,synchronize ST07_34 acceptance and the technical ST07_35 state without closing Stage 7

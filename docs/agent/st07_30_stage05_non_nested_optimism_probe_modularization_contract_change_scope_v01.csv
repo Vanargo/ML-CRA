@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_30_stage05_non_nested_optimism_probe_modularization_contract_change_scope_v01.csv,record the exact authorized ST07_30 design-only change boundary
+modified,scripts/agent_verify.py,register and independently verify the ST05_07 source protocol reference assembly schema key ordering delta semantics golden classes and negative-test contracts without training
+modified,docs/stages/stage_07_code_modularization.md,record ST07_30 authorization modular boundary golden-master design observed evidence and mandatory stop for John acceptance
+modified,roadmap.md,synchronize the canonical Stage 7 state after ST07_30 technical completion

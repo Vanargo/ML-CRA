@@ -1,0 +1,10 @@
+change_kind,relative_path,reason
+added,pyproject.toml,ST08_07 standardized development distribution metadata build backend exact dependencies and namespace discovery
+added,requirements/locks/st08_07-py312-windows-x86_64.txt,ST08_07 hash-locked base runtime for the only validated clean environment
+added,configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json,ST08_07 machine-readable packaging dependency build and environment contract
+added,data_registry/st08_07_python_packaging_dependency_and_clean_environment_evidence_v01.json,ST08_07 observed build clean-install and regression evidence
+added,docs/agent/st08_07_python_packaging_dependency_and_clean_environment_change_scope_v01.csv,ST08_07 exact planned and actual change scope
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh fail-closed approved path inventory after authorized ST08_07 additions
+modified,docs/agent/pilot_change_scope_v01.csv,register ST08_07 files in deterministic cumulative verification scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,record John acceptance of ST08_06 and bounded ST08_07 execution evidence
+modified,roadmap.md,record ST08_06 closure ST08_07 outcome and only proposed next block

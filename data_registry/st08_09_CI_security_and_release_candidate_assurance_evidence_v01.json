@@ -1,0 +1,295 @@
+{
+  "schema_version": "st08_09_CI_security_and_release_candidate_assurance_evidence_v01",
+  "evidence_id": "st08_09_CI_security_and_release_candidate_assurance_evidence_v01",
+  "task_id": "ST08_09_CI_security_and_release_candidate_assurance",
+  "recorded_at": "2026-08-20",
+  "profile": "CHANGE",
+  "status": "technical_pass_ready_for_john_acceptance",
+  "authority": {
+    "accepted_by_John": "ST08_08_universal_CLI_classification_vertical_slice",
+    "closed_by_John": "ST08_08_universal_CLI_classification_vertical_slice",
+    "authorized_block": "ST08_09_CI_security_and_release_candidate_assurance",
+    "interpretation": "John's instruction to move further authorized only the exact next block proposed after ST08_08.",
+    "ST08_10_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false,
+    "delegation_authorized": false
+  },
+  "planned_and_actual_change_set": {
+    "record": "docs/agent/st08_09_CI_security_and_release_candidate_assurance_change_scope_v01.csv",
+    "planned_paths": 18,
+    "actual_paths": 18,
+    "unplanned_paths": 0,
+    "in_scope_extensions": [
+      {
+        "paths": [
+          "pyproject.toml",
+          "configs/project_readiness/st08_07_python_packaging_dependency_and_clean_environment_contract_v01.json"
+        ],
+        "reason": "The authorized dependency audit found a current setuptools advisory affecting source-distribution exclusion; the active backend was upgraded while historical ST08_07 evidence was preserved."
+      },
+      {
+        "path": "src/mlcra/application.py",
+        "reason": "The doctor output had to replace the completed local ST08_09 deferral with exact remaining external blockers."
+      }
+    ],
+    "protected_scientific_paths_changed": 0,
+    "archive_history_rewritten": false
+  },
+  "methods_and_sources": [
+    {
+      "method": "secure_software_development_framework",
+      "source": "NIST SP 800-218 SSDF 1.1",
+      "uri": "https://csrc.nist.gov/pubs/sp/800/218/final"
+    },
+    {
+      "method": "least_privilege_and_immutable_CI_dependencies",
+      "source": "GitHub Actions secure use reference",
+      "uri": "https://docs.github.com/en/actions/reference/security/secure-use"
+    },
+    {
+      "method": "current_explicit_hosted_runner",
+      "source": "GitHub-hosted runners reference",
+      "uri": "https://docs.github.com/en/actions/reference/runners/github-hosted-runners"
+    },
+    {
+      "method": "sdist_wheel_install_publication_separation",
+      "source": "PyPA packaging flow",
+      "uri": "https://packaging.python.org/en/latest/flow/"
+    },
+    {
+      "method": "known_vulnerability_audit",
+      "source": "pip-audit official documentation",
+      "uri": "https://pypa.github.io/pip-audit/"
+    },
+    {
+      "method": "credential_pattern_scan",
+      "source": "Yelp detect-secrets",
+      "uri": "https://github.com/Yelp/detect-secrets"
+    },
+    {
+      "method": "fixed_Windows_Python_cell",
+      "source": "Python 3.12.10 release",
+      "uri": "https://www.python.org/downloads/release/python-31210/"
+    }
+  ],
+  "prechange_baseline": {
+    "command": "python scripts/agent_verify.py --mode baseline",
+    "status": "PASS",
+    "summary": {
+      "manifest_rows": 158,
+      "scope_files": 53,
+      "modified": 8,
+      "added": 150,
+      "missing": 0,
+      "out_of_scope": 0,
+      "scope_errors": 0
+    }
+  },
+  "ci_assurance": {
+    "workflow": ".github/workflows/ci.yml",
+    "events": ["push_to_main", "pull_request_to_main", "workflow_dispatch"],
+    "permissions": {"contents": "read"},
+    "runner": "windows-2022",
+    "python": "3.12.10",
+    "architecture": "x64",
+    "actions": [
+      "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97"
+    ],
+    "persisted_checkout_credentials": false,
+    "secret_inputs": 0,
+    "artifact_upload": false,
+    "native_command_exit_guards": 7,
+    "configuration_validation": "PASS",
+    "hosted_execution": "CONFIGURED_NOT_EXECUTED",
+    "hosted_execution_disposition": "SKIPPED_NOT_AUTHORIZED_BECAUSE_NO_EXTERNAL_REPOSITORY_OR_WORKFLOW_RUN_WAS_AUTHORIZED",
+    "compatibility_effect": "NO_NEW_VALIDATED_ENVIRONMENT_CELL_UNTIL_AN_OBSERVED_HOSTED_RUN_PASSES"
+  },
+  "dependency_assurance": {
+    "tool_environment": {
+      "python": "CPython_3.12.0_Windows_AMD64",
+      "lock": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+      "exact_distributions": 35,
+      "wheel_hashes": 35,
+      "offline_install_from_hash_verified_wheelhouse": "PASS"
+    },
+    "first_audit": {
+      "status": "FAIL_REMEDIATED_IN_SCOPE",
+      "affected": "setuptools==82.0.1",
+      "identifiers": ["PYSEC-2026-3447", "CVE-2026-59890", "GHSA-h35f-9h28-mq5c"],
+      "risk": "Unicode normalization could bypass MANIFEST.in exclusions on affected filesystems and unintentionally include an excluded file in an sdist.",
+      "fixed_in": "setuptools==83.0.0"
+    },
+    "remediation": {
+      "pyproject_build_backend": "setuptools==83.0.0",
+      "wheel_sha256": "29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3",
+      "historical_ST08_07_evidence_changed": false
+    },
+    "final_audit": {
+      "runtime_lock": {"distributions": 15, "reported_known_vulnerabilities": 0, "status": "PASS"},
+      "assurance_lock": {"distributions": 35, "reported_known_vulnerabilities": 0, "status": "PASS"},
+      "temporal_limit": "The result is a query against the available advisory database on 2026-08-20, not permanent proof of safety."
+    }
+  },
+  "secret_assurance": {
+    "engine": "detect-secrets==1.5.0",
+    "candidate_text_files_scanned": 270,
+    "exact_format_plugins": 23,
+    "findings": 0,
+    "status": "PASS",
+    "network_verification": false,
+    "external_GitHub_secret_scanning": "NOT_ENABLED_BECAUSE_REPOSITORY_PUBLICATION_IS_NOT_AUTHORIZED",
+    "residual_limit": "Pattern scanning cannot prove the absence of every possible credential; entropy, keyword and public-IP plugins are intentionally disabled with reasons in the contract."
+  },
+  "source_and_mutation_assurance": {
+    "source_contract": "PASS",
+    "public_manifest": {
+      "paths": 315,
+      "path_list_sha256": "daf27b9d04df1786303f21b2999226e5882557892d9c991ce781734876560b25",
+      "unmapped": 0
+    },
+    "runtime_lock": "15_requirements_15_hashes_PASS",
+    "assurance_lock": "35_requirements_35_hashes_PASS",
+    "protected_scientific_hashes": "18_of_18_PASS",
+    "focused_mutation_tests": {"passed": 12, "total": 12, "status": "PASS"},
+    "rejected_mutation_classes": [
+      "mutable_action_reference",
+      "write_permission",
+      "privileged_trigger",
+      "missing_native_exit_guard",
+      "missing_dependency_hash",
+      "wheel_bytecode",
+      "sdist_symlink",
+      "archive_parent_traversal",
+      "private_key_pattern",
+      "manifest_mismatch"
+    ]
+  },
+  "build_and_archive_assurance": {
+    "protocol": "python_-m_build_--no-isolation_in_hash_locked_assurance_environment",
+    "sdist": {
+      "filename": "ml_cra-0.1.0.dev0.tar.gz",
+      "file_entries": 26,
+      "sha256": "7af9de6f8381b5f26091b2386e0a07aa865d4cdc9ada8b8c8b39bd180308de3d",
+      "inventory_validation": "PASS"
+    },
+    "wheel": {
+      "filename": "ml_cra-0.1.0.dev0-py3-none-any.whl",
+      "file_entries": 20,
+      "sha256": "34b0fc9849e102bb25c87ab26093cc8c70e0517e2f2b512fb7a90548054c9472",
+      "inventory_validation": "PASS"
+    },
+    "publication": "NOT_PERFORMED",
+    "retention": "TEMPORARY_VALIDATION_ONLY"
+  },
+  "clean_install_assurance": {
+    "environment": "fresh_local_CPython_3.12.0_Windows_AMD64_venv",
+    "runtime_dependencies": 15,
+    "installation": "OFFLINE_FROM_HASH_VERIFIED_WHEELHOUSE_PASS",
+    "pip_check": "PASS",
+    "doctor_exit_code": 0,
+    "doctor_environment_pass": true,
+    "doctor_release_ready": false,
+    "doctor_blockers": [
+      "public_development_gate_not_passed",
+      "hosted_CI_run_not_observed",
+      "external_GitHub_secret_scanning_not_enabled",
+      "RU_and_EN_documentation_deferred_to_ST08_10",
+      "release_candidate_reaudit_not_passed",
+      "John_release_authorization_not_granted"
+    ],
+    "ST08_08_CLI_tests": {"passed": 11, "total": 11, "status": "PASS"},
+    "warning": "joblib could not count physical cores in the local host and used logical cores; no test failed and no result was used as scientific evidence."
+  },
+  "verification_attempts_and_corrections": [
+    {
+      "attempt": "combined_assurance_environment_CLI_test",
+      "status": "INVALID_NOT_COUNTED",
+      "reason": "The assurance environment did not contain the mlcra package and the shell sequence could mask an earlier native-command failure.",
+      "correction": "The clean runtime environment was tested separately with explicit exit-code checks, and CI multi-command PowerShell steps now require seven native exit guards."
+    },
+    {
+      "attempt": "initial_secret_scan",
+      "status": "FAIL_REMEDIATED",
+      "reason": "A mutation fixture contained a literal private-key header.",
+      "correction": "The marker is assembled at runtime so the repository candidate contains no credential-like fixture while the detector mutation remains tested."
+    },
+    {
+      "attempt": "initial_mutation_suite",
+      "status": "FAIL_REMEDIATED",
+      "reason": "The wheel validator originally expected a Unix console-script name rather than the Windows mlcra.exe entry.",
+      "correction": "The archive contract now validates the distribution entry point instead of an operating-system-specific generated wrapper."
+    }
+  ],
+  "regression_assurance": {
+    "final_baseline": {
+      "command": "python scripts/agent_verify.py --mode baseline",
+      "status": "PASS",
+      "summary": {
+        "manifest_rows": 158,
+        "scope_files": 53,
+        "modified": 8,
+        "added": 161,
+        "missing": 0,
+        "out_of_scope": 0,
+        "scope_errors": 0
+      }
+    },
+    "cumulative_pilot": {
+      "command": ".\\ml-cra-venv\\Scripts\\python.exe scripts\\agent_verify.py --mode pilot",
+      "process_exit_code": 1,
+      "status": "FAIL_WITH_EIGHT_REGISTERED_HISTORICAL_GATES_AND_ALL_CURRENT_REGRESSIONS_PASS",
+      "historical_failures": [
+        "stage07_closure_audit_checkpoint_v44_absent",
+        "stage07_verdict_policy_application_contract_checkpoint_v45_absent",
+        "stage07_next_block_after_ST07_35_checkpoint_v47_absent",
+        "stage07_post_verdict_policy_closure_checkpoint_v48_absent",
+        "stage07_closure_and_next_stage_checkpoint_v49_absent",
+        "stage08_completion_contract_checkpoint_v51_absent",
+        "stage08_baseline_audit_checkpoint_v52_absent",
+        "stage08_scope_release_owner_checkpoint_v53_absent_and_historical_forbidden_outputs_condition_false_after_later_authorized_files"
+      ],
+      "current_checks": "PASS_including_baseline_syntax_CSV_notebooks_required_paths_documentary_consistency_all_current_stage07_regressions_and_text_corruption_guard",
+      "verifier_weakened": false
+    }
+  },
+  "scientific_boundary": {
+    "training_runs": 0,
+    "dataset_network_accesses": 0,
+    "claim_changes": 0,
+    "protocol_changes": 0,
+    "evidence_value_changes": 0,
+    "verdict_changes": 0,
+    "protected_artifacts": {"expected": 18, "matched": 18, "status": "PASS"}
+  },
+  "known_limits_and_open_gates": [
+    "The hosted GitHub Actions job is configured but has not run.",
+    "CPython 3.12.10 is the final official Windows-binary release in the supported 3.12 line but lacks fixes present only in later source-only 3.12 security releases; the interpreter support strategy remains a release risk, not a closed assurance claim.",
+    "External GitHub secret scanning is not enabled because no external repository action is authorized.",
+    "The root RU and EN user documentation remains ST08_10 work.",
+    "The public repository does not exist and publication is not authorized.",
+    "The release-candidate re-audit, broader platform matrix and John release decision remain open.",
+    "The build emitted the expected warning that the root README is absent; this is not suppressed and belongs to ST08_10."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "No stage closure, browser handoff, publication, release or difficult-to-reverse scientific change occurred; the Codex-only workflow uses risk-based checkpoints.",
+    "zip_created": false
+  },
+  "final_gate": {
+    "technical_status": "PASS",
+    "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+    "accepted_by_John": false,
+    "task_closed": false,
+    "next_block": "ST08_10_root_and_bilingual_user_documentation_and_current_path_reconciliation",
+    "next_block_status": "PROPOSED_NOT_AUTHORIZED"
+  },
+  "tasks_for_John": [
+    "Accept ST08_09 or return only ST08_09 for correction.",
+    "If accepted, only John may assign ACCEPTED_BY_JOHN and TASK_CLOSED.",
+    "Separately decide whether to authorize only the proposed ST08_10 block.",
+    "Do not publish or release ML-CRA without separate authorization and remaining gates."
+  ]
+}

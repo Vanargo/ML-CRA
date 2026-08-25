@@ -1,0 +1,20 @@
+﻿file_path,column_name,required,description_ru
+data_registry/openml_miniboone_research_scores.csv,protocol_id,yes,Идентификатор протокола REPORT_33
+data_registry/openml_miniboone_research_scores.csv,candidate_id,yes,Идентификатор кандидата
+data_registry/openml_miniboone_research_scores.csv,cv_repeat_number,yes,Номер повтора повторной k-блочной проверки
+data_registry/openml_miniboone_research_scores.csv,cv_fold_number,yes,Номер блока внутри повтора
+data_registry/openml_miniboone_research_scores.csv,model_id,yes,Идентификатор модели
+data_registry/openml_miniboone_research_scores.csv,model_parameters,yes,Явно зафиксированные параметры модели
+data_registry/openml_miniboone_research_scores.csv,roc_auc,yes,ROC AUC
+data_registry/openml_miniboone_research_scores.csv,pr_auc,yes,PR AUC
+data_registry/openml_miniboone_research_scores.csv,f1,yes,F-мера
+data_registry/openml_miniboone_research_scores.csv,balanced_accuracy,yes,Сбалансированная точность
+data_registry/openml_miniboone_research_scores.csv,log_loss,yes,Логарифмическая потеря
+data_registry/openml_miniboone_research_scores.csv,brier_score,yes,Оценка Брайера
+data_registry/openml_miniboone_research_scores.csv,row_status,yes,Статус строки
+data_registry/openml_miniboone_research_summary.csv,n_external_blocks,yes,Число внешних проверочных блоков
+data_registry/openml_miniboone_research_summary.csv,roc_auc_mean,yes,Среднее ROC AUC
+data_registry/openml_miniboone_research_summary.csv,roc_auc_std,yes,Стандартное отклонение ROC AUC
+data_registry/openml_miniboone_research_warnings.csv,warning_ru,yes,Предупреждение или ограничение
+data_registry/openml_miniboone_research_environment.csv,name,yes,Название компонента среды
+data_registry/openml_miniboone_research_environment.csv,version,yes,Версия компонента среды

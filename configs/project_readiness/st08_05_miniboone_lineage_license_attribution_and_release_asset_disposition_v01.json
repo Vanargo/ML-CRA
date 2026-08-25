@@ -1,0 +1,250 @@
+{
+  "schema_version": "st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01",
+  "contract_id": "st08_05_miniboone_lineage_license_attribution_and_release_asset_disposition_v01",
+  "task_id": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+  "contract_status": "release_disposition_complete_not_published",
+  "recorded_at": "2026-08-20",
+  "authority": {
+    "accepted_previous_task": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "closed_previous_task": "ST08_04_public_product_scope_and_release_train_contract_design",
+    "next_block_authorized": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
+    "license_file_creation_authorized": false,
+    "citation_file_creation_authorized": false,
+    "external_release_authorized": false,
+    "raw_data_redistribution_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "lineage": {
+    "upstream_source": {
+      "repository": "UCI Machine Learning Repository",
+      "dataset_id": 199,
+      "title": "MiniBooNE particle identification",
+      "creator": "Byron Roe",
+      "year": 2005,
+      "doi": "10.24432/C5QC87",
+      "landing_page": "https://archive.ics.uci.edu/dataset/199/miniboone+particle+identification",
+      "current_license_metadata": "CC BY 4.0",
+      "source_file": "MiniBooNE_PID.txt",
+      "source_file_rows_including_header": 130065,
+      "feature_count": 50
+    },
+    "mirror": {
+      "repository": "OpenML",
+      "dataset_id": 41150,
+      "name": "MiniBooNE",
+      "version": 1,
+      "creator": "Byron Roe",
+      "api_record": "https://www.openml.org/api/v1/json/data/41150",
+      "landing_page": "https://www.openml.org/d/41150",
+      "original_data_url": "http://archive.ics.uci.edu/ml/datasets/MiniBooNE particle identification#",
+      "mirror_license_metadata": "CC0",
+      "format": "ARFF",
+      "download_url": "https://openml.org/data/v1/download/19335523/MiniBooNE.arff",
+      "md5_checksum": "400fbfb8eaea0c1165ecedbafd517b98",
+      "data_rows": 130064,
+      "target": "signal",
+      "feature_naming": "ParticleID_0_through_ParticleID_49"
+    },
+    "local_processing": {
+      "data_access": "OpenML mirror dataset 41150 through an exact local cache",
+      "raw_cache_release_policy": "never_include",
+      "target_mapping": "False_to_0_True_to_1",
+      "registered_data_rows": 130064,
+      "registered_feature_count": 50,
+      "derived_outputs": "split_assignments_model_scores_aggregates_quality_checks_provenance_and_bounded_verdict",
+      "scientific_claim_boundary": "MiniBooNE dataset 41150 and the registered ML-CRA protocols only"
+    }
+  },
+  "license_metadata_conflict": {
+    "openml_observed_metadata": "CC0",
+    "uci_current_metadata": "CC BY 4.0",
+    "conflict_confirmed": true,
+    "openml_uploader_rights_to_apply_cc0": "not_established_by_available_evidence",
+    "legal_adjudication_performed": false,
+    "release_control_decision": "apply_the_more_conservative_current_upstream_CC_BY_4_0_attribution_conditions_to_all_miniboone_origin_release_material",
+    "decision_basis": [
+      "UCI is the source named by the OpenML record and currently identifies creator DOI and CC BY 4.0",
+      "the OpenML record independently labels its mirror CC0 but provides no examined proof that the uploader controlled all rights needed for a CC0 waiver",
+      "CC0 applies only to the extent the affirmer owns the relevant rights and disclaims clearance of third party rights",
+      "CC BY 4.0 permits sharing and adaptation when attribution marking and change indication conditions are satisfied"
+    ],
+    "practical_consequence": "The conflict is controlled for project release engineering without claiming a court determination; raw data remains excluded and every included MiniBooNE-derived artifact requires attribution and provenance marking."
+  },
+  "required_attribution": {
+    "dataset_citation": "Roe, B. (2005). MiniBooNE particle identification [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5QC87.",
+    "creator": "Byron Roe",
+    "dataset_title": "MiniBooNE particle identification",
+    "source_uri": "https://archive.ics.uci.edu/dataset/199/miniboone+particle+identification",
+    "doi": "https://doi.org/10.24432/C5QC87",
+    "license_name": "Creative Commons Attribution 4.0 International",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "mirror_notice": "ML-CRA accessed the OpenML mirror dataset 41150; OpenML metadata identifies UCI as the original source.",
+    "change_notice": "OpenML represents 130064 data rows as an ARFF classification dataset with target signal and ParticleID_0 through ParticleID_49; ML-CRA maps False/True to 0/1 and publishes only protocols, derived model-evaluation evidence and bounded conclusions, not the raw dataset.",
+    "openml_platform_citation": "Vanschoren, J., van Rijn, J. N., Bischl, B., and Torgo, L. (2013). OpenML: Networked Science in Machine Learning. SIGKDD Explorations 15(2). https://doi.org/10.1145/2641190.2641198.",
+    "endorsement_disclaimer": "Attribution must not imply endorsement by Byron Roe, UCI, MiniBooNE, OpenML or Creative Commons.",
+    "implementation_status": "specified_for_ST08_06_not_yet_written_to_LICENSE_NOTICE_or_CITATION_files"
+  },
+  "release_asset_rules": [
+    {
+      "rule_id": "ST08-05-ASSET-01",
+      "priority": 1,
+      "match": {
+        "type": "exact_paths",
+        "values": [
+          "data_registry/openml_feature_preview.csv",
+          "notebooks/02_openml_candidate_data_preview.ipynb"
+        ]
+      },
+      "classification": "direct_sample_values",
+      "disposition": "exclude_from_public_release_candidate",
+      "reason": "The CSV stores five observed values for each MiniBooNE feature and the executed notebook embeds direct data previews.",
+      "future_remediation": "A separately authorized change may create a source-only or output-cleared replacement and verify that no direct row values remain."
+    },
+    {
+      "rule_id": "ST08-05-ASSET-02",
+      "priority": 2,
+      "match": {
+        "type": "exact_paths",
+        "values": [
+          "notebooks/01_dataset_candidate_search_openml.ipynb"
+        ]
+      },
+      "classification": "historical_metadata_mutator_with_stale_CC0_output",
+      "disposition": "exclude_from_supported_public_release_path",
+      "reason": "The executed notebook records and can write the unreconciled OpenML CC0 value into the project registry.",
+      "future_remediation": "Retain as internal history or replace with a validated non-mutating metadata ingestion workflow."
+    },
+    {
+      "rule_id": "ST08-05-ASSET-03",
+      "priority": 3,
+      "match": {
+        "type": "path_prefixes",
+        "values": ["src/", "scripts/"]
+      },
+      "classification": "project_implementation_referencing_miniboone",
+      "disposition": "conditionally_include_after_project_license_and_dataset_attribution",
+      "reason": "The implementation is original ML-CRA work but its dataset-specific contracts and provenance must not imply that MIT relicenses upstream data."
+    },
+    {
+      "rule_id": "ST08-05-ASSET-04",
+      "priority": 4,
+      "match": {
+        "type": "path_prefixes",
+        "values": ["docs/agent/"]
+      },
+      "classification": "project_governance_and_historical_evidence",
+      "disposition": "include_as_project_history_after_project_license",
+      "reason": "These files record project decisions and hashes rather than distributing the MiniBooNE dataset."
+    },
+    {
+      "rule_id": "ST08-05-ASSET-05",
+      "priority": 5,
+      "match": {
+        "type": "path_prefixes_or_exact_paths",
+        "prefixes": ["configs/", "data_registry/", "docs/dataset_selection/", "docs/stages/"],
+        "exact_paths": ["roadmap.md", "notebooks/04_dataset_smoke_experiments.ipynb"]
+      },
+      "classification": "protocol_metadata_documentation_or_derived_evidence",
+      "disposition": "conditionally_include_with_required_attribution_and_lineage_notice",
+      "reason": "These artifacts are needed for reproducibility or project history and do not contain the complete raw dataset; direct-sample and stale-mutator exceptions are captured by higher-priority rules."
+    },
+    {
+      "rule_id": "ST08-05-ASSET-06",
+      "priority": 6,
+      "match": {
+        "type": "forbidden_release_patterns",
+        "values": [
+          "OpenML cache directory for dataset 41150",
+          "MiniBooNE_PID.txt",
+          "MiniBooNE.arff",
+          "dataset_41150.pkl.py3",
+          "dataset_41150.pq",
+          "any copied row-level MiniBooNE data"
+        ]
+      },
+      "classification": "raw_or_cache_data",
+      "disposition": "never_include_in_project_release_or_checkpoint",
+      "reason": "John excluded raw data and local cache; project reproducibility must use documented acquisition and hash-bound local verification rather than redistribution."
+    }
+  ],
+  "inventory_contract": {
+    "text_reference_regex": "(?i)miniboone|41150",
+    "excluded_search_roots": ["ml-cra-venv", ".git", "docs/archive", "__pycache__"],
+    "prechange_reference_files": 153,
+    "expected_postchange_reference_files": 157,
+    "expected_postchange_class_counts": {
+      "CONDITIONAL_IMPLEMENTATION": 17,
+      "CONDITIONAL_WITH_ATTRIBUTION": 121,
+      "EXCLUDE_DIRECT_SAMPLE": 2,
+      "EXCLUDE_STALE_METADATA_MUTATOR": 1,
+      "INCLUDE_GOVERNANCE_HISTORY": 16,
+      "UNMAPPED": 0
+    },
+    "raw_or_cache_files_present_in_project_expected": 0,
+    "every_reference_file_must_match_exactly_one_highest_priority_rule": true
+  },
+  "release_gate_effect": {
+    "finding_id": "ST08-FIND-07",
+    "requirement_id": "ST08-REQ-20",
+    "finding_disposition": "resolved_at_contract_and_inventory_level",
+    "public_development_gate": "still_blocked_until_ST08_06_creates_and_validates_project_license_citation_and_attribution_artifacts",
+    "external_release": "not_authorized",
+    "raw_data_release": "forbidden",
+    "derived_evidence_release": "conditional_not_yet_executed"
+  },
+  "authoritative_support": [
+    {
+      "source": "UCI MiniBooNE particle identification",
+      "uri": "https://archive.ics.uci.edu/dataset/199/miniboone+particle+identification",
+      "use": "upstream creator DOI current CC BY 4.0 metadata and dataset structure"
+    },
+    {
+      "source": "OpenML dataset 41150 API record",
+      "uri": "https://www.openml.org/api/v1/json/data/41150",
+      "use": "mirror identity CC0 metadata original UCI URL creator format target checksum and row count"
+    },
+    {
+      "source": "Creative Commons Attribution 4.0 International legal code",
+      "uri": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "use": "attribution URI license marking and modification indication conditions"
+    },
+    {
+      "source": "Creative Commons CC0 1.0 Universal legal code",
+      "uri": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "use": "waiver authority boundary and third-party-rights disclaimer"
+    },
+    {
+      "source": "OpenML Terms and Citation",
+      "uri": "https://beta.openml.org/terms",
+      "use": "dataset-specific license tags and requested OpenML platform citation"
+    },
+    {
+      "source": "NIST provenance glossary",
+      "uri": "https://csrc.nist.gov/glossary/term/provenance",
+      "use": "origin ownership location and change chronology for assets"
+    }
+  ],
+  "negative_mutations": [
+    "prefer_openml_CC0_without_recording_the_UCI_conflict",
+    "claim_a_legal_adjudication",
+    "include_raw_cache",
+    "include_openml_feature_preview",
+    "include_executed_data_preview_notebook",
+    "allow_MIT_to_relicense_upstream_data",
+    "omit_UCI_creator",
+    "omit_UCI_DOI",
+    "omit_CC_BY_4_0_URI",
+    "omit_change_notice",
+    "omit_OpenML_mirror_identity",
+    "leave_one_reference_file_unmapped",
+    "authorize_external_release",
+    "mark_ST08_06_authorized",
+    "change_scientific_claim_or_numeric_evidence"
+  ],
+  "remaining_uncertainty": [
+    "No legal opinion or proof of the OpenML uploader's authority to apply CC0 has been obtained.",
+    "Whether every derived numerical table is legally an adaptation or only uncopyrightable factual output can vary by jurisdiction; the project therefore applies attribution conservatively.",
+    "The future public repository manifest must enforce the exclusions before any publication action.",
+    "The empty notebooks/02_dataset_candidate_search_pmlb.ipynb remains an unrelated release placeholder requiring a separate disposition."
+  ]
+}

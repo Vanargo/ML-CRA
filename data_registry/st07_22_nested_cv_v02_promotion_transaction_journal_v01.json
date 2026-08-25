@@ -1,0 +1,97 @@
+{
+  "authority": "NEXT_BLOCK_AUTHORIZED: ST07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration",
+  "canonical_paths": [
+    "data_registry/openml_miniboone_nested_v02_outer_scores.csv",
+    "data_registry/openml_miniboone_nested_v02_selected_params.csv",
+    "data_registry/openml_miniboone_nested_v02_summary.csv",
+    "data_registry/openml_miniboone_nested_v02_quality_checks.csv",
+    "data_registry/openml_miniboone_nested_v02_warnings.csv",
+    "data_registry/openml_miniboone_nested_v02_environment.csv",
+    "data_registry/openml_miniboone_nested_v02_numeric_runtime.csv"
+  ],
+  "commit_method": "os.link_no_overwrite_same_filesystem",
+  "commit_protocol": "prepare_validate_lock_commit_verify_or_rollback",
+  "committed_paths": [
+    "data_registry/openml_miniboone_nested_v02_outer_scores.csv",
+    "data_registry/openml_miniboone_nested_v02_selected_params.csv",
+    "data_registry/openml_miniboone_nested_v02_summary.csv",
+    "data_registry/openml_miniboone_nested_v02_quality_checks.csv",
+    "data_registry/openml_miniboone_nested_v02_warnings.csv",
+    "data_registry/openml_miniboone_nested_v02_environment.csv",
+    "data_registry/openml_miniboone_nested_v02_numeric_runtime.csv"
+  ],
+  "created_at_utc": "2026-08-01T14:01:11.126958+00:00",
+  "events": [
+    {
+      "at_utc": "2026-08-01T14:01:11.126958+00:00",
+      "phase": "prepare"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.192447+00:00",
+      "phase": "validated",
+      "staged_file_count": 7
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.210161+00:00",
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.214276+00:00",
+      "committed_file_count": 1,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.217034+00:00",
+      "committed_file_count": 2,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.219988+00:00",
+      "committed_file_count": 3,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.222965+00:00",
+      "committed_file_count": 4,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.225967+00:00",
+      "committed_file_count": 5,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.229136+00:00",
+      "committed_file_count": 6,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.232977+00:00",
+      "committed_file_count": 7,
+      "phase": "commit_started"
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.272981+00:00",
+      "phase": "verified",
+      "verified_file_count": 7
+    },
+    {
+      "at_utc": "2026-08-01T14:01:11.314492+00:00",
+      "canonical_file_count": 7,
+      "evidence_sha256": "2710f1dd25580727c3fc1582932b877d8a72a6764d84e22c1c0f59b1f3a18000",
+      "phase": "committed"
+    }
+  ],
+  "evidence_path": "data_registry/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_evidence_v01.json",
+  "evidence_sha256": "2710f1dd25580727c3fc1582932b877d8a72a6764d84e22c1c0f59b1f3a18000",
+  "journal_schema_version": "st07_22_transaction_journal_v01",
+  "protocol_id": "miniboone_nested_cv_v02",
+  "rollback_errors": [],
+  "selected_source_label": "run_a",
+  "staging_locator": "<data_registry>/.st07_22_staging_st07_22_20260801T140111126958Z_07257bee4409",
+  "state": "committed",
+  "task_id": "ST07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration",
+  "terminal": true,
+  "transaction_id": "st07_22_20260801T140111126958Z_07257bee4409",
+  "updated_at_utc": "2026-08-01T14:01:11.314492+00:00"
+}

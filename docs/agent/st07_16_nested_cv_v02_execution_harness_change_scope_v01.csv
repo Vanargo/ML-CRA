@@ -1,0 +1,9 @@
+change_kind,relative_path,reason
+added,src/mlcra/datasets.py,extract strict MiniBooNE feature target and control-estimator preparation for the standalone harness
+added,src/mlcra/nested_artifacts.py,assemble validate write read and compare the seven registered v02 artifact classes
+added,scripts/st07_16_fixture_harness.py,provide a fresh-process deterministic fixture entry point without MiniBooNE training or network
+added,docs/agent/st07_16_nested_cv_v02_execution_harness_change_scope_v01.csv,record the machine-readable authorized change set for ST07_16
+modified,src/mlcra/nested_cv.py,add complete outer-loop orchestration over the previously accepted split fit tuning and evaluation primitives
+modified,scripts/agent_verify.py,verify two isolated fixture processes schemas row policies comparison classes negative cases and protected artifacts
+modified,docs/stages/stage_07_code_modularization.md,record ST07_16 authority implementation evidence limitations and readiness
+modified,roadmap.md,synchronize authorized and technically completed ST07_16 while preserving the next-task boundary

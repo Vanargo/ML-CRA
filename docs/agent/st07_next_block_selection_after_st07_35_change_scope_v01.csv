@@ -1,0 +1,6 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_35_change_scope_v01.csv,record the exact ST07_35 acceptance reconciliation and bounded ST07_36 selection
+added,data_registry/st07_next_block_selection_after_st07_35_evidence_v01.json,register the MAPE-K alternatives objective scores protected hashes and mandatory stop
+modified,scripts/agent_verify.py,verify ST07_35 acceptance status and exactly one proposed-not-authorized ST07_36 without performing closure
+modified,docs/stages/stage_07_code_modularization.md,record ST07_35 acceptance the objective next-block analysis and the proposed ST07_36 closure-reaudit boundary
+modified,roadmap.md,synchronize ST07_35 acceptance and the proposed-not-authorized ST07_36 boundary

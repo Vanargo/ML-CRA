@@ -1,0 +1,172 @@
+{
+  "actual_change_log": [
+    "docs/agent/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_change_scope_v01.csv",
+    "scripts/st07_22_transactional_promotion.py",
+    "data_registry/openml_miniboone_nested_v02_outer_scores.csv",
+    "data_registry/openml_miniboone_nested_v02_selected_params.csv",
+    "data_registry/openml_miniboone_nested_v02_summary.csv",
+    "data_registry/openml_miniboone_nested_v02_quality_checks.csv",
+    "data_registry/openml_miniboone_nested_v02_warnings.csv",
+    "data_registry/openml_miniboone_nested_v02_environment.csv",
+    "data_registry/openml_miniboone_nested_v02_numeric_runtime.csv",
+    "data_registry/st07_22_nested_cv_v02_promotion_transaction_journal_v01.json",
+    "data_registry/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_evidence_v01.json",
+    "scripts/agent_verify.py",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "authority": "NEXT_BLOCK_AUTHORIZED: ST07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration",
+  "bundle_atomicity_claim": "transactional_7_file_bundle_not_single_filesystem_atomic_operation",
+  "candidate_artifacts_promoted": 7,
+  "canonical_hashes": {
+    "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+    "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+    "outer_scores": "c6671f2a9ca75e174634baaa07f655c731ae230709e0231fa84b470e896921fc",
+    "quality_checks": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13",
+    "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+    "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+    "warnings": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd"
+  },
+  "canonical_output_count": 7,
+  "canonical_paths": [
+    "data_registry/openml_miniboone_nested_v02_outer_scores.csv",
+    "data_registry/openml_miniboone_nested_v02_selected_params.csv",
+    "data_registry/openml_miniboone_nested_v02_summary.csv",
+    "data_registry/openml_miniboone_nested_v02_quality_checks.csv",
+    "data_registry/openml_miniboone_nested_v02_warnings.csv",
+    "data_registry/openml_miniboone_nested_v02_environment.csv",
+    "data_registry/openml_miniboone_nested_v02_numeric_runtime.csv"
+  ],
+  "change_set_deviations": [],
+  "checks": {
+    "canonical_hash_and_schema_exact_7_of_7": true,
+    "canonical_targets_absent_before": true,
+    "exclusive_lock_acquired": true,
+    "negative_tests_fail_closed": true,
+    "no_overwrite_hard_link_commit_7_of_7": true,
+    "protected_hashes_exact_before_and_after": true,
+    "same_filesystem_staging_validated_7_of_7": true,
+    "selected_run_a_source_7_of_7_hash_and_schema_exact": true,
+    "source_checkpoint_v34_exact": true,
+    "st07_21_evidence_and_manifest_exact": true,
+    "stage05_claim_or_verdict_unchanged": true,
+    "training_and_network_zero": true,
+    "transaction_journal_terminal_commit_planned": true
+  },
+  "commit_method": "os.link_no_overwrite_same_filesystem",
+  "commit_protocol": "prepare_validate_lock_commit_verify_or_rollback",
+  "created_at_utc": "2026-08-01T14:01:11.301752+00:00",
+  "directory_fsync_claimed": false,
+  "evidence_schema_version": "st07_22_evidence_v01",
+  "file_fsync_used_for_staging_and_json": true,
+  "negative_tests": {
+    "concurrent_lock": true,
+    "evidence_manifest_mismatch": true,
+    "injected_partial_commit_rollback": true,
+    "lock_cleanup": true,
+    "missing_source": true,
+    "mixed_bundle": true,
+    "partial_canonical_state": true,
+    "preexisting_target": true,
+    "source_hash_mismatch": true,
+    "staging_hash_mismatch": true
+  },
+  "network_used": false,
+  "planned_change_set": [
+    "docs/agent/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_change_scope_v01.csv",
+    "scripts/st07_22_transactional_promotion.py",
+    "data_registry/openml_miniboone_nested_v02_outer_scores.csv",
+    "data_registry/openml_miniboone_nested_v02_selected_params.csv",
+    "data_registry/openml_miniboone_nested_v02_summary.csv",
+    "data_registry/openml_miniboone_nested_v02_quality_checks.csv",
+    "data_registry/openml_miniboone_nested_v02_warnings.csv",
+    "data_registry/openml_miniboone_nested_v02_environment.csv",
+    "data_registry/openml_miniboone_nested_v02_numeric_runtime.csv",
+    "data_registry/st07_22_nested_cv_v02_promotion_transaction_journal_v01.json",
+    "data_registry/st07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration_evidence_v01.json",
+    "scripts/agent_verify.py",
+    "docs/stages/stage_07_code_modularization.md",
+    "roadmap.md"
+  ],
+  "protected_hashes": {
+    "data_registry/openml_miniboone_nested_cv_v02_expected_output_schema.csv": "761b71c9a81438612bed59bc23ac9c382715ab447269fae53daf45f71239f672",
+    "data_registry/openml_miniboone_nested_cv_v02_protocol_lock.csv": "762f02b8b74e3fc5e9f5c75658021f9a384f974316be8d5e6b748478be7dbe9c",
+    "data_registry/openml_miniboone_nested_v02_promotion_source_manifest_v01.csv": "aa823a37bb4287d6668489261c7486e3ecd70a0845a7b20f8e59e46e90a4b465",
+    "data_registry/st07_20_nested_cv_v02_provenance_corrected_dual_run_revalidation_evidence_v01.json": "abb7b31036ea0c44a48590d3cb260be8a9c7d02196fa5f1a78ca32d6fa7e04f9",
+    "data_registry/st07_21_nested_cv_v02_promotion_source_and_timing_provenance_contract_evidence_v01.json": "baf6ab25138f5acf1f28a6111f4785769f6cd9c65910583b2bf467bf8f7eb9c0"
+  },
+  "protocol_id": "miniboone_nested_cv_v02",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "remaining_risks": [
+    "A process-terminating crash is fail-closed through the durable journal but may require manual recovery before rerun.",
+    "File fsync is used; no unsupported cross-platform claim of directory-entry durability or seven-file filesystem atomicity is made."
+  ],
+  "scientific_interpretation": "canonical_registration_of_prevalidated_run_a_only; not_new_training; not_new_scientific_validation; not_cross_environment_reproducibility; not_universal_model_superiority; not_stage05_claim_change",
+  "selected_bundle_sha256": "07257bee44090c1168a01f7bb6080030061b606e4eab960c7ccbd766f5614576",
+  "selected_source_label": "run_a",
+  "source_artifact_records": {
+    "environment": {
+      "columns": 3,
+      "filename": "openml_miniboone_nested_v02_environment.csv",
+      "rows": 8,
+      "sha256": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039"
+    },
+    "numeric_runtime": {
+      "columns": 14,
+      "filename": "openml_miniboone_nested_v02_numeric_runtime.csv",
+      "rows": 2,
+      "sha256": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f"
+    },
+    "outer_scores": {
+      "columns": 36,
+      "filename": "openml_miniboone_nested_v02_outer_scores.csv",
+      "rows": 30,
+      "sha256": "c6671f2a9ca75e174634baaa07f655c731ae230709e0231fa84b470e896921fc"
+    },
+    "quality_checks": {
+      "columns": 4,
+      "filename": "openml_miniboone_nested_v02_quality_checks.csv",
+      "rows": 16,
+      "sha256": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13"
+    },
+    "selected_params": {
+      "columns": 13,
+      "filename": "openml_miniboone_nested_v02_selected_params.csv",
+      "rows": 10,
+      "sha256": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c"
+    },
+    "summary": {
+      "columns": 39,
+      "filename": "openml_miniboone_nested_v02_summary.csv",
+      "rows": 3,
+      "sha256": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491"
+    },
+    "warnings": {
+      "columns": 9,
+      "filename": "openml_miniboone_nested_v02_warnings.csv",
+      "rows": 2,
+      "sha256": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd"
+    }
+  },
+  "source_checkpoint": "ml-cra_v34.zip",
+  "source_checkpoint_sha256": "ff44a49a11b7c2c2cc395242b8a1c6ccab79bdee29221ccaa0b807ed3d9764cf",
+  "source_locator_base": "<temporary_work_root>/run_a",
+  "source_manifest_path": "data_registry/openml_miniboone_nested_v02_promotion_source_manifest_v01.csv",
+  "source_manifest_sha256": "aa823a37bb4287d6668489261c7486e3ecd70a0845a7b20f8e59e46e90a4b465",
+  "stage05_claim_or_verdict_changed": false,
+  "staging_hashes": {
+    "environment": "20426cdee7b7d5b38f5c5e007193e5d2655953f5cdc73f88be761a645cef6039",
+    "numeric_runtime": "d88db7beecee355ca3720d0faa63b7673f23024f38ab6416e49985eeb19c9b4f",
+    "outer_scores": "c6671f2a9ca75e174634baaa07f655c731ae230709e0231fa84b470e896921fc",
+    "quality_checks": "5c9e13717d2661615f07ac151ed41eac8fc916bab0c3c967876560339d047f13",
+    "selected_params": "9e9e5815e94584064b00f2c54aa89bf6d98705487a4017ef8d3a67e48cc4bb2c",
+    "summary": "56a9505cf51fdab3d64b1afc149400e87748350df50af03f6dc3d07127282491",
+    "warnings": "10cb498cc3c4d569c78986e715f78ac37829fce3fe8fe1107f8e0351c61d51fd"
+  },
+  "task_id": "ST07_22_nested_cv_v02_transactional_promotion_and_canonical_artifact_registration",
+  "task_profile": "CHANGE",
+  "technical_status": "PASS",
+  "training_performed": false,
+  "transaction_id": "st07_22_20260801T140111126958Z_07257bee4409",
+  "transaction_journal_path": "data_registry/st07_22_nested_cv_v02_promotion_transaction_journal_v01.json"
+}

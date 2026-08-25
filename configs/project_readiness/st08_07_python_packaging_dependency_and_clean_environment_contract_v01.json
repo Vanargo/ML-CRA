@@ -1,0 +1,243 @@
+{
+  "schema_version": "st08_07_python_packaging_dependency_and_clean_environment_contract_v01",
+  "contract_id": "st08_07_python_packaging_dependency_and_clean_environment_contract_v01",
+  "task_id": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+  "task_profile": "CHANGE",
+  "recorded_at": "2026-08-20",
+  "contract_status": "implemented_and_validated_for_one_declared_environment",
+  "authority": {
+    "accepted_previous_task": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "closed_previous_task": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
+    "authorized_block": "ST08_07_python_packaging_dependency_and_clean_environment_contract",
+    "cli_implementation_authorized": false,
+    "external_publication_authorized": false,
+    "release_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "distribution_metadata": {
+    "path": "pyproject.toml",
+    "distribution_name": "ml-cra",
+    "import_namespace": "mlcra",
+    "version": "0.1.0.dev0",
+    "version_semantics": "PEP_440_development_release_before_0.1.0_not_an_authorized_release",
+    "build_backend": "setuptools.build_meta",
+    "build_backend_requirement": "setuptools==83.0.0",
+    "build_backend_change_control": "ST08_09 replaced the originally validated setuptools 82.0.1 after pip-audit reported PYSEC-2026-3447/CVE-2026-59890; the historical ST08_07 evidence remains unchanged and ST08_09 must rebuild and revalidate the distribution.",
+    "requires_python": ">=3.12,<3.13",
+    "license_expression": "MIT",
+    "license_files": ["LICENSE", "DATASET_ATTRIBUTION.md"],
+    "author": "Иван Полищук",
+    "repository": "https://github.com/Vanargo/ML-CRA",
+    "readme_form": "inline_bounded_development_description_because_root_README_is_deferred_to_ST08_10",
+    "project_scripts_present": false,
+    "project_scripts_reason": "The supported mlcra console command belongs to ST08_08 and must not be invented by the packaging contract.",
+    "package_discovery": {
+      "layout": "src",
+      "implicit_namespace_enabled": true,
+      "include": ["mlcra"],
+      "excluded_by_exact_discovery_boundary": ["mlcra.data_registry"],
+      "reason": "The top-level mlcra package has no __init__.py; exact setuptools namespace discovery packages the ten implemented modules and excludes the three zero-byte placeholders."
+    }
+  },
+  "dependency_contract": {
+    "base_runtime_direct": [
+      "numpy==2.4.4",
+      "pandas==3.0.2",
+      "scikit-learn==1.8.0",
+      "threadpoolctl==3.6.0"
+    ],
+    "base_runtime_transitive_locked": [
+      "joblib==1.5.3",
+      "python-dateutil==2.9.0.post0",
+      "scipy==1.17.1",
+      "six==1.17.0",
+      "tzdata==2026.2"
+    ],
+    "optional_extras": {
+      "research-openml": {
+        "requirements": ["openml==0.15.1"],
+        "purpose": "legacy_research_offline_OpenML_cache_adapter",
+        "supported_product_core": false,
+        "hash_locked_clean_environment_validated": false,
+        "disposition": "declared_optional_research_dependency_not_part_of_the_ST08_07_supported_core_matrix"
+      }
+    },
+    "lock_path": "requirements/locks/st08_07-py312-windows-x86_64.txt",
+    "lock_scope": "base_distribution_runtime_only",
+    "lock_properties": [
+      "exact_direct_and_transitive_versions",
+      "binary_wheels_only",
+      "SHA256_hash_required_for_every_requirement",
+      "platform_specific_to_CPython_3.12_Windows_x86_64"
+    ],
+    "not_claimed": [
+      "cross_platform_lock_portability",
+      "research_openml_extra_reconstructibility",
+      "future_dependency_compatibility",
+      "vulnerability_clearance"
+    ]
+  },
+  "declared_environment_matrix": [
+    {
+      "environment_id": "ST08-ENV-CORE-PY312-WIN-X86_64",
+      "support_status": "DECLARED_AND_VALIDATED",
+      "python_implementation": "CPython",
+      "python_minor": "3.12",
+      "tested_python_patch": "3.12.0",
+      "operating_system": "Windows-2019Server-10.0.17763-SP0",
+      "architecture": "AMD64",
+      "dependency_profile": "base_runtime",
+      "dependency_lock": "requirements/locks/st08_07-py312-windows-x86_64.txt",
+      "build_frontend": "build==1.5.0",
+      "build_backend": "setuptools==83.0.0_superseding_the_ST08_07_observed_82.0.1_after_ST08_09_security_audit",
+      "validation_status": "PASS"
+    }
+  ],
+  "non_declared_environments": [
+    {
+      "boundary": "CPython_before_3.12_or_at_least_3.13",
+      "status": "REJECTED_BY_REQUIRES_PYTHON",
+      "reason": "No compatibility evidence exists outside the only locally available and registered Python minor."
+    },
+    {
+      "boundary": "Linux_macOS_PyPy_or_other_architectures",
+      "status": "NOT_DECLARED_NOT_TESTED",
+      "reason": "No local interpreter or CI matrix was available; support must be added only after ST08_09 or another separately authorized compatibility block."
+    }
+  ],
+  "build_and_install_protocol": {
+    "source_build_command": "python -m build --outdir <temporary_dist> .",
+    "build_isolation": true,
+    "expected_artifacts": [
+      "ml_cra-0.1.0.dev0.tar.gz",
+      "ml_cra-0.1.0.dev0-py3-none-any.whl"
+    ],
+    "wheel_must_be_built_from_sdist": true,
+    "dependency_download_command": "python -m pip download --only-binary=:all: --dest <temporary_wheelhouse> -r requirements/locks/st08_07-py312-windows-x86_64.txt",
+    "offline_dependency_install_command": "python -m pip install --no-index --find-links <temporary_wheelhouse> -r requirements/locks/st08_07-py312-windows-x86_64.txt",
+    "offline_distribution_install_command": "python -m pip install --no-index --no-deps <locally_built_wheel>",
+    "post_install_checks": [
+      "python -m pip check",
+      "isolated_import_of_mlcra_and_all_ten_distributed_modules",
+      "importlib_metadata_name_version_python_license_and_requires_dist_check",
+      "installed_paths_resolve_only_to_clean_environment_site_packages",
+      "mlcra_console_script_absent_until_ST08_08",
+      "mlcra.data_registry_placeholders_absent"
+    ]
+  },
+  "artifact_contract": {
+    "wheel_expected_module_count": 10,
+    "wheel_expected_total_entry_count": 16,
+    "wheel_tag": "py3-none-any",
+    "sdist_expected_total_entry_count": 24,
+    "must_include": [
+      "LICENSE",
+      "DATASET_ATTRIBUTION.md",
+      "pyproject.toml",
+      "mlcra/datasets.py",
+      "mlcra/io.py",
+      "mlcra/metrics.py",
+      "mlcra/model_spaces.py",
+      "mlcra/nested_artifacts.py",
+      "mlcra/nested_cv.py",
+      "mlcra/numeric_runtime.py",
+      "mlcra/stress_tests.py",
+      "mlcra/validation.py",
+      "mlcra/verdicts.py"
+    ],
+    "must_exclude": [
+      "mlcra/data_registry/schema.py",
+      "mlcra/data_registry/scoring.py",
+      "mlcra/data_registry/validation.py",
+      "notebooks/",
+      "data_registry/",
+      "configs/",
+      "scripts/",
+      "ml-cra-venv/",
+      "__pycache__/",
+      "*.pyc"
+    ],
+    "distribution_artifact_retention": "temporary_validation_only_not_a_release_or_canonical_dist"
+  },
+  "acceptance_rules": [
+    "pyproject_parses_as_TOML_and_contains_static_name_version_python_license_author_dependencies_and_backend",
+    "0.1.0.dev0_is_a_normalized_development_release_ordered_before_0.1.0",
+    "base_direct_import_dependencies_are_exactly_declared",
+    "the_hash_locked_base_runtime_installs_offline_into_a_new_venv",
+    "isolated_build_creates_exactly_one_sdist_and_one_pure_python_wheel",
+    "the_wheel_is_built_from_the_sdist_and_has_the_exact_allowed_inventory_including_the_required_dataset_attribution_companion",
+    "the_wheel_installs_without_workspace_leakage_and_all_distributed_modules_import",
+    "pip_check_passes_in_the_clean_environment",
+    "no_console_script_external_publication_release_training_or_scientific_change_occurs"
+  ],
+  "negative_mutations": [
+    "remove_build_system",
+    "replace_development_version_with_final_0.1.0",
+    "widen_requires_python_beyond_3.12",
+    "remove_or_unpin_a_base_direct_dependency",
+    "move_openml_into_the_supported_base_runtime",
+    "add_project_scripts_before_ST08_08",
+    "broaden_package_discovery_to_mlcra_star",
+    "disable_namespace_discovery_without_adding_a_deliberate_package_initializer",
+    "include_zero_byte_data_registry_placeholders",
+    "omit_MIT_license_or_author",
+    "remove_required_dataset_attribution_companion",
+    "remove_a_runtime_hash",
+    "claim_Linux_macOS_research_extra_or_vulnerability_support_without_evidence"
+  ],
+  "release_gate_effect": {
+    "ST08_FIND_03": "PARTIALLY_RESOLVED_packaging_dependency_and_one_clean_environment_reconstruction_exist_but_supported_CLI_reproduction_waits_for_ST08_08",
+    "ST08_FIND_05": "PARTIALLY_RESOLVED_standard_metadata_sdist_wheel_and_clean_import_exist_but_no_supported_interface_or_release_artifact_is_claimed",
+    "ST08_GATE_PUBLIC_DEVELOPMENT": "BLOCKED",
+    "ST08_GATE_0_1_0": "BLOCKED",
+    "external_publication": "NOT_PERFORMED",
+    "release": "NOT_PERFORMED"
+  },
+  "authoritative_support": [
+    {
+      "source": "Python Packaging pyproject.toml specification",
+      "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/",
+      "use": "build_system_static_project_metadata_dependencies_requires_python_license_files_and_optional_dependencies"
+    },
+    {
+      "source": "Python Packaging flow",
+      "uri": "https://packaging.python.org/en/latest/flow/",
+      "use": "separation_of_source_metadata_sdist_wheel_install_and_publication"
+    },
+    {
+      "source": "setuptools package discovery and namespace packages",
+      "uri": "https://setuptools.pypa.io/en/stable/userguide/package_discovery.html",
+      "use": "src_layout_exact_find_and_implicit_namespace_discovery"
+    },
+    {
+      "source": "setuptools PEP 639 license migration",
+      "uri": "https://setuptools.pypa.io/en/stable/userguide/license_migration.html",
+      "use": "SPDX_license_expression_license_files_and_setuptools_at_least_77"
+    },
+    {
+      "source": "pip repeatable installs",
+      "uri": "https://pip.pypa.io/en/stable/topics/repeatable-installs/",
+      "use": "exact_version_pins_hash_checking_and_offline_wheelhouse_installation"
+    },
+    {
+      "source": "pip requirements file format",
+      "uri": "https://pip.pypa.io/en/stable/reference/requirements-file-format/",
+      "use": "UTF8_requirements_hash_and_binary_only_options"
+    },
+    {
+      "source": "PEP 440",
+      "uri": "https://peps.python.org/pep-0440/",
+      "use": "normalized_development_version_and_order_before_final_0_1_0"
+    }
+  ],
+  "remaining_uncertainty": [
+    "Only CPython 3.12 on the observed Windows x86_64 environment is declared and validated; this does not establish compatibility with other operating systems interpreters architectures or Python minors.",
+    "The exact tested patch is Python 3.12.0; the metadata declares the Python 3.12 minor series and later patch compatibility still needs CI coverage before release.",
+    "The research-openml extra is declared so the lazy adapter dependency is not hidden but it is not hash-locked or clean-environment validated by this core block.",
+    "The build emitted the expected warning that no root README exists; a real root user entry is intentionally deferred to ST08_10 after the CLI contract exists.",
+    "Dependency vulnerability and secret assurance remain for ST08_09.",
+    "The distribution name ml-cra has not been reserved or published on an external index.",
+    "No supported console command exists until a separately authorized ST08_08 implementation."
+  ]
+}

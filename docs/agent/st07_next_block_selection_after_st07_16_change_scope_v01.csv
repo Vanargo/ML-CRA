@@ -1,0 +1,5 @@
+change_kind,relative_path,reason
+added,docs/agent/st07_next_block_selection_after_st07_16_change_scope_v01.csv,record the machine-readable boundary for acceptance reconciliation and next-block selection after ST07_16
+modified,scripts/agent_verify.py,require accepted and closed ST07_16 plus the proposed-not-authorized ST07_17 boundary
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance dependency analysis decision matrix proposed ST07_17 and mandatory stop
+modified,roadmap.md,synchronize accepted ST07_16 and register exactly one proposed next block without authorizing it

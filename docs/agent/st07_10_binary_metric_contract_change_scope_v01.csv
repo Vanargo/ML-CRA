@@ -1,0 +1,7 @@
+change_kind,relative_path,reason
+modified,scripts/agent_verify.py,verify the ST07_10 binary metric contract notebook integration canonical status and preserved regressions
+modified,src/mlcra/metrics.py,move the shared binary probability and scoring contract from the notebook into the reusable software layer
+modified,notebooks/04_dataset_smoke_experiments.ipynb,replace duplicated binary metric definitions with the modular import without executing the notebook
+modified,docs/stages/stage_07_code_modularization.md,record John acceptance of ST07_09 and the complete ST07_10 implementation and verification evidence
+modified,roadmap.md,synchronize the canonical Stage 7 state after John authorization and ST07_10 technical completion
+added,docs/agent/st07_10_binary_metric_contract_change_scope_v01.csv,machine-readable authorized change set for ST07_10

@@ -1,0 +1,17 @@
+﻿protocol_id,check_id,check_result,details_ru
+miniboone_nested_cv_v02,protocol_id_locked,pass,MiniBooNE v02 scientific-candidate check protocol_id_locked; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,outer_scores_row_count,pass,MiniBooNE v02 scientific-candidate check outer_scores_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,selected_params_row_count,pass,MiniBooNE v02 scientific-candidate check selected_params_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,summary_row_count,pass,MiniBooNE v02 scientific-candidate check summary_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,warnings_minimum_row_count,pass,MiniBooNE v02 scientific-candidate check warnings_minimum_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,environment_row_count,pass,MiniBooNE v02 scientific-candidate check environment_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,numeric_runtime_row_count,pass,MiniBooNE v02 scientific-candidate check numeric_runtime_row_count; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,outer_scores_schema_exact,pass,MiniBooNE v02 scientific-candidate check outer_scores_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,selected_params_schema_exact,pass,MiniBooNE v02 scientific-candidate check selected_params_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,summary_schema_exact,pass,MiniBooNE v02 scientific-candidate check summary_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,warnings_schema_exact,pass,MiniBooNE v02 scientific-candidate check warnings_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,environment_schema_exact,pass,MiniBooNE v02 scientific-candidate check environment_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,numeric_runtime_schema_exact,pass,MiniBooNE v02 scientific-candidate check numeric_runtime_schema_exact; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,feature_count_locked,pass,MiniBooNE v02 scientific-candidate check feature_count_locked; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,selected_params_within_grid,pass,MiniBooNE v02 scientific-candidate check selected_params_within_grid; artifact is noncanonical and not promoted.
+miniboone_nested_cv_v02,metrics_finite,pass,MiniBooNE v02 scientific-candidate check metrics_finite; artifact is noncanonical and not promoted.
