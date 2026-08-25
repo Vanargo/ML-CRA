@@ -197,7 +197,6 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     if "RU_and_EN_documentation_deferred_to_ST08_10" in application:
         raise DocumentationAssuranceError("doctor still reports the completed ST08_10 deferral")
     required_blockers = [
-        "prospective_release_candidate_reaudit_v02_not_passed",
         "John_release_authorization_not_granted",
     ]
     missing_blockers = [token for token in required_blockers if token not in application]
@@ -208,6 +207,7 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
         "hosted_CI_run_not_observed",
         "external_GitHub_secret_scanning_not_enabled",
         "release_candidate_reaudit_not_passed",
+        "prospective_release_candidate_reaudit_v02_not_passed",
     ]
     stale_blockers = [token for token in retired_blockers if token in application]
     if stale_blockers:

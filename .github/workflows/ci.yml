@@ -76,11 +76,11 @@ jobs:
           python -m unittest -v tests.test_release_candidate_reaudit_st08_13
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the published canonical Git tree
+      - name: Validate the prospective v02 release candidate
         run: |
-          python scripts/st08_13B_public_repository_assurance.py publication-tree
+          python scripts/st08_13C_prospective_release_candidate_v02_reaudit.py candidate-tree
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_public_repository_assurance_st08_13B
+          python -m unittest -v tests.test_prospective_release_candidate_v02_reaudit_st08_13C
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build sdist and wheel without an unpinned build environment

@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_13B_publication_tree_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 

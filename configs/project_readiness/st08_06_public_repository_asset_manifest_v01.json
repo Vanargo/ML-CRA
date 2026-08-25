@@ -50,8 +50,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 359,
-    "approved_path_list_sha256": "1784c78be83391d8c3682ed04dc085de1b2f05c7c7325bed197a7997b7fad7e8",
+    "approved_path_count": 365,
+    "approved_path_list_sha256": "adf29f633ec1e9ebb26c9cea032ecae6ea302336d2723cb0913f1c80fbe352b7",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -144,10 +144,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 182,
-    "ST08-06-MANIFEST-07": 132,
+    "ST08-06-MANIFEST-06": 183,
+    "ST08-06-MANIFEST-07": 137,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 359
+    "TOTAL": 365
   },
   "inventory_refreshes": [
     {
@@ -209,6 +209,12 @@
       "recorded_at": "2026-08-24",
       "reason": "Authorized external bootstrap publishes a SHA-256-bound canonical Git-blob tree while retaining platform-specific working-tree transformations and all excluded local paths outside Git. The prospective protected-artifact bindings place this contract itself in the MiniBooNE-reference attribution class without changing the approved path set.",
       "external_publication_performed": true
+    },
+    {
+      "task_id": "ST08_13C_prospective_release_candidate_v02_reaudit",
+      "recorded_at": "2026-08-25",
+      "reason": "Authorized prospective v02 re-audit adds a versioned exact candidate manifest, validator, mutation tests, evidence and change scope while preserving historical audits and scientific artifacts.",
+      "external_publication_performed": false
     }
   ],
   "mandatory_public_legal_artifacts": [
@@ -219,13 +225,9 @@
   ],
   "publication_gate": {
     "st08_06_legal_artifacts_condition": "SATISFIED_AFTER_VALIDATION",
-    "public_development_gate": "BLOCKED",
+    "public_development_gate": "SATISFIED_BY_ST08_13B",
     "remaining_blockers": [
-      "hosted_CI_run_not_observed",
-      "external_GitHub_secret_scanning_not_enabled",
-      "release_candidate_reaudit_not_passed",
-      "public_repository_not_created",
-      "explicit_John_publication_authorization_not_granted"
+      "John_release_authorization_not_granted"
     ],
     "external_actions_performed": 0
   },
