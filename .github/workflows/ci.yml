@@ -76,11 +76,11 @@ jobs:
           python -m unittest -v tests.test_release_candidate_reaudit_st08_13
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the prospective v02 release candidate
+      - name: Validate the release 0.1.0 scope and channel contract
         run: |
-          python scripts/st08_13C_prospective_release_candidate_v02_reaudit.py candidate-tree
+          python scripts/st08_14_release_0_1_0_contract_assurance.py contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_prospective_release_candidate_v02_reaudit_st08_13C
+          python -m unittest -v tests.test_release_0_1_0_contract_st08_14
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build sdist and wheel without an unpinned build environment

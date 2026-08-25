@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
@@ -303,6 +303,8 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "mlcra.exe doctor --format json",
         "tests.test_cli_st08_08",
         "tests.test_release_assurance_st08_09",
+        "st08_14_release_0_1_0_contract_assurance.py contract",
+        "tests.test_release_0_1_0_contract_st08_14",
         "scripts/agent_verify.py --mode baseline --inventory published",
     ]
     missing = [command for command in required_commands if command not in raw]

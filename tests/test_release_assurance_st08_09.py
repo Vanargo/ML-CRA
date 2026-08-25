@@ -261,7 +261,7 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
     def test_public_manifest_is_exact_and_unmapped_zero(self) -> None:
         if os.environ.get("MLCRA_ASSURANCE_INVENTORY") == "published":
             result = assurance.validate_publication_tree()
-            self.assertEqual(result["paths"], 320)
+            self.assertEqual(result["paths"], 326)
         else:
             result = assurance.validate_public_manifest()
             self.assertGreater(result["paths"], 0)

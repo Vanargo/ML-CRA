@@ -1,0 +1,14 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/st08_14_release_0_1_0_scope_channel_and_execution_contract_v01.json,Register the authorized 0.1.0 release scope channel artifact owner gate phase and recovery design
+added,scripts/st08_14_release_0_1_0_contract_assurance.py,Validate the release contract decision matrix immutable history successor manifest evidence and no-release boundary
+added,tests/test_release_0_1_0_contract_st08_14.py,Exercise positive relations and fail-closed release-scope mutations
+added,data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv,Bind the successor current tracked tree with canonical Git-blob SHA-256 and sizes
+added,data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json,Record baseline MAPE-K decision checks limits risks and exact actual change reconciliation
+added,docs/agent/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_change_scope_v01.csv,Record the exact planned and actual task path set
+modified,.github/workflows/ci.yml,Replace the historical ST08_13C current gate with the ST08_14 contract and mutation gate
+modified,scripts/st08_09_release_assurance.py,Route current published-tree assurance to the versioned ST08_14 successor manifest and evidence
+modified,tests/test_release_assurance_st08_09.py,Update current publication-tree expectations for the ST08_14 successor state
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,Refresh the exact policy inventory for authorized ST08_14 paths without changing dispositions
+modified,docs/agent/pilot_change_scope_v01.csv,Register all ST08_14 planned paths in the cumulative change scope
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Record ST08_13C acceptance and the bounded ST08_14 release contract result
+modified,roadmap.md,Record ST08_13C acceptance and the bounded ST08_14 release contract result
