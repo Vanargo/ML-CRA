@@ -106,3 +106,9 @@ added,tests/test_prospective_release_candidate_v02_reaudit_st08_13C.py,ST08_13C 
 added,data_registry/st08_13C_release_candidate_v02_manifest_v01.csv,ST08_13C exact canonical Git path SHA-256 and size manifest
 added,data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json,ST08_13C observed requirement dimension verdict and owner-gate evidence
 added,docs/agent/st08_13C_prospective_release_candidate_v02_reaudit_change_scope_v01.csv,ST08_13C exact planned and actual change scope
+added,configs/project_readiness/st08_14_release_0_1_0_scope_channel_and_execution_contract_v01.json,ST08_14 release 0.1.0 scope channel artifact owner gate phase and recovery contract
+added,scripts/st08_14_release_0_1_0_contract_assurance.py,ST08_14 contract decision manifest immutable-history evidence and no-release validator
+added,tests/test_release_0_1_0_contract_st08_14.py,ST08_14 positive and fail-closed release-contract mutation tests
+added,data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv,ST08_14 successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json,ST08_14 baseline MAPE-K decision verification risk and change-reconciliation evidence
+added,docs/agent/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_change_scope_v01.csv,ST08_14 exact planned and actual change scope

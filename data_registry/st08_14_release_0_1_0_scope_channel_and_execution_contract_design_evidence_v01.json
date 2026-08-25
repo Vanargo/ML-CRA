@@ -1,0 +1,119 @@
+{
+  "schema_version": "st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01",
+  "evidence_id": "st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01",
+  "task_id": "ST08_14_release_0_1_0_scope_channel_and_execution_contract_design",
+  "recorded_at": "2026-08-25",
+  "profile": "CHANGE",
+  "status": "contract_design_complete_external_release_not_authorized",
+  "contract_path": "configs/project_readiness/st08_14_release_0_1_0_scope_channel_and_execution_contract_v01.json",
+  "source_baseline": {
+    "git_commit": "c95ea0e113644e66d5948c16f159f59bf1d1c6bd",
+    "project_version_before": "0.1.0.dev0",
+    "project_version_after": "0.1.0.dev0",
+    "ST08_13C_project_completion": "PASS_PRESERVED",
+    "ST08_13C_external_release_readiness": "BLOCKED_PRESERVED",
+    "GitHub_release_count_observed": 0,
+    "GitHub_tag_count_observed": 0,
+    "PyPI_ml_cra_observation": "HTTP_404_not_found_not_reserved"
+  },
+  "mape_k_result": {
+    "selected_option": "O03",
+    "selected_option_name": "phased_0_1_0_contract_candidate_reaudit_then_external_execution",
+    "weighted_score": 5.0,
+    "rejected_options": [
+      {"option_id": "O01", "weighted_score": 1.4},
+      {"option_id": "O02", "weighted_score": 2.6}
+    ],
+    "interpretation": "The phased design is the only option that fully respects current authority, the accepted release train, reversible failure containment and exact artifact provenance."
+  },
+  "registered_release_decision": {
+    "version": "0.1.0",
+    "tag": "v0.1.0",
+    "primary_channel": "GitHub_Release",
+    "release_mode": "draft_attach_validate_then_publish_immutable",
+    "assets": ["ml_cra-0.1.0.tar.gz", "ml_cra-0.1.0-py3-none-any.whl", "SHA256SUMS"],
+    "PyPI": "deferred_not_authorized",
+    "phase_count": 5,
+    "future_phases_authorized": 0
+  },
+  "successor_manifest": {
+    "paths": 326,
+    "hashed_paths": 324,
+    "path_list_sha256": "784ef427671ff952649c822020a0e369e7924e967be0f9bd1b0d3694089ddf90",
+    "manifest_sha256": "c9108123ae101aec7866cc2f4fb1d5cefd981f9854e0a774ea612b9d66253914",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv",
+      "data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json"
+    ],
+    "status": "PASS"
+  },
+  "observed_checks": {
+    "contract_assurance": "PASS",
+    "mutation_tests": "PASS_14_of_14",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "source_assurance": "PASS",
+    "documentation_assurance": "PASS",
+    "secret_pattern_scan": "PASS_zero_findings",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "change_reconciliation": {
+    "planned_paths": 13,
+    "actual_paths": 13,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "residual_risks": [
+    {
+      "risk_id": "ST08-14-RISK-01",
+      "risk": "The contract does not itself prove that a future 0.1.0 artifact is correct or releasable.",
+      "control": "Require separate candidate finalization and exact-candidate re-audit before any external execution.",
+      "status": "open_controlled"
+    },
+    {
+      "risk_id": "ST08-14-RISK-02",
+      "risk": "GitHub release publication and version tags are difficult to reverse safely once consumed.",
+      "control": "Require draft-first immutable release execution against one approved commit and verify every attached asset.",
+      "status": "open_release_execution_risk"
+    },
+    {
+      "risk_id": "ST08-14-RISK-03",
+      "risk": "The PyPI name observation can change and does not reserve ownership.",
+      "control": "Keep PyPI deferred and repeat official availability and trusted-publisher checks only after separate authorization.",
+      "status": "open_deferred"
+    },
+    {
+      "risk_id": "ST08-14-RISK-04",
+      "risk": "Artifact attestations establish provenance but cannot prove absence of defects or scientific validity.",
+      "control": "Keep software assurance scientific limits and owner risk decision separate from provenance verification.",
+      "status": "open_controlled"
+    }
+  ],
+  "authoritative_support": [
+    "https://semver.org/",
+    "https://packaging.python.org/en/latest/specifications/version-specifiers/",
+    "https://packaging.python.org/en/latest/flow/",
+    "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases",
+    "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity",
+    "https://docs.pypi.org/trusted-publishers/",
+    "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+  ],
+  "scientific_interpretation_limit": "ST08_14 designs software release governance only. It performs no training, changes no scientific claim, protocol, seed, split, metric, result or verdict, and does not authorize or execute a release.",
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The task creates no release artifact; protected pull-request checks and the independently stored public Git history are the recovery controls."
+  },
+  "package_version_changed": false,
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

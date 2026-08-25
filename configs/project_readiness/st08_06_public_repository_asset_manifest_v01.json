@@ -50,8 +50,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 365,
-    "approved_path_list_sha256": "adf29f633ec1e9ebb26c9cea032ecae6ea302336d2723cb0913f1c80fbe352b7",
+    "approved_path_count": 371,
+    "approved_path_list_sha256": "6afc8425b63a24742bc07359e965d00a391987d88c16edf55eac15a4c915e1fc",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -144,10 +144,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 183,
-    "ST08-06-MANIFEST-07": 137,
+    "ST08-06-MANIFEST-06": 185,
+    "ST08-06-MANIFEST-07": 141,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 365
+    "TOTAL": 371
   },
   "inventory_refreshes": [
     {
@@ -214,6 +214,12 @@
       "task_id": "ST08_13C_prospective_release_candidate_v02_reaudit",
       "recorded_at": "2026-08-25",
       "reason": "Authorized prospective v02 re-audit adds a versioned exact candidate manifest, validator, mutation tests, evidence and change scope while preserving historical audits and scientific artifacts.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_14_release_0_1_0_scope_channel_and_execution_contract_design",
+      "recorded_at": "2026-08-25",
+      "reason": "Authorized release-contract design adds a successor current-tree manifest, validator, mutation tests, evidence and exact scope while preserving version 0.1.0.dev0 and performing no release action.",
       "external_publication_performed": false
     }
   ],
