@@ -217,8 +217,12 @@ def validate_candidate_bindings(
     for key in ("version_tag_authorized", "GitHub_release_authorized", "PyPI_publication_authorized", "scientific_claim_protocol_or_verdict_change_authorized"):
         if authority.get(key) is not False:
             raise ProspectiveReauditError(f"authority boundary overstated: {key}")
-    requirements_path = root / contract["assessment"]["requirements_path"]
-    if _sha256(requirements_path) != contract["assessment"]["requirements_sha256"]:
+    requirements_relative = contract["assessment"]["requirements_path"]
+    requirements_path = root / requirements_relative
+    if contract["assessment"].get("requirements_representation") != "SHA-256 over canonical Git index blob bytes":
+        raise ProspectiveReauditError("requirements representation is not canonical Git blob bytes")
+    requirements_payload = release_assurance.git_index_blob_bytes(requirements_relative, root)
+    if _sha256_bytes(requirements_payload) != contract["assessment"]["requirements_sha256"]:
         raise ProspectiveReauditError("requirements v02 hash mismatch")
     _, requirements = _load_csv(requirements_path)
     requirement_summary = validate_requirements(requirements, contract)
