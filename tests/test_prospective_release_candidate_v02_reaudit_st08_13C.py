@@ -85,8 +85,12 @@ class ST0813CProspectiveReleaseCandidateReauditTests(unittest.TestCase):
         self.assertEqual(result["bindings"]["protected"]["expected"], 18)
 
     def test_contract_hashes_use_canonical_git_blobs(self) -> None:
+        candidate = reaudit.validate_candidate_tree()
         requirements_payload = reaudit.release_assurance.git_index_blob_bytes(
             CONTRACT["assessment"]["requirements_path"]
+        )
+        manifest_payload = reaudit.release_assurance.git_index_blob_bytes(
+            reaudit.MANIFEST_PATH.relative_to(reaudit.PROJECT_ROOT).as_posix()
         )
         self.assertEqual(
             CONTRACT["assessment"]["requirements_representation"],
@@ -95,6 +99,14 @@ class ST0813CProspectiveReleaseCandidateReauditTests(unittest.TestCase):
         self.assertEqual(
             hashlib.sha256(requirements_payload).hexdigest(),
             CONTRACT["assessment"]["requirements_sha256"],
+        )
+        self.assertEqual(
+            CONTRACT["current_candidate_manifest"]["manifest_digest_representation"],
+            "SHA-256 over canonical Git index blob bytes",
+        )
+        self.assertEqual(
+            candidate["bindings"]["manifest"]["manifest_sha256"],
+            hashlib.sha256(manifest_payload).hexdigest(),
         )
         self.assertEqual(
             CONTRACT["immutable_history_representation"],

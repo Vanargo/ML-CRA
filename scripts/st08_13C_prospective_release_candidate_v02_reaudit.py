@@ -144,6 +144,8 @@ def validate_manifest(
     expected_fields = contract["current_candidate_manifest"]["fields"]
     if list(fields) != expected_fields:
         raise ProspectiveReauditError("candidate manifest schema mismatch")
+    if contract["current_candidate_manifest"].get("manifest_digest_representation") != "SHA-256 over canonical Git index blob bytes":
+        raise ProspectiveReauditError("candidate manifest digest representation is not canonical Git blob bytes")
     row_paths = _unique((str(row.get("relative_path", "")) for row in rows), "candidate manifest path")
     if row_paths != sorted(row_paths):
         raise ProspectiveReauditError("candidate manifest paths are not ordinally sorted")
@@ -165,7 +167,11 @@ def validate_manifest(
         "paths": len(tracked),
         "hashed_paths": len(rows),
         "path_list_sha256": _path_list_sha256(tracked),
-        "manifest_sha256": _sha256(root / MANIFEST_PATH.relative_to(PROJECT_ROOT)),
+        "manifest_sha256": _sha256_bytes(
+            release_assurance.git_index_blob_bytes(
+                MANIFEST_PATH.relative_to(PROJECT_ROOT).as_posix(), root
+            )
+        ),
         "cycle_breaking_exclusions": exclusions,
     }
 
