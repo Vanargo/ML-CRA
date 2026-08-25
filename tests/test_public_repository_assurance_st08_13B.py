@@ -14,6 +14,11 @@ class AgentVerifierRepositoryInventoryTests(unittest.TestCase):
     def test_git_administrative_tree_is_derived_local_state(self) -> None:
         self.assertTrue(agent_verify.is_derived(".git/config"))
 
+    def test_local_build_outputs_are_derived_local_state(self) -> None:
+        self.assertTrue(agent_verify.is_derived("build/lib/mlcra/application.py"))
+        self.assertTrue(agent_verify.is_derived("src/ml_cra.egg-info/PKG-INFO"))
+        self.assertFalse(agent_verify.is_derived("src/mlcra/application.py"))
+
 
 def final_evidence_fixture() -> dict:
     commit = "a" * 40
@@ -97,7 +102,14 @@ class ST0813BPublicRepositoryAssuranceTests(unittest.TestCase):
     def test_publication_tree_and_contract_pass(self) -> None:
         result = assurance.validate_publication_tree()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["bindings"]["protected"], {"expected": 18, "mismatches": 0})
+        self.assertEqual(
+            result["bindings"]["protected"],
+            {
+                "expected": 18,
+                "mismatches": 0,
+                "representation": "canonical_git_blob",
+            },
+        )
 
     def test_external_evidence_fixture_passes(self) -> None:
         result = assurance.validate_external_evidence(final_evidence_fixture(), CONTRACT)

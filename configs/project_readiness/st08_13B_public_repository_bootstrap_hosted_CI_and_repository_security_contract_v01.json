@@ -35,6 +35,26 @@
     ],
     "exclusion_reason": "The manifest cannot hash itself; the post-publication evidence changes after the first hosted run and is excluded from byte rows to avoid an evidence-to-commit hash cycle. Both exact paths remain mandatory tracked members."
   },
+  "protected_git_blob_bindings": [
+    {"path": "notebooks/04_dataset_smoke_experiments.ipynb", "legacy_worktree_sha256": "a858f7d1c9db92ce3b740b5dbe7c748ba7f3cc58a8ff1604f88854ead831ec52", "canonical_git_blob_sha256": "842441acd132146a5351a28fee95d58d7dab70a750c276567115b1378245ca44", "canonical_size_bytes": 346713, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/datasets.py", "legacy_worktree_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b", "canonical_git_blob_sha256": "1a60d860d8073af2e9b9b5143b4817918cc614eb65c0ab17343713cfecfc154b", "canonical_size_bytes": 13459, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/io.py", "legacy_worktree_sha256": "460a4ebe6ad523c2d07650332fe6d03422d4544468ed9d47874edaa590dd4be0", "canonical_git_blob_sha256": "cd3c89a2a3f63052e40ae4cb4379a34db6b0154a6b37a564afca3443c2563757", "canonical_size_bytes": 1498, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/metrics.py", "legacy_worktree_sha256": "6a40115df49078119fa624bf0ce74f18de86f0f54362e5b41860017c29be5ab3", "canonical_git_blob_sha256": "d0d9b3da89ef9562b9403e7f55c4efd6a27bdc64bcd5cff05ff4b1b735ee8fef", "canonical_size_bytes": 3033, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/model_spaces.py", "legacy_worktree_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b", "canonical_git_blob_sha256": "9f726c03394817b0ffb00d11a81ccf2234a1809cab1d41ca0ab118ed9556140b", "canonical_size_bytes": 5838, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/nested_artifacts.py", "legacy_worktree_sha256": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723", "canonical_git_blob_sha256": "19bf4021ef6ee9d556e1bb2f6d03c03901463ce0aa652a81fc80d58b9c246723", "canonical_size_bytes": 17440, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/nested_cv.py", "legacy_worktree_sha256": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727", "canonical_git_blob_sha256": "86275f03c92475850932169667d2020cc0ff11e97c3d8a57b679c51ff3095727", "canonical_size_bytes": 40320, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/numeric_runtime.py", "legacy_worktree_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086", "canonical_git_blob_sha256": "4f09dbe5b16dc42497dd00c29cb70695cdfb802d42a798570f19e08653003086", "canonical_size_bytes": 14478, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/stress_tests.py", "legacy_worktree_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146", "canonical_git_blob_sha256": "960df96dfeeed464770b7b2a3a1b1253f3b2943efc12588dd760621d6db6a146", "canonical_size_bytes": 96246, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/validation.py", "legacy_worktree_sha256": "2bed7566811af6c342b9a70a8e8933479248fc6e7ee4b9983da39d1c0279ffff", "canonical_git_blob_sha256": "d09d9958d410fd86fa488abf3503a107ef4a3630b1533c0881b41202082aefe1", "canonical_size_bytes": 2057, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "src/mlcra/verdicts.py", "legacy_worktree_sha256": "4ea061497285ba894fe7358f76f2d8ffdc915127762ec214f69630e2ec727b47", "canonical_git_blob_sha256": "7806d5ab07f5c33e09c994020612e4c0373694ae1d100359f9a423e09dce17ad", "canonical_size_bytes": 106635, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "configs/verdict_policies/miniboone_verdict_policy_v01.csv", "legacy_worktree_sha256": "6b52787d01a8f6606af5eea29a8d13d696ede461d23ef597ef9d19eafa295637", "canonical_git_blob_sha256": "ff35cec17e4c0a4db70dd5a7e7cf8ba9b29b15fa38e86244a1f741991db89aa8", "canonical_size_bytes": 10180, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "configs/claims/miniboone_hgb_vs_logreg_claim_v01.csv", "legacy_worktree_sha256": "d3fb1096c20ac5112d90a42af4dfde30aa30c5db22debdda6b8a5b7f6309bb49", "canonical_git_blob_sha256": "da523e2a2cb19c7bc47f58b4b0ce6d4f5e25ad4d099e785eb7c245bcae672a13", "canonical_size_bytes": 2579, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "docs/stages/stage_05_claim_audit_protocol.md", "legacy_worktree_sha256": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e", "canonical_git_blob_sha256": "0ab38171e0d2379aa98ce14d1ffaff90e0c7bfed808f64e6de689a7044f22c3e", "canonical_size_bytes": 51313, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "data_registry/openml_miniboone_stage05_current_effect_readout.csv", "legacy_worktree_sha256": "cdce7d11de2fb66bbe7e4c15cb2516e07ece40cb2d39953391bd4f63ffa0d4f8", "canonical_git_blob_sha256": "df5ff3585743d0ad592a253ef409b9a51bd00651ed3caf284f99fc7c231e3efa", "canonical_size_bytes": 77552, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "data_registry/openml_miniboone_stage05_seed_stability_outer_scores.csv", "legacy_worktree_sha256": "2a98546d52e1395b6be264d89d90ddb40c49332398d94f275f3633e676045687", "canonical_git_blob_sha256": "d23250dd5c76d96132ce45292437600567b8aeffd575a82c12f144891deb2fec", "canonical_size_bytes": 226236, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "data_registry/openml_miniboone_stage05_split_10x1_outer_scores.csv", "legacy_worktree_sha256": "2514b1dc58c40bc162c4858f5fbef3a650efe60f323bd4ac1df4710f13c88970", "canonical_git_blob_sha256": "8ba797b1c76d628712cf65ea264a02559d845babcb577b4516cae14ce646e4ac", "canonical_size_bytes": 77243, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"},
+    {"path": "data_registry/openml_miniboone_stage05_non_nested_optimism_probe.csv", "legacy_worktree_sha256": "cdb9bbd52d9d57738e228dbbd707724f4ebdcad09003b0ea3ce2c1f8e5933317", "canonical_git_blob_sha256": "e6eaa58434710c19905d07e402e80e8da91d22c429db7739995523c23811bffa", "canonical_size_bytes": 20818, "relation": "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"}
+  ],
   "hosted_CI_contract": {
     "workflow": ".github/workflows/ci.yml",
     "event": "push",
@@ -83,7 +103,11 @@
     {"change_kind": "modified", "relative_path": ".gitignore"},
     {"change_kind": "modified", "relative_path": "scripts/agent_verify.py"},
     {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_13_release_candidate_reaudit.py"},
     {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_documentation_st08_10.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_candidate_reaudit_st08_13.py"},
     {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
     {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
     {"change_kind": "modified", "relative_path": "src/mlcra/application.py"},
@@ -95,10 +119,13 @@
   ],
   "required_checks": [
     "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
     "python scripts/st08_09_release_assurance.py source --inventory working",
     "python scripts/st08_09_release_assurance.py source --inventory published",
     "python scripts/st08_09_release_assurance.py secrets --inventory published",
     "python scripts/st08_13B_public_repository_assurance.py publication-tree",
+    "python scripts/st08_13_release_candidate_reaudit.py --inventory published",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
     "python -m unittest -v tests.test_release_assurance_st08_09 tests.test_public_repository_assurance_st08_13B tests.test_release_candidate_reaudit_st08_13",
     "hosted GitHub Actions assurance job completed with conclusion success",
     "official GitHub REST API repository and security observations",
@@ -112,7 +139,9 @@
     {"source": "GitHub protected branches", "uri": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches", "use": "Protect main from force push and deletion and require the hosted assurance check before merge."},
     {"source": "GitHub private vulnerability reporting", "uri": "https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository", "use": "Provide a private structured disclosure channel for the public repository."},
     {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release-relevant files, automate verification and retain provenance for externally supplied software."},
-    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind the intended public file bytes to SHA-256 without treating hashes as correctness proof."}
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind the intended public file bytes to SHA-256 without treating hashes as correctness proof."},
+    {"source": "Git gitattributes documentation", "uri": "https://git-scm.com/docs/gitattributes", "use": "Distinguish canonical Git blob content from platform-dependent working-tree line-ending transformations."},
+    {"source": "pip local project installs", "uri": "https://pip.pypa.io/en/stable/topics/local-project-installs/", "use": "Use a regular local-project install in CI so the src-layout package is tested as an installed distribution."}
   ],
   "checkpoint_policy": {
     "zip_status": "SKIPPED_IF_REMOTE_RECOVERY_VERIFIED",

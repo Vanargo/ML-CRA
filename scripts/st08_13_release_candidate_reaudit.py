@@ -1,11 +1,18 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
+import os
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
+
+try:
+    from scripts import st08_09_release_assurance as release_assurance
+except ImportError:  # pragma: no cover - direct script execution
+    import st08_09_release_assurance as release_assurance
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -209,32 +216,46 @@ def validate_repository_bindings(
     contract: Mapping[str, Any],
     evidence: Mapping[str, Any],
     workflow_text: str | None = None,
+    inventory: str = "working",
 ) -> dict[str, Any]:
     assessment = contract["assessment_object"]
-    if _sha256(PROJECT_ROOT / assessment["requirements_path"]) != assessment["requirements_sha256_before_audit"]:
+    if inventory == "published":
+        hash_reader = lambda relative: hashlib.sha256(
+            release_assurance.git_index_blob_bytes(relative, PROJECT_ROOT)
+        ).hexdigest()
+    else:
+        hash_reader = lambda relative: _sha256(PROJECT_ROOT / relative)
+    if hash_reader(assessment["requirements_path"]) != assessment["requirements_sha256_before_audit"]:
         raise ReauditValidationError("requirements registry changed during the audit")
-    if _sha256(PROJECT_ROOT / assessment["baseline_audit_path"]) != assessment["baseline_audit_sha256"]:
+    if hash_reader(assessment["baseline_audit_path"]) != assessment["baseline_audit_sha256"]:
         raise ReauditValidationError("baseline audit changed during the re-audit")
 
     protected_source = contract["protected_artifacts_source"]
     source_path = PROJECT_ROOT / protected_source["path"]
-    if _sha256(source_path) != protected_source["sha256_before_audit"]:
+    if hash_reader(protected_source["path"]) != protected_source["sha256_before_audit"]:
         raise ReauditValidationError("protected-artifact source record changed")
     protected = _load_json(source_path)[protected_source["json_key"]]
     if len(protected) != int(protected_source["expected_count"]):
         raise ReauditValidationError("protected-artifact count mismatch")
-    mismatches = []
-    for relative, expected in protected.items():
-        path = PROJECT_ROOT / relative
-        actual = _sha256(path) if path.is_file() else None
-        if actual != expected:
-            mismatches.append({"path": relative, "expected": expected, "actual": actual})
+    if inventory == "published":
+        protected_result = release_assurance.validate_protected_hashes(
+            PROJECT_ROOT,
+            inventory="published",
+        )
+        mismatches = [] if protected_result["mismatches"] == 0 else [protected_result]
+    else:
+        mismatches = []
+        for relative, expected in protected.items():
+            path = PROJECT_ROOT / relative
+            actual = _sha256(path) if path.is_file() else None
+            if actual != expected:
+                mismatches.append({"path": relative, "expected": expected, "actual": actual})
     if mismatches:
         raise ReauditValidationError(f"protected scientific artifact mismatch: {mismatches}")
 
     workflow_text = workflow_text if workflow_text is not None else WORKFLOW_PATH.read_text(encoding="utf-8")
     required_commands = [
-        "scripts/st08_13_release_candidate_reaudit.py",
+        "scripts/st08_13_release_candidate_reaudit.py --inventory published",
         "tests.test_release_candidate_reaudit_st08_13",
     ]
     missing = [command for command in required_commands if command not in workflow_text]
@@ -245,17 +266,32 @@ def validate_repository_bindings(
     return {"protected": len(protected), "mismatches": 0, "CI_commands": required_commands}
 
 
-def validate_registered_evidence() -> dict[str, Any]:
+def default_inventory(inventory: str | None = None) -> str:
+    selected = inventory or os.environ.get("MLCRA_ASSURANCE_INVENTORY", "working")
+    if selected not in {"working", "published"}:
+        raise ReauditValidationError(f"unsupported assurance inventory: {selected}")
+    return selected
+
+
+def validate_registered_evidence(inventory: str | None = None) -> dict[str, Any]:
+    inventory = default_inventory(inventory)
     contract = _load_json(CONTRACT_PATH)
     evidence = _load_json(EVIDENCE_PATH)
     relations = validate_evidence_relations(evidence, contract, _load_requirements())
-    bindings = validate_repository_bindings(contract, evidence)
+    bindings = validate_repository_bindings(contract, evidence, inventory=inventory)
     return {"status": "PASS", "relations": relations, "bindings": bindings}
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Validate the registered ST08_13 re-audit")
+    parser.add_argument(
+        "--inventory",
+        choices=("working", "published"),
+        default=default_inventory(),
+    )
+    args = parser.parse_args(argv)
     try:
-        result = validate_registered_evidence()
+        result = validate_registered_evidence(inventory=args.inventory)
     except (ReauditValidationError, csv.Error, json.JSONDecodeError, OSError, KeyError, TypeError, ValueError) as error:
         print(json.dumps({"status": "FAIL", "error": str(error)}, ensure_ascii=False, sort_keys=True))
         return 1

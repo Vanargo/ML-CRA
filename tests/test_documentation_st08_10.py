@@ -17,6 +17,11 @@ class TestSt0810Documentation(unittest.TestCase):
         self.assertEqual(result["status"], "PASS")
         self.assertEqual(result["protected"], {"expected": 18, "mismatches": 0})
 
+    def test_published_source_contract_passes(self) -> None:
+        result = assurance.validate_source(inventory="published")
+        self.assertEqual(result["status"], "PASS")
+        self.assertGreater(result["paths"]["policy_excluded_paths"], 0)
+
     def test_bilingual_commands_are_exact(self) -> None:
         result = assurance.validate_bilingual_documents()
         self.assertTrue(result["command_parity"])

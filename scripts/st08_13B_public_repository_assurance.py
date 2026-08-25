@@ -61,7 +61,7 @@ def _load_scope(path: Path) -> list[tuple[str, str]]:
 def write_publication_manifest(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     contract = _load_json(root / CONTRACT_PATH.relative_to(PROJECT_ROOT))
     public_policy = _load_json(root / release_assurance.PUBLIC_MANIFEST.relative_to(PROJECT_ROOT))
-    paths = release_assurance.repository_paths(root)
+    paths = release_assurance.tracked_repository_paths(root)
     included = [
         relative
         for relative in paths
@@ -74,8 +74,14 @@ def write_publication_manifest(root: Path = PROJECT_ROOT) -> dict[str, Any]:
         raise PublicRepositoryAssuranceError(f"publication cycle-breaking path is not publishable: {missing}")
     rows = []
     for relative in sorted(set(included) - exclusions):
-        path = root / relative
-        rows.append({"relative_path": relative, "sha256": _sha256(path), "size_bytes": str(path.stat().st_size)})
+        payload = release_assurance.git_index_blob_bytes(relative, root)
+        rows.append(
+            {
+                "relative_path": relative,
+                "sha256": hashlib.sha256(payload).hexdigest(),
+                "size_bytes": str(len(payload)),
+            }
+        )
     path = root / MANIFEST_PATH.relative_to(PROJECT_ROOT)
     with path.open("w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=contract["publication_tree"]["fields"], lineterminator="\n")
@@ -116,14 +122,19 @@ def validate_contract_bindings(
             raise PublicRepositoryAssuranceError(f"authority boundary is overstated: {key}")
     for item in contract["immutable_ST08_13A_history"]:
         path = root / item["path"]
-        if not path.is_file() or _sha256(path) != item["sha256"]:
+        payload = release_assurance.git_index_blob_bytes(item["path"], root)
+        if not path.is_file() or hashlib.sha256(payload).hexdigest() != item["sha256"]:
             raise PublicRepositoryAssuranceError(f"immutable ST08_13A history changed: {item['path']}")
-    protected = release_assurance.validate_protected_hashes(root)
+    protected = release_assurance.validate_protected_hashes(
+        root,
+        inventory="published",
+        canonical_bindings=contract["protected_git_blob_bindings"],
+    )
     workflow_text = workflow_text if workflow_text is not None else (root / WORKFLOW_PATH.relative_to(PROJECT_ROOT)).read_text(encoding="utf-8")
     required_workflow_tokens = [
         "st08_09_release_assurance.py source --inventory published",
         "st08_09_release_assurance.py secrets --inventory published",
-        "scripts/st08_13_release_candidate_reaudit.py",
+        "scripts/st08_13_release_candidate_reaudit.py --inventory published",
         "scripts/st08_13B_public_repository_assurance.py publication-tree",
         "tests.test_public_repository_assurance_st08_13B",
     ]

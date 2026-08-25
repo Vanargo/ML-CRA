@@ -7,9 +7,13 @@ added,data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v
 added,docs/agent/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_change_scope_v01.csv,record exact planned and actual ST08_13B paths
 modified,.github/workflows/ci.yml,validate the published tracked tree and current ST08_13B assurance instead of the completed ST08_13A snapshot
 modified,.gitignore,make registered non-public archive sample mutator and empty-placeholder paths fail-safe against accidental tracking
-modified,scripts/agent_verify.py,exclude the Git administrative tree from project-content inventory after repository bootstrap
+modified,scripts/agent_verify.py,exclude strict local derived trees and provide a canonical published baseline after repository bootstrap
 modified,scripts/st08_09_release_assurance.py,separate full working-tree assurance from exact published Git-tree assurance
+modified,scripts/st08_10_documentation_assurance.py,reconcile documentation paths and protected hashes against the authorized published Git inventory
+modified,scripts/st08_13_release_candidate_reaudit.py,preserve historical worktree bindings while adding canonical published Git-blob verification
 modified,tests/test_release_assurance_st08_09.py,cover published-tree selection and workflow contract mutations
+modified,tests/test_documentation_st08_10.py,exercise documentation assurance under the workflow-selected published inventory
+modified,tests/test_release_candidate_reaudit_st08_13.py,cover the prospective published Git-blob representation without changing historical verdicts
 modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh the full local policy inventory for authorized ST08_13B artifacts
 modified,docs/agent/pilot_change_scope_v01.csv,register ST08_13B files in the cumulative scope
 modified,src/mlcra/application.py,replace resolved repository hosted-CI and secret-scanning blockers with the pending v02 re-audit blocker

@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import copy
+import csv
+import hashlib
 import io
 import json
+import os
 import tarfile
 import tempfile
 import unittest
@@ -17,6 +20,9 @@ from scripts import st08_09_release_assurance as assurance
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = json.loads(assurance.DEFAULT_CONTRACT.read_text(encoding="utf-8"))
+PUBLICATION_CONTRACT = json.loads(
+    assurance.PUBLICATION_CONTRACT.read_text(encoding="utf-8")
+)
 
 
 def write_yaml(path: Path, value: dict) -> None:
@@ -24,6 +30,31 @@ def write_yaml(path: Path, value: dict) -> None:
 
 
 class TestSt0809ReleaseAssurance(unittest.TestCase):
+    def test_publication_manifest_binds_canonical_git_index_blob(self) -> None:
+        with assurance.PUBLICATION_TREE_MANIFEST.open(
+            "r", encoding="utf-8", newline=""
+        ) as stream:
+            rows = list(csv.DictReader(stream))
+        row = next(
+            item
+            for item in rows
+            if item["relative_path"]
+            == ".agents/skills/ml-cra-stage-gate/SKILL.md"
+        )
+        payload = assurance.git_index_blob_bytes(row["relative_path"])
+        self.assertEqual(hashlib.sha256(payload).hexdigest(), row["sha256"])
+        self.assertEqual(str(len(payload)), row["size_bytes"])
+
+    def test_published_protected_binding_rejects_mutated_git_hash(self) -> None:
+        bindings = copy.deepcopy(
+            PUBLICATION_CONTRACT["protected_git_blob_bindings"]
+        )
+        bindings[0]["canonical_git_blob_sha256"] = "0" * 64
+        with self.assertRaises(assurance.AssuranceError):
+            assurance.validate_protected_hashes(
+                inventory="published", canonical_bindings=bindings
+            )
+
     def test_doctor_reports_post_st08_09_external_blockers(self) -> None:
         source = (PROJECT_ROOT / "src/mlcra/application.py").read_text(encoding="utf-8")
         self.assertIn('"hosted_CI_run_not_observed"', source)
@@ -33,7 +64,19 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
     def test_source_contract_passes(self) -> None:
         result = assurance.validate_source()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["protected"], {"expected": 18, "mismatches": 0})
+        expected_representation = (
+            "canonical_git_blob"
+            if result["inventory"] == "published"
+            else "historical_worktree_bytes"
+        )
+        self.assertEqual(
+            result["protected"],
+            {
+                "expected": 18,
+                "mismatches": 0,
+                "representation": expected_representation,
+            },
+        )
 
     def test_published_source_contract_passes(self) -> None:
         result = assurance.validate_source(inventory="published")
@@ -59,6 +102,18 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
     def test_workflow_rejects_write_permission(self) -> None:
         workflow = yaml.load(assurance.WORKFLOW.read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
         workflow["permissions"]["contents"] = "write"
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "ci.yml"
+            write_yaml(path, workflow)
+            with self.assertRaises(assurance.AssuranceError):
+                assurance.validate_workflow(path, CONTRACT)
+
+    def test_workflow_rejects_implicit_working_inventory(self) -> None:
+        workflow = yaml.load(
+            assurance.WORKFLOW.read_text(encoding="utf-8"),
+            Loader=yaml.BaseLoader,
+        )
+        workflow["jobs"]["assurance"].pop("env")
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "ci.yml"
             write_yaml(path, workflow)
@@ -95,6 +150,27 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             path.write_text(mutated, encoding="utf-8")
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
+
+    def test_workflow_requires_regular_local_project_install(self) -> None:
+        mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
+            "python -m pip install --no-deps --no-build-isolation .",
+            "# removed regular local project install",
+            1,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "ci.yml"
+            path.write_text(mutated, encoding="utf-8")
+            with self.assertRaises(assurance.AssuranceError):
+                assurance.validate_workflow(path, CONTRACT)
+
+    def test_publication_manifest_digest_uses_canonical_git_blob(self) -> None:
+        result = assurance.validate_publication_tree()
+        payload = assurance.git_index_blob_bytes(
+            assurance.PUBLICATION_TREE_MANIFEST.relative_to(
+                assurance.PROJECT_ROOT
+            ).as_posix()
+        )
+        self.assertEqual(result["manifest_sha256"], hashlib.sha256(payload).hexdigest())
 
     def test_lock_rejects_missing_hash(self) -> None:
         original = assurance.RUNTIME_LOCK.read_text(encoding="utf-8")
@@ -182,9 +258,13 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             self.assertTrue(secrets.json())
 
     def test_public_manifest_is_exact_and_unmapped_zero(self) -> None:
-        result = assurance.validate_public_manifest()
-        self.assertGreater(result["paths"], 0)
-        self.assertEqual(sum(result["counts"].values()), result["paths"])
+        if os.environ.get("MLCRA_ASSURANCE_INVENTORY") == "published":
+            result = assurance.validate_publication_tree()
+            self.assertEqual(result["paths"], 314)
+        else:
+            result = assurance.validate_public_manifest()
+            self.assertGreater(result["paths"], 0)
+            self.assertEqual(sum(result["counts"].values()), result["paths"])
 
 
 if __name__ == "__main__":

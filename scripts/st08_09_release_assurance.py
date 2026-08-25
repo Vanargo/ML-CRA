@@ -4,6 +4,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -22,10 +23,18 @@ TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-wi
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
 PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_13B_publication_tree_manifest_v01.csv"
 PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json"
+PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
 class AssuranceError(RuntimeError):
     pass
+
+
+def default_inventory(inventory: str | None = None) -> str:
+    selected = inventory or os.environ.get("MLCRA_ASSURANCE_INVENTORY", "working")
+    if selected not in {"working", "published"}:
+        raise AssuranceError(f"unsupported assurance inventory: {selected}")
+    return selected
 
 
 def _load_json(path: Path) -> dict[str, Any]:
@@ -103,6 +112,21 @@ def tracked_repository_paths(root: Path = PROJECT_ROOT) -> list[str]:
     if not paths or paths != sorted(paths) or len(paths) != len(set(paths)):
         raise AssuranceError("Git tracked-path inventory must be nonempty, unique and ordinally sorted")
     return paths
+
+
+def git_index_blob_bytes(relative_path: str, root: Path = PROJECT_ROOT) -> bytes:
+    process = subprocess.run(
+        ["git", "-C", str(root), "show", f":{relative_path}"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if process.returncode != 0:
+        detail = process.stderr.decode("utf-8", errors="replace").strip()
+        raise AssuranceError(
+            f"cannot read Git index blob for {relative_path}: {detail}"
+        )
+    return process.stdout
 
 
 def _contains_miniboone_reference(path: Path) -> bool:
@@ -188,7 +212,12 @@ def validate_publication_tree(root: Path = PROJECT_ROOT) -> dict[str, Any]:
         raise AssuranceError(f"published Git tree contains excluded paths: {forbidden}")
     for row in rows:
         path = root / row["relative_path"]
-        if not path.is_file() or _sha256(path) != row["sha256"] or str(path.stat().st_size) != row["size_bytes"]:
+        payload = git_index_blob_bytes(row["relative_path"], root)
+        if (
+            not path.is_file()
+            or hashlib.sha256(payload).hexdigest() != row["sha256"]
+            or str(len(payload)) != row["size_bytes"]
+        ):
             raise AssuranceError(f"publication-tree byte binding mismatch: {row['relative_path']}")
     if not manifest_path.is_file() or not evidence_path.is_file():
         raise AssuranceError("publication-tree cycle-breaking files are missing")
@@ -196,7 +225,12 @@ def validate_publication_tree(root: Path = PROJECT_ROOT) -> dict[str, Any]:
         "paths": len(observed_paths),
         "hashed_paths": len(rows),
         "path_list_sha256": _path_list_sha256(observed_paths),
-        "manifest_sha256": _sha256(manifest_path),
+        "manifest_sha256": hashlib.sha256(
+            git_index_blob_bytes(
+                PUBLICATION_TREE_MANIFEST.relative_to(PROJECT_ROOT).as_posix(),
+                root,
+            )
+        ).hexdigest(),
         "cycle_breaking_exclusions": cycle_exclusions,
         "included_paths": observed_paths,
     }
@@ -233,6 +267,8 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         raise AssuranceError("workflow runner is not the fixed declared label")
     if not job.get("timeout-minutes"):
         raise AssuranceError("workflow job timeout is required")
+    if job.get("env") != {"MLCRA_ASSURANCE_INVENTORY": "published"}:
+        raise AssuranceError("workflow must declare the published assurance inventory")
     steps = job.get("steps")
     if not isinstance(steps, list):
         raise AssuranceError("workflow steps missing")
@@ -255,6 +291,8 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         raise AssuranceError("workflow contains a forbidden privileged, secret or artifact-upload construct")
     required_commands = [
         "python -m pip install --require-hashes --only-binary=:all: -r requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt",
+        "python -m pip install --require-hashes --only-binary=:all: -r requirements/locks/st08_07-py312-windows-x86_64.txt",
+        "python -m pip install --no-deps --no-build-isolation .",
         "st08_09_release_assurance.py source --inventory published",
         "st08_09_release_assurance.py secrets --inventory published",
         "st08_09_release_assurance.py dependencies",
@@ -265,7 +303,7 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "mlcra.exe doctor --format json",
         "tests.test_cli_st08_08",
         "tests.test_release_assurance_st08_09",
-        "scripts/agent_verify.py --mode baseline",
+        "scripts/agent_verify.py --mode baseline --inventory published",
     ]
     missing = [command for command in required_commands if command not in raw]
     if missing:
@@ -294,9 +332,62 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
     return {"events": sorted(triggers), "actions": sorted(observed_uses), "runner": job["runs-on"]}
 
 
-def validate_protected_hashes(root: Path = PROJECT_ROOT) -> dict[str, Any]:
+def validate_protected_hashes(
+    root: Path = PROJECT_ROOT,
+    inventory: str = "working",
+    canonical_bindings: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     source = _load_json(root / PROTECTED_SOURCE.relative_to(PROJECT_ROOT))
     protected = source["protected_artifacts"]
+    if inventory == "published":
+        if canonical_bindings is None:
+            publication_contract = _load_json(
+                root / PUBLICATION_CONTRACT.relative_to(PROJECT_ROOT)
+            )
+            canonical_bindings = publication_contract[
+                "protected_git_blob_bindings"
+            ]
+        binding_paths = [row.get("path") for row in canonical_bindings]
+        if (
+            binding_paths != list(protected)
+            or len(binding_paths) != len(set(binding_paths))
+        ):
+            raise AssuranceError(
+                "published protected-artifact bindings must exactly preserve "
+                "the historical protected path order"
+            )
+        mismatches = []
+        for row in canonical_bindings:
+            relative = row["path"]
+            payload = git_index_blob_bytes(relative, root)
+            actual = hashlib.sha256(payload).hexdigest()
+            if (
+                row.get("legacy_worktree_sha256") != protected[relative]
+                or row.get("canonical_git_blob_sha256") != actual
+                or row.get("canonical_size_bytes") != len(payload)
+                or row.get("relation")
+                != "legacy_worktree_CRLF_normalized_to_LF_equals_git_blob"
+            ):
+                mismatches.append(
+                    {
+                        "path": relative,
+                        "expected_git_blob": row.get(
+                            "canonical_git_blob_sha256"
+                        ),
+                        "actual_git_blob": actual,
+                    }
+                )
+        if mismatches:
+            raise AssuranceError(
+                f"published protected Git-blob mismatch: {mismatches}"
+            )
+        return {
+            "expected": len(protected),
+            "mismatches": 0,
+            "representation": "canonical_git_blob",
+        }
+    if inventory != "working":
+        raise AssuranceError(f"unknown protected-artifact inventory: {inventory}")
     mismatches = []
     for relative, expected in protected.items():
         path = root / relative
@@ -305,14 +396,19 @@ def validate_protected_hashes(root: Path = PROJECT_ROOT) -> dict[str, Any]:
             mismatches.append({"path": relative, "expected": expected, "actual": actual})
     if mismatches:
         raise AssuranceError(f"protected scientific artifact mismatch: {mismatches}")
-    return {"expected": len(protected), "mismatches": 0}
+    return {
+        "expected": len(protected),
+        "mismatches": 0,
+        "representation": "historical_worktree_bytes",
+    }
 
 
 def validate_source(
     root: Path = PROJECT_ROOT,
     contract_path: Path = DEFAULT_CONTRACT,
-    inventory: str = "working",
+    inventory: str | None = None,
 ) -> dict[str, Any]:
+    inventory = default_inventory(inventory)
     contract = _load_json(contract_path)
     missing = [relative for relative in contract["source_assurance"]["required_paths"] if not (root / relative).is_file()]
     if missing:
@@ -321,7 +417,7 @@ def validate_source(
     tools = validate_lock(root / TOOLS_LOCK.relative_to(PROJECT_ROOT), 35)
     workflow = validate_workflow(root / WORKFLOW.relative_to(PROJECT_ROOT), contract)
     manifest = validate_public_manifest(root) if inventory == "working" else validate_publication_tree(root)
-    protected = validate_protected_hashes(root)
+    protected = validate_protected_hashes(root, inventory=inventory)
     gitignore = (root / ".gitignore").read_text(encoding="utf-8")
     for token in ["ml-cra-venv/", "**/__pycache__/", "dist/", ".env", "*.pem", "MiniBooNE_PID.txt"]:
         if token not in gitignore:
@@ -464,7 +560,11 @@ def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="ST08_09 fail-closed release assurance")
     sub = parser.add_subparsers(dest="command", required=True)
     source = sub.add_parser("source")
-    source.add_argument("--inventory", choices=("working", "published"), default="working")
+    source.add_argument(
+        "--inventory",
+        choices=("working", "published"),
+        default=default_inventory(),
+    )
     secrets = sub.add_parser("secrets")
     secrets.add_argument("--inventory", choices=("working", "published"), default="working")
     archives = sub.add_parser("archives")

@@ -21,6 +21,11 @@ class ST0813ReleaseCandidateReauditTests(unittest.TestCase):
         self.assertEqual(result["relations"]["requirements"], 24)
         self.assertEqual(result["bindings"]["protected"], 18)
 
+    def test_published_git_blob_bindings_pass(self) -> None:
+        result = reaudit.validate_registered_evidence(inventory="published")
+        self.assertEqual(result["status"], "PASS")
+        self.assertEqual(result["bindings"]["protected"], 18)
+
     def test_duplicate_requirement_is_rejected(self) -> None:
         mutated = copy.deepcopy(EVIDENCE)
         mutated["requirement_results"][-1]["requirement_id"] = "ST08-REQ-23"

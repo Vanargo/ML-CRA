@@ -18,6 +18,8 @@ jobs:
   assurance:
     runs-on: windows-2022
     timeout-minutes: 45
+    env:
+      MLCRA_ASSURANCE_INVENTORY: published
     defaults:
       run:
         shell: pwsh
@@ -41,6 +43,16 @@ jobs:
       - name: Validate source and immutable CI contract
         run: python scripts/st08_09_release_assurance.py source --inventory published
 
+      - name: Install hash-locked runtime dependencies
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r requirements/locks/st08_07-py312-windows-x86_64.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Install checked-out project without dependency resolution
+        run: |
+          python -m pip install --no-deps --no-build-isolation .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Scan the public candidate for known secret patterns
         run: python scripts/st08_09_release_assurance.py secrets --inventory published
 
@@ -52,14 +64,14 @@ jobs:
 
       - name: Validate bilingual documentation and current paths
         run: |
-          python scripts/st08_10_documentation_assurance.py source
+          python scripts/st08_10_documentation_assurance.py source --inventory published
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest -v tests.test_documentation_st08_10 tests.test_cli_st08_11 tests.test_dashboard_st08_12
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Validate the registered Stage 8 release-candidate re-audit
         run: |
-          python scripts/st08_13_release_candidate_reaudit.py
+          python scripts/st08_13_release_candidate_reaudit.py --inventory published
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -m unittest -v tests.test_release_candidate_reaudit_st08_13
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -109,5 +121,5 @@ jobs:
           .tmp_st08_09_ci_runtime\Scripts\python.exe scripts/st08_10_documentation_assurance.py walkthrough --mlcra .tmp_st08_09_ci_runtime\Scripts\mlcra.exe
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Run deterministic baseline
-        run: python scripts/agent_verify.py --mode baseline
+      - name: Run deterministic published baseline
+        run: python scripts/agent_verify.py --mode baseline --inventory published

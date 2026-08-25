@@ -144,8 +144,8 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 181,
-    "ST08-06-MANIFEST-07": 133,
+    "ST08-06-MANIFEST-06": 182,
+    "ST08-06-MANIFEST-07": 132,
     "BLOCK_UNMAPPED": 0,
     "TOTAL": 359
   },
@@ -207,8 +207,8 @@
     {
       "task_id": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
       "recorded_at": "2026-08-24",
-      "reason": "Authorized external bootstrap adds a separate SHA-256-bound tracked publication tree, hosted-CI and repository-security assurance, evidence and exact scope while retaining all excluded local paths outside Git.",
-      "external_publication_performed": false
+      "reason": "Authorized external bootstrap publishes a SHA-256-bound canonical Git-blob tree while retaining platform-specific working-tree transformations and all excluded local paths outside Git. The prospective protected-artifact bindings place this contract itself in the MiniBooNE-reference attribution class without changing the approved path set.",
+      "external_publication_performed": true
     }
   ],
   "mandatory_public_legal_artifacts": [

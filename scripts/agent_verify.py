@@ -312,6 +312,7 @@ LOCAL_CACHE_DIR_NAMES = {
     ".ruff_cache",
     ".ipynb_checkpoints",
 }
+LOCAL_BUILD_ROOT_NAMES = {"build", "dist"}
 DERIVED_FILE_SUFFIXES = {".pyc", ".pyo"}
 EXPECTED_MAIN_NOTEBOOK_CELL_IDS = [
     "6304ddf8",
@@ -431,12 +432,12 @@ def read_contract_csv(path: Path) -> list[dict[str, str]]:
 
 def is_derived(path: str) -> bool:
     relative = PurePosixPath(path)
+    folded_parts = tuple(part.casefold() for part in relative.parts)
     return (
         relative.suffix.casefold() in DERIVED_FILE_SUFFIXES
-        or any(
-            part.casefold() in LOCAL_CACHE_DIR_NAMES
-            for part in relative.parts
-        )
+        or any(part in LOCAL_CACHE_DIR_NAMES for part in folded_parts)
+        or any(part.endswith(".egg-info") for part in folded_parts)
+        or bool(folded_parts and folded_parts[0] in LOCAL_BUILD_ROOT_NAMES)
     )
 
 
@@ -473,7 +474,7 @@ def build_project_inventory() -> ProjectInventory:
                     child.relative_to(PROJECT_ROOT).as_posix()
                 )
                 ignored_local_files += count_files_in_ignored_tree(child)
-            elif dirname.casefold() in LOCAL_CACHE_DIR_NAMES:
+            elif is_derived(child.relative_to(PROJECT_ROOT).as_posix()):
                 ignored_local_files += count_files_in_ignored_tree(child)
             else:
                 retained_dirs.append(dirname)
@@ -15636,6 +15637,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=("baseline", "pilot"), required=True)
     parser.add_argument(
+        "--inventory",
+        choices=("working", "published"),
+        default="working",
+    )
+    parser.add_argument(
         "--additional-scope",
         action="append",
         default=[],
@@ -15646,6 +15652,9 @@ def main() -> int:
         ),
     )
     args = parser.parse_args()
+
+    if args.inventory == "published" and args.mode != "baseline":
+        parser.error("published inventory is supported only for baseline mode")
 
     scope_paths = [
         PROJECT_ROOT / relative_path
@@ -15664,12 +15673,37 @@ def main() -> int:
 
     inventory = build_project_inventory()
     checks: list[Check] = []
-    scope_check, scope_details = check_change_scope(
-        strict=args.mode == "pilot",
-        current=inventory.files,
-        scope_paths=scope_paths,
-    )
-    checks.append(scope_check)
+    if args.inventory == "published":
+        import st08_09_release_assurance as release_assurance
+
+        publication = release_assurance.validate_source(inventory="published")
+        checks.append(
+            Check(
+                "published_baseline",
+                "PASS",
+                (
+                    f"paths={publication['manifest']['paths']}; "
+                    f"hashed_paths={publication['manifest']['hashed_paths']}; "
+                    f"protected={publication['protected']['expected']}; "
+                    "canonical_git_blob_inventory=PASS"
+                ),
+            )
+        )
+        scope_details = {
+            "out_of_scope_modified": [],
+            "out_of_scope_added": [],
+            "missing": [],
+            "missing_planned_additions": [],
+            "unchanged_planned_modifications": [],
+            "scope_errors": [],
+        }
+    else:
+        scope_check, scope_details = check_change_scope(
+            strict=args.mode == "pilot",
+            current=inventory.files,
+            scope_paths=scope_paths,
+        )
+        checks.append(scope_check)
 
     if args.mode == "pilot":
         checks.extend(
@@ -15735,7 +15769,7 @@ def main() -> int:
             ]
         )
 
-    print(f"ML-CRA agent verification | mode={args.mode}")
+    print(f"ML-CRA agent verification | mode={args.mode} | inventory={args.inventory}")
     print(f"python={platform.python_version()} | platform={platform.platform()}")
     print(f"ignored_local_files={inventory.ignored_local_files}")
     print(

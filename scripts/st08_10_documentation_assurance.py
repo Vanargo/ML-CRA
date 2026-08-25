@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import tempfile
@@ -10,6 +11,11 @@ import tomllib
 from pathlib import Path
 from typing import Any, Sequence
 from urllib.parse import unquote
+
+try:
+    from scripts import st08_09_release_assurance as release_assurance
+except ImportError:  # pragma: no cover - direct script execution
+    import st08_09_release_assurance as release_assurance
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +31,13 @@ WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
 
 class DocumentationAssuranceError(RuntimeError):
     pass
+
+
+def default_inventory(inventory: str | None = None) -> str:
+    selected = inventory or os.environ.get("MLCRA_ASSURANCE_INVENTORY", "working")
+    if selected not in {"working", "published"}:
+        raise DocumentationAssuranceError(f"unsupported assurance inventory: {selected}")
+    return selected
 
 
 def _load_json(path: Path) -> dict[str, Any]:
@@ -120,9 +133,18 @@ def validate_markdown_links(paths: Sequence[Path]) -> dict[str, Any]:
     return {"documents": len(paths), "local_links": checked, "broken": 0}
 
 
-def validate_current_path_reconciliation(contract: dict[str, Any] | None = None) -> dict[str, Any]:
+def validate_current_path_reconciliation(
+    contract: dict[str, Any] | None = None,
+    inventory: str = "working",
+) -> dict[str, Any]:
     contract = contract or _load_json(PATH_CONTRACT_PATH)
+    published_paths = (
+        set(release_assurance.tracked_repository_paths(PROJECT_ROOT))
+        if inventory == "published"
+        else None
+    )
     checked_fragments = 0
+    policy_excluded_paths = 0
     for row in contract["current_path_reconciliation"]:
         document = PROJECT_ROOT / row["document"]
         text = document.read_text(encoding="utf-8")
@@ -138,17 +160,25 @@ def validate_current_path_reconciliation(contract: dict[str, Any] | None = None)
                 raise DocumentationAssuranceError(
                     f"required current reference missing in {row['document']}: {fragment}"
                 )
-            if not (PROJECT_ROOT / fragment).exists():
+            if published_paths is not None and fragment not in published_paths:
+                policy_excluded_paths += 1
+            elif not (PROJECT_ROOT / fragment).exists():
                 raise DocumentationAssuranceError(f"registered current path does not exist: {fragment}")
     exception = contract["protected_historical_exception"]
     protected_text = (PROJECT_ROOT / exception["document"]).read_text(encoding="utf-8")
     archive_path = exception["required_archive_path"]
-    if archive_path not in protected_text or not (PROJECT_ROOT / archive_path).is_file():
+    archive_exists_or_excluded = (
+        (PROJECT_ROOT / archive_path).is_file()
+        if published_paths is None
+        else archive_path not in published_paths or (PROJECT_ROOT / archive_path).is_file()
+    )
+    if archive_path not in protected_text or not archive_exists_or_excluded:
         raise DocumentationAssuranceError("protected historical path exception is not explicitly reconciled")
     return {
         "documents": len(contract["current_path_reconciliation"]),
         "fragments": checked_fragments,
         "protected_historical_exceptions": 1,
+        "policy_excluded_paths": policy_excluded_paths,
     }
 
 
@@ -178,7 +208,7 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
         raise DocumentationAssuranceError(f"doctor current blockers missing: {missing_blockers}")
     workflow = WORKFLOW.read_text(encoding="utf-8")
     required_commands = [
-        "st08_10_documentation_assurance.py source",
+        "st08_10_documentation_assurance.py source --inventory published",
         "tests.test_documentation_st08_10",
         "st08_10_documentation_assurance.py walkthrough",
         "tests.test_dashboard_st08_12",
@@ -189,7 +219,13 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     return {"doctor_blockers": required_blockers, "CI_commands": required_commands}
 
 
-def validate_protected_hashes() -> dict[str, Any]:
+def validate_protected_hashes(inventory: str = "working") -> dict[str, Any]:
+    if inventory == "published":
+        result = release_assurance.validate_protected_hashes(
+            PROJECT_ROOT,
+            inventory="published",
+        )
+        return {"expected": result["expected"], "mismatches": result["mismatches"]}
     source = _load_json(PROTECTED_SOURCE)
     mismatches = []
     for relative, expected in source["protected_artifacts"].items():
@@ -202,15 +238,16 @@ def validate_protected_hashes() -> dict[str, Any]:
     return {"expected": len(source["protected_artifacts"]), "mismatches": 0}
 
 
-def validate_source() -> dict[str, Any]:
+def validate_source(inventory: str | None = None) -> dict[str, Any]:
+    inventory = default_inventory(inventory)
     contract = _load_json(CONTRACT_PATH)
     result = {
         "bilingual": validate_bilingual_documents(contract=contract),
         "links": validate_markdown_links([README_EN, README_RU]),
-        "paths": validate_current_path_reconciliation(),
+        "paths": validate_current_path_reconciliation(inventory=inventory),
         "metadata": validate_project_metadata(),
         "doctor_and_CI": validate_doctor_and_workflow(),
-        "protected": validate_protected_hashes(),
+        "protected": validate_protected_hashes(inventory=inventory),
     }
     result["status"] = "PASS"
     return result
@@ -309,7 +346,12 @@ def run_walkthrough(mlcra: Path) -> dict[str, Any]:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Current ST08_11 documentation assurance")
     subparsers = parser.add_subparsers(dest="command", required=True)
-    subparsers.add_parser("source")
+    source = subparsers.add_parser("source")
+    source.add_argument(
+        "--inventory",
+        choices=("working", "published"),
+        default=default_inventory(),
+    )
     walkthrough = subparsers.add_parser("walkthrough")
     walkthrough.add_argument("--mlcra", required=True, type=Path)
     return parser
@@ -318,7 +360,11 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
-        result = validate_source() if args.command == "source" else run_walkthrough(args.mlcra.resolve())
+        result = (
+            validate_source(inventory=args.inventory)
+            if args.command == "source"
+            else run_walkthrough(args.mlcra.resolve())
+        )
     except (DocumentationAssuranceError, json.JSONDecodeError, OSError, tomllib.TOMLDecodeError) as error:
         print(json.dumps({"status": "FAIL", "error": str(error)}, ensure_ascii=False, sort_keys=True))
         return 1
