@@ -55,11 +55,12 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
                 inventory="published", canonical_bindings=bindings
             )
 
-    def test_doctor_reports_post_st08_09_external_blockers(self) -> None:
+    def test_doctor_reports_only_current_post_st08_13B_release_blockers(self) -> None:
         source = (PROJECT_ROOT / "src/mlcra/application.py").read_text(encoding="utf-8")
-        self.assertIn('"hosted_CI_run_not_observed"', source)
-        self.assertIn('"external_GitHub_secret_scanning_not_enabled"', source)
-        self.assertNotIn('"CI_and_security_assurance_deferred_to_ST08_09"', source)
+        self.assertIn('"prospective_release_candidate_reaudit_v02_not_passed"', source)
+        self.assertIn('"John_release_authorization_not_granted"', source)
+        self.assertNotIn('"hosted_CI_run_not_observed"', source)
+        self.assertNotIn('"external_GitHub_secret_scanning_not_enabled"', source)
 
     def test_source_contract_passes(self) -> None:
         result = assurance.validate_source()

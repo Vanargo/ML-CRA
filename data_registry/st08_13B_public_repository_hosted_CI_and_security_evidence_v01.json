@@ -2,12 +2,208 @@
   "schema_version": "st08_13B_public_repository_hosted_CI_and_security_evidence_v01",
   "evidence_id": "st08_13B_public_repository_hosted_CI_and_security_evidence_v01",
   "task_id": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
-  "recorded_at": "2026-08-24",
+  "recorded_at": "2026-08-25",
   "profile": "CHANGE",
-  "status": "bootstrap_pending_external_observation",
-  "external_evidence": null,
-  "technical_status": "BLOCKED",
-  "readiness": "NOT_READY",
+  "authority_source": "John authorized ST08_13B after accepting and closing ST08_13A; tag, GitHub Release, PyPI publication and scientific changes remained prohibited.",
+  "status": "external_controls_observed_not_release",
+  "publication_tree": {
+    "paths": 314,
+    "hashed_paths": 312,
+    "path_list_sha256": "f980c0f15ec97b68390e7578bd98c3e9fa4f8e92ca1d3e15612aff151fca1e72",
+    "manifest_sha256": "8301e6b9781a9e11a53ee570d55c8ebca08ebe3beca8c353464d9f70e2d99454",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json",
+      "data_registry/st08_13B_publication_tree_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "external_evidence": {
+    "repository": {
+      "id": 1345728683,
+      "node_id": "R_kgDOUDYwqw",
+      "owner": "Vanargo",
+      "name": "ML-CRA",
+      "full_name": "Vanargo/ML-CRA",
+      "private": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "html_url": "https://github.com/Vanargo/ML-CRA",
+      "archived": false,
+      "disabled": false,
+      "observation_source": "GitHub REST API GET /repos/Vanargo/ML-CRA"
+    },
+    "git": {
+      "bootstrap_commit_sha": "74ccb767f08def2ce4c6cf0441a2ba044db1e66a",
+      "branch": "main",
+      "remote_url": "https://github.com/Vanargo/ML-CRA.git"
+    },
+    "hosted_ci": {
+      "run_id": 32832251575,
+      "head_sha": "74ccb767f08def2ce4c6cf0441a2ba044db1e66a",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Vanargo/ML-CRA/actions/runs/32832251575",
+      "job_id": 97753333197,
+      "job_name": "assurance",
+      "job_conclusion": "success",
+      "content_steps_observed": 20,
+      "content_steps_success": 20,
+      "observation_source": "GitHub REST API workflow-run and job endpoints"
+    },
+    "repository_security": {
+      "secret_scanning": "enabled",
+      "secret_scanning_push_protection": "enabled",
+      "private_vulnerability_reporting": true,
+      "vulnerability_alerts": true,
+      "main_branch_protection": {
+        "mechanism": "repository_branch_ruleset",
+        "ruleset_id": 21408995,
+        "html_url": "https://github.com/Vanargo/ML-CRA/rules/21408995",
+        "enabled": true,
+        "target": "default_branch_main",
+        "bypass_actors": 0,
+        "required_status_check": "assurance",
+        "required_status_check_integration": "GitHub Actions",
+        "strict_status_checks": true,
+        "require_pull_request": true,
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": false,
+        "require_last_push_approval": false,
+        "required_conversation_resolution": true,
+        "required_linear_history": true,
+        "allowed_merge_methods": [
+          "squash",
+          "rebase"
+        ],
+        "enforce_admins": true,
+        "allow_force_pushes": false,
+        "allow_deletions": false,
+        "observation_source": "GitHub REST API GET /repos/Vanargo/ML-CRA/rulesets/21408995"
+      },
+      "observation_sources": {
+        "secret_scanning": "John authenticated Advanced Security screenshot, 2026-08-25; Disable action visible means enabled",
+        "secret_scanning_push_protection": "John authenticated Advanced Security screenshot, 2026-08-25; Disable action visible means enabled",
+        "private_vulnerability_reporting": "John authenticated Advanced Security screenshot plus public GitHub REST API enabled=true",
+        "vulnerability_alerts": "John authenticated Advanced Security screenshot, 2026-08-25; Dependabot alerts Disable action visible means enabled"
+      }
+    },
+    "remote_recovery": {
+      "fresh_clone_verified": true,
+      "clone_source": "https://github.com/Vanargo/ML-CRA.git",
+      "head_sha": "74ccb767f08def2ce4c6cf0441a2ba044db1e66a",
+      "tracked_paths": 314,
+      "hashed_paths": 312,
+      "path_list_sha256": "f980c0f15ec97b68390e7578bd98c3e9fa4f8e92ca1d3e15612aff151fca1e72",
+      "manifest_sha256": "ceaac49b7368be22439bd77c5d4ebd8c751e42102ca71ab2d9a775b8bb05e50b",
+      "content_hash_mismatches": 0,
+      "protected_git_blob_mismatches": 0,
+      "note": "The remote clone verifies the published pre-evidence commit. The evidence-closing commit is intentionally outside the earlier hosted run and must pass the protected pull-request gate before merge."
+    },
+    "external_actions": {
+      "repositories_created": 1,
+      "pushes": 4,
+      "workflow_runs_observed": 10,
+      "tags_created": 0,
+      "GitHub_releases_created": 0,
+      "packages_published": 0,
+      "counting_boundary": "Observed bootstrap and in-scope repair actions through successful commit 74ccb767; the later evidence-closing branch and pull request are not release actions."
+    }
+  },
+  "verification_evidence": [
+    {
+      "check": "hosted GitHub Actions assurance",
+      "environment": "windows-2022, CPython 3.12.10",
+      "exit_status": "completed/success",
+      "result": "PASS",
+      "evidence": "run 32832251575, job 97753333197, 20/20 content steps success"
+    },
+    {
+      "check": "fresh remote clone publication-tree",
+      "environment": "local Windows clone from public GitHub HTTPS remote",
+      "exit_status": 0,
+      "result": "PASS",
+      "evidence": "314 tracked paths, 312 hashed paths, 0 content mismatches, 18/18 protected Git blobs"
+    },
+    {
+      "check": "repository security observation",
+      "environment": "GitHub public REST API plus John authenticated administrative screenshots",
+      "exit_status": "observed",
+      "result": "PASS",
+      "evidence": "four server-side controls enabled and ruleset 21408995 active"
+    },
+    {
+      "check": "ST08_13B final evidence and published source assurance",
+      "environment": "local CPython 3.12.0, Windows Server 2019 AMD64",
+      "exit_status": 0,
+      "result": "PASS",
+      "evidence": "314 paths, 312 hashed paths, 18/18 protected canonical Git blobs, 0 mismatches"
+    },
+    {
+      "check": "full published regression suite",
+      "environment": "local CPython 3.12.0, MLCRA_ASSURANCE_INVENTORY=published",
+      "exit_status": 0,
+      "result": "PASS",
+      "evidence": "82 tests ran, OK"
+    },
+    {
+      "check": "working and published baselines plus published secret scan",
+      "environment": "local CPython 3.12.0, Windows Server 2019 AMD64",
+      "exit_status": 0,
+      "result": "PASS",
+      "evidence": "working out_of_scope=0; published baseline PASS; detect-secrets 314 files, 0 findings"
+    },
+    {
+      "check": "cumulative pilot historical-failure preservation",
+      "environment": "local CPython 3.12.0, Windows Server 2019 AMD64",
+      "exit_status": 1,
+      "result": "PASS_EXPECTED_NONZERO",
+      "evidence": "exactly eight registered historical FAIL rows, no new FAIL or BLOCKED row"
+    },
+    {
+      "check": "sdist and wheel build, inventory and installed doctor",
+      "environment": "local CPython 3.12.0, Windows Server 2019 AMD64",
+      "exit_status": 0,
+      "result": "PASS",
+      "evidence": "sdist 36 entries; wheel 22 entries; installed environment_pass=true; only v02 re-audit and John release authorization remain as doctor blockers"
+    }
+  ],
+  "change_control": {
+    "planned_change_set": "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json#planned_changes",
+    "actual_change_log": "docs/agent/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_change_scope_v01.csv",
+    "planned_paths": 25,
+    "deviations": [],
+    "protected_scientific_artifacts_changed": 0
+  },
+  "scientific_interpretation": {
+    "validation_performed": false,
+    "claim_or_protocol_changed": false,
+    "meaning": "ST08_13B verifies development publication infrastructure and security controls only. It provides no new evidence for model superiority or release readiness."
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Exact independently stored Git history and fresh-clone recovery were verified; no release archive or browser handoff is authorized."
+  },
+  "remaining_risks": [
+    "The prospective release-candidate re-audit against requirements v02 has not been performed or authorized.",
+    "The historical ST08_13 project-completion and external-release verdict remains FAIL/not_ready.",
+    "John has not authorized a version tag, GitHub Release, PyPI publication or any other release action.",
+    "Secret scanning and dependency alerts reduce risk but cannot prove that no unknown secret or vulnerability exists."
+  ],
+  "authoritative_support": [
+    "https://docs.github.com/en/rest/actions/workflow-runs",
+    "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository",
+    "https://docs.github.com/en/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning",
+    "https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository",
+    "https://csrc.nist.gov/pubs/sp/800/218/final",
+    "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+  ],
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "release_performed": false,
-  "note": "This fail-closed placeholder is committed for the first hosted run and is replaced only after exact GitHub API observations are available."
+  "next_proposed_task": {
+    "task_id": "ST08_13C_prospective_release_candidate_v02_reaudit",
+    "authorization_status": "PROPOSED_NOT_AUTHORIZED"
+  }
 }

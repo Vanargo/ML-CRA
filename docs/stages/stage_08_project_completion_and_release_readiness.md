@@ -2035,8 +2035,8 @@ John принял и закрыл ST08_13A и передал точный иде
 ACCEPTED_BY_JOHN: ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration
 TASK_CLOSED: ST08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration
 NEXT_BLOCK_AUTHORIZED: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
-ST08_13B_status: implementation_in_progress
-hosted_CI_observed: pending_first_public_run
+ST08_13B_status: technical_pass_ready_for_john_acceptance
+hosted_CI_observed: success_run_32832251575_commit_74ccb767f08def2ce4c6cf0441a2ba044db1e66a
 external_release_authorized: false
 ```
 
@@ -2071,16 +2071,36 @@ ST08_13 и точные SHA-256 семи артефактов ST08_13A.
 
 ## 61. Состояние внешнего выполнения ST08_13B
 
-На момент первого bootstrap-коммита внешние поля намеренно имеют fail-closed
-статус `pending`. После наблюдения репозитория, CI, server-side security и
-fresh-clone recovery этот раздел и evidence обновляются фактическими значениями.
-Отсутствие результата не подменяется локальным выводом.
+Публичный репозиторий `Vanargo/ML-CRA` наблюдён через официальный GitHub REST
+API как открытый, активный и использующий `main` по умолчанию. Для точного
+коммита `74ccb767f08def2ce4c6cf0441a2ba044db1e66a` запуск GitHub Actions
+`32832251575` и задание `assurance` завершились `success`; все 20 содержательных
+шагов задания также имеют `success`.
+
+John включил через административный интерфейс GitHub Dependabot alerts, secret
+scanning, push protection и private vulnerability reporting. Последнее
+дополнительно подтверждено публичным REST API. Активный ruleset — набор правил —
+`21408995` применяется к ветви по умолчанию без списка обхода, запрещает
+удаление и force push, требует pull request, линейную историю, разрешение
+обсуждений, актуальность ветви и точную проверку `assurance` от GitHub Actions.
+
+Свежий удалённый clone восстановил тот же SHA коммита и прошёл точную проверку
+публикационного дерева: 314 tracked paths, 312 хешированных файлов, 0
+расхождений содержимого, 18/18 защищённых научных Git blobs без расхождений.
+Теги, GitHub Releases и публикация пакета не выполнялись. Это программная и
+инфраструктурная верификация; научные утверждения, протоколы и результаты не
+изменялись.
+
+Итоговая машиночитаемая запись находится в
+`data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json`.
+ST08_13B технически завершён и ожидает принятия John. Последний проектный
+readiness-verdict остаётся историческим ST08_13=`FAIL/not_ready`; отдельный
+перспективный аудит по v02 не входит в этот блок и не выполнялся.
 
 ## 62. Задачи John
 
-1. До завершения технической работы дополнительных ручных действий не требуется,
-   кроме интерактивного входа GitHub, если системная авторизация отсутствует.
-2. После итогового отчёта принять либо вернуть только ST08_13B.
+1. Принять либо вернуть только ST08_13B.
+2. При принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Не считать публичный development repository выпуском версии.
 4. Отдельно решить, авторизовать ли новый readiness-аудит по v02; он не входит
-   в ST08_13B.
+   в ST08_13B и пока не разрешён.
