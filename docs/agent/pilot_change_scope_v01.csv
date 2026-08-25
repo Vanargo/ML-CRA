@@ -100,3 +100,9 @@ added,tests/test_public_repository_assurance_st08_13B.py,ST08_13B publication se
 added,data_registry/st08_13B_publication_tree_manifest_v01.csv,ST08_13B exact published Git path SHA-256 and size inventory with registered cycle breaks
 added,data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json,ST08_13B observed public repository hosted CI security and recovery evidence
 added,docs/agent/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_change_scope_v01.csv,ST08_13B exact planned and actual change scope
+added,configs/project_readiness/st08_13C_prospective_release_candidate_v02_reaudit_contract_v01.json,ST08_13C prospective v02 requirement aggregation candidate and owner-gate contract
+added,scripts/st08_13C_prospective_release_candidate_v02_reaudit.py,ST08_13C current candidate manifest requirement and aggregate validator
+added,tests/test_prospective_release_candidate_v02_reaudit_st08_13C.py,ST08_13C positive and fail-closed mutation tests
+added,data_registry/st08_13C_release_candidate_v02_manifest_v01.csv,ST08_13C exact canonical Git path SHA-256 and size manifest
+added,data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json,ST08_13C observed requirement dimension verdict and owner-gate evidence
+added,docs/agent/st08_13C_prospective_release_candidate_v02_reaudit_change_scope_v01.csv,ST08_13C exact planned and actual change scope

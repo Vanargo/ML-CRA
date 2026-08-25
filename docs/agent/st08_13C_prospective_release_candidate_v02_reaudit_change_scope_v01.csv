@@ -1,0 +1,18 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/st08_13C_prospective_release_candidate_v02_reaudit_contract_v01.json,ST08_13C authority assessment aggregation evidence and stop contract
+added,scripts/st08_13C_prospective_release_candidate_v02_reaudit.py,Versioned current candidate manifest requirement aggregate and evidence validator
+added,tests/test_prospective_release_candidate_v02_reaudit_st08_13C.py,Positive and fail-closed mutation tests for the prospective audit
+added,data_registry/st08_13C_release_candidate_v02_manifest_v01.csv,Exact canonical Git path SHA-256 and size binding for the current candidate
+added,data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json,Observed 24-requirement evidence dimensions verdicts limits and owner gate
+added,docs/agent/st08_13C_prospective_release_candidate_v02_reaudit_change_scope_v01.csv,Exact planned and actual ST08_13C change scope
+modified,.github/workflows/ci.yml,Replace the historical current-tree gate with ST08_13C candidate assurance
+modified,scripts/st08_09_release_assurance.py,Route published source and secret assurance to the versioned ST08_13C candidate manifest
+modified,scripts/st08_10_documentation_assurance.py,Require only the remaining John release authorization doctor blocker
+modified,tests/test_release_assurance_st08_09.py,Assert retirement of the completed prospective v02 re-audit blocker and exact current published inventory
+modified,src/mlcra/application.py,Remove only the completed v02 re-audit blocker while retaining release_ready false
+modified,README.md,State the prospective audit outcome and remaining owner release gate in English
+modified,README_RU.md,State the prospective audit outcome and remaining owner release gate in Russian
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,Register the authorized ST08_13C path-set change
+modified,docs/agent/pilot_change_scope_v01.csv,Register new ST08_13C baseline paths
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Record the accepted predecessor prospective audit method evidence and verdicts
+modified,roadmap.md,Synchronize current Stage 8 state and owner decision boundary

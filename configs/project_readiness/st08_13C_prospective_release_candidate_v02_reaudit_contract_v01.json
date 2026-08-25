@@ -1,0 +1,136 @@
+{
+  "schema_version": "st08_13C_prospective_release_candidate_v02_reaudit_contract_v01",
+  "contract_id": "st08_13C_prospective_release_candidate_v02_reaudit_contract_v01",
+  "task_id": "ST08_13C_prospective_release_candidate_v02_reaudit",
+  "recorded_at": "2026-08-25",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_13C_prospective_release_candidate_v02_reaudit",
+    "version_tag_authorized": false,
+    "GitHub_release_authorized": false,
+    "PyPI_publication_authorized": false,
+    "scientific_claim_protocol_or_verdict_change_authorized": false
+  },
+  "measurable_outcome": "Apply all 24 prospective Stage 8 requirements v02 to the current hash-bound public candidate, independently recompute eight dimensions and separate project-completion and external-release verdicts, while preserving all historical audits and reserving release authorization for John.",
+  "assessment": {
+    "requirements_path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v02.csv",
+    "requirements_sha256": "cf0fbfb98c45ca9c8f1e359214f75a372a9e1ad75ae5f3d849954b7b2adc88db",
+    "requirements_representation": "SHA-256 over canonical Git index blob bytes",
+    "requirement_count": 24,
+    "dimension_count": 8,
+    "allowed_requirement_statuses": ["PASS", "FAIL", "BLOCKED", "SKIPPED"],
+    "not_evaluated_allowed_in_result": false,
+    "research_question": "Does the exact current ML-CRA candidate satisfy every registered v02 project-completion requirement, and is any remaining restriction an owner-controlled release authorization rather than an unverified technical or scientific condition?",
+    "alternatives": {
+      "H_pass": "All 24 requirements and all eight dimensions pass; project completion passes; external release can still remain BLOCKED solely by a separately recorded John authorization gate.",
+      "H_nonpass": "At least one requirement is FAIL or BLOCKED, or the evidence chain, current candidate binding, external control, or aggregate relation cannot be verified."
+    }
+  },
+  "aggregation": {
+    "dimension_fail": "any_requirement_FAIL",
+    "dimension_blocked": "no_FAIL_and_any_BLOCKED",
+    "dimension_pass": "all_mandatory_PASS_and_conditional_PASS_or_justified_SKIPPED",
+    "project_completion_dimensions": ["D01", "D02", "D03", "D04", "D05", "D08"],
+    "external_release_dimensions": ["D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08"],
+    "external_release_PASS_requires_zero_release_blockers": true,
+    "John_release_authorization_is_separate_from_project_completion": true,
+    "John_acceptance_required": true
+  },
+  "current_candidate_manifest": {
+    "path": "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "manifest_digest_representation": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "eligible_universe": "all tracked paths classified by the approved public policy as ST08-06-MANIFEST-06 or ST08-06-MANIFEST-07",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json",
+      "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv"
+    ],
+    "exclusion_reason": "The manifest cannot hash itself; the evidence record is completed after candidate hosted CI and is excluded to avoid a hash cycle. Both paths remain mandatory tracked members."
+  },
+  "immutable_history_representation": "SHA-256 over canonical Git index blob bytes",
+  "immutable_history": [
+    {"path": "configs/project_readiness/stage08_project_completion_and_release_readiness_requirements_v01.csv", "sha256": "cd4658d6e7307b4aec26d75bb9f458e6fd6a136d108794a6bfdf4e099c5b8c66"},
+    {"path": "configs/project_readiness/st08_13_release_candidate_completion_security_and_readiness_reaudit_contract_v01.json", "sha256": "46e87427425534b2f07da3270ceaf85ad10abd52318421850856160380940287"},
+    {"path": "data_registry/st08_13_release_candidate_completion_security_and_readiness_reaudit_evidence_v01.json", "sha256": "dfa626fc62f977c2e8067f66e0fa6dc7660dd8dd7b21e02b841fc4bc1fa2e81c"},
+    {"path": "configs/project_readiness/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_contract_v01.json", "sha256": "0d1870289b078c944f000afd7d8052553368099ca6438123e0541af3eef27b75"},
+    {"path": "data_registry/st08_13A_REQ08_REQ12_current_canonical_hash_evidence_migration_evidence_v01.json", "sha256": "404e3d3f2f3d1a11e9b34e510e3b867dc023167269d73a3a606f07c522eda1a1"},
+    {"path": "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json", "sha256": "3beedf48bcb53acc2a8f9a87f720cfc38506983857d0123be1e597a14a517762"},
+    {"path": "data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json", "sha256": "7fa0d749e5cf710a9a49c597ca3483007183ad695d3da3561ec2c6064ea1b686"}
+  ],
+  "mandatory_observations": [
+    "working_and_published_baseline",
+    "focused_and_mutation_tests",
+    "full_cumulative_pilot_exact_historical_failure_set",
+    "current_candidate_manifest_and_protected_scientific_hashes",
+    "source_workflow_lock_secret_and_dependency_assurance",
+    "sdist_wheel_clean_install_doctor_and_walkthrough",
+    "successful_hosted_GitHub_Actions_assurance_on_hash_bound_candidate",
+    "registered_ST08_13B_repository_security_controls",
+    "independent_requirement_dimension_and_aggregate_recalculation"
+  ],
+  "evidence_rules": {
+    "each_requirement_exactly_once": true,
+    "mandatory_requirement_cannot_be_SKIPPED": true,
+    "every_non_PASS_has_registered_finding": true,
+    "aggregate_counts_recomputed_not_trusted": true,
+    "historical_FAIL_or_BLOCKED_is_not_rewritten": true,
+    "local_PASS_does_not_prove_hosted_execution": true,
+    "scientific_reexecution_is_not_required_and_not_performed": true,
+    "release_authorization_is_not_inferred_from_project_completion": true
+  },
+  "planned_changes": [
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_13C_prospective_release_candidate_v02_reaudit_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_13C_prospective_release_candidate_v02_reaudit.py"},
+    {"change_kind": "added", "relative_path": "tests/test_prospective_release_candidate_v02_reaudit_st08_13C.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_13C_release_candidate_v02_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_13C_prospective_release_candidate_v02_reaudit_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "src/mlcra/application.py"},
+    {"change_kind": "modified", "relative_path": "README.md"},
+    {"change_kind": "modified", "relative_path": "README_RU.md"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"}
+  ],
+  "authoritative_support": [
+    {"source": "NIST AI RMF 1.0 MANAGE 1.1", "uri": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/", "use": "Separate the evidence-based determination that intended purposes are met from the owner decision to proceed."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release-relevant files, automate verification, and retain provenance."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Use SHA-256 to detect candidate-byte changes without treating hashes as correctness proof."},
+    {"source": "NIST SP 800-53 Rev. 5 CM-2 and CM-3", "uri": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "use": "Version and validate the successor baseline without rewriting historical baselines."},
+    {"source": "GitHub rulesets documentation", "uri": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets", "use": "Require the assurance status check on an up-to-date pull-request candidate."},
+    {"source": "Python Packaging User Guide packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "Build both sdist and wheel and verify installation in an end-user environment."},
+    {"source": "National Academies reproducibility definition", "uri": "https://www.nationalacademies.org/read/25303/chapter/3", "use": "Keep computational reproducibility distinct from independent replication or broader scientific generalization."}
+  ],
+  "required_checks": [
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_13C_prospective_release_candidate_v02_reaudit.py candidate-tree",
+    "python -m unittest -v tests.test_prospective_release_candidate_v02_reaudit_st08_13C",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/st08_13_release_candidate_reaudit.py --inventory published",
+    "python scripts/agent_verify.py --mode pilot",
+    "successful hosted GitHub Actions assurance for the hash-bound candidate",
+    "python scripts/st08_13C_prospective_release_candidate_v02_reaudit.py final-evidence"
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_IF_REMOTE_RECOVERY_AND_PROTECTED_PR_GATE_PASS",
+    "reason": "The public Git repository provides independently stored recoverable history and the task creates no release artifact; a protected pull request and exact candidate manifest are the applicable recovery controls."
+  },
+  "stop_conditions": [
+    "Any immutable historical file changes.",
+    "Any requirement, scientific claim, protocol, seed, split, metric, protected result, or verdict policy changes.",
+    "Any new cumulative-pilot FAIL or BLOCKED result appears.",
+    "Candidate hosted CI is absent or unsuccessful.",
+    "A tag, GitHub Release, PyPI publication, release authorization, or next task would be required."
+  ]
+}

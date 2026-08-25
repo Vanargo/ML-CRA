@@ -55,9 +55,9 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
                 inventory="published", canonical_bindings=bindings
             )
 
-    def test_doctor_reports_only_current_post_st08_13B_release_blockers(self) -> None:
+    def test_doctor_reports_only_current_post_st08_13C_release_blocker(self) -> None:
         source = (PROJECT_ROOT / "src/mlcra/application.py").read_text(encoding="utf-8")
-        self.assertIn('"prospective_release_candidate_reaudit_v02_not_passed"', source)
+        self.assertNotIn('"prospective_release_candidate_reaudit_v02_not_passed"', source)
         self.assertIn('"John_release_authorization_not_granted"', source)
         self.assertNotIn('"hosted_CI_run_not_observed"', source)
         self.assertNotIn('"external_GitHub_secret_scanning_not_enabled"', source)
@@ -261,7 +261,7 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
     def test_public_manifest_is_exact_and_unmapped_zero(self) -> None:
         if os.environ.get("MLCRA_ASSURANCE_INVENTORY") == "published":
             result = assurance.validate_publication_tree()
-            self.assertEqual(result["paths"], 314)
+            self.assertEqual(result["paths"], 320)
         else:
             result = assurance.validate_public_manifest()
             self.assertGreater(result["paths"], 0)

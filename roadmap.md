@@ -1640,3 +1640,41 @@ ruleset `21408995` для ветви по умолчанию. Аутентифи
 2. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Не считать публичный репозиторий релизом и отдельно решать вопрос будущего
    re-audit по v02.
+
+## 47. ST08_13C — перспективный release-candidate re-audit v02
+
+John принял и закрыл ST08_13B и авторизовал
+`ST08_13C_prospective_release_candidate_v02_reaudit`. Все 24 требования v02
+применяются к новому точному Git-кандидату без изменения v01, исторических
+ST08_13/ST08_13A/ST08_13B, научных claim/protocol/verdict или числовых
+артефактов.
+
+```text
+ACCEPTED_BY_JOHN: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
+TASK_CLOSED: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
+NEXT_BLOCK_AUTHORIZED: ST08_13C_prospective_release_candidate_v02_reaudit
+PROJECT_COMPLETION_VERDICT: PASS_if_all_registered_candidate_observations_pass
+EXTERNAL_RELEASE_READINESS: BLOCKED_until_John_release_authorization
+external_release_authorized: false
+```
+
+Текущий манифест v02-кандидата версионируется отдельно от исторических
+манифестов и связывает Git paths, SHA-256 и размеры. Cumulative pilot обязан
+сохранить ровно восемь старых FAIL без новых отказов. Успешный hosted
+`assurance` на точном кандидате обязателен: конфигурация workflow сама по себе
+не доказывает выполнение.
+
+После выполнения всех наблюдений допустим итог `24/24 PASS`, `8/8 dimensions
+PASS`, `project_completion=PASS`. Внешняя готовность остаётся независимо
+`BLOCKED` только шлюзом `John_release_authorization_not_granted`. Такое
+разделение следует NIST AI RMF MANAGE 1.1: оценка достижения целей и решение о
+продолжении deployment являются связанными, но различными решениями. Нового
+обучения или научной репликации ST08_13C не выполняет.
+
+## 48. Задачи John
+
+1. Отправить локальную ветвь ST08_13C и открыть pull request без преждевременного
+   слияния.
+2. Передать успешный hosted run агенту для завершения evidence record.
+3. После итогового отчёта принять либо вернуть ST08_13C.
+4. Отдельно решать вопрос релиза; текущая авторизация его не включает.

@@ -2104,3 +2104,95 @@ readiness-verdict остаётся историческим ST08_13=`FAIL/not_re
 3. Не считать публичный development repository выпуском версии.
 4. Отдельно решить, авторизовать ли новый readiness-аудит по v02; он не входит
    в ST08_13B и пока не разрешён.
+
+## 63. ST08_13C — перспективный повторный аудит кандидата v02
+
+John принял и закрыл ST08_13B и отдельно авторизовал
+`ST08_13C_prospective_release_candidate_v02_reaudit`. Задача применяет все 24
+требования v02 к одному точному кандидату. Исторические v01, ST08_13, ST08_13A
+и ST08_13B не переписываются; тег, GitHub Release, PyPI, обучение и изменение
+научного утверждения не разрешены.
+
+```text
+ACCEPTED_BY_JOHN: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
+TASK_CLOSED: ST08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_evidence
+NEXT_BLOCK_AUTHORIZED: ST08_13C_prospective_release_candidate_v02_reaudit
+ST08_13C_profile: SCIENTIFIC_VALIDATION
+PROJECT_COMPLETION_VERDICT: PASS_if_and_only_if_all_registered_candidate_observations_pass
+EXTERNAL_RELEASE_READINESS: BLOCKED_until_John_release_authorization
+external_release_authorized: false
+```
+
+Метод сохраняет fail-closed агрегацию: любой `FAIL` делает соответствующее
+измерение `FAIL`, а отсутствие необходимого доказательства даёт `BLOCKED`.
+REQ08 v02 допускает исторический ненулевой cumulative pilot только при точном
+совпадении восьми зарегистрированных исторических FAIL и отсутствии нового
+`FAIL` или `BLOCKED`. REQ12 v02 использует новый версионированный
+`data_registry/st08_13C_release_candidate_v02_manifest_v01.csv`, потому что
+ST08_13A и ST08_13B являются неизменяемыми историческими baseline — исходными
+состояниями — и не могут корректно описывать добавленный ST08_13C.
+
+Манифест связывает каждый текущий отслеживаемый путь, кроме самого манифеста и
+завершаемой после hosted CI записи evidence, с SHA-256 и размером канонического
+Git blob. Оба исключённых пути остаются обязательными членами дерева. Такое
+версионирование следует управлению baseline и изменениями CM-2/CM-3 из
+[NIST SP 800-53 Rev. 5](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final),
+а значение SHA-256 ограничивается обнаружением изменения байтов по
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final): хеш не
+доказывает корректность или научную состоятельность.
+
+[NIST AI RMF MANAGE 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/)
+поддерживает отдельное определение, достигает ли система заявленных целей и
+следует ли продолжать deployment — развёртывание. Поэтому при 24/24 `PASS`
+проектная завершённость может получить `PASS`, но готовность к внешнему выпуску
+остаётся `BLOCKED` единственным шлюзом
+`John_release_authorization_not_granted`. Это не технический дефект и не
+разрешение релиза.
+
+## 64. Доказательный порядок и граница итогового вердикта ST08_13C
+
+Локальная реализация и проверка кандидата предшествуют внешнему наблюдению.
+Задание GitHub Actions `assurance` должно успешно выполниться на точном
+хеш-связанном кандидате pull request — запроса на слияние. Это соответствует
+официальной документации GitHub: required status check — обязательная проверка
+статуса — должна пройти до слияния, а строгий режим требует актуальности ветви.
+До наблюдаемого успешного запуска evidence имеет предварительный статус и
+итоговый PASS не назначается.
+
+После успешного hosted run окончательная запись
+`data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json`
+фиксирует идентификатор запуска и commit SHA, 24 результата, восемь измерений,
+раздельные агрегаты и ограничения интерпретации. Сам hosted CI не является
+независимой научной репликацией: по определению National Academies
+вычислительная воспроизводимость на тех же данных и коде отличается от
+репликации на новых данных. Нового обучения и нового научного verdict в
+ST08_13C нет.
+
+Итог, допустимый только после всех зарегистрированных наблюдений:
+
+```text
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+REQUIREMENTS: PASS=24 FAIL=0 BLOCKED=0 SKIPPED=0
+DIMENSIONS: PASS=8 FAIL=0 BLOCKED=0
+PROJECT_COMPLETION_VERDICT: PASS
+EXTERNAL_RELEASE_READINESS: BLOCKED
+RELEASE_BLOCKERS: John_release_authorization_not_granted
+RELEASE_ACTIONS_PERFORMED: 0
+```
+
+Значение `PASS` подтверждает выполнение зарегистрированной проектной границы,
+но не расширяет MiniBooNE или Wine Quality claims. `BLOCKED` означает, что
+внешний релиз запрещён до отдельного решения John. ZIP пропускается при
+успешном защищённом pull request и проверяемом удалённом Git-восстановлении.
+
+## 65. Задачи John
+
+1. Опубликовать подготовленную агентом ветвь ST08_13C и открыть pull request в
+   `main`, не выполняя слияние до успешного `assurance`.
+2. Передать агенту ссылку на pull request или успешный run, чтобы завершить
+   точную запись внешнего доказательства.
+3. После итогового отчёта принять либо вернуть ST08_13C; только John может
+   присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+4. Не считать принятие ST08_13C разрешением выпуска: оно требует отдельного
+   явного решения.

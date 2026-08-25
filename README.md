@@ -13,10 +13,11 @@ This public repository is a development snapshot, version `0.1.0.dev0`.
 It is not an authorized release. Repository publication, hosted CI, and
 repository-security observations are bounded by the
 [ST08_13B evidence record](data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json).
-For commit `74ccb767f08def2ce4c6cf0441a2ba044db1e66a`, the hosted
-`assurance` job completed successfully; the registered server-side repository
-security controls and exact fresh-clone recovery were also observed. This is
-development-infrastructure evidence, not a release decision.
+The subsequent [ST08_13C prospective v02 re-audit](data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json)
+applies all 24 registered project requirements to an exact hash-bound candidate.
+Project completion passes only within that registered boundary. External release
+remains blocked until John separately authorizes it; no version tag, GitHub
+Release, or package-index publication is implied.
 The supported user workflows are local binary tabular classification
 and bounded exchangeable-row tabular regression on Windows x64 with CPython
 3.12, plus generation of a local static English/Russian dashboard from a
@@ -81,11 +82,9 @@ py -3.12 -m venv .venv
 
 Expected result: `doctor` exits with code `0` and reports
 `"environment_pass": true`. It intentionally reports `"release_ready": false`
-because the 2026-08-24 release-candidate re-audit returned project completion
-`FAIL` and external release readiness `FAIL`. The full cumulative pilot, missing
-historical checkpoints, the prospective release-candidate v02 re-audit, and
-John's release decision remain open. Public development infrastructure does not
-constitute a release.
+with the sole blocker `John_release_authorization_not_granted`. The v02
+project-completion audit has passed, but a successful audit is evidence about
+the candidate, not permission to perform a release.
 
 <!-- ST08-10:quickstart -->
 ## Quick start
@@ -212,19 +211,15 @@ grouped regression candidates, which require separate prospective protocols.
 <!-- ST08-10:project-status -->
 ## Remaining project gates
 
-The 2026-08-24 release-candidate re-audit is technically complete, but the
-audited object is not ready: 19 of 24 requirements passed, two failed and three
-are blocked; project completion and external release readiness are both
-`FAIL`. The unchanged cumulative pilot still reports eight historical FAIL gates
-and registered external checkpoints are inaccessible. ST08_13B authorizes only
-a public development repository plus observation of hosted CI and repository
-security; those bounded controls have now passed technically and await John's
-acceptance. ST08_13B does not authorize a version tag, GitHub Release,
-package-index publication, or a scientific-claim change. The prospective v02
-release-candidate re-audit has not been performed. Real-dataset regression
-scientific validation and the local static dashboard remain valid bounded
-results; neither authorizes a release. Only John may accept the evidence,
-dispose of the remaining blockers, or authorize a later release action.
+The historical 2026-08-24 v01 re-audit remains unchanged at 19 `PASS`, two
+`FAIL`, three `BLOCKED`, and `not_ready`. The prospective ST08_13C audit applies
+the owner-approved v02 rules without rewriting that history: all 24 current
+requirements and all eight dimensions pass, so project completion is `PASS`.
+The cumulative pilot still executes and must reproduce exactly its eight
+registered historical FAIL rows with no new failure. External release readiness
+is independently `BLOCKED` solely because John has not authorized a release.
+Real-dataset regression validation and the local static dashboard remain valid
+bounded results; neither authorizes broader scientific claims or a release.
 
 <!-- ST08-10:legal-help -->
 ## License, citation, and help
