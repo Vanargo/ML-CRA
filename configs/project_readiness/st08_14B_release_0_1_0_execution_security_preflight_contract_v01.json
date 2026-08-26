@@ -41,6 +41,7 @@
       "The public repository has no tag or GitHub Release and the required assurance check passes on main.",
       "The active main ruleset and previously observed repository security controls are release-relevant dependencies.",
       "GitHub release immutability cannot be read anonymously and the local GitHub CLI is absent.",
+      "The first hosted PR run failed because the default shallow checkout omitted the accepted ST08_14A baseline commit; a local depth-one reproduction produced the same bad-object failure.",
       "The sdist includes tracked tests, so the required current inventory-test correction changes the sdist bytes while source package bytes remain unchanged."
     ],
     "analyze": [
@@ -80,7 +81,8 @@
       "strict_assurance_status_required",
       "force_push_blocked",
       "deletion_blocked",
-      "bypass_list_empty"
+      "bypass_list_empty",
+      "full_Git_history_available_for_ST08_14A_baseline_comparison"
     ],
     "required_security_controls": [
       "secret_scanning_enabled",

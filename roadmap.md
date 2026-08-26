@@ -1827,6 +1827,11 @@ TestPyPI/PyPI или загрузки артефактов ST08_14B не вып�
 и [prevent release changes](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes),
 а также [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
 
+Первый hosted run PR #15 `32938182537` прошёл 14 шагов и отказал на сборке из-за стандартного
+depth-one checkout: commit ST08_14A `60dd137…` отсутствовал. Ошибка `fatal: bad object` точно
+воспроизведена в локальной неглубокой копии. Текущий ремонт требует `fetch-depth: 0` и
+fail-closed отклоняет workflow без полной истории.
+
 ## 56. Задачи John
 
 1. Передать снимки `Settings → General → Releases` с Release immutability и

@@ -19,7 +19,7 @@
     "paths": 339,
     "hashed_paths": 337,
     "path_list_sha256": "7b39c1d028b21b275aee37543354c706410e03b81698365f0bce959ea2f80af0",
-    "manifest_sha256": "b30374c65de197af287a2371c80d39b7556000cf5eb8242dd39651ab4ba516cd",
+    "manifest_sha256": "b7f0fe8dcd7cdaf134ee1690897055ac4be38a403186aa24fff283147383a7e2",
     "cycle_breaking_exclusions": [
       "data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json",
       "data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv"
@@ -67,6 +67,21 @@
       "hosted_assurance": "pending exact ST08_14B pull-request head"
     }
   },
+  "hosted_attempts": [
+    {
+      "run_id": 32938182537,
+      "job_id": 98083505188,
+      "head_sha": "a06c32e6bb44cda3c583ce3a88bd602642a2128e",
+      "event": "pull_request",
+      "conclusion": "failure",
+      "failed_step": "Reconstruct and preflight the candidate twice from the canonical Git index",
+      "preceding_steps_passed": 14,
+      "root_cause": "actions_checkout_default_depth_one_omitted_baseline_commit_60dd137",
+      "reproduction": "PASS_same_cannot_compare_source_baseline_fatal_bad_object_in_local_depth_one_clone",
+      "repair": "require_actions_checkout_fetch_depth_0",
+      "disposition": "REPAIRED_PENDING_NEW_HOSTED_RUN"
+    }
+  ],
   "observed_checks": {
     "contract_assurance": "PASS",
     "mutation_tests": "PASS_14_of_14",

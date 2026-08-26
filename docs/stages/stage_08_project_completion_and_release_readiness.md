@@ -2412,6 +2412,12 @@ private vulnerability reporting и Release immutability. Неавторизов�
 и [предотвращении изменений выпуска](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes),
 а также на [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
 
+Первый hosted run PR #15 (`32938182537`, job `98083505188`) прошёл 14 шагов и отказал на
+двойной сборке: стандартный depth-one checkout не содержал baseline commit `60dd137…`.
+Локальная неглубокая копия воспроизвела `fatal: bad object 60dd137…`. Исправление требует
+`fetch-depth: 0`; валидаторы теперь отклоняют неглубокий checkout, чтобы сравнение с ST08_14A
+нельзя было молча пропустить.
+
 ## 73. Задачи John
 
 1. Предоставить снимок `Settings → General → Releases`, на котором видно состояние
