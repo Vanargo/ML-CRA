@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14A_release_candidate_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
@@ -289,7 +289,11 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
     if setup.get("with", {}).get("architecture") != contract["ci_contract"]["architecture"]:
         raise AssuranceError("workflow Python architecture mismatch")
     raw = path.read_text(encoding="utf-8")
-    forbidden = ["pull_request_target", "workflow_run:", "${{ secrets.", "actions/upload-artifact"]
+    forbidden = [
+        "pull_request_target", "workflow_run:", "${{ secrets.", "actions/upload-artifact",
+        "contents: write", "id-token: write", "attestations: write", "gh release create",
+        "pypa/gh-action-pypi-publish",
+    ]
     if any(token in raw for token in forbidden):
         raise AssuranceError("workflow contains a forbidden privileged, secret or artifact-upload construct")
     required_commands = [
@@ -299,7 +303,6 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "st08_09_release_assurance.py source --inventory published",
         "st08_09_release_assurance.py secrets --inventory published",
         "st08_09_release_assurance.py dependencies",
-        "st08_14A_release_candidate_finalization_assurance.py build-candidate",
         "st08_09_release_assurance.py archives",
         "pip install --no-index --find-links",
         "pip check",
@@ -307,7 +310,9 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "tests.test_cli_st08_08",
         "tests.test_release_assurance_st08_09",
         "st08_14A_release_candidate_finalization_assurance.py metadata",
-        "tests.test_release_candidate_finalization_st08_14A",
+        "st08_14B_release_execution_security_preflight.py contract",
+        "st08_14B_release_execution_security_preflight.py mutations",
+        "st08_14B_release_execution_security_preflight.py build-preflight",
         "scripts/agent_verify.py --mode baseline --inventory published",
     ]
     missing = [command for command in required_commands if command not in raw]

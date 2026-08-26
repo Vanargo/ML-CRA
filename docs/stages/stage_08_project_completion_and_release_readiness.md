@@ -2371,3 +2371,56 @@ ST08_14B должен отдельно повторно проверить то�
 2. При принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решить, авторизовать ли ST08_14B; текущий блок не разрешает ни его
    выполнение, ни тег, ни публикацию.
+## 72. ST08_14B — проверка исполнения и безопасности выпуска 0.1.0
+
+John принял и закрыл ST08_14A и отдельно авторизовал точный блок
+`ST08_14B_release_0_1_0_execution_security_preflight`. Применён профиль `CHANGE`:
+блок создаёт исполняемые проверки, документацию и evidence record (запись доказательств), но
+не меняет научные claim/protocol/result/verdict и не выполняет выпуск.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14A_release_0_1_0_candidate_finalization
+TASK_CLOSED: ST08_14A_release_0_1_0_candidate_finalization
+NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight
+ST08_14B_profile: CHANGE
+release_authorized: false
+release_actions_performed: 0
+ST08_14B_status: in_progress_external_owner_evidence_pending
+```
+
+В старом фазовом описании ST08_14 использовано имя
+`ST08_14B_release_0_1_0_final_candidate_reaudit`; более поздние текущие записи и явная
+авторизация John используют `ST08_14B_release_0_1_0_execution_security_preflight`.
+Исторический контракт не переписывается: текущее имя имеет приоритет, а общий смысл сохраняет
+повторную проверку точного кандидата перед любым тегом.
+
+Preflight (предварительная проверка) должен дважды построить кандидат из канонического Git index,
+зафиксировать новый воспроизводимый sdist и потребовать побайтного сохранения wheel ST08_14A.
+Изменение sdist ожидаемо только потому, что `setuptools` включает tracked tests (отслеживаемые
+тесты), а обязательный тест текущего Git-инвентаря больше не может сохранять устаревшее число
+путей `333`. Старые хеши ST08_14A остаются неизменяемой историей.
+
+Серверная часть проверяется fail-closed (с отказом при неизвестном состоянии): активный ruleset
+для `main`, обязательный `assurance`, поиск секретов, push protection, Dependabot alerts,
+private vulnerability reporting и Release immutability. Неавторизованный ответ HTTP 401 от
+администраторского API означает `UNKNOWN`, а не `PASS` или `FAIL`. До закрытия требуются
+аутентифицированные снимки John, доступный GitHub CLI и успешный hosted run точного PR-кандидата.
+
+Методика опирается на официальные документы GitHub об
+[immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases),
+[проверке целостности выпуска](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity)
+и [предотвращении изменений выпуска](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes),
+а также на [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
+
+## 73. Задачи John
+
+1. Предоставить снимок `Settings → General → Releases`, на котором видно состояние
+   `Release immutability`.
+2. Предоставить текущий снимок `Settings → Advanced Security`, на котором видны состояния
+   Secret Protection и Push protection.
+3. Установить GitHub CLI до будущего исполнения ST08_14C либо явно вернуть это требование на
+   пересмотр; установка и аутентификация не выполняются агентом без отдельного действия John.
+4. После локального handoff (передачи) отправить ветвь, открыть PR и передать URL успешного
+   `assurance` для точного commit.
+5. Не создавать тег, draft/обычный GitHub Release и не загружать артефакты: ST08_14C не
+   авторизован.

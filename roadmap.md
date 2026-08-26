@@ -1794,3 +1794,44 @@ TestPyPI остаются отложенными.
 1. Принять либо вернуть только ST08_14A.
 2. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решать вопрос ST08_14B; принятие кандидата не разрешает публикацию.
+## 55. ST08_14B — execution security preflight выпуска 0.1.0
+
+John принял и закрыл ST08_14A и отдельно авторизовал
+`ST08_14B_release_0_1_0_execution_security_preflight`. Это профиль `CHANGE`: исполняемые
+проверки и документация выпуска меняются, научные утверждения и артефакты — нет.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14A_release_0_1_0_candidate_finalization
+TASK_CLOSED: ST08_14A_release_0_1_0_candidate_finalization
+NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight
+ST08_14B_status: in_progress_external_owner_evidence_pending
+release_authorized: false
+release_actions_performed: 0
+```
+
+Текущее явно авторизованное имя разрешает расхождение со старым фазовым именем
+`ST08_14B_release_0_1_0_final_candidate_reaudit` без переписывания исторического контракта.
+Preflight (предварительная проверка) повторно строит кандидат дважды, требует неизменный wheel,
+регистрирует новый воспроизводимый sdist после необходимой коррекции теста текущего Git-инвентаря
+и проверяет отсутствие тега/релиза. Старые хеши ST08_14A сохраняются как история.
+
+Внешний шлюз требует подтверждённых active ruleset/`assurance`, secret scanning, push protection,
+Dependabot alerts, private vulnerability reporting, Release immutability и доступного GitHub CLI.
+Неаутентифицированный HTTP 401 для администраторского API трактуется как `UNKNOWN`, поэтому до
+снимков John и hosted run точного PR блок не закрывается. Никакого тега, GitHub Release,
+TestPyPI/PyPI или загрузки артефактов ST08_14B не выполняет.
+
+Основания: официальные документы GitHub об
+[immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases),
+[release integrity](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity)
+и [prevent release changes](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes),
+а также [NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
+
+## 56. Задачи John
+
+1. Передать снимки `Settings → General → Releases` с Release immutability и
+   `Settings → Advanced Security` с Secret Protection/Push protection.
+2. Установить GitHub CLI до будущего ST08_14C либо вернуть требование на пересмотр.
+3. После локальной передачи отправить ветвь, открыть PR и передать успешный hosted `assurance`
+   точного commit.
+4. Не создавать тег или GitHub Release: ST08_14C ещё не авторизован.
