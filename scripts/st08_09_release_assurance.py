@@ -283,6 +283,8 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
     checkout = next(step for step in steps if step.get("uses", "").startswith("actions/checkout@"))
     if checkout.get("with", {}).get("persist-credentials") != "false":
         raise AssuranceError("checkout credentials must not persist")
+    if checkout.get("with", {}).get("fetch-depth") != "0":
+        raise AssuranceError("checkout must fetch full history for the ST08_14B baseline comparison")
     setup = next(step for step in steps if step.get("uses", "").startswith("actions/setup-python@"))
     if setup.get("with", {}).get("python-version") != contract["ci_contract"]["python"]:
         raise AssuranceError("workflow Python patch must match the declared cell")

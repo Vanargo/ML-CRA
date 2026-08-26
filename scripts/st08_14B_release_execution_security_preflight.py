@@ -220,6 +220,7 @@ def validate_security_text(text: str) -> None:
 def validate_workflow_text(text: str) -> None:
     required = [
         "permissions:\n  contents: read",
+        "fetch-depth: 0",
         "scripts/st08_14B_release_execution_security_preflight.py contract",
         "scripts/st08_14B_release_execution_security_preflight.py mutations",
         "scripts/st08_14B_release_execution_security_preflight.py build-preflight",
@@ -533,7 +534,7 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     mutations.append(_expect_rejection("stale_security_version", lambda: validate_security_text(security + "\n0.1.0.dev0")))
     mutations.append(_expect_rejection("workflow_write", lambda: validate_workflow_text(workflow.replace("contents: read", "contents: write"))))
     mutations.append(_expect_rejection("workflow_upload", lambda: validate_workflow_text(workflow + "\nactions/upload-artifact")))
-    mutations.append(_expect_rejection("workflow_missing_preflight", lambda: validate_workflow_text(workflow.replace("scripts/st08_14B_release_execution_security_preflight.py mutations", "missing"))))
+    mutations.append(_expect_rejection("shallow_checkout", lambda: validate_workflow_text(workflow.replace("fetch-depth: 0", "fetch-depth: 1"))))
     swapped = runbook.replace("3. Создать draft GitHub Release", "3. TEMP").replace("4. До публикации прикрепить", "3. Создать draft GitHub Release").replace("3. TEMP", "4. До публикации прикрепить")
     mutations.append(_expect_rejection("runbook_order", lambda: validate_runbook_text(swapped)))
     altered_rows = copy.deepcopy(rows)
