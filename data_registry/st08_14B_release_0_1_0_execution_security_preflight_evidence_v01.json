@@ -1,0 +1,125 @@
+{
+  "schema_version": "st08_14B_release_0_1_0_execution_security_preflight_evidence_v01",
+  "evidence_id": "st08_14B_release_0_1_0_execution_security_preflight_evidence_v01",
+  "task_id": "ST08_14B_release_0_1_0_execution_security_preflight",
+  "recorded_at": "2026-08-26",
+  "profile": "CHANGE",
+  "status": "preflight_local_implementation_external_observations_pending",
+  "authority_source": "John accepted and closed ST08_14A and explicitly authorized NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight; no release action or scientific change was authorized.",
+  "source_baseline": {
+    "git_commit": "60dd1379836ee7c76756bf46786f0ba5d691dc17",
+    "branch": "main",
+    "published_paths": 333,
+    "published_hashed_paths": 331,
+    "version": "0.1.0",
+    "tags": 0,
+    "GitHub_releases": 0
+  },
+  "successor_manifest": {
+    "paths": 339,
+    "hashed_paths": 337,
+    "path_list_sha256": "7b39c1d028b21b275aee37543354c706410e03b81698365f0bce959ea2f80af0",
+    "manifest_sha256": "b30374c65de197af287a2371c80d39b7556000cf5eb8242dd39651ab4ba516cd",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json",
+      "data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "candidate_assets": {
+    "ml_cra-0.1.0.tar.gz": {
+      "sha256": "56d40c2c78ca8bff4b51911ed01224a1899462a0a310d0f6bda1c7d971e43d13",
+      "size_bytes": 95342
+    },
+    "ml_cra-0.1.0-py3-none-any.whl": {
+      "sha256": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a",
+      "size_bytes": 91936
+    },
+    "SHA256SUMS": {
+      "sha256": "e663f0789d00fdc3c5dcedb100d42b5816d8fb553f53978b6dcb2a2db9f59279",
+      "size_bytes": 182
+    }
+  },
+  "external_observations": {
+    "repository": "Vanargo/ML-CRA",
+    "default_branch": "main",
+    "ruleset_id": 21408995,
+    "required_status_check": "assurance",
+    "tags": 0,
+    "GitHub_releases": 0,
+    "secret_scanning_enabled": true,
+    "push_protection_enabled": true,
+    "private_vulnerability_reporting_enabled": true,
+    "dependabot_alerts_enabled": true,
+    "release_immutability_enabled": null,
+    "ruleset_required_controls_pass": true,
+    "GitHub_CLI_available": false,
+    "GitHub_CLI_version": null,
+    "required_assurance_conclusion": "pending_ST08_14B_pull_request",
+    "observed_commit": null,
+    "hosted_run_url": null,
+    "authenticated_owner_observed_at": null,
+    "observation_provenance": {
+      "repository_ruleset_private_reporting_tags_and_releases": "GitHub REST API read-only observation at 2026-08-26T05:38:10.8159886Z",
+      "secret_scanning_push_protection_dependabot_alerts": "ST08_13B authenticated John screenshots dated 2026-08-25; current re-observation requested",
+      "release_immutability": "UNKNOWN: unauthenticated administrator-only REST request returned HTTP 401; authenticated John screenshot requested",
+      "GitHub_CLI": "local command discovery returned not installed",
+      "hosted_assurance": "pending exact ST08_14B pull-request head"
+    }
+  },
+  "observed_checks": {
+    "contract_assurance": "PASS",
+    "mutation_tests": "PASS_14_of_14",
+    "candidate_builds": "PASS_2_of_2",
+    "normalized_sdist_byte_reproducibility": "PASS_2_of_2",
+    "wheel_byte_reproducibility": "PASS_2_of_2_equal_ST08_14A",
+    "archive_assurance": "PASS",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "source_assurance": "PASS",
+    "documentation_assurance": "PASS",
+    "secret_pattern_scan": "PASS_zero_findings",
+    "dependency_audit": "PASS_zero_known_vulnerabilities_50_dependencies_time_stamped_2026_08_26",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "historical_ST08_14A_current_tree_tests": "SKIPPED_superseded_manifest_expected_6_new_paths",
+    "hosted_assurance": "PENDING",
+    "repository_security_preflight": "BLOCKED_authenticated_release_immutability_and_current_security_screenshots_pending",
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "change_reconciliation": {
+    "planned_paths": 14,
+    "actual_paths": 14,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "scientific_interpretation": {
+    "validation_performed": false,
+    "claim_or_protocol_changed": false,
+    "meaning": "This preflight evaluates release mechanics, integrity and security controls only; it supplies no new evidence for model superiority or a scientific verdict."
+  },
+  "remaining_blockers": [
+    "Authenticated evidence that GitHub Release immutability is enabled is pending from John.",
+    "A current authenticated Advanced Security screenshot is pending from John.",
+    "GitHub CLI required by the official post-publication verification procedure is not installed locally.",
+    "The exact ST08_14B pull-request assurance run has not yet occurred.",
+    "John has not authorized ST08_14C or any release action."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "No stage closure or release archive is authorized; protected remote Git and reproducible local ignored artifacts are the intended recovery mechanism."
+  },
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "BLOCKED",
+  "readiness": "NOT_READY",
+  "next_proposed_task": {
+    "task_id": "ST08_14C_release_0_1_0_execution",
+    "authorization_status": "PROPOSED_NOT_AUTHORIZED"
+  }
+}

@@ -119,3 +119,9 @@ added,tests/test_release_candidate_finalization_st08_14A.py,ST08_14A positive an
 added,data_registry/st08_14A_release_candidate_manifest_v01.csv,ST08_14A canonical Git candidate path hash and size manifest
 added,data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json,ST08_14A observed candidate finalization evidence
 added,docs/agent/st08_14A_release_0_1_0_candidate_finalization_change_scope_v01.csv,ST08_14A exact planned and actual change scope
+added,configs/project_readiness/st08_14B_release_0_1_0_execution_security_preflight_contract_v01.json,ST08_14B authority security candidate and stop-condition contract
+added,scripts/st08_14B_release_execution_security_preflight.py,ST08_14B fail-closed manifest build security evidence and mutation assurance
+added,data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv,ST08_14B successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json,ST08_14B observed local hosted and repository-security preflight evidence
+added,docs/agent/st08_14B_release_0_1_0_execution_security_preflight_change_scope_v01.csv,ST08_14B exact planned and actual change scope
+added,docs/release/release_0_1_0_GitHub_execution_runbook_v01.md,Future owner-authorized immutable GitHub Release procedure and recovery boundary

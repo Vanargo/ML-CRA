@@ -50,8 +50,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 378,
-    "approved_path_list_sha256": "7dc3a767f405c6b3ed223b338ed70c4bf507ef831f7d2bfa382c6c3d5604a0a3",
+    "approved_path_count": 384,
+    "approved_path_list_sha256": "900f62d2e722282a7910220b4c6132936f4d54506abe1a0e01fc24a29ad59452",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -145,9 +145,9 @@
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
     "ST08-06-MANIFEST-06": 188,
-    "ST08-06-MANIFEST-07": 145,
+    "ST08-06-MANIFEST-07": 151,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 378
+    "TOTAL": 384
   },
   "inventory_refreshes": [
     {
@@ -220,6 +220,12 @@
       "task_id": "ST08_14_release_0_1_0_scope_channel_and_execution_contract_design",
       "recorded_at": "2026-08-25",
       "reason": "Authorized release-contract design adds a successor current-tree manifest, validator, mutation tests, evidence and exact scope while preserving version 0.1.0.dev0 and performing no release action.",
+      "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_14B_release_0_1_0_execution_security_preflight",
+      "recorded_at": "2026-08-26",
+      "reason": "Authorized release preflight adds a successor manifest, fail-closed validator, evidence, exact scope and owner runbook while performing no tag, release, upload, publication or scientific change.",
       "external_publication_performed": false
     }
   ],

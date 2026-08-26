@@ -1,0 +1,15 @@
+change_kind,relative_path,reason
+added,configs/project_readiness/st08_14B_release_0_1_0_execution_security_preflight_contract_v01.json,ST08_14B authority security candidate and stop-condition contract
+added,scripts/st08_14B_release_execution_security_preflight.py,ST08_14B fail-closed manifest build security evidence and mutation assurance
+added,data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv,ST08_14B successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json,ST08_14B local and external preflight evidence with explicit pending owner observations
+added,docs/agent/st08_14B_release_0_1_0_execution_security_preflight_change_scope_v01.csv,ST08_14B exact planned and actual change scope
+added,docs/release/release_0_1_0_GitHub_execution_runbook_v01.md,Future owner-authorized immutable GitHub Release procedure and recovery boundary
+modified,SECURITY.md,Replace stale development version with finalized but unpublished 0.1.0 candidate status
+modified,.github/workflows/ci.yml,Run read-only ST08_14B contract mutations and exact candidate preflight
+modified,scripts/st08_09_release_assurance.py,Require the current read-only ST08_14B workflow controls
+modified,tests/test_release_assurance_st08_09.py,Derive published path count from the registered manifest instead of a stale constant
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,Refresh current working-tree publication policy inventory for the authorized paths
+modified,docs/agent/pilot_change_scope_v01.csv,Register the six new authorized paths for baseline scope verification
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Register current ST08_14B authority method evidence status and owner tasks
+modified,roadmap.md,Register current ST08_14B authority method evidence status and owner tasks

@@ -78,19 +78,22 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Validate the finalized local release 0.1.0 candidate
+        run: python scripts/st08_14A_release_candidate_finalization_assurance.py metadata
+
+      - name: Validate the release execution security preflight
         run: |
-          python scripts/st08_14A_release_candidate_finalization_assurance.py metadata
+          python scripts/st08_14B_release_execution_security_preflight.py contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_release_candidate_finalization_st08_14A
+          python scripts/st08_14B_release_execution_security_preflight.py mutations
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Reconstruct the candidate twice from the canonical Git index
-        run: python scripts/st08_14A_release_candidate_finalization_assurance.py build-candidate --output-dir dist/st08_14A-ci
+      - name: Reconstruct and preflight the candidate twice from the canonical Git index
+        run: python scripts/st08_14B_release_execution_security_preflight.py build-preflight --output-dir dist/st08_14B-ci
 
       - name: Validate sdist and wheel inventories
         run: |
-          $sdist = Get-ChildItem -LiteralPath dist/st08_14A-ci -Filter *.tar.gz
-          $wheel = Get-ChildItem -LiteralPath dist/st08_14A-ci -Filter *.whl
+          $sdist = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.tar.gz
+          $wheel = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.whl
           if ($sdist.Count -ne 1 -or $wheel.Count -ne 1) { throw "Expected exactly one sdist and one wheel" }
           python scripts/st08_09_release_assurance.py archives --sdist $sdist.FullName --wheel $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -107,7 +110,7 @@ jobs:
         run: |
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $wheel = Get-ChildItem -LiteralPath dist/st08_14A-ci -Filter *.whl
+          $wheel = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.whl
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
