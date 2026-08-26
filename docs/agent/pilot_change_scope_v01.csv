@@ -112,3 +112,10 @@ added,tests/test_release_0_1_0_contract_st08_14.py,ST08_14 positive and fail-clo
 added,data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv,ST08_14 successor canonical Git path SHA-256 and size manifest
 added,data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json,ST08_14 baseline MAPE-K decision verification risk and change-reconciliation evidence
 added,docs/agent/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_change_scope_v01.csv,ST08_14 exact planned and actual change scope
+added,RELEASE_NOTES_0.1.0.md,ST08_14A bilingual local candidate notes and scientific boundary
+added,configs/project_readiness/st08_14A_release_0_1_0_candidate_finalization_contract_v01.json,ST08_14A authority metadata asset and reproducibility contract
+added,scripts/st08_14A_release_candidate_finalization_assurance.py,ST08_14A metadata deterministic build manifest and evidence assurance
+added,tests/test_release_candidate_finalization_st08_14A.py,ST08_14A positive and fail-closed mutation tests
+added,data_registry/st08_14A_release_candidate_manifest_v01.csv,ST08_14A canonical Git candidate path hash and size manifest
+added,data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json,ST08_14A observed candidate finalization evidence
+added,docs/agent/st08_14A_release_0_1_0_candidate_finalization_change_scope_v01.csv,ST08_14A exact planned and actual change scope

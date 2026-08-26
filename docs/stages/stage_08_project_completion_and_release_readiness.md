@@ -2292,3 +2292,82 @@ ST08_14D и требует самостоятельного решения John.
 2. При принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решить, авторизовать ли ST08_14A; текущая задача не даёт права
    менять версию, создавать тег или публиковать выпуск.
+
+## 69. ST08_14A — финализация локального кандидата 0.1.0
+
+John принял и закрыл `ST08_14_release_0_1_0_scope_channel_and_execution_contract_design`
+и отдельно авторизовал `ST08_14A_release_0_1_0_candidate_finalization`.
+Профиль `CHANGE` разрешает заменить только метаданные версии разработки на
+`0.1.0`, подготовить двуязычные примечания и воспроизводимо собрать локальные
+активы. Тег, GitHub Release, TestPyPI, PyPI, ST08_14B и изменение научного
+состояния не разрешены.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14_release_0_1_0_scope_channel_and_execution_contract_design
+TASK_CLOSED: ST08_14_release_0_1_0_scope_channel_and_execution_contract_design
+NEXT_BLOCK_AUTHORIZED: ST08_14A_release_0_1_0_candidate_finalization
+ST08_14A_profile: CHANGE
+release_authorized: false
+release_actions_performed: 0
+```
+
+### 69.1. Метаданные и граница утверждения
+
+`pyproject.toml`, runtime — исполняемая среда — и `CITATION.cff` согласованы с
+версией `0.1.0`; классификатор зрелости изменён с Pre-Alpha на Alpha. Поле
+`date-released` намеренно отсутствует: CFF 1.2 определяет его как дату
+фактического выпуска, которого ST08_14A не выполняет. Двуязычный файл
+`RELEASE_NOTES_0.1.0.md` описывает функции, поддерживаемую среду, ограничения и
+научную границу без универсализации результатов MiniBooNE и UCI Wine Quality.
+
+Решение следует официальным спецификациям
+[PyPA project metadata](https://packaging.python.org/en/latest/specifications/pyproject-toml/),
+[Core Metadata](https://packaging.python.org/en/latest/specifications/core-metadata/)
+и [CFF 1.2 schema guide](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md).
+Версия `0.1.0` является финальным идентификатором пакета, но сама по себе не
+утверждает стабильность API уровня `1.0.0` и не доказывает публикацию.
+
+### 69.2. Воспроизводимые локальные активы
+
+Кандидат строится дважды из канонического Git index — индекса Git — при
+`SOURCE_DATE_EPOCH=1787616000`. Наблюдаемый wheel совпал побайтно без
+дополнительной обработки. Обычные gzip/sdist-байты не совпали из-за изменчивых
+служебных полей, поэтому контракт явно регистрирует нормализацию только
+несемантических `mtime`, владельца, порядка и gzip-заголовка с сохранением
+путей, байтов файлов, каталогов и прав доступа. Символические ссылки,
+устройства, FIFO и небезопасные пути запрещены.
+
+Такой обмен единой временной меткой использует спецификацию
+[SOURCE_DATE_EPOCH](https://reproducible-builds.org/specs/source-date-epoch/), а
+структура исходного архива проверяется по официальной
+[PyPA sdist specification](https://packaging.python.org/en/latest/specifications/source-distribution-format/).
+Две нормализованные копии `sdist` и две копии wheel обязаны иметь одинаковые
+SHA-256. `SHA256SUMS` связывает только байты активов: по
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) хеш
+обнаруживает изменение, но не заменяет программную проверку или научную
+валидацию.
+
+Итоговый локальный набор состоит ровно из `ml_cra-0.1.0.tar.gz`,
+`ml_cra-0.1.0-py3-none-any.whl` и `SHA256SUMS`. Он исключён из Git и может быть
+точно перестроен; ZIP не нужен при защищённом удалённом Git и успешной полной
+проверке.
+
+## 70. Предлагаемый следующий блок
+
+```text
+proposed_next_block: ST08_14B_release_0_1_0_execution_security_preflight
+ST08_14B_status: proposed_not_authorized
+release_authorized: false
+```
+
+ST08_14B должен отдельно повторно проверить точное финальное дерево и
+операционную безопасность будущего выпуска. Только более поздний и отдельно
+авторизованный ST08_14C может создавать тег и GitHub Release; PyPI остаётся
+отложенным.
+
+## 71. Задачи John
+
+1. Принять либо вернуть только ST08_14A после итогового технического отчёта.
+2. При принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Отдельно решить, авторизовать ли ST08_14B; текущий блок не разрешает ни его
+   выполнение, ни тег, ни публикацию.

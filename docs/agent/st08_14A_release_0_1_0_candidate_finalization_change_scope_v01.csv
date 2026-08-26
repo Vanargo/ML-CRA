@@ -1,0 +1,22 @@
+change_kind,relative_path,reason
+modified,pyproject.toml,Set the final 0.1.0 package metadata and Alpha maturity classifier.
+modified,CITATION.cff,Bind citation metadata to candidate version 0.1.0 without inventing a release date.
+modified,README.md,State the finalized but unpublished candidate boundary and link bilingual notes.
+modified,README_RU.md,State the finalized but unpublished candidate boundary and link bilingual notes in Russian.
+modified,src/mlcra/application.py,Single-source the runtime fallback and doctor relation at version 0.1.0.
+added,RELEASE_NOTES_0.1.0.md,Record bilingual candidate capabilities scientific boundary assets and limitations.
+added,configs/project_readiness/st08_14A_release_0_1_0_candidate_finalization_contract_v01.json,Register authority scope methods assets checks and stop conditions.
+added,scripts/st08_14A_release_candidate_finalization_assurance.py,Automate metadata manifest reproducible-build and evidence assurance.
+added,tests/test_release_candidate_finalization_st08_14A.py,Exercise positive relations and fourteen boundary mutations.
+added,data_registry/st08_14A_release_candidate_manifest_v01.csv,Bind the canonical candidate Git index tree after cycle breaking.
+added,data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json,Record observed completion evidence and explicit non-publication.
+added,docs/agent/st08_14A_release_0_1_0_candidate_finalization_change_scope_v01.csv,Reconcile the exact planned and actual path set.
+modified,.github/workflows/ci.yml,Enforce current metadata tests and two-build candidate reconstruction in hosted CI.
+modified,scripts/st08_09_release_assurance.py,Advance the published tree binding and immutable CI command contract to ST08_14A.
+modified,tests/test_release_assurance_st08_09.py,Advance current package fixtures and published path count without rewriting historical evidence.
+modified,scripts/st08_10_documentation_assurance.py,Advance current documentation metadata relation to 0.1.0.
+modified,tests/test_documentation_st08_10.py,Assert the current 0.1.0 documentation metadata relation.
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,Register the enlarged public candidate inventory exactly.
+modified,docs/agent/pilot_change_scope_v01.csv,Keep the baseline allowed path inventory synchronized.
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Register ST08_14A outcome evidence and next external gate.
+modified,roadmap.md,Register the canonical current task state and release boundary.

@@ -41,7 +41,7 @@ CLAIM_SCHEMA_RESOURCES = {
     BINARY_CLAIM_SCHEMA_VERSION: "binary_classification_claim_v01.schema.json",
     REGRESSION_CLAIM_SCHEMA_VERSION: "tabular_regression_claim_v01.schema.json",
 }
-DEVELOPMENT_VERSION = "0.1.0.dev0"
+PROJECT_VERSION = "0.1.0"
 REQUIRED_BUNDLE_FILES = (
     "run_manifest.json",
     "input_validation.json",
@@ -143,7 +143,7 @@ def software_version() -> str:
     try:
         return importlib.metadata.version("ml-cra")
     except importlib.metadata.PackageNotFoundError:
-        return DEVELOPMENT_VERSION
+        return PROJECT_VERSION
 
 
 def _utc_now() -> str:
@@ -1391,7 +1391,7 @@ def doctor_report() -> dict[str, Any]:
         and environment["architecture"].lower() in {"amd64", "x86_64"}
     )
     try:
-        installed_distribution = importlib.metadata.version("ml-cra") == DEVELOPMENT_VERSION
+        installed_distribution = importlib.metadata.version("ml-cra") == PROJECT_VERSION
     except importlib.metadata.PackageNotFoundError:
         installed_distribution = False
     environment_pass = python_ok and platform_ok and installed_distribution and all(

@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14A_release_candidate_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
@@ -267,8 +267,11 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         raise AssuranceError("workflow runner is not the fixed declared label")
     if not job.get("timeout-minutes"):
         raise AssuranceError("workflow job timeout is required")
-    if job.get("env") != {"MLCRA_ASSURANCE_INVENTORY": "published"}:
-        raise AssuranceError("workflow must declare the published assurance inventory")
+    if job.get("env") != {
+        "MLCRA_ASSURANCE_INVENTORY": "published",
+        "SOURCE_DATE_EPOCH": "1787616000",
+    }:
+        raise AssuranceError("workflow must declare the published inventory and fixed build epoch")
     steps = job.get("steps")
     if not isinstance(steps, list):
         raise AssuranceError("workflow steps missing")
@@ -296,15 +299,15 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "st08_09_release_assurance.py source --inventory published",
         "st08_09_release_assurance.py secrets --inventory published",
         "st08_09_release_assurance.py dependencies",
-        "python -m build --no-isolation",
+        "st08_14A_release_candidate_finalization_assurance.py build-candidate",
         "st08_09_release_assurance.py archives",
         "pip install --no-index --find-links",
         "pip check",
         "mlcra.exe doctor --format json",
         "tests.test_cli_st08_08",
         "tests.test_release_assurance_st08_09",
-        "st08_14_release_0_1_0_contract_assurance.py contract",
-        "tests.test_release_0_1_0_contract_st08_14",
+        "st08_14A_release_candidate_finalization_assurance.py metadata",
+        "tests.test_release_candidate_finalization_st08_14A",
         "scripts/agent_verify.py --mode baseline --inventory published",
     ]
     missing = [command for command in required_commands if command not in raw]

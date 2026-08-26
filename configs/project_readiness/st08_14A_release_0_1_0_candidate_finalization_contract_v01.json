@@ -1,0 +1,194 @@
+{
+  "schema_version": "st08_14A_release_0_1_0_candidate_finalization_contract_v01",
+  "contract_id": "st08_14A_release_0_1_0_candidate_finalization_contract_v01",
+  "task_id": "ST08_14A_release_0_1_0_candidate_finalization",
+  "recorded_at": "2026-08-25",
+  "profile": "CHANGE",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_14_release_0_1_0_scope_channel_and_execution_contract_design",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_14A_release_0_1_0_candidate_finalization",
+    "candidate_finalization_authorized": true,
+    "package_version_0_1_0_authorized": true,
+    "candidate_asset_build_authorized": true,
+    "version_tag_authorized": false,
+    "GitHub_release_authorized": false,
+    "TestPyPI_publication_authorized": false,
+    "PyPI_publication_authorized": false,
+    "ST08_14B_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "measurable_outcome": "Finalize one unreleased local ML-CRA 0.1.0 candidate with consistent package runtime citation and bilingual status metadata, bilingual candidate release notes, and two independently built byte-identical sdist and wheel assets plus SHA256SUMS, without a tag or external publication.",
+  "source_baseline": {
+    "git_commit": "72c05837cec3e2fd65a8a1c2109075b98d0e6ade",
+    "branch": "main",
+    "tracked_paths": 326,
+    "hashed_paths": 324,
+    "manifest_path": "data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv",
+    "manifest_sha256": "c9108123ae101aec7866cc2f4fb1d5cefd981f9854e0a774ea612b9d66253914",
+    "version": "0.1.0.dev0",
+    "classifier": "Development Status :: 2 - Pre-Alpha",
+    "release_actions_performed": 0,
+    "baseline_checks": "PASS"
+  },
+  "mape_k": {
+    "monitor": [
+      "ST08_14 is accepted closed merged and independently PASS on main",
+      "package runtime and README metadata still identify 0.1.0.dev0",
+      "CITATION.cff has no version and correctly has no release date",
+      "the ordinary wheel is byte reproducible under a fixed SOURCE_DATE_EPOCH",
+      "the ordinary gzip sdist is not byte reproducible because non-semantic archive metadata varies"
+    ],
+    "analyze": [
+      "Leaving 0.1.0.dev0 would not create the exact final-version candidate required before ST08_14B.",
+      "Adding date-released before publication would misstate the CFF meaning of that field.",
+      "Calling the ordinary sdist reproducible after one build would contradict the observed two-build mismatch.",
+      "Normalizing only archive metadata while preserving every regular-file byte creates a testable deterministic sdist without changing source semantics."
+    ],
+    "plan": "Set all current software-version surfaces to 0.1.0, use the Alpha maturity classifier, add version but not date-released to CITATION.cff, publish bilingual candidate notes, build twice from the canonical Git index, normalize sdist container metadata, require exact SHA-256 equality, and keep all external owner gates closed.",
+    "execute": "Apply only the 21 registered file changes, build local ignored candidate assets, run focused and broad assurance, and create a protected pull-request handoff.",
+    "knowledge": "Register exact metadata relations, build epoch, normalization rules, asset hashes, current-tree manifest, checks, limits and deferred phases."
+  },
+  "metadata_contract": {
+    "distribution_name": "ml-cra",
+    "version": "0.1.0",
+    "pep440_normalized_version": "0.1.0",
+    "semver_boundary": "major_zero_initial_development_public_API_not_declared_stable",
+    "classifier": "Development Status :: 3 - Alpha",
+    "requires_python": ">=3.12,<3.13",
+    "runtime_constant": "PROJECT_VERSION",
+    "citation_version": "0.1.0",
+    "citation_date_released": "ABSENT_until_actual_external_release",
+    "readme_status": "finalized_unreleased_candidate",
+    "release_notes": "RELEASE_NOTES_0.1.0.md"
+  },
+  "candidate_asset_contract": {
+    "output_directory_policy": "local_ignored_dist_subdirectory_only",
+    "source_representation": "canonical_Git_index_checkout",
+    "build_command": "python -m build --no-isolation",
+    "build_backend": "setuptools==83.0.0",
+    "build_frontend": "build==1.5.0",
+    "source_date_epoch": 1787616000,
+    "source_date_epoch_utc": "2026-08-25T00:00:00Z",
+    "independent_build_count": 2,
+    "sdist_normalization": {
+      "required": true,
+      "reason": "Observed ordinary setuptools gzip sdist bytes differ across otherwise identical builds.",
+      "preserved": ["member_paths", "regular_file_bytes", "directory_structure", "permission_modes"],
+      "normalized": ["member_order", "mtime", "uid", "gid", "uname", "gname", "pax_headers", "gzip_filename", "gzip_mtime"],
+      "forbidden_members": ["symlink", "hardlink", "device", "fifo", "unsafe_path"]
+    },
+    "required_assets": [
+      "ml_cra-0.1.0.tar.gz",
+      "ml_cra-0.1.0-py3-none-any.whl",
+      "SHA256SUMS"
+    ],
+    "digest_algorithm": "SHA-256",
+    "reproducibility_rule": "both independent normalized sdist digests and both wheel digests must be byte-identical",
+    "metadata_relations": [
+      "sdist filename root and PKG-INFO version equal 0.1.0",
+      "wheel filename dist-info and METADATA version equal 0.1.0",
+      "wheel console entry point equals mlcra=mlcra.cli:main",
+      "sdist and wheel license files are present",
+      "SHA256SUMS exactly binds the two distributable assets"
+    ],
+    "publication_effect": "NONE_local_candidate_assets_only"
+  },
+  "release_notes_contract": {
+    "languages": ["English", "Russian"],
+    "required_topics": [
+      "candidate_not_release_status",
+      "supported_CPython_Windows_boundary",
+      "classification_regression_and_dashboard_scope",
+      "bounded_scientific_claim_limit",
+      "three_required_future_assets",
+      "SHA_256_verification",
+      "installation_reference",
+      "license_citation_dataset_attribution_and_security",
+      "known_limitations",
+      "deferred_TestPyPI_and_PyPI",
+      "exact_tag_and_SHA_deferred_to_ST08_14C"
+    ],
+    "forbidden_claims": [
+      "universally_best_model",
+      "cross_platform_support",
+      "external_release_completed",
+      "PyPI_publication_completed",
+      "scientific_validation_from_synthetic_fixture"
+    ]
+  },
+  "immutable_history_representation": "SHA-256 over canonical Git index blob bytes",
+  "immutable_ST08_14": [
+    {"path": "configs/project_readiness/st08_14_release_0_1_0_scope_channel_and_execution_contract_v01.json", "sha256": "41d6cef3888be9bcb7b9ea01e30b3d1b72c2526b5df217a0a79a9d5cc165e1ce"},
+    {"path": "data_registry/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_evidence_v01.json", "sha256": "76007bda012cabe36b663832a3f96812015e1482abc37cd00f2c7c08ded6127b"},
+    {"path": "data_registry/st08_14_release_0_1_0_contract_manifest_v01.csv", "sha256": "c9108123ae101aec7866cc2f4fb1d5cefd981f9854e0a774ea612b9d66253914"},
+    {"path": "docs/agent/st08_14_release_0_1_0_scope_channel_and_execution_contract_design_change_scope_v01.csv", "sha256": "b4427a218807c18699d071f7931fb971b6805590268241b2fc23a955b637f023"},
+    {"path": "scripts/st08_14_release_0_1_0_contract_assurance.py", "sha256": "c3ce20ca9bfbc33bb4eadd2d961c63d4db5fceaa40b357cedeaf62c9980ebc1a"},
+    {"path": "tests/test_release_0_1_0_contract_st08_14.py", "sha256": "f31d1b8db7308077765af3802a93b3bca7b5349b7cb7985aa7728983592b7ffd"}
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_14A_release_candidate_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_14A_release_candidate_manifest_v01.csv",
+      "data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json"
+    ]
+  },
+  "planned_changes": [
+    {"change_kind": "modified", "relative_path": "pyproject.toml"},
+    {"change_kind": "modified", "relative_path": "CITATION.cff"},
+    {"change_kind": "modified", "relative_path": "README.md"},
+    {"change_kind": "modified", "relative_path": "README_RU.md"},
+    {"change_kind": "modified", "relative_path": "src/mlcra/application.py"},
+    {"change_kind": "added", "relative_path": "RELEASE_NOTES_0.1.0.md"},
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_14A_release_0_1_0_candidate_finalization_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_14A_release_candidate_finalization_assurance.py"},
+    {"change_kind": "added", "relative_path": "tests/test_release_candidate_finalization_st08_14A.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_14A_release_candidate_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_14A_release_0_1_0_candidate_finalization_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_documentation_st08_10.py"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"}
+  ],
+  "required_checks": [
+    "python scripts/st08_14A_release_candidate_finalization_assurance.py metadata",
+    "python -m unittest -v tests.test_release_candidate_finalization_st08_14A",
+    "python scripts/st08_14A_release_candidate_finalization_assurance.py build-candidate --output-dir dist/st08_14A-candidate",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_14A_release_candidate_finalization_assurance.py final-evidence"
+  ],
+  "authoritative_support": [
+    {"source": "Python Packaging pyproject.toml specification", "uri": "https://packaging.python.org/en/latest/specifications/pyproject-toml/", "use": "Keep normalized static distribution metadata aligned with built Core Metadata."},
+    {"source": "Python Packaging version specifiers", "uri": "https://packaging.python.org/en/latest/specifications/version-specifiers/", "use": "Replace the development release 0.1.0.dev0 with the final version identifier 0.1.0."},
+    {"source": "Python Packaging single-sourcing the project version", "uri": "https://packaging.python.org/en/latest/discussions/single-source-version/", "use": "Require an automated equality test for pyproject runtime and installed metadata versions."},
+    {"source": "Python Packaging source distribution format", "uri": "https://packaging.python.org/en/latest/specifications/source-distribution-format/", "use": "Validate exact sdist name root version metadata and license relations."},
+    {"source": "Citation File Format schema guide 1.2.0", "uri": "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md", "use": "Add version 0.1.0 but omit date-released until the software is actually released."},
+    {"source": "SOURCE_DATE_EPOCH specification", "uri": "https://reproducible-builds.org/specs/source-date-epoch/", "use": "Exchange one declared build timestamp and test byte-for-byte reproducibility."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release files and provenance with repeatable automated checks."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind candidate bytes with SHA-256 without treating a digest as proof of correctness."}
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_IF_PROTECTED_PR_AND_REMOTE_GIT_RECOVERY_PASS",
+    "reason": "Candidate assets are reproducibly regenerated from the exact Git tree and are not published or committed; protected remote Git plus the evidence and manifest provide recovery."
+  },
+  "stop_conditions": [
+    "A tag GitHub Release TestPyPI or PyPI action would occur.",
+    "A release date or exact release SHA would be invented before external execution.",
+    "The two candidate builds would not match byte for byte after registered normalization.",
+    "Any immutable ST08_14 or protected scientific artifact would change.",
+    "Any claim protocol result verdict dependency or supported environment boundary would change.",
+    "ST08_14B or another future task would start without separate John authorization."
+  ]
+}
