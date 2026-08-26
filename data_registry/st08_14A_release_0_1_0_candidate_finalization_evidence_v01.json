@@ -117,12 +117,24 @@
     "scientific_validation": "PRESERVED_no_new_training_or_verdict",
     "documentary_consistency": "PASS",
     "hash_interpretation": "byte_integrity_only_not_correctness_or_scientific_validity",
-    "hosted_CI_observation": "PENDING_protected_pull_request",
+    "hosted_CI_observation": {
+      "status": "PASS",
+      "pull_request": "https://github.com/Vanargo/ML-CRA/pull/13",
+      "head_commit": "da6132ab2fe044d1e45245084d89aba4af3066c2",
+      "workflow_run_id": 32931815777,
+      "job_id": 98065377503,
+      "check_name": "assurance",
+      "check_status": "completed",
+      "check_conclusion": "success",
+      "merged": true,
+      "merged_at": "2026-08-26T05:15:35Z",
+      "rebase_merge_commit": "e2449b8dae22a906ecf3cfdd6dbc4e1f97aff986"
+    },
     "external_release": "NOT_PERFORMED_NOT_AUTHORIZED"
   },
   "checkpoint": {
     "status": "SKIPPED",
-    "reason": "Protected remote Git and a successful pull request are the intended recovery path; candidate assets are reproducibly regenerated and remain ignored local outputs."
+    "reason": "Protected pull request 13 passed the required hosted assurance and was merged; remote Git is the recovery path, while candidate assets are reproducibly regenerated and remain ignored local outputs."
   },
   "release_authorized": false,
   "release_performed": false,
@@ -132,7 +144,6 @@
   "technical_status": "PASS",
   "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "residual_uncertainty": [
-    "Hosted CI has not yet observed the exact pull-request candidate.",
     "ST08_14B security preflight and ST08_14C external release remain separately unauthorized.",
     "No publication date tag release commit SHA TestPyPI or PyPI state is asserted."
   ]
