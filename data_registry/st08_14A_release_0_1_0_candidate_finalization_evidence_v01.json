@@ -1,0 +1,139 @@
+{
+  "schema_version": "st08_14A_release_0_1_0_candidate_finalization_evidence_v01",
+  "task_id": "ST08_14A_release_0_1_0_candidate_finalization",
+  "profile": "CHANGE",
+  "recorded_at": "2026-08-26",
+  "status": "candidate_finalized_local_external_release_not_authorized",
+  "source_baseline": {
+    "git_commit": "72c05837cec3e2fd65a8a1c2109075b98d0e6ade",
+    "tracked_paths_before": 326,
+    "tracked_paths_after": 333,
+    "project_version_before": "0.1.0.dev0",
+    "project_version_after": "0.1.0",
+    "ST08_14_technical_status": "PASS_PRESERVED",
+    "ST08_13C_project_completion": "PASS_PRESERVED",
+    "external_release_readiness": "BLOCKED_PRESERVED"
+  },
+  "mape_k_result": {
+    "monitor": "The accepted main baseline was clean at 0.1.0.dev0 with no tags or releases; an empirical two-build probe found the ordinary wheel byte-reproducible and the ordinary gzip sdist byte-different.",
+    "analyze": "Final candidate metadata was required, CFF release date was forbidden before publication, and ordinary sdist reproducibility could not be claimed contrary to observation.",
+    "plan": "Finalize version metadata, add bilingual bounded notes, build twice from the canonical Git index, normalize only non-semantic sdist container metadata, and keep every external owner gate closed.",
+    "execute": "Applied exactly 21 registered path changes and generated three ignored local candidate assets from two independent builds.",
+    "knowledge": "The contract, current-tree manifest, evidence, asset hashes, mutation tests and canonical documentation preserve the decision and its limits."
+  },
+  "metadata_result": {
+    "version": "0.1.0",
+    "classifier": "Development Status :: 3 - Alpha",
+    "CITATION_cff_version": "0.1.0",
+    "CITATION_cff_date_released": "ABSENT_NOT_RELEASED",
+    "bilingual_release_notes": "PASS",
+    "external_release_claimed": false
+  },
+  "reproducibility_observation": {
+    "source_representation": "canonical_Git_index_checkout",
+    "source_date_epoch": 1787616000,
+    "source_date_epoch_utc": "2026-08-25T00:00:00Z",
+    "independent_builds": 2,
+    "ordinary_wheel_probe": {
+      "status": "PASS_byte_identical",
+      "sha256": "177bf201bfb7f413c915ab78c8e0c079e1a581dee59b83805165eae20fd7c9e3"
+    },
+    "ordinary_sdist_probe": {
+      "status": "FAIL_byte_difference_observed_and_not_rewritten",
+      "distinct_digest_count": 2,
+      "exact_probe_digests_registered": false,
+      "disposition": "registered_deterministic_container_metadata_normalization"
+    },
+    "normalized_sdist": "PASS_2_of_2_byte_identical",
+    "wheel": "PASS_2_of_2_byte_identical",
+    "normalization_preserved": [
+      "member_paths",
+      "regular_file_bytes",
+      "directory_structure",
+      "permission_modes"
+    ],
+    "normalization_forbidden_member_types": [
+      "symlink",
+      "hardlink",
+      "device",
+      "fifo",
+      "unsafe_path"
+    ]
+  },
+  "candidate_assets": {
+    "ml_cra-0.1.0.tar.gz": {
+      "sha256": "d6a7a4230ae6b45650cbaef0db69592e4b1e90a27475c92f8645abea2cf44c30",
+      "size_bytes": 95288,
+      "file_entries": 39
+    },
+    "ml_cra-0.1.0-py3-none-any.whl": {
+      "sha256": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a",
+      "size_bytes": 91936,
+      "file_entries": 22
+    },
+    "SHA256SUMS": {
+      "sha256": "285e5138b61da31003dff013f6a793542784477451faf4b150d71e753c3d4b8c",
+      "size_bytes": 182,
+      "bound_assets": 2
+    }
+  },
+  "successor_manifest": {
+    "status": "PASS",
+    "paths": 333,
+    "hashed_paths": 331,
+    "path_list_sha256": "a3f99c41b8b420605b861f8f4d5a1f53b3e732ebff79b761616d4ae8c76bda79",
+    "manifest_sha256": "777deb947e6f7e61eef0060e87d739aa7bea611d51daec2964b6f549b15bac7b",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_14A_release_0_1_0_candidate_finalization_evidence_v01.json",
+      "data_registry/st08_14A_release_candidate_manifest_v01.csv"
+    ]
+  },
+  "observed_checks": {
+    "metadata_assurance": "PASS",
+    "candidate_builds": "PASS_2_of_2",
+    "normalized_sdist_byte_reproducibility": "PASS_2_of_2",
+    "wheel_byte_reproducibility": "PASS_2_of_2",
+    "archive_assurance": "PASS",
+    "mutation_tests": "PASS_14_of_14",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "source_assurance": "PASS",
+    "documentation_assurance": "PASS",
+    "secret_pattern_scan": "PASS_zero_findings",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "change_reconciliation": {
+    "planned_paths": 21,
+    "actual_paths": 21,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "verification_boundaries": {
+    "software_verification": "PASS_for_registered_candidate_checks",
+    "scientific_validation": "PRESERVED_no_new_training_or_verdict",
+    "documentary_consistency": "PASS",
+    "hash_interpretation": "byte_integrity_only_not_correctness_or_scientific_validity",
+    "hosted_CI_observation": "PENDING_protected_pull_request",
+    "external_release": "NOT_PERFORMED_NOT_AUTHORIZED"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Protected remote Git and a successful pull request are the intended recovery path; candidate assets are reproducibly regenerated and remain ignored local outputs."
+  },
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "residual_uncertainty": [
+    "Hosted CI has not yet observed the exact pull-request candidate.",
+    "ST08_14B security preflight and ST08_14C external release remain separately unauthorized.",
+    "No publication date tag release commit SHA TestPyPI or PyPI state is asserted."
+  ]
+}

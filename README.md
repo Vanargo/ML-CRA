@@ -9,15 +9,17 @@ ML-CRA audits whether experimental evidence supports a **bounded**
 machine-learning claim. It does not choose a universally best model and does not
 turn one dataset result into a general recommendation.
 
-This public repository is a development snapshot, version `0.1.0.dev0`.
-It is not an authorized release. Repository publication, hosted CI, and
+This public repository contains finalized but unreleased candidate metadata for
+version `0.1.0`. It is not an authorized external release. The bilingual
+[0.1.0 candidate release notes](RELEASE_NOTES_0.1.0.md) describe the exact
+supported boundary and deferred actions. Repository publication, hosted CI, and
 repository-security observations are bounded by the
 [ST08_13B evidence record](data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json).
 The subsequent [ST08_13C prospective v02 re-audit](data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json)
 applies all 24 registered project requirements to an exact hash-bound candidate.
 Project completion passes only within that registered boundary. External release
-remains blocked until John separately authorizes it; no version tag, GitHub
-Release, or package-index publication is implied.
+remains blocked until John separately authorizes it; the final metadata does not
+create a version tag, GitHub Release, or package-index publication.
 The supported user workflows are local binary tabular classification
 and bounded exchangeable-row tabular regression on Windows x64 with CPython
 3.12, plus generation of a local static English/Russian dashboard from a
@@ -216,8 +218,10 @@ The historical 2026-08-24 v01 re-audit remains unchanged at 19 `PASS`, two
 the owner-approved v02 rules without rewriting that history: all 24 current
 requirements and all eight dimensions pass, so project completion is `PASS`.
 The cumulative pilot still executes and must reproduce exactly its eight
-registered historical FAIL rows with no new failure. External release readiness
-is independently `BLOCKED` solely because John has not authorized a release.
+registered historical FAIL rows with no new failure. The local `0.1.0`
+candidate metadata and reproducible-build contract are finalized by ST08_14A,
+but external release readiness remains independently `BLOCKED` solely because
+John has not authorized a release.
 Real-dataset regression validation and the local static dashboard remain valid
 bounded results; neither authorizes broader scientific claims or a release.
 

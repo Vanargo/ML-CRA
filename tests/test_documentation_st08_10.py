@@ -26,6 +26,8 @@ class TestSt0810Documentation(unittest.TestCase):
         result = assurance.validate_bilingual_documents()
         self.assertTrue(result["command_parity"])
         self.assertEqual(result["powershell_blocks_per_language"], 3)
+        self.assertNotIn("0.1.0.dev0", assurance.README_EN.read_text(encoding="utf-8"))
+        self.assertNotIn("0.1.0.dev0", assurance.README_RU.read_text(encoding="utf-8"))
 
     def test_missing_section_marker_is_rejected(self) -> None:
         english = assurance.README_EN.read_text(encoding="utf-8").replace(
@@ -63,7 +65,9 @@ class TestSt0810Documentation(unittest.TestCase):
             assurance.validate_current_path_reconciliation(mutated)
 
     def test_metadata_uses_root_readme(self) -> None:
-        self.assertEqual(assurance.validate_project_metadata()["readme"], "README.md")
+        metadata = assurance.validate_project_metadata()
+        self.assertEqual(metadata["readme"], "README.md")
+        self.assertEqual(metadata["version"], "0.1.0")
 
     def test_doctor_has_no_completed_documentation_blocker(self) -> None:
         source = assurance.APPLICATION.read_text(encoding="utf-8")

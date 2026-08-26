@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "If you use ML-CRA, please cite the software using these metadata."
 title: "ML Claim Reliability Auditor"
 type: software
+version: "0.1.0"
 authors:
   - family-names: "Полищук"
     given-names: "Иван"

@@ -189,9 +189,9 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             "mlcra/dashboard.py",
             "mlcra/schemas/binary_classification_claim_v01.schema.json",
             "mlcra/schemas/tabular_regression_claim_v01.schema.json",
-            "ml_cra-0.1.0.dev0.dist-info/entry_points.txt",
-            "ml_cra-0.1.0.dev0.dist-info/licenses/LICENSE",
-            "ml_cra-0.1.0.dev0.dist-info/licenses/DATASET_ATTRIBUTION.md",
+            "ml_cra-0.1.0.dist-info/entry_points.txt",
+            "ml_cra-0.1.0.dist-info/licenses/LICENSE",
+            "ml_cra-0.1.0.dist-info/licenses/DATASET_ATTRIBUTION.md",
         ]
         with tempfile.TemporaryDirectory() as temporary:
             good = Path(temporary) / "good.whl"
@@ -210,7 +210,7 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
                 assurance.verify_wheel(bad, CONTRACT)
 
     def test_sdist_inventory_passes_and_rejects_symlink(self) -> None:
-        root = "ml_cra-0.1.0.dev0"
+        root = "ml_cra-0.1.0"
         required = CONTRACT["archive_assurance"]["sdist_must_include"]
         with tempfile.TemporaryDirectory() as temporary:
             good = Path(temporary) / "good.tar.gz"
@@ -261,7 +261,7 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
     def test_public_manifest_is_exact_and_unmapped_zero(self) -> None:
         if os.environ.get("MLCRA_ASSURANCE_INVENTORY") == "published":
             result = assurance.validate_publication_tree()
-            self.assertEqual(result["paths"], 326)
+            self.assertEqual(result["paths"], 333)
         else:
             result = assurance.validate_public_manifest()
             self.assertGreater(result["paths"], 0)

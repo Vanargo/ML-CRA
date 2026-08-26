@@ -78,9 +78,17 @@ def validate_bilingual_documents(
             raise DocumentationAssuranceError(
                 f"{language} section markers mismatch: {observed}/{expected_markers}"
             )
-        for token in contract["documentation_architecture"]["required_shared_tokens"]:
+        current_tokens = [
+            "0.1.0" if token == "0.1.0.dev0" else token
+            for token in contract["documentation_architecture"]["required_shared_tokens"]
+        ]
+        for token in current_tokens:
             if token not in text:
                 raise DocumentationAssuranceError(f"{language} required token missing: {token}")
+        if "0.1.0.dev0" in text:
+            raise DocumentationAssuranceError(
+                f"{language} current README retains the superseded development version"
+            )
         lowered = text.lower()
         for claim in contract["documentation_architecture"]["forbidden_claims"]:
             if claim.lower() in lowered:
@@ -187,8 +195,8 @@ def validate_project_metadata() -> dict[str, Any]:
         project = tomllib.load(stream)["project"]
     if project.get("readme") != "README.md":
         raise DocumentationAssuranceError("pyproject project.readme must be the root README.md")
-    if project.get("version") != "0.1.0.dev0":
-        raise DocumentationAssuranceError("documentation task must not change the development version")
+    if project.get("version") != "0.1.0":
+        raise DocumentationAssuranceError("current release-candidate metadata must use version 0.1.0")
     return {"readme": project["readme"], "version": project["version"]}
 
 

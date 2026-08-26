@@ -1742,3 +1742,55 @@ ST08_14A должен заменить `0.1.0.dev0` на финальную `0.1
 2. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решить, авторизовать ли ST08_14A; принятие текущего контракта не
    меняет версию и не разрешает внешний выпуск.
+
+## 52. ST08_14A — локальный кандидат 0.1.0
+
+John принял и закрыл ST08_14 и отдельно авторизовал
+`ST08_14A_release_0_1_0_candidate_finalization`. Текущая версия пакета,
+runtime и CFF приведены к `0.1.0`; дата выпуска не записана, потому что тег и
+публикация не выполнялись. Двуязычные примечания фиксируют поддерживаемый
+Windows x64 / CPython `>=3.12,<3.13`, функции CLI и dashboard — панели,
+научную границу MiniBooNE/UCI Wine Quality и известные ограничения.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14_release_0_1_0_scope_channel_and_execution_contract_design
+TASK_CLOSED: ST08_14_release_0_1_0_scope_channel_and_execution_contract_design
+NEXT_BLOCK_AUTHORIZED: ST08_14A_release_0_1_0_candidate_finalization
+ST08_14A_profile: CHANGE
+release_authorized: false
+release_actions_performed: 0
+```
+
+Кандидат строится дважды из канонического Git index с общей меткой
+`SOURCE_DATE_EPOCH=1787616000`. Wheel обязан совпасть побайтно. Наблюдаемая
+невоспроизводимость обычного gzip/sdist устранена зарегистрированной
+нормализацией только несемантических архивных полей при сохранении байтов
+файлов и структуры. Результат — ровно `ml_cra-0.1.0.tar.gz`,
+`ml_cra-0.1.0-py3-none-any.whl` и `SHA256SUMS`; активы локальны, исключены из
+Git и не опубликованы.
+
+Метаданные проверяются по официальным спецификациям
+[PyPA](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
+и [CFF 1.2](https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md),
+воспроизводимость — по
+[SOURCE_DATE_EPOCH](https://reproducible-builds.org/specs/source-date-epoch/),
+а SHA-256 используется в ограниченной роли контроля байтов по
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final).
+
+## 53. Предлагаемый следующий блок
+
+```text
+proposed_next_block: ST08_14B_release_0_1_0_execution_security_preflight
+ST08_14B_status: proposed_not_authorized
+release_authorized: false
+```
+
+Точный кандидат требует отдельного повторного аудита до любого тега. Только
+отдельно авторизованный будущий ST08_14C может выполнить GitHub Release; PyPI и
+TestPyPI остаются отложенными.
+
+## 54. Задачи John
+
+1. Принять либо вернуть только ST08_14A.
+2. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Отдельно решать вопрос ST08_14B; принятие кандидата не разрешает публикацию.
