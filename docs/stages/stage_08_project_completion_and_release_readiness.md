@@ -2385,7 +2385,7 @@ NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight
 ST08_14B_profile: CHANGE
 release_authorized: false
 release_actions_performed: 0
-ST08_14B_status: in_progress_external_owner_evidence_pending
+ST08_14B_status: technical_pass_ready_for_john_acceptance
 ```
 
 В старом фазовом описании ST08_14 использовано имя
@@ -2418,15 +2418,30 @@ private vulnerability reporting и Release immutability. Неавторизов�
 `fetch-depth: 0`; валидаторы теперь отклоняют неглубокий checkout, чтобы сравнение с ST08_14A
 нельзя было молча пропустить.
 
+Исправление подтверждено после merge (слияния) PR #15: `main` имеет commit
+`b9dc0859a24edfe569a81020b9e059f82d5bf739`, а hosted run `32940165408`, job
+`98089338779`, завершил `assurance=success` с 24/24 успешными шагами. Официальный GitHub REST API
+также подтвердил ноль тегов, ноль GitHub Releases, активный ruleset `21408995` и включённую
+private vulnerability reporting. Аутентифицированное наблюдение John подтвердило Secret
+Protection и Push protection как включённые, а снимок Settings — установленную галочку
+`Enable release immutability`.
+
+GitHub CLI 2.98.0 установлен из официального MSI: SHA-256
+`1793a0dd0064b3f03fe8ceb16b18da751d60e0c7efcfe7bbb4715fca3b675392` совпал с официальным
+checksums-файлом, Authenticode имеет `Status=Valid` и издателя GitHub, Inc.; установленный
+`gh.exe` вернул `gh version 2.98.0 (2026-08-20)`. Все внешние preflight-контроли имеют PASS.
+Тег, draft/обычный GitHub Release, загрузка артефактов, TestPyPI и PyPI не выполнялись.
+
+Полнофайловая структурная проверка выявила существовавшую ранее двойную нумерацию раздела 20 в
+`roadmap.md`. Этот документарный риск не относится к ST08_14B, не влияет на уникальные текущие
+разделы 55–56 и не исправляется без отдельной авторизации.
+
 ## 73. Задачи John
 
-1. Предоставить снимок `Settings → General → Releases`, на котором видно состояние
-   `Release immutability`.
-2. Предоставить текущий снимок `Settings → Advanced Security`, на котором видны состояния
-   Secret Protection и Push protection.
-3. Установить GitHub CLI до будущего исполнения ST08_14C либо явно вернуть это требование на
-   пересмотр; установка и аутентификация не выполняются агентом без отдельного действия John.
-4. После локального handoff (передачи) отправить ветвь, открыть PR и передать URL успешного
-   `assurance` для точного commit.
-5. Не создавать тег, draft/обычный GitHub Release и не загружать артефакты: ST08_14C не
-   авторизован.
+1. Отправить завершающую evidence-ветвь, открыть pull request в `main` и дождаться обязательного
+   `assurance`, который теперь включает `final-evidence`.
+2. После успешного hosted run принять либо вернуть только ST08_14B.
+3. При принятии присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+4. Отдельно решить, авторизовать ли предлагаемый
+   `ST08_14C_release_0_1_0_GitHub_execution`; до такой авторизации не создавать тег, GitHub
+   Release и не загружать артефакты.

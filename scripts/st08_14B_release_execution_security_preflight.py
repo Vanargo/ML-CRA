@@ -223,6 +223,7 @@ def validate_workflow_text(text: str) -> None:
         "fetch-depth: 0",
         "scripts/st08_14B_release_execution_security_preflight.py contract",
         "scripts/st08_14B_release_execution_security_preflight.py mutations",
+        "scripts/st08_14B_release_execution_security_preflight.py final-evidence",
         "scripts/st08_14B_release_execution_security_preflight.py build-preflight",
         "scripts/st08_09_release_assurance.py source --inventory published",
     ]

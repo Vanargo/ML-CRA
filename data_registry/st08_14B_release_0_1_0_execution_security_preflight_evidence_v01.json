@@ -4,7 +4,7 @@
   "task_id": "ST08_14B_release_0_1_0_execution_security_preflight",
   "recorded_at": "2026-08-26",
   "profile": "CHANGE",
-  "status": "preflight_local_implementation_external_observations_pending",
+  "status": "preflight_complete_no_release",
   "authority_source": "John accepted and closed ST08_14A and explicitly authorized NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight; no release action or scientific change was authorized.",
   "source_baseline": {
     "git_commit": "60dd1379836ee7c76756bf46786f0ba5d691dc17",
@@ -19,7 +19,7 @@
     "paths": 339,
     "hashed_paths": 337,
     "path_list_sha256": "7b39c1d028b21b275aee37543354c706410e03b81698365f0bce959ea2f80af0",
-    "manifest_sha256": "b7f0fe8dcd7cdaf134ee1690897055ac4be38a403186aa24fff283147383a7e2",
+    "manifest_sha256": "7043b9a0cf96899bbea131051d99ed97ca1484373a3d5fac46dcfce80f5a6852",
     "cycle_breaking_exclusions": [
       "data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json",
       "data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv"
@@ -51,20 +51,20 @@
     "push_protection_enabled": true,
     "private_vulnerability_reporting_enabled": true,
     "dependabot_alerts_enabled": true,
-    "release_immutability_enabled": null,
+    "release_immutability_enabled": true,
     "ruleset_required_controls_pass": true,
-    "GitHub_CLI_available": false,
-    "GitHub_CLI_version": null,
-    "required_assurance_conclusion": "pending_ST08_14B_pull_request",
-    "observed_commit": null,
-    "hosted_run_url": null,
-    "authenticated_owner_observed_at": null,
+    "GitHub_CLI_available": true,
+    "GitHub_CLI_version": "gh version 2.98.0 (2026-08-20)",
+    "required_assurance_conclusion": "success",
+    "observed_commit": "b9dc0859a24edfe569a81020b9e059f82d5bf739",
+    "hosted_run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/32940165408/job/98089338779",
+    "authenticated_owner_observed_at": "2026-08-26T07:24:41.2158139Z",
     "observation_provenance": {
-      "repository_ruleset_private_reporting_tags_and_releases": "GitHub REST API read-only observation at 2026-08-26T05:38:10.8159886Z",
-      "secret_scanning_push_protection_dependabot_alerts": "ST08_13B authenticated John screenshots dated 2026-08-25; current re-observation requested",
-      "release_immutability": "UNKNOWN: unauthenticated administrator-only REST request returned HTTP 401; authenticated John screenshot requested",
-      "GitHub_CLI": "local command discovery returned not installed",
-      "hosted_assurance": "pending exact ST08_14B pull-request head"
+      "repository_ruleset_private_reporting_tags_and_releases": "GitHub REST API read-only observation at 2026-08-26T07:24:41.2158139Z: zero tags, zero releases, private vulnerability reporting enabled, ruleset 21408995 active",
+      "secret_scanning_push_protection_dependabot_alerts": "John authenticated Advanced Security observation on 2026-08-26: Disable actions visible for Secret Protection and Push protection, meaning enabled; ST08_13B authenticated screenshot preserves the prior enabled Dependabot state",
+      "release_immutability": "John authenticated Settings General screenshot on 2026-08-26: Enable release immutability checkbox checked",
+      "GitHub_CLI": "Official GitHub CLI v2.98.0 MSI SHA-256 matched 1793a0dd0064b3f03fe8ceb16b18da751d60e0c7efcfe7bbb4715fca3b675392, Authenticode status Valid for GitHub Inc., installed executable observed at C:/Program Files/GitHub CLI/gh.exe",
+      "hosted_assurance": "GitHub REST API: main b9dc0859a24edfe569a81020b9e059f82d5bf739, run 32940165408, job 98089338779, assurance completed success, 24/24 steps success"
     }
   },
   "hosted_attempts": [
@@ -79,7 +79,19 @@
       "root_cause": "actions_checkout_default_depth_one_omitted_baseline_commit_60dd137",
       "reproduction": "PASS_same_cannot_compare_source_baseline_fatal_bad_object_in_local_depth_one_clone",
       "repair": "require_actions_checkout_fetch_depth_0",
-      "disposition": "REPAIRED_PENDING_NEW_HOSTED_RUN"
+      "disposition": "REPAIRED_AND_VERIFIED_BY_RUN_32940165408"
+    },
+    {
+      "run_id": 32940165408,
+      "job_id": 98089338779,
+      "head_sha": "b9dc0859a24edfe569a81020b9e059f82d5bf739",
+      "event": "push",
+      "conclusion": "success",
+      "job_name": "assurance",
+      "steps_total": 24,
+      "steps_success": 24,
+      "repair_verified": "actions_checkout_fetch_depth_0_and_candidate_build_preflight_passed",
+      "disposition": "PASS_exact_merged_ST08_14B_implementation"
     }
   ],
   "observed_checks": {
@@ -97,8 +109,8 @@
     "dependency_audit": "PASS_zero_known_vulnerabilities_50_dependencies_time_stamped_2026_08_26",
     "protected_scientific_artifacts": "PASS_18_of_18",
     "historical_ST08_14A_current_tree_tests": "SKIPPED_superseded_manifest_expected_6_new_paths",
-    "hosted_assurance": "PENDING",
-    "repository_security_preflight": "BLOCKED_authenticated_release_immutability_and_current_security_screenshots_pending",
+    "hosted_assurance": "PASS",
+    "repository_security_preflight": "PASS",
     "release_actions_performed": 0,
     "training_runs": 0,
     "scientific_artifact_changes": 0
@@ -115,12 +127,12 @@
     "claim_or_protocol_changed": false,
     "meaning": "This preflight evaluates release mechanics, integrity and security controls only; it supplies no new evidence for model superiority or a scientific verdict."
   },
-  "remaining_blockers": [
-    "Authenticated evidence that GitHub Release immutability is enabled is pending from John.",
-    "A current authenticated Advanced Security screenshot is pending from John.",
-    "GitHub CLI required by the official post-publication verification procedure is not installed locally.",
-    "The exact ST08_14B pull-request assurance run has not yet occurred.",
-    "John has not authorized ST08_14C or any release action."
+  "remaining_blockers": [],
+  "remaining_risks": [
+    "John acceptance and task closure are pending; technical PASS is not user acceptance.",
+    "ST08_14C_release_0_1_0_GitHub_execution is proposed but not authorized; no tag, GitHub Release or asset upload may occur.",
+    "Secret scanning and vulnerability auditing reduce risk but cannot prove absence of unknown secrets or vulnerabilities.",
+    "roadmap.md contains a pre-existing duplicate section number 20 outside the ST08_14B change scope; the current sections 55-56 are unique and unaffected."
   ],
   "checkpoint": {
     "status": "SKIPPED",
@@ -131,10 +143,10 @@
   "release_actions_performed": 0,
   "training_runs": 0,
   "scientific_artifact_changes": 0,
-  "technical_status": "BLOCKED",
-  "readiness": "NOT_READY",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "next_proposed_task": {
-    "task_id": "ST08_14C_release_0_1_0_execution",
+    "task_id": "ST08_14C_release_0_1_0_GitHub_execution",
     "authorization_status": "PROPOSED_NOT_AUTHORIZED"
   }
 }

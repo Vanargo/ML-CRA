@@ -87,6 +87,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/st08_14B_release_execution_security_preflight.py mutations
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_14B_release_execution_security_preflight.py final-evidence
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Reconstruct and preflight the candidate twice from the canonical Git index
         run: python scripts/st08_14B_release_execution_security_preflight.py build-preflight --output-dir dist/st08_14B-ci
