@@ -314,6 +314,7 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "st08_14A_release_candidate_finalization_assurance.py metadata",
         "st08_14B_release_execution_security_preflight.py contract",
         "st08_14B_release_execution_security_preflight.py mutations",
+        "st08_14B_release_execution_security_preflight.py final-evidence",
         "st08_14B_release_execution_security_preflight.py build-preflight",
         "scripts/agent_verify.py --mode baseline --inventory published",
     ]

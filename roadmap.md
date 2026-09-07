@@ -1804,7 +1804,7 @@ John принял и закрыл ST08_14A и отдельно авторизо�
 ACCEPTED_BY_JOHN: ST08_14A_release_0_1_0_candidate_finalization
 TASK_CLOSED: ST08_14A_release_0_1_0_candidate_finalization
 NEXT_BLOCK_AUTHORIZED: ST08_14B_release_0_1_0_execution_security_preflight
-ST08_14B_status: in_progress_external_owner_evidence_pending
+ST08_14B_status: technical_pass_ready_for_john_acceptance
 release_authorized: false
 release_actions_performed: 0
 ```
@@ -1832,11 +1832,24 @@ depth-one checkout: commit ST08_14A `60dd137…` отсутствовал. Ош�
 воспроизведена в локальной неглубокой копии. Текущий ремонт требует `fetch-depth: 0` и
 fail-closed отклоняет workflow без полной истории.
 
+Ремонт подтверждён на слитом `main` `b9dc0859a24edfe569a81020b9e059f82d5bf739`: hosted run
+`32940165408`, job `98089338779`, завершил `assurance=success`, 24/24 шагов успешны. GitHub REST
+API подтвердил ноль тегов/релизов, активный ruleset `21408995` и private vulnerability reporting.
+John подтвердил включённые Secret Protection/Push protection и предоставил снимок установленной
+галочки `Enable release immutability`. Официальный GitHub CLI 2.98.0 установлен из MSI с
+совпавшим SHA-256 и валидной Authenticode-подписью GitHub, Inc. Все внешние preflight-контроли
+имеют PASS; релизные действия не выполнялись.
+
+Существовавшая ранее двойная нумерация раздела 20 этого накопительного roadmap зарегистрирована
+как отдельный документарный риск вне ST08_14B; уникальные разделы 55–56 и релизный вывод не
+затронуты.
+
 ## 56. Задачи John
 
-1. Передать снимки `Settings → General → Releases` с Release immutability и
-   `Settings → Advanced Security` с Secret Protection/Push protection.
-2. Установить GitHub CLI до будущего ST08_14C либо вернуть требование на пересмотр.
-3. После локальной передачи отправить ветвь, открыть PR и передать успешный hosted `assurance`
-   точного commit.
-4. Не создавать тег или GitHub Release: ST08_14C ещё не авторизован.
+1. Отправить завершающую evidence-ветвь, открыть pull request в `main` и дождаться обязательного
+   `assurance` с `final-evidence`.
+2. После успешного hosted run принять либо вернуть ST08_14B; при принятии присвоить
+   `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Отдельно решить, авторизовать ли
+   `ST08_14C_release_0_1_0_GitHub_execution`; до этого не создавать тег, GitHub Release или
+   загрузку артефактов.
