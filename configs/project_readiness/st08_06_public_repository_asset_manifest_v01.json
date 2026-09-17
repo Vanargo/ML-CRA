@@ -50,8 +50,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 384,
-    "approved_path_list_sha256": "900f62d2e722282a7910220b4c6132936f4d54506abe1a0e01fc24a29ad59452",
+    "approved_path_count": 388,
+    "approved_path_list_sha256": "6541dcab9d3c544bed11227ccc013855063afb2bece3f3c879ea0309a7f49b9f",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -144,10 +144,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 188,
-    "ST08-06-MANIFEST-07": 151,
+    "ST08-06-MANIFEST-06": 190,
+    "ST08-06-MANIFEST-07": 153,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 384
+    "TOTAL": 388
   },
   "inventory_refreshes": [
     {
@@ -227,6 +227,12 @@
       "recorded_at": "2026-08-26",
       "reason": "Authorized release preflight adds a successor manifest, fail-closed validator, evidence, exact scope and owner runbook while performing no tag, release, upload, publication or scientific change.",
       "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_14C_release_0_1_0_GitHub_execution",
+      "recorded_at": "2026-09-07",
+      "reason": "Authorized immutable GitHub Release execution adds successor release evidence, a fail-closed validator, exact scope and current documentation while preserving the scientific boundary.",
+      "external_publication_performed": true
     }
   ],
   "mandatory_public_legal_artifacts": [

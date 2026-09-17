@@ -1853,3 +1853,60 @@ John подтвердил включённые Secret Protection/Push protection
 3. Отдельно решить, авторизовать ли
    `ST08_14C_release_0_1_0_GitHub_execution`; до этого не создавать тег, GitHub Release или
    загрузку артефактов.
+
+## 57. ST08_14C — выполнение GitHub Release 0.1.0
+
+John принял и закрыл ST08_14B, затем отдельно авторизовал
+`ST08_14C_release_0_1_0_GitHub_execution`. Профиль `CHANGE` разрешил исполнить
+зарегистрированный draft-first-процесс GitHub Release, но не разрешил PyPI,
+TestPyPI или изменение научных claim/protocol/result/verdict — утверждений,
+протоколов, результатов и вердиктов.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14B_release_0_1_0_execution_security_preflight
+TASK_CLOSED: ST08_14B_release_0_1_0_execution_security_preflight
+NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution
+ST08_14C_profile: CHANGE
+GitHub_release: published_immutable
+PyPI_or_TestPyPI_authorized: false
+ST08_14C_status: local_technical_pass_evidence_branch_pending_hosted_assurance
+```
+
+Неизменяемый GitHub Release [`v0.1.0`](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0)
+имеет release ID `383873796` и прямой commit-tag на
+`9d530b60fd262f21cfe63eb2482722972a24c3d2` с Git tree
+`d8bda657cc1ee7659ca0a88050c43c54627463a0`. Опубликованы ровно три
+зарегистрированных актива: `ml_cra-0.1.0.tar.gz`,
+`ml_cra-0.1.0-py3-none-any.whl` и `SHA256SUMS`. Их размеры и SHA-256 совпадают
+с дважды воспроизведённой сборкой ST08_14B; GitHub release attestation и каждый
+локальный актив успешно проверены официальным GitHub CLI.
+
+Первая публичная body-версия сохранила предрелизную формулировку и не содержала
+всех точных идентификаторов. Выполнение было остановлено до исправления. John
+отдельно разрешил изменить только mutable title/body — изменяемые заголовок и
+описание — без изменения или удаления тега и активов. После ремонта повторная
+проверка подтвердила прежние tag target, размеры, SHA-256 и attestation.
+
+Публичное описание явно раскрывает известное ограничение: неизменяемые README
+и `mlcra doctor` внутри `v0.1.0` сохраняют предрелизное состояние, включая
+устаревший блокер `John_release_authorization_not_granted`. Это ограничение
+формулировки состояния выпуска, а не ошибка среды и не изменение ограниченных
+научных результатов. Изменение байтов уже выпущенной версии запрещено; возможная
+коррекция пакета относится только к отдельно авторизованной будущей версии.
+
+Процедура следует официальной документации GitHub об
+[immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases)
+и [проверке целостности выпуска](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity).
+Контроль SHA-256 ограничен обнаружением изменения байтов по
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final), а защита
+происхождения и release-файлов согласована с
+[NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
+
+## 58. Задачи John
+
+1. После локального доказательного замыкания проверить pull request и дождаться
+   обязательного hosted `assurance`, включающего `final-evidence`.
+2. После успешного hosted run принять либо вернуть только ST08_14C; при
+   принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Не считать принятие ST08_14C разрешением PyPI/TestPyPI или исправляющего
+   выпуска: каждое такое действие требует отдельного решения.
