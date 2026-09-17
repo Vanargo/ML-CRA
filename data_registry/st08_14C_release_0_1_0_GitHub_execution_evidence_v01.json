@@ -4,7 +4,7 @@
   "task_id": "ST08_14C_release_0_1_0_GitHub_execution",
   "recorded_at": "2026-09-07",
   "profile": "CHANGE",
-  "status": "release_published_verified_and_repaired_pending_hosted_assurance",
+  "status": "release_published_verified_repaired_and_hosted_assurance_pass",
   "authority": {
     "accepted_and_closed_previous_task": "ST08_14B_release_0_1_0_execution_security_preflight",
     "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution",
@@ -147,6 +147,7 @@
     "dependency_audit": "PASS_15_runtime_and_35_assurance_dependencies_0_known_vulnerabilities",
     "working_and_published_baseline": "PASS",
     "cumulative_pilot": "PASS_expected_8_historical_FAIL_rows_and_0_new_FAIL_rows",
+    "hosted_assurance": "PASS_run_35183380805_job_105080162169_including_final_evidence",
     "superseded_ST08_14A_full_test_probe": {
       "status": "FAIL",
       "errors": 3,
@@ -159,7 +160,7 @@
     "paths": 343,
     "hashed_paths": 341,
     "path_list_sha256": "31ae58cb6c854ef78569cc0a9e87d46613fa03d08b28a83c32fcb643798aedfc",
-    "manifest_sha256": "bd66f937a6c97bc16cff79547881ee6d673f236197e8b931554764f359f18c0e",
+    "manifest_sha256": "8ddc66eb0c9e42b1c26ab4a009f6c1fc8c586f5f028054c2b01354cc0784efe6",
     "cycle_breaking_exclusions": [
       "data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json",
       "data_registry/st08_14C_release_execution_manifest_v01.csv"
@@ -167,12 +168,12 @@
     "status": "PASS"
   },
   "hosted_assurance": {
-    "status": "PENDING",
-    "pull_request_url": null,
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "conclusion": null
+    "status": "PASS",
+    "pull_request_url": "https://github.com/Vanargo/ML-CRA/pull/17",
+    "run_id": 35183380805,
+    "job_id": 105080162169,
+    "head_sha": "3672db1e89dff7e3a06d2268aa3116a81b852778",
+    "conclusion": "success"
   },
   "change_reconciliation": {
     "planned_paths": 13,
@@ -196,7 +197,7 @@
     "reason": "The immutable public release, its Git tag, three downloadable hash-bound assets, release attestation and protected remote Git provide independently stored recovery evidence; an additional ZIP would duplicate those exact assets."
   },
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "next_task": {
     "status": "NOT_SELECTED",
     "reason": "John must first accept or return ST08_14C; PyPI and any corrective version remain separate decisions."

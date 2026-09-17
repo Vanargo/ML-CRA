@@ -1869,7 +1869,7 @@ NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution
 ST08_14C_profile: CHANGE
 GitHub_release: published_immutable
 PyPI_or_TestPyPI_authorized: false
-ST08_14C_status: local_technical_pass_evidence_branch_pending_hosted_assurance
+ST08_14C_status: technical_pass_ready_for_john_acceptance
 ```
 
 Неизменяемый GitHub Release [`v0.1.0`](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0)
@@ -1893,6 +1893,12 @@ ST08_14C_status: local_technical_pass_evidence_branch_pending_hosted_assurance
 формулировки состояния выпуска, а не ошибка среды и не изменение ограниченных
 научных результатов. Изменение байтов уже выпущенной версии запрещено; возможная
 коррекция пакета относится только к отдельно авторизованной будущей версии.
+
+PR №17 проверен hosted `assurance`: run `35183380805`, job `105080162169`,
+head `3672db1e89dff7e3a06d2268aa3116a81b852778`, conclusion `success`.
+Все 22 основных шага успешны; журнал прямо подтверждает `final-evidence=PASS`.
+Это серверное доказательство относится к evidence-ветви и не является
+принятием или закрытием задачи John.
 
 Процедура следует официальной документации GitHub об
 [immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases)

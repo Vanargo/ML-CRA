@@ -2460,7 +2460,7 @@ TASK_CLOSED: ST08_14B_release_0_1_0_execution_security_preflight
 NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution
 ST08_14C_profile: CHANGE
 GitHub_release: published_immutable
-ST08_14C_status: local_technical_pass_evidence_branch_pending_hosted_assurance
+ST08_14C_status: technical_pass_ready_for_john_acceptance
 ```
 
 После успешного preflight был создан draft — черновик — `v0.1.0`, к нему
@@ -2483,6 +2483,12 @@ commit tag указывает на `9d530b60fd262f21cfe63eb2482722972a24c3d2`, G
 переопределяет успешную публикацию, работоспособность среды или научные
 вердикты. Перезапись тега/активов для сокрытия ограничения запрещена; кодовая
 коррекция возможна лишь в отдельно авторизованной последующей версии.
+
+PR №17 проверен hosted `assurance`: run `35183380805`, job `105080162169`,
+head `3672db1e89dff7e3a06d2268aa3116a81b852778`, conclusion `success`.
+Все 22 основных шага успешны; журнал прямо подтверждает `final-evidence=PASS`.
+Серверный PASS завершает техническую часть evidence closure, но не заменяет
+принятие и закрытие задачи John.
 
 Новый fail-closed валидатор связывает release identity, точный Git commit/tree,
 активы, attestation, разрешение ремонта, successor manifest — манифест-преемник —
