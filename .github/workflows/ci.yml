@@ -90,6 +90,17 @@ jobs:
           python scripts/st08_14C_release_execution_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Validate the v0.1.1 corrective contract
+        run: |
+          python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py mutations
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_st08_15
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py final-evidence
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Reconstruct the exact published release commit twice
         run: python scripts/st08_14C_release_execution_assurance.py build-release --output-dir dist/st08_14C-ci
 
