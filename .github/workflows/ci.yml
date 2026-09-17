@@ -81,24 +81,37 @@ jobs:
       - name: Validate the finalized local release 0.1.0 candidate
         run: python scripts/st08_14A_release_candidate_finalization_assurance.py metadata
 
-      - name: Validate the release execution security preflight
+      - name: Validate the immutable GitHub Release evidence
         run: |
-          python scripts/st08_14B_release_execution_security_preflight.py contract
+          python scripts/st08_14C_release_execution_assurance.py contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_14B_release_execution_security_preflight.py mutations
+          python scripts/st08_14C_release_execution_assurance.py mutations
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_14B_release_execution_security_preflight.py final-evidence
+          python scripts/st08_14C_release_execution_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Reconstruct and preflight the candidate twice from the canonical Git index
-        run: python scripts/st08_14B_release_execution_security_preflight.py build-preflight --output-dir dist/st08_14B-ci
+      - name: Reconstruct the exact published release commit twice
+        run: python scripts/st08_14C_release_execution_assurance.py build-release --output-dir dist/st08_14C-ci
 
       - name: Validate sdist and wheel inventories
         run: |
-          $sdist = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.tar.gz
-          $wheel = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.whl
+          $sdist = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.tar.gz
+          $wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl
           if ($sdist.Count -ne 1 -or $wheel.Count -ne 1) { throw "Expected exactly one sdist and one wheel" }
           python scripts/st08_09_release_assurance.py archives --sdist $sdist.FullName --wheel $wheel.FullName
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Verify immutable release and exact local assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release verify v0.1.0 --repo Vanargo/ML-CRA
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          gh release verify-asset v0.1.0 .\dist\st08_14C-ci\ml_cra-0.1.0.tar.gz --repo Vanargo/ML-CRA
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          gh release verify-asset v0.1.0 .\dist\st08_14C-ci\ml_cra-0.1.0-py3-none-any.whl --repo Vanargo/ML-CRA
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          gh release verify-asset v0.1.0 .\dist\st08_14C-ci\SHA256SUMS --repo Vanargo/ML-CRA
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Prepare hash-verified runtime wheelhouse
@@ -113,7 +126,7 @@ jobs:
         run: |
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $wheel = Get-ChildItem -LiteralPath dist/st08_14B-ci -Filter *.whl
+          $wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 

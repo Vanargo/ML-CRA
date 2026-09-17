@@ -1,0 +1,14 @@
+change_kind,relative_path,reason
+added,scripts/st08_14C_release_execution_assurance.py,ST08_14C immutable release manifest evidence mutation and exact-tag rebuild assurance
+added,data_registry/st08_14C_release_execution_manifest_v01.csv,ST08_14C successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json,ST08_14C observed authorization release attestation repair verification and limitation evidence
+added,docs/agent/st08_14C_release_0_1_0_GitHub_execution_change_scope_v01.csv,ST08_14C exact planned and actual change scope
+modified,.github/workflows/ci.yml,Replace superseded pre-release checks with exact-tag rebuild and immutable release verification
+modified,scripts/st08_09_release_assurance.py,Bind published inventory to ST08_14C successor evidence and require current workflow controls
+modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,Refresh current public path inventory for ST08_14C evidence paths
+modified,docs/agent/pilot_change_scope_v01.csv,Register four new authorized ST08_14C paths
+modified,README.md,Record published v0.1.0 and disclose immutable pre-release doctor wording
+modified,README_RU.md,Record published v0.1.0 and disclose immutable pre-release doctor wording in Russian
+modified,SECURITY.md,Replace obsolete unpublished-candidate status with current v0.1.0 support boundary
+modified,docs/stages/stage_08_project_completion_and_release_readiness.md,Register ST08_14C execution repair evidence and current owner gate
+modified,roadmap.md,Register ST08_14C execution repair evidence and current owner gate

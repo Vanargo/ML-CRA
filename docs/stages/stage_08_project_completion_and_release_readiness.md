@@ -2445,3 +2445,66 @@ checksums-файлом, Authenticode имеет `Status=Valid` и издател
 4. Отдельно решить, авторизовать ли предлагаемый
    `ST08_14C_release_0_1_0_GitHub_execution`; до такой авторизации не создавать тег, GitHub
    Release и не загружать артефакты.
+
+## 74. ST08_14C — авторизованное выполнение GitHub Release 0.1.0
+
+John принял и закрыл ST08_14B и отдельно авторизовал
+`ST08_14C_release_0_1_0_GitHub_execution`. Это профиль `CHANGE`: разрешены
+зарегистрированные внешние действия GitHub Release и их evidence closure —
+доказательное замыкание; PyPI, TestPyPI и изменение научного состояния не
+разрешены.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14B_release_0_1_0_execution_security_preflight
+TASK_CLOSED: ST08_14B_release_0_1_0_execution_security_preflight
+NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution
+ST08_14C_profile: CHANGE
+GitHub_release: published_immutable
+ST08_14C_status: technical_pass_ready_for_john_acceptance
+```
+
+После успешного preflight был создан draft — черновик — `v0.1.0`, к нему
+прикреплены и до публикации проверены три зарегистрированных актива. Выпуск
+опубликован один раз и стал неизменяемым. Release ID `383873796`; direct
+commit tag указывает на `9d530b60fd262f21cfe63eb2482722972a24c3d2`, Git tree —
+`d8bda657cc1ee7659ca0a88050c43c54627463a0`. `gh release verify` и три
+`gh release verify-asset` подтвердили GitHub attestation и точное соответствие
+локальных байтов опубликованным активам.
+
+После публикации выявлено документарное расхождение: первая body-версия
+сохранила формулировку кандидата и не перечисляла точные release-идентификаторы.
+Агент остановился. John отдельно разрешил исправить только изменяемые title/body
+без изменения или удаления тега и активов. Ремонт выполнен; повторная проверка
+подтвердила неизменность tag target, имён, размеров, SHA-256 и attestation.
+
+Исправленная body-версия раскрывает остаточное ограничение `v0.1.0`: README и
+`mlcra doctor` внутри уже неизменяемых архивов являются предрелизным снимком и
+сохраняют устаревший блокер `John_release_authorization_not_granted`. Это не
+переопределяет успешную публикацию, работоспособность среды или научные
+вердикты. Перезапись тега/активов для сокрытия ограничения запрещена; кодовая
+коррекция возможна лишь в отдельно авторизованной последующей версии.
+
+PR №17 проверен hosted `assurance`: run `35183380805`, job `105080162169`,
+head `3672db1e89dff7e3a06d2268aa3116a81b852778`, conclusion `success`.
+Все 22 основных шага успешны; журнал прямо подтверждает `final-evidence=PASS`.
+Серверный PASS завершает техническую часть evidence closure, но не заменяет
+принятие и закрытие задачи John.
+
+Новый fail-closed валидатор связывает release identity, точный Git commit/tree,
+активы, attestation, разрешение ремонта, successor manifest — манифест-преемник —
+и размещённый `assurance`. CI заново строит точный release commit и сравнивает
+локальные активы с неизменяемым выпуском. Методическая основа — официальные
+документы GitHub об
+[immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases)
+и [release integrity](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity),
+[NIST SP 800-218 SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final) и
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final).
+
+## 75. Задачи John
+
+1. После локального доказательного замыкания проверить PR и обязательный hosted
+   `assurance`, включая `final-evidence`.
+2. После успешного hosted run принять либо вернуть только ST08_14C; при
+   принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Отдельно решать PyPI/TestPyPI и возможную корректирующую версию: текущая
+   авторизация их не охватывает.

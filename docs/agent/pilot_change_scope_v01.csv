@@ -125,3 +125,7 @@ added,data_registry/st08_14B_release_execution_security_preflight_manifest_v01.c
 added,data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json,ST08_14B observed local hosted and repository-security preflight evidence
 added,docs/agent/st08_14B_release_0_1_0_execution_security_preflight_change_scope_v01.csv,ST08_14B exact planned and actual change scope
 added,docs/release/release_0_1_0_GitHub_execution_runbook_v01.md,Future owner-authorized immutable GitHub Release procedure and recovery boundary
+added,scripts/st08_14C_release_execution_assurance.py,ST08_14C immutable release manifest evidence mutation and exact-tag rebuild assurance
+added,data_registry/st08_14C_release_execution_manifest_v01.csv,ST08_14C successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json,ST08_14C observed authorization release attestation repair verification and limitation evidence
+added,docs/agent/st08_14C_release_0_1_0_GitHub_execution_change_scope_v01.csv,ST08_14C exact planned and actual change scope

@@ -9,17 +9,18 @@ ML-CRA audits whether experimental evidence supports a **bounded**
 machine-learning claim. It does not choose a universally best model and does not
 turn one dataset result into a general recommendation.
 
-This public repository contains finalized but unreleased candidate metadata for
-version `0.1.0`. It is not an authorized external release. The bilingual
-[0.1.0 candidate release notes](RELEASE_NOTES_0.1.0.md) describe the exact
-supported boundary and deferred actions. Repository publication, hosted CI, and
+Version `0.1.0` is published as an
+[immutable GitHub Release](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0)
+at exact commit `9d530b60fd262f21cfe63eb2482722972a24c3d2`. The tracked
+[0.1.0 candidate notes](RELEASE_NOTES_0.1.0.md) are the immutable pre-release
+snapshot; the GitHub Release body records the final identifiers, asset digests,
+and known snapshot limitation. Repository publication, hosted CI, and
 repository-security observations are bounded by the
 [ST08_13B evidence record](data_registry/st08_13B_public_repository_hosted_CI_and_security_evidence_v01.json).
 The subsequent [ST08_13C prospective v02 re-audit](data_registry/st08_13C_prospective_release_candidate_v02_reaudit_evidence_v01.json)
 applies all 24 registered project requirements to an exact hash-bound candidate.
-Project completion passes only within that registered boundary. External release
-remains blocked until John separately authorizes it; the final metadata does not
-create a version tag, GitHub Release, or package-index publication.
+Project completion passes only within that registered boundary. GitHub Release
+publication is complete; PyPI and TestPyPI remain deferred and unauthorized.
 The supported user workflows are local binary tabular classification
 and bounded exchangeable-row tabular regression on Windows x64 with CPython
 3.12, plus generation of a local static English/Russian dashboard from a
@@ -83,10 +84,11 @@ py -3.12 -m venv .venv
 ```
 
 Expected result: `doctor` exits with code `0` and reports
-`"environment_pass": true`. It intentionally reports `"release_ready": false`
-with the sole blocker `John_release_authorization_not_granted`. The v02
-project-completion audit has passed, but a successful audit is evidence about
-the candidate, not permission to perform a release.
+`"environment_pass": true`. The immutable `v0.1.0` package preserves the
+pre-release snapshot and therefore reports `"release_ready": false` with the
+stale blocker `John_release_authorization_not_granted`. This is a disclosed
+release-state wording limitation, not an environment failure or a change to the
+bounded scientific results.
 
 <!-- ST08-10:quickstart -->
 ## Quick start
@@ -218,10 +220,9 @@ The historical 2026-08-24 v01 re-audit remains unchanged at 19 `PASS`, two
 the owner-approved v02 rules without rewriting that history: all 24 current
 requirements and all eight dimensions pass, so project completion is `PASS`.
 The cumulative pilot still executes and must reproduce exactly its eight
-registered historical FAIL rows with no new failure. The local `0.1.0`
-candidate metadata and reproducible-build contract are finalized by ST08_14A,
-but external release readiness remains independently `BLOCKED` solely because
-John has not authorized a release.
+registered historical FAIL rows with no new failure. The `0.1.0` candidate was
+finalized by ST08_14A and published by the separately authorized ST08_14C as an
+immutable GitHub Release. Package-index publication remains deferred.
 Real-dataset regression validation and the local static dashboard remain valid
 bounded results; neither authorizes broader scientific claims or a release.
 

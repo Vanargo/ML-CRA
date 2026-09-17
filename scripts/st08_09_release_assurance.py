@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14B_release_execution_security_preflight_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14B_release_0_1_0_execution_security_preflight_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_14C_release_execution_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
@@ -284,7 +284,7 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
     if checkout.get("with", {}).get("persist-credentials") != "false":
         raise AssuranceError("checkout credentials must not persist")
     if checkout.get("with", {}).get("fetch-depth") != "0":
-        raise AssuranceError("checkout must fetch full history for the ST08_14B baseline comparison")
+        raise AssuranceError("checkout must fetch full history for exact release-commit reconstruction")
     setup = next(step for step in steps if step.get("uses", "").startswith("actions/setup-python@"))
     if setup.get("with", {}).get("python-version") != contract["ci_contract"]["python"]:
         raise AssuranceError("workflow Python patch must match the declared cell")
@@ -312,10 +312,12 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "tests.test_cli_st08_08",
         "tests.test_release_assurance_st08_09",
         "st08_14A_release_candidate_finalization_assurance.py metadata",
-        "st08_14B_release_execution_security_preflight.py contract",
-        "st08_14B_release_execution_security_preflight.py mutations",
-        "st08_14B_release_execution_security_preflight.py final-evidence",
-        "st08_14B_release_execution_security_preflight.py build-preflight",
+        "st08_14C_release_execution_assurance.py contract",
+        "st08_14C_release_execution_assurance.py mutations",
+        "st08_14C_release_execution_assurance.py final-evidence",
+        "st08_14C_release_execution_assurance.py build-release",
+        "gh release verify v0.1.0 --repo Vanargo/ML-CRA",
+        "gh release verify-asset v0.1.0",
         "scripts/agent_verify.py --mode baseline --inventory published",
     ]
     missing = [command for command in required_commands if command not in raw]

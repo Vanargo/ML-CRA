@@ -1,0 +1,205 @@
+{
+  "schema_version": "st08_14C_release_0_1_0_GitHub_execution_evidence_v01",
+  "evidence_id": "st08_14C_release_0_1_0_GitHub_execution_evidence_v01",
+  "task_id": "ST08_14C_release_0_1_0_GitHub_execution",
+  "recorded_at": "2026-09-07",
+  "profile": "CHANGE",
+  "status": "release_published_verified_repaired_and_hosted_assurance_pass",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_14B_release_0_1_0_execution_security_preflight",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_14C_release_0_1_0_GitHub_execution",
+    "release_execution_authorized": true,
+    "release_notes_repair_authorized": true,
+    "tag_or_asset_replacement_authorized": false,
+    "TestPyPI_or_PyPI_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "source_baseline": {
+    "release_commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+    "release_git_tree": "d8bda657cc1ee7659ca0a88050c43c54627463a0",
+    "default_branch": "main",
+    "post_merge_assurance_run_id": 34088843537,
+    "post_merge_assurance_job_id": 101638070069,
+    "post_merge_assurance_url": "https://github.com/Vanargo/ML-CRA/actions/runs/34088843537",
+    "post_merge_assurance_conclusion": "success",
+    "pre_execution_tag_count": 0,
+    "pre_execution_release_count": 0
+  },
+  "mape_k": {
+    "monitor": [
+      "The exact main commit and its required assurance were successful.",
+      "No v0.1.0 tag or release existed and all registered repository security controls were confirmed.",
+      "Two release builds reproduced the three accepted ST08_14B asset digests."
+    ],
+    "analyze": [
+      "Draft-first attachment and server-side digest comparison contained failure before immutable publication.",
+      "The initially published body preserved candidate-state wording and omitted exact release identifiers required by the contract.",
+      "The tag and assets were correct and immutable; GitHub permits title/body edits without changing those protected objects."
+    ],
+    "plan": "Create one exact draft, attach and verify all assets, publish once, verify the release attestation, stop on the notes defect, then apply only John's separately authorized mutable-body repair.",
+    "execute": "Publish immutable v0.1.0, repair only its body, preserve the tag and all assets, and register successor evidence without scientific or PyPI changes.",
+    "knowledge": "Record the release identity, assets, attestation, command results, repair authority, immutable embedded pre-release wording and residual version limitation."
+  },
+  "release": {
+    "repository": "Vanargo/ML-CRA",
+    "release_id": 383873796,
+    "url": "https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0",
+    "tag": "v0.1.0",
+    "commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+    "git_tree": "d8bda657cc1ee7659ca0a88050c43c54627463a0",
+    "tag_ref_type": "commit",
+    "draft": false,
+    "prerelease": false,
+    "immutable": true,
+    "created_at": "2026-09-07T05:58:34Z",
+    "published_at": "2026-09-07T06:37:45Z",
+    "body_updated_at": "2026-09-07T06:47:51Z",
+    "assets": {
+      "ml_cra-0.1.0.tar.gz": {
+        "asset_id": 548299267,
+        "size_bytes": 95342,
+        "sha256": "56d40c2c78ca8bff4b51911ed01224a1899462a0a310d0f6bda1c7d971e43d13",
+        "state": "uploaded",
+        "url": "https://github.com/Vanargo/ML-CRA/releases/download/v0.1.0/ml_cra-0.1.0.tar.gz"
+      },
+      "ml_cra-0.1.0-py3-none-any.whl": {
+        "asset_id": 548299274,
+        "size_bytes": 91936,
+        "sha256": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a",
+        "state": "uploaded",
+        "url": "https://github.com/Vanargo/ML-CRA/releases/download/v0.1.0/ml_cra-0.1.0-py3-none-any.whl"
+      },
+      "SHA256SUMS": {
+        "asset_id": 548299270,
+        "size_bytes": 182,
+        "sha256": "e663f0789d00fdc3c5dcedb100d42b5816d8fb553f53978b6dcb2a2db9f59279",
+        "state": "uploaded",
+        "url": "https://github.com/Vanargo/ML-CRA/releases/download/v0.1.0/SHA256SUMS"
+      }
+    },
+    "release_notes_repair": {
+      "detected_issue": "initial body retained pre-release candidate wording and omitted the exact commit and asset digests",
+      "stop_before_repair": true,
+      "authorized": true,
+      "body_exact_after_repair": true,
+      "tag_or_asset_changed": false,
+      "disclosed_embedded_limitation": "The immutable v0.1.0 README files and mlcra doctor preserve pre-release release-state wording."
+    }
+  },
+  "attestation": {
+    "predicate_type": "https://in-toto.io/attestation/release/v0.2",
+    "statement_type": "https://in-toto.io/Statement/v1",
+    "release_commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+    "verified_timestamp": "2026-09-07T06:37:45Z",
+    "certificate_issuer": "CN=Fulcio Intermediate l1,O=GitHub\\, Inc.",
+    "certificate_subject_alternative_name": "https://dotcom.releases.github.com",
+    "asset_sha256": {
+      "ml_cra-0.1.0.tar.gz": "56d40c2c78ca8bff4b51911ed01224a1899462a0a310d0f6bda1c7d971e43d13",
+      "ml_cra-0.1.0-py3-none-any.whl": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a",
+      "SHA256SUMS": "e663f0789d00fdc3c5dcedb100d42b5816d8fb553f53978b6dcb2a2db9f59279"
+    }
+  },
+  "verification_commands": [
+    {"command": "gh release verify v0.1.0 --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v0.1.0 dist/st08_14C-release/ml_cra-0.1.0.tar.gz --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v0.1.0 dist/st08_14C-release/ml_cra-0.1.0-py3-none-any.whl --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v0.1.0 dist/st08_14C-release/SHA256SUMS --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"}
+  ],
+  "repository_controls": {
+    "ruleset_id": 21408995,
+    "required_assurance": true,
+    "secret_scanning_enabled": true,
+    "push_protection_enabled": true,
+    "dependabot_alerts_enabled": true,
+    "private_vulnerability_reporting_enabled": true,
+    "release_immutability_enabled": true
+  },
+  "execution_attempts": [
+    {"attempt": 1, "operation": "pre_draft_guard", "result": "STOPPED_BEFORE_WRITE", "reason": "shell quoting produced an invalid jq expression"},
+    {"attempt": 2, "operation": "draft_create_and_three_asset_uploads", "result": "PASS"},
+    {"attempt": 3, "operation": "publish_once", "result": "PASS"},
+    {"attempt": 4, "operation": "post_publish_verification", "result": "PASS"},
+    {"attempt": 5, "operation": "release_body_repair_after_separate_John_authorization", "result": "PASS", "tag_or_asset_changed": false},
+    {"attempt": 6, "operation": "post_repair_verification", "result": "PASS"}
+  ],
+  "observed_checks": {
+    "working_baseline_before_release": "PASS_after_preserving_two_preexisting_temporary_audit_reports_under_ignored_dist",
+    "published_baseline_before_release": "PASS_339_paths_337_hashed",
+    "ST08_14B_contract": "PASS",
+    "ST08_14B_mutations": "PASS_14_of_14",
+    "ST08_14B_final_evidence": "PASS",
+    "release_builds": "PASS_2_of_2",
+    "release_asset_digests": "PASS_3_of_3",
+    "release_and_asset_attestation_verification": "PASS_4_of_4_before_and_after_body_repair",
+    "tag_or_asset_mutation_during_repair": "PASS_none",
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "closure_reverification": {
+    "observed_at": "2026-09-17",
+    "live_release_identity_assets_and_attestation": "PASS_immutable_release_unchanged_and_4_of_4_GitHub_CLI_verifications",
+    "release_body_limitation_and_exact_identifiers": "PASS",
+    "exact_release_commit_rebuild": "PASS_2_independent_builds_and_3_of_3_asset_digests",
+    "archive_inventory": "PASS_sdist_39_files_wheel_22_files",
+    "current_regression_tests": "PASS_29_of_29",
+    "working_and_published_source_assurance": "PASS",
+    "working_and_published_secret_scan": "PASS_0_findings_343_files_each",
+    "dependency_audit": "PASS_15_runtime_and_35_assurance_dependencies_0_known_vulnerabilities",
+    "working_and_published_baseline": "PASS",
+    "cumulative_pilot": "PASS_expected_8_historical_FAIL_rows_and_0_new_FAIL_rows",
+    "hosted_assurance": "PASS_run_35183380805_job_105080162169_including_final_evidence",
+    "superseded_ST08_14A_full_test_probe": {
+      "status": "FAIL",
+      "errors": 3,
+      "disposition": "EXPECTED_NOT_CURRENT_GATE_the_historical_ST08_14A_validator_rejects_successor_ST08_14B_and_ST08_14C_paths; its exact-tag build function passed inside the current validator"
+    },
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "successor_manifest": {
+    "paths": 343,
+    "hashed_paths": 341,
+    "path_list_sha256": "31ae58cb6c854ef78569cc0a9e87d46613fa03d08b28a83c32fcb643798aedfc",
+    "manifest_sha256": "8ddc66eb0c9e42b1c26ab4a009f6c1fc8c586f5f028054c2b01354cc0784efe6",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json",
+      "data_registry/st08_14C_release_execution_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "hosted_assurance": {
+    "status": "PASS",
+    "pull_request_url": "https://github.com/Vanargo/ML-CRA/pull/17",
+    "run_id": 35183380805,
+    "job_id": 105080162169,
+    "head_sha": "3672db1e89dff7e3a06d2268aa3116a81b852778",
+    "conclusion": "success"
+  },
+  "change_reconciliation": {
+    "planned_paths": 13,
+    "actual_paths": 13,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "scientific_interpretation": {
+    "scientific_validation_performed": false,
+    "claim_protocol_result_or_verdict_changed": false,
+    "meaning": "The task verifies release mechanics, byte identity and provenance only; it adds no evidence for universal model superiority or any new scientific verdict."
+  },
+  "remaining_risks": [
+    "The immutable v0.1.0 source tree and distributions preserve pre-release README and mlcra doctor release-state wording; the repaired public release body discloses this limitation.",
+    "Secret and vulnerability controls reduce risk but cannot prove absence of unknown vulnerabilities or nonstandard secrets.",
+    "PyPI and TestPyPI remain deferred and unauthorized."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The immutable public release, its Git tag, three downloadable hash-bound assets, release attestation and protected remote Git provide independently stored recovery evidence; an additional ZIP would duplicate those exact assets."
+  },
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "next_task": {
+    "status": "NOT_SELECTED",
+    "reason": "John must first accept or return ST08_14C; PyPI and any corrective version remain separate decisions."
+  }
+}
