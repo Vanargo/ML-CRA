@@ -1,0 +1,277 @@
+{
+  "schema_version": "st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_v01",
+  "contract_id": "st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_v01",
+  "task_id": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+  "recorded_at": "2026-09-17",
+  "profile": "CHANGE",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_14C_release_0_1_0_GitHub_execution",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+    "post_release_review_and_contract_design_authorized": true,
+    "source_or_runtime_change_authorized": false,
+    "package_version_change_authorized": false,
+    "tag_or_GitHub_release_authorized": false,
+    "TestPyPI_or_PyPI_publication_authorized": false,
+    "scientific_claim_protocol_result_or_verdict_change_authorized": false
+  },
+  "measurable_outcome": "Register and validate one fail-closed post-release decision and corrective contract that preserves immutable v0.1.0, defines a backward-compatible v0.1.1 correction for the embedded release-state wording, defers all implementation and publication, and makes the remaining release sequence explicit.",
+  "completion_criteria": [
+    "the live immutable v0.1.0 identity and three asset digests are bound to the accepted ST08_14C evidence",
+    "the known README and mlcra doctor release-state limitation is classified without changing v0.1.0",
+    "a transparent weighted decision matrix selects the phased v0.1.1 correction",
+    "future doctor semantics preserve the v01 schema while separating packaged technical state from owner publication authority",
+    "the future phase sequence and owner gates are explicit and all future phases remain unauthorized",
+    "the current source version, runtime, documentation, scientific artifacts, tag and release assets remain unchanged",
+    "the exact planned path set, successor manifest and evidence record pass local assurance"
+  ],
+  "source_baseline": {
+    "git_commit": "e5d2427cb5063fd1cdb582107738be9e55d23fb7",
+    "git_tree": "61f42344a513c5e639130bc82f2c26cd8ea94416",
+    "branch": "main",
+    "tracked_paths": 343,
+    "project_version": "0.1.0",
+    "development_classifier": "Development Status :: 3 - Alpha",
+    "observed_at": "2026-09-17",
+    "accepted_ST08_14C": true,
+    "ST08_14C_post_merge_assurance": {
+      "run_id": 35184447363,
+      "job_id": 105083380082,
+      "conclusion": "success",
+      "final_evidence": "PASS"
+    }
+  },
+  "post_release_observations": {
+    "GitHub_release": {
+      "repository": "Vanargo/ML-CRA",
+      "release_id": 383873796,
+      "url": "https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0",
+      "tag": "v0.1.0",
+      "commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+      "git_tree": "d8bda657cc1ee7659ca0a88050c43c54627463a0",
+      "draft": false,
+      "prerelease": false,
+      "immutable": true,
+      "published_at": "2026-09-07T06:37:45Z",
+      "release_count_observed": 1,
+      "v0_1_1_release_observed": false
+    },
+    "assets": {
+      "ml_cra-0.1.0.tar.gz": {"size_bytes": 95342, "sha256": "56d40c2c78ca8bff4b51911ed01224a1899462a0a310d0f6bda1c7d971e43d13"},
+      "ml_cra-0.1.0-py3-none-any.whl": {"size_bytes": 91936, "sha256": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a"},
+      "SHA256SUMS": {"size_bytes": 182, "sha256": "e663f0789d00fdc3c5dcedb100d42b5816d8fb553f53978b6dcb2a2db9f59279"}
+    },
+    "known_limitation": {
+      "classification": "user_facing_release_state_wording_defect",
+      "README_state": "immutable_v0_1_0_files_disclose_pre_release_snapshot_wording",
+      "doctor_schema": "mlcra_doctor_report_v01",
+      "doctor_release_ready": false,
+      "doctor_release_blockers": ["John_release_authorization_not_granted"],
+      "environment_or_scientific_failure": false,
+      "public_release_body_disclosure_present": true
+    },
+    "PyPI_or_TestPyPI_publication_observed": false
+  },
+  "mape_k": {
+    "monitor": [
+      "v0.1.0 is published, immutable, accepted and independently bound to one commit and three assets",
+      "the release body discloses an embedded README and doctor pre-release wording limitation",
+      "the current source still contains release_ready=false and John_release_authorization_not_granted",
+      "PyPI and TestPyPI have never been authorized or observed"
+    ],
+    "analyze": [
+      "changing v0.1.0 would violate immutable-release and version-integrity rules",
+      "publishing v0.1.0 to PyPI would intentionally broaden distribution of the known contradictory wording",
+      "leaving the limitation indefinitely is safe for byte integrity but weakens user-facing consistency",
+      "a separately versioned compatible correction contains risk and preserves the historical release"
+    ],
+    "plan": "Preserve v0.1.0, define a narrow v0.1.1 technical correction, keep publication authority outside the package, and require implementation, re-audit and release as separate owner-gated phases.",
+    "execute": "Create only the contract, validator, tests, evidence, successor manifest and canonical task records; do not change product bytes, version, tag, release or package indexes.",
+    "knowledge": "Record the observed limitation, option scoring, corrective semantics, immutable boundaries, exact future sequence and residual risks in version control."
+  },
+  "decision_matrix": {
+    "method": "weighted_sum_with_ordinal_1_to_5_scores_and_predeclared_criteria",
+    "score_meaning": {
+      "1": "materially conflicts with the criterion",
+      "2": "weakly satisfies the criterion with major residual risk",
+      "3": "partially satisfies the criterion",
+      "4": "satisfies the criterion with limited residual risk",
+      "5": "fully satisfies the criterion in the current bounded context"
+    },
+    "criteria": [
+      {"criterion_id": "C01", "name": "immutable_release_integrity", "weight": 0.25},
+      {"criterion_id": "C02", "name": "user_facing_state_consistency", "weight": 0.20},
+      {"criterion_id": "C03", "name": "version_and_compatibility_semantics", "weight": 0.15},
+      {"criterion_id": "C04", "name": "authority_and_scope_control", "weight": 0.15},
+      {"criterion_id": "C05", "name": "supply_chain_and_provenance", "weight": 0.15},
+      {"criterion_id": "C06", "name": "implementation_and_operator_cost", "weight": 0.10}
+    ],
+    "options": [
+      {
+        "option_id": "O01",
+        "name": "publish_known_limited_v0_1_0_directly_to_PyPI",
+        "scores": {"C01": 4, "C02": 1, "C03": 2, "C04": 1, "C05": 3, "C06": 4},
+        "weighted_score": 2.50,
+        "disposition": "rejected"
+      },
+      {
+        "option_id": "O02",
+        "name": "replace_or_retag_v0_1_0_assets",
+        "scores": {"C01": 1, "C02": 4, "C03": 1, "C04": 1, "C05": 1, "C06": 2},
+        "weighted_score": 1.70,
+        "disposition": "forbidden"
+      },
+      {
+        "option_id": "O03",
+        "name": "retain_disclosed_v0_1_0_limitation_without_correction",
+        "scores": {"C01": 5, "C02": 2, "C03": 3, "C04": 5, "C05": 4, "C06": 5},
+        "weighted_score": 3.95,
+        "disposition": "not_selected"
+      },
+      {
+        "option_id": "O04",
+        "name": "preserve_v0_1_0_then_phase_a_compatible_v0_1_1_correction",
+        "scores": {"C01": 5, "C02": 5, "C03": 5, "C04": 5, "C05": 5, "C06": 4},
+        "weighted_score": 4.90,
+        "disposition": "selected"
+      }
+    ],
+    "selected_option": "O04",
+    "interpretation_limit": "The ordinal scores are a transparent project-specific engineering decision aid, not an empirical universal ranking of release strategies."
+  },
+  "corrective_release_contract": {
+    "target_version": "0.1.1",
+    "target_tag": "v0.1.1",
+    "version_rationale": "patch_like_corrective_increment_within_major_zero_without_claiming_stable_API",
+    "compatibility_goal": "preserve_supported_commands_inputs_outputs_exit_codes_and_mlcra_doctor_report_v01_keys",
+    "permitted_future_product_changes": [
+      "set package runtime and citation version surfaces from 0.1.0 to 0.1.1",
+      "keep release_ready and release_blockers for compatibility but define them as packaged technical-content state rather than John publication authority",
+      "set release_ready true and release_blockers empty when the packaged content has no known static release-content blocker",
+      "add release_readiness_scope=packaged_content_only_no_publication_authority",
+      "state that release_ready never authorizes tag creation GitHub Release TestPyPI or PyPI",
+      "update current English and Russian README guidance and add bilingual RELEASE_NOTES_0.1.1.md",
+      "add focused positive negative compatibility documentation and packaging tests"
+    ],
+    "forbidden_future_product_changes": [
+      "modify delete move or retag v0.1.0 or any v0.1.0 release asset",
+      "rewrite RELEASE_NOTES_0.1.0.md as if it were post-release",
+      "remove existing doctor v01 keys or change supported CLI commands inputs outputs or exit codes",
+      "claim publication authority from a runtime field",
+      "change scientific claims protocols datasets seeds splits metrics results verdicts or protected artifacts",
+      "broaden platform Python task model data or dashboard support",
+      "publish to TestPyPI or PyPI before a separately accepted v0.1.1 GitHub Release"
+    ],
+    "CITATION_date_released_policy": "omit_until_a_future_owner_authorized_release_execution_can_bind_an_actual_release_date_without_falsifying_a_candidate",
+    "PyPI_disposition": "deferred_until_v0_1_1_is_published_verified_accepted_and_separately_authorized",
+    "direct_v0_1_0_PyPI_disposition": "not_recommended_due_to_known_embedded_state_limitation"
+  },
+  "phase_sequence": [
+    {
+      "order": 1,
+      "task_id": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+      "profile": "CHANGE",
+      "objective": "register_the_post_release_decision_corrective_semantics_owner_gates_and_evidence_without_product_change",
+      "status": "authorized_current_task"
+    },
+    {
+      "order": 2,
+      "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+      "profile": "CHANGE",
+      "objective": "implement_the_bounded_version_doctor_documentation_and_test_correction_and_build_local_assets_without_external_publication",
+      "status": "proposed_not_authorized"
+    },
+    {
+      "order": 3,
+      "task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
+      "profile": "SCIENTIFIC_VALIDATION",
+      "objective": "reapply_current_requirements_compatibility_security_reproducibility_and_hosted_assurance_to_the_exact_corrective_candidate",
+      "status": "proposed_not_authorized"
+    },
+    {
+      "order": 4,
+      "task_id": "ST08_15C_v0_1_1_GitHub_execution",
+      "profile": "CHANGE",
+      "objective": "create_verify_and_publish_an_immutable_v0_1_1_GitHub_release_only_after_explicit_John_authorization",
+      "status": "proposed_not_authorized"
+    },
+    {
+      "order": 5,
+      "task_id": "ST08_15D_optional_PyPI_trusted_publication",
+      "profile": "CHANGE",
+      "objective": "configure_and_execute_PyPI_Trusted_Publishing_for_v0_1_1_only_after_a_separate_owner_decision",
+      "status": "optional_proposed_not_authorized"
+    }
+  ],
+  "protected_current_artifacts": [
+    {"path": "pyproject.toml", "sha256": "39383600590d00efb591edf1a2c24f53b69781e767d209005c6fa1d06937102d"},
+    {"path": "CITATION.cff", "sha256": "b5ddcd0a37f8b401a2068b5ed89a1122fbf6005f44aae2d02300a6b198da45af"},
+    {"path": "src/mlcra/application.py", "sha256": "285846d074d8fa51b1626345b2ae7cb891b84cecd00fe2c28aa8f29a56fc5e94"},
+    {"path": "src/mlcra/cli.py", "sha256": "494fdd173d748106e0f31503fd472ff4f6cd63dd92bebe13b7c8ac92b62e4a9b"},
+    {"path": "README.md", "sha256": "735920bd5b721a50eb16fa175b56fb2f458b31db590ed8cd5e508cc20483cf0f"},
+    {"path": "README_RU.md", "sha256": "c31bd3b2c0924d8d88e608705212b742870839965389e48d7e94cfcbba9126df"},
+    {"path": "RELEASE_NOTES_0.1.0.md", "sha256": "c6880e409c16fd8373d514714a5c0b6bf6bc276513240df6e8dd13d71389265b"},
+    {"path": "SECURITY.md", "sha256": "aab358aa24f06cf7a6cad36157691195c12000117b7c1f2bc38cd27218915f8d"}
+  ],
+  "immutable_ST08_14C_artifacts": [
+    {"path": "scripts/st08_14C_release_execution_assurance.py", "sha256": "064aaa57d9b36eb135133a53485aa7bc24de1483b14c215aca7446d3514e9db8"},
+    {"path": "data_registry/st08_14C_release_execution_manifest_v01.csv", "sha256": "8ddc66eb0c9e42b1c26ab4a009f6c1fc8c586f5f028054c2b01354cc0784efe6"},
+    {"path": "data_registry/st08_14C_release_0_1_0_GitHub_execution_evidence_v01.json", "sha256": "ea0c9c73820fb171fcf96155c02918b0361c25a5eb08a303ebb5dde90346ff42"},
+    {"path": "docs/agent/st08_14C_release_0_1_0_GitHub_execution_change_scope_v01.csv", "sha256": "cfac1a57b97abc06367aca873aeb66fd55f204121a02780edcb86a89a36b6421"}
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01.json",
+      "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv"
+    ]
+  },
+  "planned_changes": [
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py"},
+    {"change_kind": "added", "relative_path": "tests/test_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_st08_15.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"}
+  ],
+  "required_checks": [
+    "python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py contract",
+    "python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py mutations",
+    "python -m unittest -v tests.test_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_st08_15",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py final-evidence"
+  ],
+  "authoritative_support": [
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "Do not modify a released version; use a new identifier for the correction, while explicitly retaining the major-zero initial-development boundary."},
+    {"source": "Python Packaging version specifiers", "uri": "https://packaging.python.org/en/latest/specifications/version-specifiers/", "use": "Use the unique valid public Python distribution version 0.1.1 for the corrective release."},
+    {"source": "Python Packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "Keep source correction, distribution build, validation and external upload as distinct phases."},
+    {"source": "GitHub immutable releases", "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases", "use": "Preserve the existing v0.1.0 tag and assets and publish corrections only as a new release."},
+    {"source": "GitHub release integrity verification", "uri": "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity", "use": "Continue verifying immutable releases and exact local assets with the official GitHub CLI."},
+    {"source": "PyPI Trusted Publishing", "uri": "https://docs.pypi.org/trusted-publishers/", "use": "If separately authorized after v0.1.1, use short-lived OIDC credentials instead of a long-lived upload token."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Integrate corrective work with protected release files, provenance, automated verification and controlled delivery."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Use SHA-256 for byte-integrity binding without treating a digest as proof of correctness or scientific validity."}
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_IF_PROTECTED_PR_AND_REMOTE_GIT_RECOVERY_PASS",
+    "reason": "This reversible contract-design task creates no release asset; protected remote Git and the successor manifest provide the recovery mechanism."
+  },
+  "stop_conditions": [
+    "Any current product source runtime version README release note security document or scientific artifact would change.",
+    "Any v0.1.0 tag release asset title or body would change.",
+    "Any v0.1.1 tag GitHub Release TestPyPI or PyPI action would occur.",
+    "Any future phase would start without a separate NEXT_BLOCK_AUTHORIZED decision from John.",
+    "Any actual changed path would fall outside the exact planned change set."
+  ]
+}

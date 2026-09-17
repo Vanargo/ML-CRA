@@ -1,0 +1,120 @@
+{
+  "schema_version": "st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01",
+  "evidence_id": "st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01",
+  "task_id": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+  "recorded_at": "2026-09-17",
+  "profile": "CHANGE",
+  "status": "contract_design_complete_future_phases_not_authorized",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_14C_release_0_1_0_GitHub_execution",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+    "contract_design_authorized": true,
+    "implementation_or_release_authorized": false,
+    "PyPI_or_TestPyPI_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "source_baseline": {
+    "git_commit": "e5d2427cb5063fd1cdb582107738be9e55d23fb7",
+    "git_tree": "61f42344a513c5e639130bc82f2c26cd8ea94416",
+    "branch": "main",
+    "project_version_before": "0.1.0",
+    "project_version_after": "0.1.0",
+    "ST08_14C_acceptance": "ACCEPTED_BY_JOHN_AND_TASK_CLOSED",
+    "ST08_14C_post_merge_assurance": "PASS_run_35184447363_job_105083380082_with_final_evidence"
+  },
+  "post_release_review": {
+    "observed_at": "2026-09-17",
+    "live_v0_1_0_release": "PASS_immutable_exact_commit_and_three_registered_assets",
+    "accepted_ST08_14C_evidence_relation": "PASS",
+    "known_limitation": "immutable_README_and_doctor_preserve_pre_release_release_state_wording",
+    "classification": "user_facing_release_state_wording_defect_not_environment_or_scientific_failure",
+    "v0_1_0_mutation_required": false,
+    "direct_v0_1_0_PyPI_recommended": false
+  },
+  "mape_k_result": {
+    "selected_option": "O04",
+    "weighted_score": 4.9,
+    "decision": "preserve_v0_1_0_then_phase_a_compatible_v0_1_1_correction"
+  },
+  "registered_corrective_decision": {
+    "target_version": "0.1.1",
+    "target_tag": "v0.1.1",
+    "doctor_schema": "mlcra_doctor_report_v01_preserved",
+    "release_readiness_scope": "packaged_content_only_no_publication_authority",
+    "runtime_field_can_authorize_publication": false,
+    "required_future_blocks_to_GitHub_release_after_ST08_15": 3,
+    "optional_additional_PyPI_block": 1,
+    "future_phases_authorized": 0
+  },
+  "successor_manifest": {
+    "paths": 349,
+    "hashed_paths": 347,
+    "path_list_sha256": "5640bf8cf8116ba70b690414758ed932969a53651f7465353523560700b3b0d3",
+    "manifest_sha256": "082b06f2d5df54509d547ed2bc2a3ecc38fa28bdc49b4eaaba43531488596f64",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01.json",
+      "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "observed_checks": {
+    "contract_assurance": "PASS",
+    "mutation_tests": "PASS_10_of_10",
+    "focused_unittest": "PASS",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "published_source_assurance": "PASS",
+    "published_secret_scan": "PASS_zero_findings",
+    "documentation_assurance": "PASS",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "product_files_changed": 0,
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "hosted_assurance": {
+    "status": "PENDING",
+    "pull_request_url": null,
+    "run_id": null,
+    "job_id": null,
+    "head_sha": null,
+    "conclusion": null,
+    "required_signal": "assurance_success_including_ST08_15_final_evidence"
+  },
+  "change_reconciliation": {
+    "planned_paths": 12,
+    "actual_paths": 12,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "product_version_changed": false,
+  "release_or_tag_changed": false,
+  "PyPI_or_TestPyPI_action_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "scientific_interpretation": {
+    "scientific_validation_performed": false,
+    "claim_protocol_dataset_seed_split_metric_result_or_verdict_changed": false,
+    "meaning": "The task reviews release-state consistency and designs corrective delivery only; it adds no evidence for model superiority and changes no registered scientific conclusion."
+  },
+  "remaining_risks": [
+    "v0.1.0 remains intentionally immutable and therefore permanently retains the disclosed README and doctor wording limitation.",
+    "The v0.1.1 semantics are design-only until separately authorized implementation and exact-candidate verification succeed.",
+    "Secret and dependency controls reduce risk but cannot prove absence of all unknown vulnerabilities.",
+    "PyPI and TestPyPI remain deferred and unauthorized.",
+    "The number of later 0.1.x iterations needed before a stable 1.0.0 cannot be established before post-release compatibility and usage evidence exists."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "This reversible design task creates no release artifact; protected remote Git plus the exact successor manifest provide recovery without a duplicate ZIP."
+  },
+  "technical_status": "PASS",
+  "readiness": "NOT_READY",
+  "next_task": {
+    "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+    "status": "PROPOSED_NOT_AUTHORIZED",
+    "reason": "John must first obtain hosted assurance and accept or return ST08_15."
+  }
+}
