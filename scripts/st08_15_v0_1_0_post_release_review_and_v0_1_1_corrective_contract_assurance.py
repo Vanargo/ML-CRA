@@ -523,7 +523,15 @@ def validate_evidence_relations(
             "cause": "historical_ST08_14C_exact_tree_manifest_rejected_the_registered_ST08_15_successor_paths",
             "release_integrity_failure": False,
             "repair": "retire_the_historical_current_tree_gate_while_retaining_exact_release_rebuild_and_GitHub_attestation_verification",
-        }
+        },
+        {
+            "run_id": 36381684079,
+            "job_id": 108798570391,
+            "conclusion": "success",
+            "head_sha": "f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2",
+            "final_evidence": "PASS",
+            "release_rebuild_and_attestation": "PASS",
+        },
     ]:
         raise CorrectiveContractError("hosted assurance failure/repair evidence mismatch")
     hosted = evidence.get("hosted_assurance", {})
@@ -601,7 +609,12 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
         ("release_changed", lambda value: value.update(release_or_tag_changed=True)),
         ("manifest_drift", lambda value: value["successor_manifest"].update(manifest_sha256="0" * 64)),
         ("scientific_change", lambda value: value.update(scientific_artifact_changes=1)),
-        ("premature_ready", lambda value: value.update(readiness="READY_FOR_JOHN_ACCEPTANCE")),
+        (
+            "hosted_state_regression",
+            lambda value: value["hosted_assurance"].update(
+                status="PENDING", run_id=None
+            ),
+        ),
     ]
     for label, mutate in evidence_mutations:
         mutated = copy.deepcopy(evidence)

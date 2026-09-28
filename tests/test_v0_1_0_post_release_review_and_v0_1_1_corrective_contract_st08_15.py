@@ -71,10 +71,10 @@ class TestSt0815CorrectiveContract(unittest.TestCase):
         with self.assertRaises(assurance.CorrectiveContractError):
             assurance.validate_evidence_relations(mutated, self.contract, bindings)
 
-    def test_evidence_rejects_premature_ready_state(self) -> None:
+    def test_evidence_rejects_pending_hosted_state_when_ready(self) -> None:
         bindings = assurance.validate_contract()["bindings"]
         mutated = copy.deepcopy(self.evidence)
-        mutated["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
+        mutated["hosted_assurance"].update(status="PENDING", run_id=None)
         with self.assertRaises(assurance.CorrectiveContractError):
             assurance.validate_evidence_relations(mutated, self.contract, bindings)
 

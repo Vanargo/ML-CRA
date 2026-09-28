@@ -1932,7 +1932,7 @@ ACCEPTED_BY_JOHN: ST08_14C_release_0_1_0_GitHub_execution
 TASK_CLOSED: ST08_14C_release_0_1_0_GitHub_execution
 NEXT_BLOCK_AUTHORIZED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design
 ST08_15_profile: CHANGE
-ST08_15_status: technical_pass_hosted_assurance_pending
+ST08_15_status: technical_pass_ready_for_john_acceptance
 product_version_changed: false
 release_actions_performed: 0
 ```
@@ -1981,6 +1981,11 @@ GitHub об [immutable releases](https://docs.github.com/en/code-security/concep
 двойная реконструкция точного release commit, проверка архивов, GitHub
 attestation и трёх активов сохраняются, а текущее дерево теперь проверяет
 successor gate ST08_15.
+
+Ремонт подтверждён hosted `assurance`: run `36381684079`, job
+`108798570391`, head `f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2`, conclusion
+`success`. Все шаги, включая ST08_15 `final-evidence`, двойную реконструкцию
+`v0.1.0`, архивы, attestation, clean install и published baseline, имеют PASS.
 
 ## 60. Предлагаемый следующий блок и задачи John
 

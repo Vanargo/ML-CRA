@@ -59,7 +59,7 @@
     "paths": 349,
     "hashed_paths": 347,
     "path_list_sha256": "5640bf8cf8116ba70b690414758ed932969a53651f7465353523560700b3b0d3",
-    "manifest_sha256": "563df0bed597b51d5be04d0c0d9754db78591289b0156d1950ef559485a35605",
+    "manifest_sha256": "85fda4e8ed99f2c034aa72b7657b353c22465eeb95765b59f5dcfb48f864cd94",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01.json",
       "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv"
@@ -90,15 +90,23 @@
       "cause": "historical_ST08_14C_exact_tree_manifest_rejected_the_registered_ST08_15_successor_paths",
       "release_integrity_failure": false,
       "repair": "retire_the_historical_current_tree_gate_while_retaining_exact_release_rebuild_and_GitHub_attestation_verification"
+    },
+    {
+      "run_id": 36381684079,
+      "job_id": 108798570391,
+      "conclusion": "success",
+      "head_sha": "f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2",
+      "final_evidence": "PASS",
+      "release_rebuild_and_attestation": "PASS"
     }
   ],
   "hosted_assurance": {
-    "status": "PENDING",
-    "pull_request_url": null,
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "conclusion": null,
+    "status": "PASS",
+    "pull_request_url": "https://github.com/Vanargo/ML-CRA/pull/18",
+    "run_id": 36381684079,
+    "job_id": 108798570391,
+    "head_sha": "f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2",
+    "conclusion": "success",
     "required_signal": "assurance_success_including_ST08_15_final_evidence"
   },
   "change_reconciliation": {
@@ -131,10 +139,10 @@
     "reason": "This reversible design task creates no release artifact; protected remote Git plus the exact successor manifest provide recovery without a duplicate ZIP."
   },
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "next_task": {
     "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
     "status": "PROPOSED_NOT_AUTHORIZED",
-    "reason": "John must first obtain hosted assurance and accept or return ST08_15."
+    "reason": "Hosted assurance passed; John must now accept or return ST08_15 before any next block."
   }
 }

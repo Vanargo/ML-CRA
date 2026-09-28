@@ -2524,7 +2524,7 @@ ACCEPTED_BY_JOHN: ST08_14C_release_0_1_0_GitHub_execution
 TASK_CLOSED: ST08_14C_release_0_1_0_GitHub_execution
 NEXT_BLOCK_AUTHORIZED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design
 ST08_15_profile: CHANGE
-ST08_15_status: technical_pass_hosted_assurance_pending
+ST08_15_status: technical_pass_ready_for_john_acceptance
 product_version_changed: false
 release_actions_performed: 0
 ```
@@ -2596,6 +2596,12 @@ release-файлов, происхождения и автоматизирова
 дерева; при этом сохраняются реконструкция exact release commit — точного
 коммита выпуска, архивная проверка, `gh release verify` и три
 `gh release verify-asset`. Новое дерево проверяет ST08_15.
+
+Исправленный head `f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2` подтверждён
+hosted `assurance`: run `36381684079`, job `108798570391`, conclusion
+`success`. Журнал содержит успешный ST08_15 `final-evidence`; также успешно
+завершены две сборки точного `v0.1.0`, archive validation — проверка архивов,
+GitHub attestation/assets, clean install/CLI и published baseline.
 
 ### 76.4. Терминальное состояние проекта
 
