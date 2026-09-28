@@ -165,6 +165,52 @@
     "PyPI_disposition": "deferred_until_v0_1_1_is_published_verified_accepted_and_separately_authorized",
     "direct_v0_1_0_PyPI_disposition": "not_recommended_due_to_known_embedded_state_limitation"
   },
+  "terminal_product_goal": {
+    "target_version": "1.0.0",
+    "target_definition": "A stable bounded offline ML claim evidence auditor, not a universal model-selection platform.",
+    "required_product_surface": [
+      "versioned local claim specifications and UTF-8 tabular inputs",
+      "bounded binary classification and exchangeable-row tabular regression with fixed allowlisted models",
+      "mlcra audit verify doctor and local static bilingual dashboard commands",
+      "deterministic integrity-verifiable evidence bundles with fail-closed diagnostics",
+      "documented Windows x64 CPython 3.12 support boundary without unverified platform claims",
+      "stable documented command schema output artifact and exit-code contracts",
+      "reproducible hash-bound sdist and wheel with immutable GitHub provenance",
+      "current security legal citation dataset-attribution and scientific-scope disclosures"
+    ],
+    "explicit_non_goals_for_1_0_0": [
+      "universal best-model selection",
+      "multiclass time-series grouped or spatial protocol support",
+      "arbitrary model pickle joblib or URL inputs",
+      "automatic hyperparameter search outside registered protocols",
+      "interactive hosted dashboard or hosted service",
+      "support for unverified operating systems Python versions or architectures"
+    ],
+    "release_exit_criteria": [
+      "v0.1.1 corrective release is accepted with no unresolved severity-high correctness integrity security or compatibility defect",
+      "one bounded post-v0.1.1 observation review finds no failed 1.0.0 exit criterion",
+      "the public CLI schemas bundle formats exit codes and supported scope are frozen and documented",
+      "all current project requirements and protected scientific boundaries pass an exact-candidate re-audit",
+      "the final candidate builds reproducibly and passes local and hosted assurance",
+      "John separately accepts public API stability and authorizes the immutable 1.0.0 release"
+    ],
+    "bounded_release_policy": {
+      "routine_additional_0_1_x_releases_after_v0_1_1": "forbidden",
+      "exception_rule": "A further 0.1.x release requires one named failed 1.0.0 exit criterion, a bounded corrective contract and separate John authorization.",
+      "no_blocker_rule": "If the post-v0.1.1 review finds no failed exit criterion, the next train is 1.0.0 stabilization rather than another 0.x release.",
+      "feature_expansion_rule": "Non-goal features are not prerequisites for 1.0.0 and must not delay project completion."
+    },
+    "nominal_remaining_blocks_after_ST08_15_acceptance": {
+      "v0_1_1_candidate_preflight_and_GitHub_release": 3,
+      "post_v0_1_1_review_and_1_0_0_exit_contract": 1,
+      "v1_0_0_candidate_finalization": 1,
+      "v1_0_0_final_reaudit_and_security_preflight": 1,
+      "v1_0_0_GitHub_release_execution": 1,
+      "total_to_immutable_GitHub_v1_0_0": 7,
+      "optional_final_PyPI_trusted_publication": 1
+    },
+    "estimate_boundary": "Seven is the nominal authorized-design estimate, not authorization of those blocks; a material observed defect can add a separately justified correction, while feature expansion cannot."
+  },
   "phase_sequence": [
     {
       "order": 1,

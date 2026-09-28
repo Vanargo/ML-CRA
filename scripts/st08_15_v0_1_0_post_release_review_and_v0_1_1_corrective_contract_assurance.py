@@ -320,7 +320,27 @@ def _validate_corrective_contract(contract: Mapping[str, Any]) -> dict[str, Any]
         "optional_proposed_not_authorized",
     ]:
         raise CorrectiveContractError("future phase was authorized or reordered")
-    return {"target_version": "0.1.1", "phases": 5, "future_phases_authorized": 0}
+    terminal = contract.get("terminal_product_goal", {})
+    remaining = terminal.get("nominal_remaining_blocks_after_ST08_15_acceptance", {})
+    policy = terminal.get("bounded_release_policy", {})
+    if (
+        terminal.get("target_version") != "1.0.0"
+        or remaining.get("total_to_immutable_GitHub_v1_0_0") != 7
+        or remaining.get("optional_final_PyPI_trusted_publication") != 1
+        or policy.get("routine_additional_0_1_x_releases_after_v0_1_1") != "forbidden"
+        or "named failed 1.0.0 exit criterion" not in str(policy.get("exception_rule"))
+        or len(terminal.get("release_exit_criteria", [])) != 6
+        or len(terminal.get("required_product_surface", [])) != 8
+        or len(terminal.get("explicit_non_goals_for_1_0_0", [])) != 6
+    ):
+        raise CorrectiveContractError("terminal 1.0.0 product goal or bounded release policy mismatch")
+    return {
+        "target_version": "0.1.1",
+        "terminal_version": "1.0.0",
+        "nominal_blocks_to_GitHub_1_0_0": 7,
+        "phases": 5,
+        "future_phases_authorized": 0,
+    }
 
 
 def _scope_rows(root: Path) -> list[tuple[str, str]]:
@@ -444,6 +464,16 @@ def validate_evidence_relations(
         "decision": "preserve_v0_1_0_then_phase_a_compatible_v0_1_1_correction",
     }:
         raise CorrectiveContractError("MAPE-K decision evidence mismatch")
+    if evidence.get("registered_terminal_goal") != {
+        "target_version": "1.0.0",
+        "target_definition": "stable_bounded_offline_ML_claim_evidence_auditor",
+        "routine_additional_0_1_x_after_v0_1_1": "forbidden",
+        "further_0_1_x_exception": "named_failed_1_0_0_exit_criterion_and_separate_John_authorization_required",
+        "nominal_blocks_after_ST08_15_acceptance_to_GitHub_v1_0_0": 7,
+        "optional_final_PyPI_block": 1,
+        "future_blocks_authorized": 0,
+    }:
+        raise CorrectiveContractError("terminal product-goal evidence mismatch")
     if evidence.get("successor_manifest") != bindings["manifest"]:
         raise CorrectiveContractError("successor manifest evidence mismatch")
     expected_checks = {
@@ -483,6 +513,19 @@ def validate_evidence_relations(
         ]
     ):
         raise CorrectiveContractError("forbidden side effect recorded")
+    attempts = evidence.get("hosted_assurance_attempts", [])
+    if attempts != [
+        {
+            "run_id": 35191424264,
+            "job_id": 105104629154,
+            "conclusion": "failure",
+            "failed_step": "Validate the immutable GitHub Release evidence",
+            "cause": "historical_ST08_14C_exact_tree_manifest_rejected_the_registered_ST08_15_successor_paths",
+            "release_integrity_failure": False,
+            "repair": "retire_the_historical_current_tree_gate_while_retaining_exact_release_rebuild_and_GitHub_attestation_verification",
+        }
+    ]:
+        raise CorrectiveContractError("hosted assurance failure/repair evidence mismatch")
     hosted = evidence.get("hosted_assurance", {})
     state = hosted.get("status")
     if state == "PENDING":
