@@ -1916,3 +1916,105 @@ head `3672db1e89dff7e3a06d2268aa3116a81b852778`, conclusion `success`.
    принятии только John может присвоить `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Не считать принятие ST08_14C разрешением PyPI/TestPyPI или исправляющего
    выпуска: каждое такое действие требует отдельного решения.
+
+## 59. ST08_15 — post-release review 0.1.0 и контракт коррекции 0.1.1
+
+John принял и закрыл `ST08_14C_release_0_1_0_GitHub_execution`, отдельно
+разрешил его слияние в `main` и post-merge `assurance`, затем авторизовал
+`ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design`.
+Post-merge run `35184447363`, job `105083380082` завершился `success` и включал
+`final-evidence=PASS`. Текущий профиль `CHANGE` разрешает только анализ после
+выпуска и проектирование корректирующего контракта; код продукта, версия,
+`v0.1.0`, PyPI/TestPyPI и научное состояние не меняются.
+
+```text
+ACCEPTED_BY_JOHN: ST08_14C_release_0_1_0_GitHub_execution
+TASK_CLOSED: ST08_14C_release_0_1_0_GitHub_execution
+NEXT_BLOCK_AUTHORIZED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design
+ST08_15_profile: CHANGE
+ST08_15_status: technical_pass_ready_for_john_acceptance
+product_version_changed: false
+release_actions_performed: 0
+```
+
+Повторное наблюдение 17 сентября 2026 года подтвердило один неизменяемый
+GitHub Release `v0.1.0`: тот же commit
+`9d530b60fd262f21cfe63eb2482722972a24c3d2` и те же три актива с ранее
+зарегистрированными размерами и SHA-256. Публичное описание раскрывает
+ограничение: встроенные README и `mlcra doctor` сохраняют предрелизную
+формулировку, включая `release_ready=false` и устаревший блокер
+`John_release_authorization_not_granted`. Это дефект пользовательского
+представления release-state — состояния выпуска, а не отказ среды и не
+изменение научного результата.
+
+Взвешенная матрица с заранее заданными критериями сравнила: прямой PyPI для
+известно ограниченного `0.1.0` (`2.50`), запрещённую замену `v0.1.0` (`1.70`),
+сохранение ограничения без коррекции (`3.95`) и поэтапный совместимый `0.1.1`
+(`4.90`). Выбран последний вариант. `0.1.1` здесь является проектным
+patch-like — корректирующим — приращением внутри SemVer major zero; оно не
+утверждает стабильность API уровня `1.0.0`.
+
+Будущая коррекция должна сохранить ключи схемы `mlcra_doctor_report_v01`, но
+сузить смысл `release_ready`/`release_blockers` до технического состояния
+содержимого пакета. Публикационное решение John принципиально остаётся вне
+runtime: значение `release_ready=true` не даёт права создавать тег или
+публиковать GitHub Release/PyPI. Это устраняет самоподдерживающийся дефект,
+когда неизменяемый пакет навсегда содержит уже неактуальное решение владельца.
+
+Решение следует [SemVer 2.0.0](https://semver.org/), запрещающему изменять уже
+выпущенную версию, официальным спецификациям
+[PyPA version identifiers](https://packaging.python.org/en/latest/specifications/version-specifiers/)
+и [packaging flow](https://packaging.python.org/en/latest/flow/), документации
+GitHub об [immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases)
+и [release integrity](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity),
+а также [NIST SP 800-218 SSDF](https://csrc.nist.gov/pubs/sp/800/218/final).
+Возможная будущая PyPI-публикация должна использовать
+[Trusted Publishing](https://docs.pypi.org/trusted-publishers/) с
+краткоживущими OIDC credentials — учётными данными — и требует отдельного
+решения John.
+
+Первый hosted `assurance` PR №18, run `35191424264`, job `105104629154`,
+выявил дефект смены current-state gate — шлюза текущего состояния: исторический
+валидатор ST08_14C требовал точного дерева момента выпуска и поэтому отверг
+зарегистрированные successor paths ST08_15. Это не отказ целостности
+`v0.1.0`. Ремонт удаляет только устаревшую проверку текущего дерева ST08_14C;
+двойная реконструкция точного release commit, проверка архивов, GitHub
+attestation и трёх активов сохраняются, а текущее дерево теперь проверяет
+successor gate ST08_15.
+
+Ремонт подтверждён hosted `assurance`: run `36381684079`, job
+`108798570391`, head `f81c4f2678e5f9949e4ee2e2ba69144fbae7fee2`, conclusion
+`success`. Все шаги, включая ST08_15 `final-evidence`, двойную реконструкцию
+`v0.1.0`, архивы, attestation, clean install и published baseline, имеют PASS.
+
+## 60. Предлагаемый следующий блок и задачи John
+
+```text
+proposed_next_block: ST08_15A_v0_1_1_corrective_candidate_implementation
+ST08_15A_status: proposed_not_authorized
+v0_1_1_release_authorized: false
+PyPI_or_TestPyPI_authorized: false
+```
+
+Конечная цель проекта зафиксирована: `ML-CRA 1.0.0` — стабильный ограниченный
+офлайн-аудитор доказательств ML-утверждения, а не универсальная платформа
+выбора моделей. Текущий поддерживаемый набор CLI, схем, evidence bundles —
+пакетов доказательств — и локальной двуязычной панели должен стать стабильным;
+расширение на multiclass, time series, arbitrary models, hosted dashboard или
+иные платформы не является условием завершения `1.0.0`.
+
+Номинально после принятия ST08_15 до неизменяемого GitHub Release `1.0.0`
+остаются ровно семь блоков: три блока `0.1.1`, один post-release review — анализ
+после выпуска — и контракт выхода `1.0.0`, кандидат `1.0.0`, финальный аудит и
+выполнение GitHub Release. Финальный PyPI через Trusted Publishing добавляет
+один отдельный блок. Обычные дополнительные `0.1.x` после `0.1.1` запрещены:
+такой выпуск допустим только для конкретно названного незакрытого критерия
+`1.0.0` и после отдельной авторизации John. При отсутствии такого блокера путь
+сразу переходит к стабилизации `1.0.0`.
+
+1. Зафиксировать и отправить ветвь ST08_15, открыть pull request в `main` и
+   дождаться обязательного hosted `assurance`, включая `final-evidence`.
+2. После записи успешного hosted run принять либо вернуть только ST08_15; при
+   принятии только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. Отдельно решить, авторизовать ли ST08_15A. Текущий блок не разрешает его
+   реализацию, версию `0.1.1`, тег, GitHub Release или PyPI/TestPyPI.

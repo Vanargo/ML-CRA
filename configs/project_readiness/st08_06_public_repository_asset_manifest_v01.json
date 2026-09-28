@@ -50,8 +50,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 388,
-    "approved_path_list_sha256": "6541dcab9d3c544bed11227ccc013855063afb2bece3f3c879ea0309a7f49b9f",
+    "approved_path_count": 394,
+    "approved_path_list_sha256": "80e1cca015f0d1c1c9b18148390cbb12d7e0c1663e330ae0ebf95bbb486dd558",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -144,10 +144,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 190,
-    "ST08-06-MANIFEST-07": 153,
+    "ST08-06-MANIFEST-06": 191,
+    "ST08-06-MANIFEST-07": 158,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 388
+    "TOTAL": 394
   },
   "inventory_refreshes": [
     {
@@ -233,6 +233,12 @@
       "recorded_at": "2026-09-07",
       "reason": "Authorized immutable GitHub Release execution adds successor release evidence, a fail-closed validator, exact scope and current documentation while preserving the scientific boundary.",
       "external_publication_performed": true
+    },
+    {
+      "task_id": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+      "recorded_at": "2026-09-17",
+      "reason": "Authorized post-release review adds a successor manifest, fail-closed corrective contract validator, tests, evidence and exact scope while preserving v0.1.0 product and scientific bytes and performing no release action.",
+      "external_publication_performed": false
     }
   ],
   "mandatory_public_legal_artifacts": [
