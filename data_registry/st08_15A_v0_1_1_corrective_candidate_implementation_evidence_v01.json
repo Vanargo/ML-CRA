@@ -27,7 +27,7 @@
     "paths": 356,
     "hashed_paths": 354,
     "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
-    "manifest_sha256": "2504d12d2417bc0550ae4fe60dca1eb40cc400d35a105e88680324ef54169050",
+    "manifest_sha256": "94c6f4efc0901fb90eae3617bf05717642e9f4a186df502d4f0863b658426c1b",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
       "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
@@ -36,7 +36,7 @@
   },
   "candidate_assets": {
     "SHA256SUMS": {
-      "sha256": "8ba9ea3724cd17c7e9525a8a0620178a4a2fb3b6158232293adf9aa5901cc7e5",
+      "sha256": "99d1b781bb9fd1cf4d3328a78c845639fbd2f405e557c6a9226c5a41442adbdb",
       "size_bytes": 182
     },
     "ml_cra-0.1.1-py3-none-any.whl": {
@@ -44,8 +44,8 @@
       "size_bytes": 92270
     },
     "ml_cra-0.1.1.tar.gz": {
-      "sha256": "c6b29d90647e2524f07890daa01347238006c5a5bfffac47232ad359edd91903",
-      "size_bytes": 96890
+      "sha256": "6ad29bab41d1cb0008e9090ba76fa94398dea33b4e27b709afc393e099ffa7c9",
+      "size_bytes": 97032
     }
   },
   "observed_checks": {
@@ -55,8 +55,8 @@
     "normalized_sdist_byte_reproducibility": "PASS_2_of_2",
     "wheel_byte_reproducibility": "PASS_2_of_2",
     "archive_assurance": "PASS",
-    "registered_mutations": "PASS_9_of_9",
-    "focused_tests": "PASS",
+    "registered_mutations": "PASS_10_of_10",
+    "focused_tests": "PASS_14_of_14",
     "working_baseline": "PASS",
     "published_baseline": "PASS",
     "source_assurance": "PASS",
@@ -66,20 +66,35 @@
     "hosted_assurance_run_37899393731": "FAIL_3_known_vulnerabilities_in_urllib3_2_7_0",
     "urllib3_2_8_0_lock_repair": "PASS_LOCAL_HASH_LOCK_INSTALL_AND_PIP_CHECK",
     "dependency_audit_after_repair": "PASS_50_dependencies_zero_known_vulnerabilities",
+    "hosted_assurance_run_37900891670_dependency_audit": "PASS",
+    "hosted_assurance_run_37900891670_final_evidence": "PASS",
+    "hosted_assurance_run_37900891670_clean_install": "FAIL_installed_immutable_v0_1_0_wheel_instead_of_current_v0_1_1_candidate",
+    "clean_install_candidate_selector_repair": "PASS_LOCAL_STATIC_MUTATION_AND_ISOLATED_WHEEL_INSTALL_HOSTED_REVERIFICATION_PENDING",
+    "local_candidate_wheel_install_after_selector_repair": "PASS_INSTALLED_0_1_1_DOCTOR_READY_WITH_PACKAGED_CONTENT_SCOPE",
     "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
     "release_actions_performed": 0,
     "training_runs": 0,
     "scientific_artifact_changes": 0
   },
   "hosted_assurance": {
-    "status": "PENDING_REPAIR_RUN",
-    "failed_run": 37899393731,
-    "failed_job": 113718150576,
-    "failed_step": "Audit known dependency vulnerabilities",
-    "observed_vulnerabilities": 3,
-    "affected_package": "urllib3==2.7.0",
-    "first_patched_version": "2.8.0",
-    "interpretation": "The first hosted run correctly failed on newly disclosed assurance-tool vulnerabilities; the exact lock repair requires local and hosted re-verification before John closes the task."
+    "status": "PENDING_CLEAN_INSTALL_REPAIR_RUN",
+    "first_failed_run": 37899393731,
+    "first_failed_job": 113718150576,
+    "first_failed_step": "Audit known dependency vulnerabilities",
+    "first_failure_repair": "urllib3 assurance-tool lock advanced from vulnerable 2.7.0 to first patched 2.8.0",
+    "second_failed_run": 37900891670,
+    "second_failed_job": 113722930437,
+    "second_run_head_sha": "aeb86c1fc522d887985c90eb8be5ecd18cfb7f40",
+    "second_run_dependency_audit": "PASS",
+    "second_run_final_evidence": "PASS",
+    "second_failed_step": "Verify clean install and CLI",
+    "second_failure_expected_version": "0.1.1",
+    "second_failure_observed_version": "0.1.0",
+    "second_failure_observed_doctor_release_ready": false,
+    "root_cause": "The clean runtime installation selected the reconstructed immutable v0.1.0 wheel from dist/st08_14C-ci instead of the current v0.1.1 candidate wheel from dist/st08_15A-ci.",
+    "repair": "Select the current v0.1.1 wheel for clean installation and fail closed if the workflow reintroduces the predecessor-wheel selector.",
+    "repair_local_verification": "PASS: canonical-index wheel installed into an isolated target; imported application path was inside that target, distribution metadata was 0.1.1, and doctor reported release_ready=true with packaged-content-only scope.",
+    "interpretation": "The dependency repair is hosted-confirmed and final-evidence passed before the late failure, but the complete hosted job must pass after the clean-install selector repair before John closes the task."
   },
   "change_reconciliation": {
     "planned_paths": 23,

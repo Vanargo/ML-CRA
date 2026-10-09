@@ -2057,13 +2057,13 @@ Checkpoint ZIP пропущен как непропорциональный об
 восстановление обеспечивают Git, successor manifest — манифест-преемник — и
 воспроизводимая локальная сборка.
 
-Локальные проверки завершены: новый gate — шлюз — имеет PASS, 9/9 мутаций
+Локальные проверки завершены: новый gate — шлюз — имеет PASS, 10/10 мутаций
 отклонены, focused regressions — целевые регрессии — успешны, working/published
 baseline имеют PASS, 18/18 научных артефактов неизменны, секретов не найдено.
 Две сборки и финальная повторная сборка воспроизвели одни SHA-256:
-`c6b29d90647e2524f07890daa01347238006c5a5bfffac47232ad359edd91903` для
+`6ad29bab41d1cb0008e9090ba76fa94398dea33b4e27b709afc393e099ffa7c9` для
 sdist, `327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908`
-для wheel и `8ba9ea3724cd17c7e9525a8a0620178a4a2fb3b6158232293adf9aa5901cc7e5`
+для wheel и `99d1b781bb9fd1cf4d3328a78c845639fbd2f405e557c6a9226c5a41442adbdb`
 для `SHA256SUMS`. Исторический aggregate pilot остаётся FAIL на отсутствующих
 legacy checkpoint ZIP и прежних no-release ожиданиях; текущие ST08_15A gates
 проходят, а диспозиция зарегистрирована в evidence.
@@ -2074,6 +2074,16 @@ legacy checkpoint ZIP и прежних no-release ожиданиях; теку�
 канонические связи; runtime-зависимости продукта, функциональная поверхность и
 научное состояние не меняются. Повторный hosted run обязан пройти dependency
 audit и `final-evidence` до принятия ST08_15A.
+
+Повторный hosted `assurance` PR №22 (run `37900891670`, job `113722930437`,
+head `aeb86c1fc522d887985c90eb8be5ecd18cfb7f40`) подтвердил security repair:
+dependency audit и `final-evidence` прошли. Запуск остановился позже на clean
+install: workflow установил неизменяемый wheel `v0.1.0` из `dist/st08_14C-ci`
+вместо текущего кандидата `0.1.1` из `dist/st08_15A-ci`; наблюдаемый `doctor`
+точно сообщил `software_version=0.1.0` и `release_ready=false`. Минимальный
+ремонт меняет только источник устанавливаемого wheel и добавляет fail-closed
+регрессию против возврата этой подмены. Проверка исторического `v0.1.0`
+сохраняется; полный повторный hosted run остаётся обязательным.
 
 ## 66. Задачи John
 

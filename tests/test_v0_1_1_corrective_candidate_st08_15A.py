@@ -31,7 +31,7 @@ class ST0815ACorrectiveCandidateTests(unittest.TestCase):
 
     def test_04_registered_mutations_are_rejected(self) -> None:
         result = assurance.run_mutations(CONTRACT)
-        self.assertEqual(result, {"status": "PASS", "mutations": 9, "rejected": 9})
+        self.assertEqual(result, {"status": "PASS", "mutations": 10, "rejected": 10})
 
     def test_05_authority_rejects_release_permission(self) -> None:
         mutated = copy.deepcopy(CONTRACT)
@@ -88,6 +88,14 @@ class ST0815ACorrectiveCandidateTests(unittest.TestCase):
         bindings = assurance.validate_contract_bindings(CONTRACT)
         with self.assertRaises(assurance.CorrectiveCandidateError):
             assurance.validate_evidence(evidence, CONTRACT, bindings)
+
+    def test_14_clean_install_rejects_predecessor_wheel(self) -> None:
+        workflow = assurance.WORKFLOW_PATH.read_text(encoding="utf-8").replace(
+            "$wheel = Get-ChildItem -LiteralPath dist/st08_15A-ci -Filter *.whl",
+            "$wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl",
+        )
+        with self.assertRaises(assurance.CorrectiveCandidateError):
+            assurance.validate_contract_bindings(CONTRACT, workflow_text=workflow)
 
 
 if __name__ == "__main__":

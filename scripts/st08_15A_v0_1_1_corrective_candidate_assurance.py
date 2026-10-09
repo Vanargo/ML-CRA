@@ -377,6 +377,20 @@ def validate_contract_bindings(
     absent = [token for token in required_workflow if token not in workflow]
     if absent:
         raise CorrectiveCandidateError(f"workflow omits ST08_15A control: {absent}")
+    candidate_wheel_selector = (
+        "$wheel = Get-ChildItem -LiteralPath dist/st08_15A-ci -Filter *.whl"
+    )
+    predecessor_wheel_selector = (
+        "$wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl"
+    )
+    if workflow.count(candidate_wheel_selector) != 2:
+        raise CorrectiveCandidateError(
+            "workflow must validate and clean-install the current v0.1.1 candidate wheel"
+        )
+    if predecessor_wheel_selector in workflow:
+        raise CorrectiveCandidateError(
+            "workflow must not install the immutable v0.1.0 predecessor as the current candidate"
+        )
     forbidden = ["gh release create", "pypa/gh-action-pypi-publish", "id-token: write", "contents: write"]
     if any(token in workflow for token in forbidden):
         raise CorrectiveCandidateError("workflow gained publication authority")
@@ -409,6 +423,18 @@ def run_mutations(contract: Mapping[str, Any], root: Path = PROJECT_ROOT) -> dic
     mutations.append(("reject_scope_omission", lambda: validate_contract_bindings(scope_missing, root)))
     workflow = (root / WORKFLOW_PATH.relative_to(PROJECT_ROOT)).read_text(encoding="utf-8") + "\n# gh release create v0.1.1\n"
     mutations.append(("reject_release_command", lambda: validate_contract_bindings(contract, root, workflow)))
+    clean_install_predecessor = (
+        root / WORKFLOW_PATH.relative_to(PROJECT_ROOT)
+    ).read_text(encoding="utf-8").replace(
+        "$wheel = Get-ChildItem -LiteralPath dist/st08_15A-ci -Filter *.whl",
+        "$wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl",
+    )
+    mutations.append((
+        "reject_predecessor_wheel_clean_install",
+        lambda: validate_contract_bindings(
+            contract, root, clean_install_predecessor
+        ),
+    ))
     immutable = copy.deepcopy(contract); immutable["immutable_ST08_15"][0]["sha256"] = "0" * 64
     mutations.append(("reject_predecessor_mutation", lambda: validate_contract_bindings(immutable, root)))
     for name, mutation in mutations:

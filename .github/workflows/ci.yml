@@ -128,7 +128,7 @@ jobs:
         run: |
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $wheel = Get-ChildItem -LiteralPath dist/st08_14C-ci -Filter *.whl
+          $wheel = Get-ChildItem -LiteralPath dist/st08_15A-ci -Filter *.whl
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
