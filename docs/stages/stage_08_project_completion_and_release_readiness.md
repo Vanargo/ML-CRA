@@ -2652,7 +2652,7 @@ ACCEPTED_BY_JOHN: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contr
 TASK_CLOSED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design
 NEXT_BLOCK_AUTHORIZED: ST08_15A_v0_1_1_corrective_candidate_implementation
 ST08_15A_profile: CHANGE
-ST08_15A_status: technical_pass_ready_for_john_acceptance
+ST08_15A_status: technical_pass_hosted_reverification_pending
 ST08_15B_authorized: false
 release_actions_performed: 0
 ```
@@ -2688,7 +2688,7 @@ Checkpoint ZIP имеет `SKIPPED`: задача обратима в отдел
 повторного аудита и security preflight — предварительной проверки безопасности.
 
 Локальное доказательное замыкание имеет PASS: 9/9 отрицательных мутаций,
-12/12 новых тестов, 21/21 CLI/документационных тестов, 20/20 тестов release
+13/13 новых тестов, 21/21 CLI/документационных тестов, 20/20 тестов release
 assurance и 29/29 смежных regression/dashboard/re-audit тестов успешны. Working
 и published baseline имеют PASS; сканирование 356 файлов выявило ноль секретов.
 Финальная повторная сборка из индексированного дерева воспроизвела sdist
@@ -2699,6 +2699,16 @@ assurance и 29/29 смежных regression/dashboard/re-audit тестов у�
 Обобщённый pilot остаётся FAIL только на исторических проверках отсутствующих
 legacy checkpoint ZIP и прежних no-release состояний; это явно
 диспозиционировано и не отменяет текущие ST08_15A gates — шлюзы.
+
+Первый hosted `assurance` PR №22, run `37899393731`, job `113718150576`,
+корректно остановился на dependency audit — аудите зависимостей: после локального
+замыкания были опубликованы три advisory для `urllib3 2.7.0`, а все они имеют
+первую исправленную версию `2.8.0`. Это изменение внешнего состояния, а не
+скрытый дефект результатов ML-CRA. Для сохранения обязательного правила нулевых
+известных уязвимостей in-scope repair — ремонт в границах задачи — расширяет
+точный change set с 22 до 23 путей и меняет только assurance-tools lock на
+`urllib3 2.8.0` с проверенным SHA-256 wheel. Runtime-lock продукта, API,
+научные артефакты и граница публикации остаются неизменными.
 
 ## 79. Задачи John
 

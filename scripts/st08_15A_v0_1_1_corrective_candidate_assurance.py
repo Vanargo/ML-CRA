@@ -385,7 +385,7 @@ def validate_contract_bindings(
         for token in [contract["task_id"], "release_actions_performed: 0", "ST08_15B_authorized: false"]:
             if token not in text:
                 raise CorrectiveCandidateError(f"canonical task registration missing: {relative}/{token}")
-    if len(contract.get("authoritative_support", [])) != 7:
+    if len(contract.get("authoritative_support", [])) != 8:
         raise CorrectiveCandidateError("authoritative source set mismatch")
     return {"metadata": metadata, "manifest": manifest, "protected": protected, "immutable_ST08_15": 6, "change_scope": len(observed_scope), "release_actions_performed": 0}
 
@@ -438,14 +438,22 @@ def validate_evidence(evidence: Mapping[str, Any], contract: Mapping[str, Any], 
         if not isinstance(row.get("size_bytes"), int) or row["size_bytes"] <= 0:
             raise CorrectiveCandidateError(f"candidate asset size invalid: {filename}")
     reconciliation = evidence.get("change_reconciliation")
-    if reconciliation != {"planned_paths": 22, "actual_paths": 22, "unplanned_paths": [], "omitted_paths": [], "status": "PASS_exact_planned_path_set"}:
+    if reconciliation != {"planned_paths": 23, "actual_paths": 23, "unplanned_paths": [], "omitted_paths": [], "status": "PASS_exact_planned_path_set"}:
         raise CorrectiveCandidateError("change reconciliation mismatch")
     if any(evidence.get(key) is not False for key in ["release_authorized", "release_performed"]):
         raise CorrectiveCandidateError("external release is overstated")
     if any(evidence.get(key) != 0 for key in ["release_actions_performed", "training_runs", "scientific_artifact_changes"]):
         raise CorrectiveCandidateError("forbidden side effect recorded")
-    if evidence.get("technical_status") != "PASS" or evidence.get("readiness") != "READY_FOR_JOHN_ACCEPTANCE":
-        raise CorrectiveCandidateError("technical status or readiness mismatch")
+    hosted = evidence.get("hosted_assurance")
+    if not isinstance(hosted, Mapping):
+        raise CorrectiveCandidateError("hosted assurance evidence missing")
+    expected_readiness = (
+        "READY_FOR_JOHN_ACCEPTANCE"
+        if hosted.get("status") == "PASS"
+        else "NOT_READY"
+    )
+    if evidence.get("technical_status") != "PASS" or evidence.get("readiness") != expected_readiness:
+        raise CorrectiveCandidateError("technical status or hosted-dependent readiness mismatch")
     return {"status": "PASS", "version": VERSION, "candidate_assets": 3, "release_actions_performed": 0}
 
 

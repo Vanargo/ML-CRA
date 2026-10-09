@@ -82,6 +82,13 @@ class ST0815ACorrectiveCandidateTests(unittest.TestCase):
             CONTRACT["immutable_release_0_1_0"]["release_notes_sha256"],
         )
 
+    def test_13_hosted_pending_cannot_be_ready_for_acceptance(self) -> None:
+        evidence = assurance._load_json(assurance.EVIDENCE_PATH)
+        evidence["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
+        bindings = assurance.validate_contract_bindings(CONTRACT)
+        with self.assertRaises(assurance.CorrectiveCandidateError):
+            assurance.validate_evidence(evidence, CONTRACT, bindings)
+
 
 if __name__ == "__main__":
     unittest.main()

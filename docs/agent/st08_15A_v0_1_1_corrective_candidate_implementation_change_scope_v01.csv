@@ -15,6 +15,7 @@ modified,tests/test_cli_st08_08.py,assert compatible packaged-content readiness 
 modified,scripts/st08_10_documentation_assurance.py,validate 0.1.1 bilingual metadata doctor scope and installed walkthrough behavior
 modified,tests/test_documentation_st08_10.py,update metadata and doctor successor assertions
 modified,.github/workflows/ci.yml,replace superseded current-tree gates with ST08_15A and install the current local candidate while retaining v0.1.0 verification
+modified,requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt,repair three newly disclosed urllib3 2.7.0 assurance-tool vulnerabilities with first patched 2.8.0 and exact wheel SHA-256
 modified,scripts/st08_09_release_assurance.py,bind published inventory and CI requirements to the ST08_15A successor gate
 modified,tests/test_release_assurance_st08_09.py,assert the successor doctor publication-authority separation
 modified,configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json,refresh exact public-tree inventory for the seven authorized ST08_15A paths

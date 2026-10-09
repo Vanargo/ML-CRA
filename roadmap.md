@@ -2028,7 +2028,7 @@ ST08_15 принят и закрыт John; PR №18 объединён, а post-
 
 ```text
 ST08_15A_profile: CHANGE
-ST08_15A_status: technical_pass_ready_for_john_acceptance
+ST08_15A_status: technical_pass_hosted_reverification_pending
 ST08_15B_authorized: false
 target_version: 0.1.1
 release_actions_performed: 0
@@ -2043,7 +2043,8 @@ runtime и CFF становится `0.1.1`; `date-released` отсутству�
 `release_readiness_scope=packaged_content_only_no_publication_authority`.
 Runtime-флаг не даёт полномочия на публикацию.
 
-Точный change set — набор изменений — ограничен 22 путями. Два независимых
+Точный change set — набор изменений — после зарегистрированного security repair
+— ремонта безопасности — ограничен 23 путями. Два независимых
 локальных построения из канонического Git index должны воспроизводить
 `ml_cra-0.1.1.tar.gz`, `ml_cra-0.1.1-py3-none-any.whl` и `SHA256SUMS`.
 Исторический `v0.1.0`, его активы и примечания не меняются; CI сохраняет их
@@ -2066,6 +2067,13 @@ sdist, `327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908`
 для `SHA256SUMS`. Исторический aggregate pilot остаётся FAIL на отсутствующих
 legacy checkpoint ZIP и прежних no-release ожиданиях; текущие ST08_15A gates
 проходят, а диспозиция зарегистрирована в evidence.
+
+Первый hosted `assurance` PR №22 (run `37899393731`, job `113718150576`)
+остановился на трёх новых advisory `urllib3 2.7.0`. Все три исправлены в
+`2.8.0`. Минимальный ремонт меняет только assurance-tools lock и его
+канонические связи; runtime-зависимости продукта, функциональная поверхность и
+научное состояние не меняются. Повторный hosted run обязан пройти dependency
+audit и `final-evidence` до принятия ST08_15A.
 
 ## 66. Задачи John
 

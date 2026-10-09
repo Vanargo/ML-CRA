@@ -40,7 +40,7 @@
       "The correction is compatible when existing commands inputs outputs exit codes schema identifier and doctor v01 keys are retained."
     ],
     "plan": "Advance current software metadata to 0.1.1, preserve the existing doctor schema and keys, add an explicit packaged-content-only scope, update bilingual documentation, add positive and negative regression tests, and build reproducible local assets.",
-    "execute": "Apply only the 22 registered path changes, build from the canonical Git index twice, run focused and broad assurance, and stop before ST08_15B or publication.",
+    "execute": "Apply only the 23 registered path changes, including the in-scope repair of the assurance-tools lock after a newly published advisory blocked hosted CI; build from the canonical Git index twice, run focused and broad assurance, and stop before ST08_15B or publication.",
     "knowledge": "Register exact compatibility relations, immutable predecessor bytes, current-tree manifest, build hashes, checks, limitations, authority gates and remaining uncertainty."
   },
   "corrective_semantics": {
@@ -131,6 +131,7 @@
     {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
     {"change_kind": "modified", "relative_path": "tests/test_documentation_st08_10.py"},
     {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"},
     {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
     {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
     {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
@@ -157,7 +158,8 @@
     {"source": "Citation File Format schema guide 1.2.0", "uri": "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md", "use": "Record candidate version 0.1.1 while omitting date-released until actual release execution."},
     {"source": "SOURCE_DATE_EPOCH specification", "uri": "https://reproducible-builds.org/specs/source-date-epoch/", "use": "Exchange a declared timestamp and test byte-for-byte build reproducibility."},
     {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release provenance and verify changes through repeatable automated controls."},
-    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind candidate and source bytes with SHA-256 without treating hashes as correctness proof."}
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind candidate and source bytes with SHA-256 without treating hashes as correctness proof."},
+    {"source": "GitHub Advisory Database GHSA-gh4c-6fx4-qh6g and related urllib3 2.7.0 advisories", "uri": "https://github.com/advisories/GHSA-gh4c-6fx4-qh6g", "use": "Replace the vulnerable assurance-only urllib3 2.7.0 lock with the first patched version 2.8.0 after hosted pip-audit reported three current advisories."}
   ],
   "checkpoint_policy": {
     "status": "SKIPPED",

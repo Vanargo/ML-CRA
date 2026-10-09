@@ -27,7 +27,7 @@
     "paths": 356,
     "hashed_paths": 354,
     "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
-    "manifest_sha256": "f6920ec0f611ef5e171a53148afc0965ecac2cd048bb5ed609c61ed8d4d6a7b6",
+    "manifest_sha256": "2504d12d2417bc0550ae4fe60dca1eb40cc400d35a105e88680324ef54169050",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
       "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
@@ -63,18 +63,27 @@
     "documentation_assurance": "PASS",
     "secret_pattern_scan": "PASS_zero_findings",
     "protected_scientific_artifacts": "PASS_18_of_18",
+    "hosted_assurance_run_37899393731": "FAIL_3_known_vulnerabilities_in_urllib3_2_7_0",
+    "urllib3_2_8_0_lock_repair": "PASS_LOCAL_HASH_LOCK_INSTALL_AND_PIP_CHECK",
+    "dependency_audit_after_repair": "PASS_50_dependencies_zero_known_vulnerabilities",
     "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
     "release_actions_performed": 0,
     "training_runs": 0,
     "scientific_artifact_changes": 0
   },
   "hosted_assurance": {
-    "status": "PENDING_PR",
-    "interpretation": "Local verification supports the handoff; hosted evidence must be observed before John closes the task."
+    "status": "PENDING_REPAIR_RUN",
+    "failed_run": 37899393731,
+    "failed_job": 113718150576,
+    "failed_step": "Audit known dependency vulnerabilities",
+    "observed_vulnerabilities": 3,
+    "affected_package": "urllib3==2.7.0",
+    "first_patched_version": "2.8.0",
+    "interpretation": "The first hosted run correctly failed on newly disclosed assurance-tool vulnerabilities; the exact lock repair requires local and hosted re-verification before John closes the task."
   },
   "change_reconciliation": {
-    "planned_paths": 22,
-    "actual_paths": 22,
+    "planned_paths": 23,
+    "actual_paths": 23,
     "unplanned_paths": [],
     "omitted_paths": [],
     "status": "PASS_exact_planned_path_set"
@@ -98,5 +107,5 @@
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "technical_status": "PASS",
-  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+  "readiness": "NOT_READY"
 }
