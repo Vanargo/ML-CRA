@@ -1,0 +1,102 @@
+{
+  "schema_version": "st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01",
+  "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+  "recorded_at": "2026-10-09",
+  "profile": "CHANGE",
+  "status": "local_corrective_candidate_implemented_external_release_not_authorized",
+  "source_baseline": {
+    "git_commit": "76e342c43520b59d7b8ca199e4b0c9783771b517",
+    "project_version_before": "0.1.0",
+    "project_version_after": "0.1.1",
+    "accepted_previous_task": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+    "post_merge_assurance_run": 36386237140,
+    "post_merge_assurance_job": 108812098160,
+    "post_merge_assurance_conclusion": "success"
+  },
+  "implemented_semantics": {
+    "doctor_schema": "mlcra_doctor_report_v01",
+    "existing_keys_removed": [],
+    "release_ready": true,
+    "release_blockers": [],
+    "release_readiness_scope": "packaged_content_only_no_publication_authority",
+    "publication_authority_effect": "NONE",
+    "supported_command_changes": [],
+    "input_output_exit_code_changes": []
+  },
+  "successor_manifest": {
+    "paths": 356,
+    "hashed_paths": 354,
+    "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
+    "manifest_sha256": "f6920ec0f611ef5e171a53148afc0965ecac2cd048bb5ed609c61ed8d4d6a7b6",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "candidate_assets": {
+    "SHA256SUMS": {
+      "sha256": "8ba9ea3724cd17c7e9525a8a0620178a4a2fb3b6158232293adf9aa5901cc7e5",
+      "size_bytes": 182
+    },
+    "ml_cra-0.1.1-py3-none-any.whl": {
+      "sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908",
+      "size_bytes": 92270
+    },
+    "ml_cra-0.1.1.tar.gz": {
+      "sha256": "c6b29d90647e2524f07890daa01347238006c5a5bfffac47232ad359edd91903",
+      "size_bytes": 96890
+    }
+  },
+  "observed_checks": {
+    "metadata_assurance": "PASS",
+    "doctor_compatibility": "PASS",
+    "candidate_builds": "PASS_2_of_2",
+    "normalized_sdist_byte_reproducibility": "PASS_2_of_2",
+    "wheel_byte_reproducibility": "PASS_2_of_2",
+    "archive_assurance": "PASS",
+    "registered_mutations": "PASS_9_of_9",
+    "focused_tests": "PASS",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "source_assurance": "PASS",
+    "documentation_assurance": "PASS",
+    "secret_pattern_scan": "PASS_zero_findings",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "hosted_assurance": {
+    "status": "PENDING_PR",
+    "interpretation": "Local verification supports the handoff; hosted evidence must be observed before John closes the task."
+  },
+  "change_reconciliation": {
+    "planned_paths": 22,
+    "actual_paths": 22,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "limits": [
+    "No tag GitHub Release TestPyPI or PyPI action was performed.",
+    "release_ready describes packaged content only and cannot authorize publication.",
+    "The immutable v0.1.0 tag assets and notes were not changed.",
+    "No training scientific validation claim protocol result or verdict changed.",
+    "The optional aggregate pilot remains FAIL only because historical stage validators require absent legacy checkpoint ZIPs and pre-successor no-release states; current ST08_15A focused, working-baseline and published-baseline gates pass.",
+    "SHA-256 binds observed bytes but does not prove semantic correctness.",
+    "ST08_15B remains unauthorized."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Reversible Git-isolated candidate with deterministic local asset regeneration; no stage or external release completed."
+  },
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

@@ -41,7 +41,7 @@ CLAIM_SCHEMA_RESOURCES = {
     BINARY_CLAIM_SCHEMA_VERSION: "binary_classification_claim_v01.schema.json",
     REGRESSION_CLAIM_SCHEMA_VERSION: "tabular_regression_claim_v01.schema.json",
 }
-PROJECT_VERSION = "0.1.0"
+PROJECT_VERSION = "0.1.1"
 REQUIRED_BUNDLE_FILES = (
     "run_manifest.json",
     "input_validation.json",
@@ -1408,9 +1408,8 @@ def doctor_report() -> dict[str, Any]:
         "dependency_status": dependency_status,
         "network_access_performed": False,
         "model_fit_performed": False,
-        "release_ready": False,
-        "release_blockers": [
-            "John_release_authorization_not_granted",
-        ],
+        "release_ready": True,
+        "release_blockers": [],
+        "release_readiness_scope": "packaged_content_only_no_publication_authority",
         "environment": environment,
     }

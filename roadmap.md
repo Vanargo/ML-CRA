@@ -2018,3 +2018,60 @@ PyPI_or_TestPyPI_authorized: false
    принятии только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решить, авторизовать ли ST08_15A. Текущий блок не разрешает его
    реализацию, версию `0.1.1`, тег, GitHub Release или PyPI/TestPyPI.
+
+## 65. ST08_15A — локальный корректирующий кандидат 0.1.1
+
+ST08_15 принят и закрыт John; PR №18 объединён, а post-merge `assurance` run
+`36386237140`, job `108812098160` завершился с `success` и
+`final-evidence=PASS`. John отдельно авторизовал только
+`ST08_15A_v0_1_1_corrective_candidate_implementation` с профилем `CHANGE`.
+
+```text
+ST08_15A_profile: CHANGE
+ST08_15A_status: technical_pass_ready_for_john_acceptance
+ST08_15B_authorized: false
+target_version: 0.1.1
+release_actions_performed: 0
+scientific_artifact_changes: 0
+```
+
+Блок реализует зарегистрированный корректирующий контракт: версия пакета,
+runtime и CFF становится `0.1.1`; `date-released` отсутствует до фактического
+выпуска; `mlcra_doctor_report_v01` и его существующие ключи сохраняются.
+`release_ready=true` и пустой `release_blockers` теперь относятся только к
+техническому содержимому пакета, что явно задано новым полем
+`release_readiness_scope=packaged_content_only_no_publication_authority`.
+Runtime-флаг не даёт полномочия на публикацию.
+
+Точный change set — набор изменений — ограничен 22 путями. Два независимых
+локальных построения из канонического Git index должны воспроизводить
+`ml_cra-0.1.1.tar.gz`, `ml_cra-0.1.1-py3-none-any.whl` и `SHA256SUMS`.
+Исторический `v0.1.0`, его активы и примечания не меняются; CI сохраняет их
+точную реконструкцию и проверку, но текущий clean install использует кандидат
+`0.1.1`. TestPyPI, PyPI, тег и GitHub Release не разрешены.
+
+Задача основана на SemVer 2.0.0, спецификации версий и packaging flow PyPA,
+CFF 1.2.0, SOURCE_DATE_EPOCH, NIST SP 800-218 SSDF 1.1 и NIST FIPS 180-4.
+Checkpoint ZIP пропущен как непропорциональный обратимому веточному изменению;
+восстановление обеспечивают Git, successor manifest — манифест-преемник — и
+воспроизводимая локальная сборка.
+
+Локальные проверки завершены: новый gate — шлюз — имеет PASS, 9/9 мутаций
+отклонены, focused regressions — целевые регрессии — успешны, working/published
+baseline имеют PASS, 18/18 научных артефактов неизменны, секретов не найдено.
+Две сборки и финальная повторная сборка воспроизвели одни SHA-256:
+`c6b29d90647e2524f07890daa01347238006c5a5bfffac47232ad359edd91903` для
+sdist, `327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908`
+для wheel и `8ba9ea3724cd17c7e9525a8a0620178a4a2fb3b6158232293adf9aa5901cc7e5`
+для `SHA256SUMS`. Исторический aggregate pilot остаётся FAIL на отсутствующих
+legacy checkpoint ZIP и прежних no-release ожиданиях; текущие ST08_15A gates
+проходят, а диспозиция зарегистрирована в evidence.
+
+## 66. Задачи John
+
+1. После технического завершения ST08_15A создать commit из точного набора
+   изменений, отправить ветвь и открыть pull request в `main`.
+2. Дождаться обязательного hosted `assurance` с `final-evidence`, затем принять
+   либо вернуть только ST08_15A.
+3. Только после `ACCEPTED_BY_JOHN` и `TASK_CLOSED` отдельно решать авторизацию
+   ST08_15B; не создавать тег и не публиковать пакет в текущем блоке.

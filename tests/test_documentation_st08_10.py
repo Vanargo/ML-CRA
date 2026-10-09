@@ -67,11 +67,13 @@ class TestSt0810Documentation(unittest.TestCase):
     def test_metadata_uses_root_readme(self) -> None:
         metadata = assurance.validate_project_metadata()
         self.assertEqual(metadata["readme"], "README.md")
-        self.assertEqual(metadata["version"], "0.1.0")
+        self.assertEqual(metadata["version"], "0.1.1")
 
     def test_doctor_has_no_completed_documentation_blocker(self) -> None:
         source = assurance.APPLICATION.read_text(encoding="utf-8")
         self.assertNotIn("RU_and_EN_documentation_deferred_to_ST08_10", source)
+        self.assertNotIn("John_release_authorization_not_granted", source)
+        self.assertIn("packaged_content_only_no_publication_authority", source)
 
 
 if __name__ == "__main__":

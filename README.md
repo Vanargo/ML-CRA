@@ -9,7 +9,16 @@ ML-CRA audits whether experimental evidence supports a **bounded**
 machine-learning claim. It does not choose a universally best model and does not
 turn one dataset result into a general recommendation.
 
-Version `0.1.0` is published as an
+Version `0.1.1` is the current local corrective candidate. Its
+[candidate notes](RELEASE_NOTES_0.1.1.md) describe the bounded correction and
+verification procedure. It has not been tagged, published as a GitHub Release,
+or uploaded to TestPyPI/PyPI. In `mlcra doctor`, `release_ready=true` means only
+that no known static blocker remains in the packaged content; the accompanying
+`release_readiness_scope=packaged_content_only_no_publication_authority` makes
+explicit that this value never authorizes publication. Publication remains an
+owner decision recorded outside the runtime report.
+
+Version `0.1.0` remains published as an
 [immutable GitHub Release](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.0)
 at exact commit `9d530b60fd262f21cfe63eb2482722972a24c3d2`. The tracked
 [0.1.0 candidate notes](RELEASE_NOTES_0.1.0.md) are the immutable pre-release
@@ -43,7 +52,8 @@ stratified folds; regression uses K-fold only under the declared
 `exchangeable_rows` assumption. `mlcra verify` checks that bundle's exact
 inventory, hashes, provenance relations, and verdict without fitting models.
 `mlcra doctor` reports whether the installed environment matches the declared
-cell and lists unresolved release gates.
+cell and whether the packaged technical content has a known static blocker. Its
+readiness fields do not grant authority to create a tag or publish anywhere.
 
 A successful audit can return `supported`, `fragile`, or `not_supported`.
 All three are valid bounded findings, not software failures. See the
