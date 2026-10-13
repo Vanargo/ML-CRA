@@ -2756,3 +2756,76 @@ READY и требует fail-closed отказ. Продукт, научное �
    принятии только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решать, авторизовать ли ST08_15B. Текущая задача не разрешает тег,
    GitHub Release, TestPyPI или PyPI.
+
+## 80. ST08_15B — финальный повторный аудит кандидата 0.1.1 и security preflight
+
+John принял и закрыл ST08_15A, отдельно разрешил слияние PR №22 и post-merge
+`assurance`, затем после предложения точного следующего блока прислал
+`NEXT_BLOCK_AUTHORIZED`. Это контекстно разрешает только
+`ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight` с профилем
+`SCIENTIFIC_VALIDATION`. PR №22 объединён в `main` как
+`deea8907e995a0e09420899ad69c8c0dc51334c4`; post-merge run `38350554254`, job
+`115141724561` имеет `success`, включая `final-evidence`.
+
+```text
+ST08_15B_profile: SCIENTIFIC_VALIDATION
+ST08_15B_status: local_pass_hosted_pending
+ST08_15C_authorized: false
+release_actions_performed: 0
+training_runs: 0
+scientific_artifact_changes: 0
+```
+
+`ST08_15B_status` означает, что локальная проверка точного кандидата завершена,
+но будущий commit ещё не подтверждён обязательным GitHub Actions. Значение
+`ST08_15C_authorized: false` запрещает тег и GitHub Release; нули подтверждают,
+что публикация, обучение и изменение научных артефактов не выполнялись.
+
+Повторный аудит сохраняет семь принятых ключевых артефактов ST08_15A по SHA-256,
+18 защищённых научных артефактов и публичные интерфейсы. Successor manifest —
+манифест-преемник — связывает актуальное индексированное Git-дерево; двукратная
+нормализованная сборка обязана воспроизвести sdist, wheel и `SHA256SUMS`.
+Workflow оставляет только read-only — доступ только на чтение — полномочия:
+проверяет метаданные принятого кандидата, новый контракт, 12 отрицательных
+мутаций, focused regressions — целевые регрессии — и точные собранные активы.
+
+Аутентифицированное read-only наблюдение GitHub на 2026-10-13 подтвердило:
+обязательный строгий check `assurance`, pull-request review — проверку через PR,
+linear history — линейную историю, запрет удаления и non-fast-forward для
+`main`; secret scanning, push protection, private vulnerability reporting и
+immutable releases включены; открытых Dependabot alerts — уведомлений — ноль;
+`v0.1.1` tag/release отсутствуют, а `v0.1.0` и три его актива неизменны.
+
+Выявлена важная переходная граница: текущие `README.md`, `README_RU.md` и
+`RELEASE_NOTES_0.1.1.md` правдиво называют 0.1.1 неопубликованным локальным
+кандидатом, а `CITATION.cff` намеренно не имеет `date-released`. Если
+опубликовать эти байты без перехода состояния, публичная документация сразу
+станет ложной и повторит дефект 0.1.0. Поэтому активы ST08_15B являются только
+preflight-кандидатами, не upload-ready — не готовыми к загрузке. Отдельно
+авторизованный ST08_15C должен сначала финализировать четыре release-state
+поверхности, получить exact-SHA `assurance`, заново воспроизводимо собрать
+активы и только затем выполнить draft → attach → verify → publish один раз.
+
+Метод опирается на финальный NIST SP 800-218 SSDF 1.1, NIST FIPS 180-4,
+официальный PyPA packaging flow и source-distribution specification,
+SOURCE_DATE_EPOCH и документацию GitHub по immutable releases и проверке
+release integrity. SHA-256 доказывает совпадение байтов, но не заменяет
+содержательную валидацию. Checkpoint ZIP имеет `SKIPPED`: изменение обратимо в
+Git, состояние связано манифестом, локальные активы воспроизводимы, а выпуск и
+этап не завершены.
+
+Локальные результаты и точные SHA-256 активов регистрируются в
+`data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json`.
+До успешного hosted `assurance` readiness — готовность к принятию — остаётся
+`NOT_READY`.
+
+## 81. Задачи John
+
+1. После получения локального gate report — отчёта шлюза — создать commit из
+   точного набора 14 путей, отправить ветвь и открыть pull request в `main`.
+2. Дождаться обязательного `assurance`, включая ST08_15B `final-evidence`, и
+   передать URL запуска; до этого не создавать tag/release `v0.1.1`.
+3. После регистрации успешного exact-SHA hosted run принять либо вернуть только
+   ST08_15B; только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+4. Отдельно решить, авторизовать ли ST08_15C. Текущий блок не разрешает GitHub
+   Release, TestPyPI или PyPI.

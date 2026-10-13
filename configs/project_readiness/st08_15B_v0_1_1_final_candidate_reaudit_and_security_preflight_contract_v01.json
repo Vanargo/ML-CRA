@@ -1,0 +1,207 @@
+{
+  "schema_version": "st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_contract_v01",
+  "contract_id": "st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_contract_v01",
+  "task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
+  "recorded_at": "2026-10-13",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+    "authorized_decision": "NEXT_BLOCK_AUTHORIZED",
+    "resolved_context_task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
+    "resolution_basis": "John sent the reserved NEXT_BLOCK_AUTHORIZED decision immediately after the agent named only this exact next block and explained its boundary.",
+    "final_candidate_reaudit_authorized": true,
+    "local_candidate_rebuild_authorized": true,
+    "read_only_GitHub_observation_authorized": true,
+    "product_source_change_authorized": false,
+    "version_tag_authorized": false,
+    "GitHub_release_authorized": false,
+    "artifact_upload_authorized": false,
+    "TestPyPI_publication_authorized": false,
+    "PyPI_publication_authorized": false,
+    "ST08_15C_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": "Re-audit the exact current 0.1.1 corrective candidate against the registered compatibility, requirements, scientific-boundary, security, reproducibility and hosted-assurance controls; fail closed on drift; and register the mandatory release-state transition for a future separately authorized ST08_15C without creating a tag, release, upload or package publication.",
+  "completion_criteria": [
+    "the accepted ST08_15A implementation and seven core candidate artifacts are bound to canonical Git blob hashes",
+    "the 0.1.1 wheel remains byte-identical to ST08_15A and the successor sdist is independently reproducible and exactly registered",
+    "all 24 current Stage 8 requirements, compatibility checks, protected scientific hashes, secret scan and dependency audit remain passing within their registered boundaries",
+    "the active main ruleset, required assurance, repository security controls, immutable v0.1.0 and absence of v0.1.1 are observed read-only and unknown cannot pass",
+    "candidate-only README, release-note and citation wording is identified as an intentional transition prerequisite rather than published as false release-state text",
+    "the future ST08_15C state machine requires release-state finalization, exact-SHA hosted assurance and asset verification before publication",
+    "the exact planned path set, successor manifest and evidence record pass local assurance while release actions remain zero"
+  ],
+  "source_baseline": {
+    "git_commit": "deea8907e995a0e09420899ad69c8c0dc51334c4",
+    "git_tree": "0f0684a3faeef9e69ce3f1de21d608bca8970d0e",
+    "branch": "main",
+    "tracked_paths": 356,
+    "project_version": "0.1.1",
+    "accepted_previous_task": true,
+    "post_merge_assurance_run": 38350554254,
+    "post_merge_assurance_job": 115141724561,
+    "post_merge_assurance_conclusion": "success",
+    "post_merge_assurance_primary_steps": 22
+  },
+  "validation_question": "Does the exact current 0.1.1 candidate preserve the accepted bounded ML-CRA scientific state and satisfy the registered compatibility, integrity, security and reproducibility controls strongly enough to define a fail-closed future release execution transition?",
+  "validated_claim": {
+    "claim": "The exact 0.1.1 corrective candidate preserves the accepted bounded scientific artifacts and supported interfaces and is reproducibly buildable under the registered environment, while external publication remains unauthorized and requires a release-state transition plus exact-SHA hosted assurance.",
+    "scope": "Windows x64 CPython 3.12, the registered binary-classification and exchangeable-row regression protocols, the four supported CLI commands, the local bilingual dashboard, the canonical Git candidate and GitHub repository controls observed on 2026-10-13.",
+    "forbidden_interpretations": [
+      "universal best-model selection",
+      "new scientific validation or broader dataset generalization",
+      "cross-platform or unregistered Python support",
+      "stable 1.0.0 public API status",
+      "runtime or preflight authority to publish"
+    ]
+  },
+  "decision_policy": {
+    "alternatives": ["PASS", "FAIL", "BLOCKED"],
+    "PASS": "All registered local controls pass, external read-only controls are positively observed, protected science is unchanged, reproducible assets satisfy exact relations, and the release-state transition is explicit and fail-closed.",
+    "FAIL": "Any registered compatibility, integrity, security, reproducibility or protected-artifact condition is observably violated.",
+    "BLOCKED": "A mandatory control is unknown, unavailable, or depends on an owner decision not granted for this task.",
+    "unknown_is_pass": false,
+    "hosted_acceptance_rule": "Local evidence may be technically PASS but readiness remains NOT_READY until hosted assurance succeeds for the exact candidate commit.",
+    "scientific_effect": "NONE_no_new_training_claim_protocol_result_or_verdict"
+  },
+  "candidate_preflight": {
+    "version": "0.1.1",
+    "source_representation": "canonical_Git_index_checkout",
+    "source_date_epoch": 1791504000,
+    "independent_build_count": 2,
+    "ST08_15A_assets": {
+      "ml_cra-0.1.1.tar.gz": {"sha256": "4ca5682df9ca1a968aeb3142437da890efa2f277f6d8fdbcb2ac53633418bfc3", "size_bytes": 97043},
+      "ml_cra-0.1.1-py3-none-any.whl": {"sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908", "size_bytes": 92270},
+      "SHA256SUMS": {"sha256": "87773d2486e97461081c7982d65a24ffad9e94450869454c69560c5f3dd7240e", "size_bytes": 182}
+    },
+    "ST08_15B_assets": {
+      "ml_cra-0.1.1.tar.gz": {"sha256": "9f11f27937f290e3e91369ab6b6d5cce4ac08bc464cdfed2805fe4bf998eeeca", "size_bytes": 97786},
+      "ml_cra-0.1.1-py3-none-any.whl": {"sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908", "size_bytes": 92270},
+      "SHA256SUMS": {"sha256": "421763af8897500ae0798b2b4e2d87d4408618d050b4003015b20e32164de7ae", "size_bytes": 182}
+    },
+    "wheel_rule": "The ST08_15B wheel must remain byte-identical to ST08_15A because package code, package metadata and runtime behavior are outside the authorized change set.",
+    "sdist_rule": "The normalized ST08_15B sdist must be reproducible; a changed digest is permitted only for registered tracked assurance tests or packaging-included governance files and must be explained by an inventory delta.",
+    "required_assets": ["ml_cra-0.1.1.tar.gz", "ml_cra-0.1.1-py3-none-any.whl", "SHA256SUMS"],
+    "publication_effect": "NONE_local_ignored_preflight_assets_only"
+  },
+  "release_state_transition": {
+    "current_state": "candidate_only_not_safe_to_publish_as_final_release_text",
+    "observed_transitional_surfaces": ["README.md", "README_RU.md", "RELEASE_NOTES_0.1.1.md", "CITATION.cff"],
+    "risk": "Publishing the current tree unchanged would make candidate-only statements false and repeat the documented v0.1.0 release-state wording defect.",
+    "required_future_action": "A separately authorized ST08_15C must finalize release-state wording and any actual CFF release date, commit those exact bytes through pull-request assurance, rebuild and re-audit the exact final assets, and only then create the tag and draft release.",
+    "current_product_change_performed": false,
+    "current_publication_blocker": "ST08_15C_release_state_finalization_and_exact_SHA_assurance_not_authorized_or_executed"
+  },
+  "repository_preflight": {
+    "repository": "Vanargo/ML-CRA",
+    "default_branch": "main",
+    "required_status_check": "assurance",
+    "ruleset_id": 21408995,
+    "required_rules": [
+      "pull_request_required",
+      "linear_history_required",
+      "conversation_resolution_required",
+      "strict_assurance_status_required",
+      "force_push_blocked",
+      "deletion_blocked",
+      "bypass_list_empty"
+    ],
+    "required_security_controls": [
+      "secret_scanning_enabled",
+      "push_protection_enabled",
+      "private_vulnerability_reporting_enabled",
+      "dependabot_alerts_enabled",
+      "zero_open_dependabot_alerts",
+      "release_immutability_enabled"
+    ],
+    "required_existing_tags": ["v0.1.0"],
+    "required_existing_releases": ["v0.1.0"],
+    "forbidden_existing_tag_or_release": "v0.1.1",
+    "unknown_is_pass": false
+  },
+  "future_ST08_15C_state_machine": [
+    "finalize_README_README_RU_RELEASE_NOTES_and_optional_actual_CFF_release_date_without_changing_scientific_scope",
+    "commit_and_open_pull_request_for_the_exact_release_state_tree",
+    "require_successful_assurance_for_the_exact_candidate_commit",
+    "rebuild_twice_and_register_exact_sdist_wheel_and_SHA256SUMS",
+    "verify_zero_existing_v0_1_1_tag_and_release_and_recheck_repository_security_controls",
+    "create_draft_GitHub_release_for_new_tag_v0_1_1_targeting_the_exact_verified_commit",
+    "attach_all_three_assets_before_publication",
+    "verify_asset_names_sizes_and_SHA256SUMS_before_publication",
+    "publish_once_with_release_immutability_enabled",
+    "verify_release_and_assets_with_GitHub_CLI_and_record_attestation"
+  ],
+  "immutable_ST08_15A": [
+    {"path": "RELEASE_NOTES_0.1.1.md", "sha256": "cb9d540154a4e7c8ecc1115935b225d39063c229d5075e302b2a5db2a251c199"},
+    {"path": "configs/project_readiness/st08_15A_v0_1_1_corrective_candidate_implementation_contract_v01.json", "sha256": "709d68625ff8762f2bab503ab33aa205c7b55ec06c75c88295a501608a05b6ed"},
+    {"path": "scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py", "sha256": "9ba593e6cb79348552621c14064630ff99a45a54fa9726a1149972c3a04e7bd0"},
+    {"path": "tests/test_v0_1_1_corrective_candidate_st08_15A.py", "sha256": "dddeb289a63fbdc2b2e15f675cb2c5c80172ca457bbd2b900684dbec395240bb"},
+    {"path": "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv", "sha256": "dd2a770bf2ee2cde9a490edb46d15088dbc90d5e33daa9e9ed51b89777264b2c"},
+    {"path": "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json", "sha256": "ebaa57082a5762c48f4e8b0359ed60fccd6c84885f9ee99675cca4f54642634b"},
+    {"path": "docs/agent/st08_15A_v0_1_1_corrective_candidate_implementation_change_scope_v01.csv", "sha256": "cb7adb05a4c60d0879d110f405513f403abb06d8ed09fcfc95c983ea47edc439"}
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_15B_v0_1_1_final_candidate_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15B_v0_1_1_final_candidate_manifest_v01.csv",
+      "data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json"
+    ]
+  },
+  "planned_changes": [
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_15B_v0_1_1_final_candidate_preflight.py"},
+    {"change_kind": "added", "relative_path": "tests/test_v0_1_1_final_candidate_preflight_st08_15B.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15B_v0_1_1_final_candidate_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_change_scope_v01.csv"},
+    {"change_kind": "added", "relative_path": "docs/release/release_0_1_1_GitHub_execution_runbook_v01.md"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"}
+  ],
+  "required_checks": [
+    "python scripts/st08_15B_v0_1_1_final_candidate_preflight.py contract",
+    "python scripts/st08_15B_v0_1_1_final_candidate_preflight.py mutations",
+    "python -m unittest -v tests.test_v0_1_1_final_candidate_preflight_st08_15B",
+    "python scripts/st08_15B_v0_1_1_final_candidate_preflight.py build-preflight --output-dir dist/st08_15B-candidate",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_09_release_assurance.py dependencies --output-dir .tmp_st08_15B_dependency_audits",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/st08_13_release_candidate_reaudit.py --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_15B_v0_1_1_final_candidate_preflight.py final-evidence",
+    "hosted GitHub assurance for the exact committed candidate SHA"
+  ],
+  "authoritative_support": [
+    {"source": "Python Packaging User Guide - The Packaging Flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "Keep source-tree transition, distribution build, validation and external upload as distinct controlled states."},
+    {"source": "Python Packaging User Guide - Source distribution format", "uri": "https://packaging.python.org/en/latest/specifications/source-distribution-format/", "use": "Validate the single-root sdist and recognize that an sdist may include tests and documentation."},
+    {"source": "GitHub - Immutable releases", "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases", "use": "Require draft, attach-before-publish ordering and immutable tag/assets with automatic release attestation."},
+    {"source": "GitHub - Verifying release integrity", "uri": "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity", "use": "Require GitHub CLI verification of the future immutable release and every local asset."},
+    {"source": "GitHub REST repositories API - immutable releases", "uri": "https://docs.github.com/en/rest/repos/repos", "use": "Use authenticated read-only observation and treat unknown or unauthorized responses as non-PASS."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Integrate repeatable security checks, provenance protection and controlled release practices into the lifecycle."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind exact bytes with SHA-256 without treating a digest as proof of correctness, security or scientific validity."},
+    {"source": "SOURCE_DATE_EPOCH specification", "uri": "https://reproducible-builds.org/specs/source-date-epoch/", "use": "Use a declared timestamp input for repeatable archive construction."}
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_if_protected_remote_Git_and_reproducible_assets_pass",
+    "reason": "This is a reversible preflight with no release side effect; protected remote Git, the successor manifest and deterministic ignored assets provide recovery."
+  },
+  "stop_conditions": [
+    "A product source, version, current README, release note, citation file or scientific artifact would change in ST08_15B.",
+    "A tag, GitHub Release, asset upload, TestPyPI or PyPI action would occur.",
+    "A mandatory local or authenticated repository control is unknown or fails.",
+    "The 0.1.1 wheel differs from ST08_15A or the successor sdist is not reproducible and explained.",
+    "Any immutable ST08_15A or protected scientific artifact changes.",
+    "ST08_15C or any release-state finalization starts without separate explicit John authorization."
+  ]
+}

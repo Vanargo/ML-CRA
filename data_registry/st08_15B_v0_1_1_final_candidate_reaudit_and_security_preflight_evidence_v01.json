@@ -1,0 +1,121 @@
+{
+  "schema_version": "st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01",
+  "task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "recorded_at": "2026-10-13",
+  "status": "local_preflight_pass_hosted_pending_no_release",
+  "authority": {
+    "decision_received": "NEXT_BLOCK_AUTHORIZED",
+    "resolved_context_task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
+    "basis": "John sent the reserved decision immediately after the agent proposed this exact next block.",
+    "GitHub_release_authorized": false,
+    "PyPI_authorized": false
+  },
+  "source_baseline": {
+    "branch": "origin/main",
+    "commit": "deea8907e995a0e09420899ad69c8c0dc51334c4",
+    "tree": "0f0684a3faeef9e69ce3f1de21d608bca8970d0e",
+    "tracked_paths": 356
+  },
+  "successor_manifest": {
+    "paths": 363,
+    "hashed_paths": 361,
+    "path_list_sha256": "926e6eba4183acf1655ca9e670883ce2b328e63a449646d12303e319c1a95daf",
+    "manifest_sha256": "0a07f240f7b318be9d719c4efe0289e8029fb1f1b8db78f5880dfcf770b856c0",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15B_v0_1_1_final_candidate_manifest_v01.csv",
+      "data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json"
+    ],
+    "status": "PASS"
+  },
+  "candidate_assets": {
+    "ml_cra-0.1.1.tar.gz": {"sha256": "9f11f27937f290e3e91369ab6b6d5cce4ac08bc464cdfed2805fe4bf998eeeca", "size_bytes": 97786},
+    "ml_cra-0.1.1-py3-none-any.whl": {"sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908", "size_bytes": 92270},
+    "SHA256SUMS": {"sha256": "421763af8897500ae0798b2b4e2d87d4408618d050b4003015b20e32164de7ae", "size_bytes": 182}
+  },
+  "external_observations": {
+    "repository": "Vanargo/ML-CRA",
+    "default_branch": "main",
+    "authenticated_owner_observed_at": "2026-10-13T05:52:15.3959906Z",
+    "ruleset_id": 21408995,
+    "required_status_check": "assurance",
+    "existing_tags": ["v0.1.0"],
+    "existing_releases": ["v0.1.0"],
+    "v0_1_1_tag_exists": false,
+    "v0_1_1_release_exists": false,
+    "secret_scanning_enabled": true,
+    "push_protection_enabled": true,
+    "private_vulnerability_reporting_enabled": true,
+    "dependabot_alerts_enabled": true,
+    "open_dependabot_alerts": 0,
+    "release_immutability_enabled": true,
+    "ruleset_required_controls_pass": true,
+    "GitHub_CLI_available": true,
+    "GitHub_CLI_version": "gh version 2.98.0 (2026-08-20)",
+    "ST08_15A_post_merge_assurance_conclusion": "success",
+    "ST08_15A_post_merge_sha": "deea8907e995a0e09420899ad69c8c0dc51334c4",
+    "ST08_15A_post_merge_run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38350554254/job/115141724561",
+    "v0_1_0_immutable": true,
+    "v0_1_0_commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+    "v0_1_0_assets": {
+      "SHA256SUMS": "e663f0789d00fdc3c5dcedb100d42b5816d8fb553f53978b6dcb2a2db9f59279",
+      "ml_cra-0.1.0-py3-none-any.whl": "9c8ccfd75a099354ece47cb27cd002aaee4824517986b6c735b5198f3423238a",
+      "ml_cra-0.1.0.tar.gz": "56d40c2c78ca8bff4b51911ed01224a1899462a0a310d0f6bda1c7d971e43d13"
+    }
+  },
+  "observed_checks": {
+    "working_baseline": "PASS",
+    "published_baseline_registered_venv": "PASS",
+    "protected_scientific_artifacts": "PASS_18_of_18_unchanged",
+    "contract": "PASS",
+    "negative_mutations": "PASS_12_of_12_rejected",
+    "focused_regressions": "PASS_32_of_32_ST08_15B_and_release_assurance",
+    "candidate_reproducibility": "PASS_2_of_2_normalized_builds",
+    "wheel_equal_ST08_15A": "PASS_byte_identical",
+    "secret_scan": "PASS_363_files_0_findings",
+    "dependency_audit": "PASS_runtime_15_and_assurance_35_dependencies_0_known_vulnerabilities",
+    "repository_security_preflight": "PASS_authenticated_read_only_observation",
+    "release_state_transition": "REQUIRED_BEFORE_PUBLICATION",
+    "aggregate_pilot": "FAIL_historical_missing_checkpoint_ZIP_and_legacy_no_release_expectations_dispositioned_no_current_regression"
+  },
+  "hosted_assurance": {
+    "status": "PENDING",
+    "run_id": null,
+    "job_id": null,
+    "head_sha": null,
+    "conclusion": "pending",
+    "final_evidence": "pending"
+  },
+  "validation_verdict": {
+    "preflight": "PASS_WITH_REQUIRED_RELEASE_STATE_TRANSITION",
+    "scientific_effect": "NONE",
+    "interpretation": "The exact corrective candidate satisfies the bounded local preflight, but its README, release notes and citation state still intentionally describe an unpublished candidate. Publication requires a separately authorized finalization transition followed by exact-SHA assurance and a fresh reproducible build.",
+    "universal_model_claim": false
+  },
+  "change_reconciliation": {
+    "planned_paths": 14,
+    "actual_paths": 14,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "limits": [
+    "A successful local preflight does not prove hosted assurance for the future commit SHA.",
+    "SHA-256 establishes byte identity, not scientific or software correctness.",
+    "The registered v0.1.1 candidate assets are preflight artifacts and are not upload-ready until the release-state transition and exact rebuild occur.",
+    "No new training, model comparison, scientific result, protocol or verdict was produced."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The change is reversible in Git, the successor manifest binds the state, candidate assets are reproducible and ignored, and no stage or release is complete."
+  },
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "PASS",
+  "readiness": "NOT_READY",
+  "proposed_next_block": "ST08_15C_v0_1_1_GitHub_execution",
+  "next_block_authorized": false
+}
