@@ -9,11 +9,14 @@ ML-CRA audits whether experimental evidence supports a **bounded**
 machine-learning claim. It does not choose a universally best model and does not
 turn one dataset result into a general recommendation.
 
-Version `0.1.1` is the current local corrective candidate. Its
-[candidate notes](RELEASE_NOTES_0.1.1.md) describe the bounded correction and
-verification procedure. It has not been tagged, published as a GitHub Release,
-or uploaded to TestPyPI/PyPI. In `mlcra doctor`, `release_ready=true` means only
-that no known static blocker remains in the packaged content; the accompanying
+Version `0.1.1` is the current GitHub release. Its
+[release notes](RELEASE_NOTES_0.1.1.md) describe the bounded correction and
+verification procedure, and the canonical distribution record is the
+[immutable `v0.1.1` GitHub Release](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1).
+If that release record is absent, release execution has not completed and no
+publication should be inferred. Version `0.1.1` has not been uploaded to
+TestPyPI or PyPI. In `mlcra doctor`, `release_ready=true` means only that no
+known static blocker remains in the packaged content; the accompanying
 `release_readiness_scope=packaged_content_only_no_publication_authority` makes
 explicit that this value never authorizes publication. Publication remains an
 owner decision recorded outside the runtime report.
@@ -231,8 +234,10 @@ the owner-approved v02 rules without rewriting that history: all 24 current
 requirements and all eight dimensions pass, so project completion is `PASS`.
 The cumulative pilot still executes and must reproduce exactly its eight
 registered historical FAIL rows with no new failure. The `0.1.0` candidate was
-finalized by ST08_14A and published by the separately authorized ST08_14C as an
-immutable GitHub Release. Package-index publication remains deferred.
+finalized by ST08_14A and published by the separately authorized ST08_14C as
+the first immutable GitHub Release. Version `0.1.1` corrects its disclosed
+release-state wording limitation without changing the bounded scientific
+results. Package-index publication remains deferred.
 Real-dataset regression validation and the local static dashboard remain valid
 bounded results; neither authorizes broader scientific claims or a release.
 

@@ -1,7 +1,10 @@
-# ML-CRA 0.1.1 corrective candidate notes
+# ML-CRA 0.1.1 release notes
 
-These notes describe a local candidate. They do not create a tag, a GitHub
-Release, or a TestPyPI/PyPI publication.
+These tracked notes describe the owner-authorized immutable GitHub Release
+`v0.1.1`. Release execution is complete only when the canonical
+[GitHub record](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1) exists
+and the ST08_15C evidence records successful release and asset verification.
+No TestPyPI or PyPI publication is included.
 
 ## English
 
@@ -33,10 +36,10 @@ Quality evidence remains bounded to its registered protocols. This correction
 does not claim a universally best model, cross-platform support, new scientific
 validation, or stable `1.0.0` API status.
 
-### Local candidate assets and verification
+### Release assets and verification
 
-ST08_15A builds the following three local assets twice from the canonical Git
-index with a fixed `SOURCE_DATE_EPOCH`:
+ST08_15C builds the following three release assets twice from the exact assured
+Git tree with a fixed `SOURCE_DATE_EPOCH`:
 
 - `ml_cra-0.1.1.tar.gz`;
 - `ml_cra-0.1.1-py3-none-any.whl`;
@@ -60,14 +63,20 @@ citation, dataset attribution, and security reporting are defined by
 ### Known limits and deferred actions
 
 The immutable `v0.1.0` tag, release body, and assets are not changed. This
-candidate has no release date in `CITATION.cff` because it has not been
-published. TestPyPI, PyPI, the `v0.1.1` tag, and the `v0.1.1` GitHub Release are
-deferred to separately authorized blocks.
+source tree intentionally has no `date-released` in `CITATION.cff`: the exact
+external publication timestamp is created only after these bytes have passed
+the protected pull request, and is recorded by GitHub and the ST08_15C evidence
+instead of being guessed in advance. TestPyPI and PyPI remain deferred and
+require a separate owner decision.
 
 ## Русский
 
-Эти примечания описывают локальный кандидат: для него не создавались тег,
-GitHub Release или публикация TestPyPI/PyPI.
+Эти отслеживаемые примечания описывают авторизованный владельцем неизменяемый
+GitHub Release `v0.1.1`. Выполнение выпуска завершено только тогда, когда
+существует каноническая
+[запись GitHub](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1), а
+доказательства ST08_15C фиксируют успешную проверку выпуска и активов.
+Публикация в TestPyPI или PyPI сюда не входит.
 
 ### Коррекция
 
@@ -99,10 +108,10 @@ GitHub Release или публикация TestPyPI/PyPI.
 лучшую модель, межплатформенную поддержку, новую научную валидацию или
 стабильность API уровня `1.0.0`.
 
-### Локальные активы кандидата и проверка
+### Активы выпуска и проверка
 
-ST08_15A дважды собирает из канонического Git index — индекса — с фиксированным
-`SOURCE_DATE_EPOCH` три локальных актива:
+ST08_15C дважды собирает из точного проверенного Git-дерева с фиксированным
+`SOURCE_DATE_EPOCH` три актива выпуска:
 
 - `ml_cra-0.1.1.tar.gz`;
 - `ml_cra-0.1.1-py3-none-any.whl`;
@@ -124,6 +133,8 @@ Get-FileHash ml_cra-0.1.1.tar.gz,ml_cra-0.1.1-py3-none-any.whl -Algorithm SHA256
 ### Известные ограничения и отложенные действия
 
 Неизменяемые тег, release body — описание выпуска — и активы `v0.1.0` не
-изменяются. В `CITATION.cff` нет даты выпуска этого кандидата, потому что он не
-опубликован. TestPyPI, PyPI, тег `v0.1.1` и GitHub Release `v0.1.1` отложены до
-отдельно авторизованных блоков.
+изменяются. В исходном дереве намеренно нет `date-released` в `CITATION.cff`:
+точное время внешней публикации возникает только после проверки этих байтов
+через защищённый pull request и фиксируется GitHub и доказательствами ST08_15C,
+а не угадывается заранее. TestPyPI и PyPI остаются отложенными и требуют
+отдельного решения владельца.
