@@ -2652,7 +2652,7 @@ ACCEPTED_BY_JOHN: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contr
 TASK_CLOSED: ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design
 NEXT_BLOCK_AUTHORIZED: ST08_15A_v0_1_1_corrective_candidate_implementation
 ST08_15A_profile: CHANGE
-ST08_15A_status: technical_pass_hosted_reverification_pending
+ST08_15A_status: technical_pass_ready_for_john_acceptance
 ST08_15B_authorized: false
 release_actions_performed: 0
 ```
@@ -2727,13 +2727,22 @@ wheel текущего кандидата — для архивной прове
 отклоняет возвращение селектора predecessor wheel — wheel предшественника.
 Полный hosted `assurance` после этого ремонта по-прежнему обязателен.
 
+Итоговый hosted `assurance` PR №22, run `37933588118`, job `113830025480`,
+head `ae1b866919bcc7ccd032c3a1ff443e9896701486` завершился с `success`: все 22
+основных шага прошли. Журнал непосредственно подтверждает
+`final-evidence=PASS`, воспроизводимые активы `0.1.1`, неизменность выпуска
+`v0.1.0`, офлайн-установку `ml-cra==0.1.1`, `doctor` с
+`software_version=0.1.1`, `release_ready=true`, пустым `release_blockers` и
+ограниченной областью готовности, а также published baseline для 356 путей,
+354 хешированных путей и 18 защищённых артефактов. ST08_15A технически готов к
+решению John; это не разрешает ST08_15B, тег или публикацию.
+
 ## 79. Задачи John
 
-1. После локального доказательного замыкания проверить точный набор изменений,
-   локальные проверки и хеши кандидата.
-2. Создать commit, отправить ветвь и открыть pull request в `main`, затем
-   дождаться обязательного hosted `assurance`, включающего `final-evidence`.
-3. После успешного hosted run принять либо вернуть только ST08_15A; при
+1. Создать завершающий evidence commit — доказательный коммит — отправить его в
+   существующий PR №22 и дождаться повторного `assurance`, включающего
+   `final-evidence`.
+2. После успешного завершающего hosted run принять либо вернуть только ST08_15A; при
    принятии только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
-4. Отдельно решать, авторизовать ли ST08_15B. Текущая задача не разрешает тег,
+3. Отдельно решать, авторизовать ли ST08_15B. Текущая задача не разрешает тег,
    GitHub Release, TestPyPI или PyPI.

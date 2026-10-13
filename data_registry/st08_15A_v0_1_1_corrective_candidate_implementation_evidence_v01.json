@@ -3,7 +3,7 @@
   "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
   "recorded_at": "2026-10-09",
   "profile": "CHANGE",
-  "status": "local_corrective_candidate_implemented_external_release_not_authorized",
+  "status": "technical_pass_ready_for_john_acceptance_external_release_not_authorized",
   "source_baseline": {
     "git_commit": "76e342c43520b59d7b8ca199e4b0c9783771b517",
     "project_version_before": "0.1.0",
@@ -27,7 +27,7 @@
     "paths": 356,
     "hashed_paths": 354,
     "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
-    "manifest_sha256": "94c6f4efc0901fb90eae3617bf05717642e9f4a186df502d4f0863b658426c1b",
+    "manifest_sha256": "eea58a12f33f0330a15951871765fa396b40f72349cc43e64652b68262a90b19",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
       "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
@@ -69,15 +69,19 @@
     "hosted_assurance_run_37900891670_dependency_audit": "PASS",
     "hosted_assurance_run_37900891670_final_evidence": "PASS",
     "hosted_assurance_run_37900891670_clean_install": "FAIL_installed_immutable_v0_1_0_wheel_instead_of_current_v0_1_1_candidate",
-    "clean_install_candidate_selector_repair": "PASS_LOCAL_STATIC_MUTATION_AND_ISOLATED_WHEEL_INSTALL_HOSTED_REVERIFICATION_PENDING",
+    "clean_install_candidate_selector_repair": "PASS_LOCAL_AND_HOSTED",
     "local_candidate_wheel_install_after_selector_repair": "PASS_INSTALLED_0_1_1_DOCTOR_READY_WITH_PACKAGED_CONTENT_SCOPE",
+    "hosted_assurance_run_37933588118": "PASS_ALL_22_PRIMARY_STEPS",
+    "hosted_clean_install_candidate_wheel": "PASS_INSTALLED_ML_CRA_0_1_1_OFFLINE",
+    "hosted_clean_install_doctor": "PASS_VERSION_0_1_1_READY_WITH_PACKAGED_CONTENT_SCOPE",
+    "hosted_published_baseline": "PASS_356_PATHS_354_HASHED_18_PROTECTED",
     "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
     "release_actions_performed": 0,
     "training_runs": 0,
     "scientific_artifact_changes": 0
   },
   "hosted_assurance": {
-    "status": "PENDING_CLEAN_INSTALL_REPAIR_RUN",
+    "status": "PASS",
     "first_failed_run": 37899393731,
     "first_failed_job": 113718150576,
     "first_failed_step": "Audit known dependency vulnerabilities",
@@ -94,7 +98,26 @@
     "root_cause": "The clean runtime installation selected the reconstructed immutable v0.1.0 wheel from dist/st08_14C-ci instead of the current v0.1.1 candidate wheel from dist/st08_15A-ci.",
     "repair": "Select the current v0.1.1 wheel for clean installation and fail closed if the workflow reintroduces the predecessor-wheel selector.",
     "repair_local_verification": "PASS: canonical-index wheel installed into an isolated target; imported application path was inside that target, distribution metadata was 0.1.1, and doctor reported release_ready=true with packaged-content-only scope.",
-    "interpretation": "The dependency repair is hosted-confirmed and final-evidence passed before the late failure, but the complete hosted job must pass after the clean-install selector repair before John closes the task."
+    "successful_run": 37933588118,
+    "successful_job": 113830025480,
+    "successful_head_sha": "ae1b866919bcc7ccd032c3a1ff443e9896701486",
+    "successful_conclusion": "success",
+    "successful_primary_steps": 22,
+    "successful_final_evidence": "PASS",
+    "successful_clean_install_distribution": "ml-cra==0.1.1",
+    "successful_clean_install_doctor": {
+      "software_version": "0.1.1",
+      "release_ready": true,
+      "release_blockers": [],
+      "release_readiness_scope": "packaged_content_only_no_publication_authority"
+    },
+    "successful_published_baseline": {
+      "paths": 356,
+      "hashed_paths": 354,
+      "protected": 18,
+      "canonical_git_blob_inventory": "PASS"
+    },
+    "interpretation": "The complete hosted job passed after the clean-install selector repair, including final-evidence, reproducible candidate construction, immutable v0.1.0 verification, offline installation of ml-cra 0.1.1, CLI walkthrough and the deterministic published baseline."
   },
   "change_reconciliation": {
     "planned_paths": 23,
@@ -122,5 +145,5 @@
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "technical_status": "PASS",
-  "readiness": "NOT_READY"
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
 }
