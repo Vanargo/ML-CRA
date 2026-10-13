@@ -2769,15 +2769,15 @@ John принял и закрыл ST08_15A, отдельно разрешил с
 
 ```text
 ST08_15B_profile: SCIENTIFIC_VALIDATION
-ST08_15B_status: local_pass_hosted_pending
+ST08_15B_status: technical_pass_ready_for_john_acceptance
 ST08_15C_authorized: false
 release_actions_performed: 0
 training_runs: 0
 scientific_artifact_changes: 0
 ```
 
-`ST08_15B_status` означает, что локальная проверка точного кандидата завершена,
-но будущий commit ещё не подтверждён обязательным GitHub Actions. Значение
+`ST08_15B_status` означает, что локальная проверка точного кандидата и hosted
+проверка его exact SHA завершены; принятие и закрытие остаются решением John. Значение
 `ST08_15C_authorized: false` запрещает тег и GitHub Release; нули подтверждают,
 что публикация, обучение и изменение научных артефактов не выполнялись.
 
@@ -2816,16 +2816,22 @@ Git, состояние связано манифестом, локальные 
 
 Локальные результаты и точные SHA-256 активов регистрируются в
 `data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json`.
-До успешного hosted `assurance` readiness — готовность к принятию — остаётся
-`NOT_READY`.
+Hosted `assurance` PR №23, run `38357411816`, job `115163401735`, head
+`67aaeb662bdbd109c005a8d953f367be191c59fa` завершился с `success`: прошли все
+23 основных шага. Журнал непосредственно подтверждает ST08_15B
+`final-evidence=PASS`, 12/12 отклонённых мутаций, 0 известных уязвимостей в
+обоих lock-файлах, 0 находок сканера секретов, две воспроизводимые сборки,
+неизменность v0.1.0, чистую офлайн-установку 0.1.1 и published baseline для 363
+путей, 361 хешированного пути и 18 защищённых артефактов. Readiness — готовность
+к принятию — теперь `READY_FOR_JOHN_ACCEPTANCE`; завершающая запись evidence
+должна пройти повторный exact-SHA hosted run.
 
 ## 81. Задачи John
 
-1. После получения локального gate report — отчёта шлюза — создать commit из
-   точного набора 14 путей, отправить ветвь и открыть pull request в `main`.
-2. Дождаться обязательного `assurance`, включая ST08_15B `final-evidence`, и
-   передать URL запуска; до этого не создавать tag/release `v0.1.1`.
-3. После регистрации успешного exact-SHA hosted run принять либо вернуть только
+1. Создать завершающий evidence commit — доказательный коммит — в существующем
+   PR №23 и дождаться повторного `assurance`, включая ST08_15B `final-evidence`.
+2. После успешного завершающего exact-SHA hosted run принять либо вернуть только
    ST08_15B; только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+3. До принятия не создавать tag/release `v0.1.1`.
 4. Отдельно решить, авторизовать ли ST08_15C. Текущий блок не разрешает GitHub
    Release, TestPyPI или PyPI.

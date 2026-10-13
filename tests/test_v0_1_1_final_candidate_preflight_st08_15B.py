@@ -20,11 +20,16 @@ class TestSt0815BFinalCandidatePreflight(unittest.TestCase):
         self.assertEqual(result["immutable_ST08_15A"], 7)
         self.assertEqual(result["change_scope"], 14)
 
-    def test_final_evidence_is_hosted_pending_until_exact_run(self) -> None:
+    def test_final_evidence_records_exact_hosted_run(self) -> None:
         result = preflight.validate_final_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["evidence"]["hosted_status"], "PENDING")
-        self.assertEqual(EVIDENCE["readiness"], "NOT_READY")
+        self.assertEqual(result["evidence"]["hosted_status"], "PASS")
+        self.assertEqual(EVIDENCE["readiness"], "READY_FOR_JOHN_ACCEPTANCE")
+        self.assertEqual(EVIDENCE["hosted_assurance"]["run_id"], 38357411816)
+        self.assertEqual(
+            EVIDENCE["hosted_assurance"]["head_sha"],
+            "67aaeb662bdbd109c005a8d953f367be191c59fa",
+        )
 
     def test_all_registered_mutations_are_rejected(self) -> None:
         result = preflight.run_mutations()
@@ -66,7 +71,7 @@ class TestSt0815BFinalCandidatePreflight(unittest.TestCase):
     def test_evidence_rejects_ready_state_while_hosted_run_is_pending(self) -> None:
         bindings = preflight.validate_contract_bindings(CONTRACT)
         mutated = copy.deepcopy(EVIDENCE)
-        mutated["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
+        mutated["hosted_assurance"]["status"] = "PENDING_TEST"
         with self.assertRaises(preflight.FinalCandidatePreflightError):
             preflight.validate_evidence(mutated, CONTRACT, bindings)
 

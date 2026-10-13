@@ -3,7 +3,7 @@
   "task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
   "profile": "SCIENTIFIC_VALIDATION",
   "recorded_at": "2026-10-13",
-  "status": "local_preflight_pass_hosted_pending_no_release",
+  "status": "local_and_hosted_preflight_pass_no_release",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED",
     "resolved_context_task_id": "ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight",
@@ -21,7 +21,7 @@
     "paths": 363,
     "hashed_paths": 361,
     "path_list_sha256": "926e6eba4183acf1655ca9e670883ce2b328e63a449646d12303e319c1a95daf",
-    "manifest_sha256": "0a07f240f7b318be9d719c4efe0289e8029fb1f1b8db78f5880dfcf770b856c0",
+    "manifest_sha256": "b39b5ffdabfad17c197119b19fd224efb54238d5656bf6fe0433b3336679de46",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15B_v0_1_1_final_candidate_manifest_v01.csv",
       "data_registry/st08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight_evidence_v01.json"
@@ -29,9 +29,9 @@
     "status": "PASS"
   },
   "candidate_assets": {
-    "ml_cra-0.1.1.tar.gz": {"sha256": "9f11f27937f290e3e91369ab6b6d5cce4ac08bc464cdfed2805fe4bf998eeeca", "size_bytes": 97786},
+    "ml_cra-0.1.1.tar.gz": {"sha256": "72ef55e6938a2890b83c27a4c74c62dda247e9781b78dc794ba98ab0d0cb7e57", "size_bytes": 97850},
     "ml_cra-0.1.1-py3-none-any.whl": {"sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908", "size_bytes": 92270},
-    "SHA256SUMS": {"sha256": "421763af8897500ae0798b2b4e2d87d4408618d050b4003015b20e32164de7ae", "size_bytes": 182}
+    "SHA256SUMS": {"sha256": "35e03a0fff1c7c4f07c668e54b04da1dea12edca0e53947c8d9bb1a203894d4c", "size_bytes": 182}
   },
   "external_observations": {
     "repository": "Vanargo/ML-CRA",
@@ -74,17 +74,23 @@
     "wheel_equal_ST08_15A": "PASS_byte_identical",
     "secret_scan": "PASS_363_files_0_findings",
     "dependency_audit": "PASS_runtime_15_and_assurance_35_dependencies_0_known_vulnerabilities",
+    "hosted_exact_SHA_assurance": "PASS_run_38357411816_job_115163401735_head_67aaeb662bdbd109c005a8d953f367be191c59fa",
+    "hosted_evidence_closure_test_repair": "PASS_local_lifecycle_regression_pending_new_exact_SHA_hosted_run",
     "repository_security_preflight": "PASS_authenticated_read_only_observation",
     "release_state_transition": "REQUIRED_BEFORE_PUBLICATION",
     "aggregate_pilot": "FAIL_historical_missing_checkpoint_ZIP_and_legacy_no_release_expectations_dispositioned_no_current_regression"
   },
   "hosted_assurance": {
-    "status": "PENDING",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "conclusion": "pending",
-    "final_evidence": "pending"
+    "status": "PASS",
+    "run_id": 38357411816,
+    "job_id": 115163401735,
+    "head_sha": "67aaeb662bdbd109c005a8d953f367be191c59fa",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38357411816",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38357411816/job/115163401735",
+    "conclusion": "success",
+    "final_evidence": "PASS",
+    "primary_steps": "PASS_23_of_23",
+    "completed_at": "2026-10-13T06:39:13Z"
   },
   "validation_verdict": {
     "preflight": "PASS_WITH_REQUIRED_RELEASE_STATE_TRANSITION",
@@ -115,7 +121,7 @@
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "proposed_next_block": "ST08_15C_v0_1_1_GitHub_execution",
   "next_block_authorized": false
 }

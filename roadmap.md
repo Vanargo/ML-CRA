@@ -2121,7 +2121,7 @@ ST08_15A принят и закрыт John; PR №22 объединён в `main
 
 ```text
 ST08_15B_profile: SCIENTIFIC_VALIDATION
-ST08_15B_status: local_pass_hosted_pending
+ST08_15B_status: technical_pass_ready_for_john_acceptance
 ST08_15C_authorized: false
 release_actions_performed: 0
 scientific_artifact_changes: 0
@@ -2151,6 +2151,14 @@ legacy checkpoint ZIP и прежних no-release ожиданиях; это н
 регрессионным дефектом. Checkpoint ZIP пропущен как непропорциональный обратимой
 веточной задаче с successor manifest и воспроизводимой сборкой.
 
+Hosted `assurance` PR №23, run `38357411816`, job `115163401735`, exact head
+`67aaeb662bdbd109c005a8d953f367be191c59fa` завершился с `success`: все 23
+основных шага, включая ST08_15B `final-evidence`, прошли. Подтверждены 12/12
+мутаций, нулевые vulnerability/secret findings — находки уязвимостей и секретов,
+двойная сборка, clean install 0.1.1 и published baseline 363/361/18. Блок
+технически готов к решению John после повторной проверки завершающего evidence
+commit; публикация всё ещё не разрешена.
+
 После принятия ST08_15B до GitHub Release 1.0.0 номинально останутся четыре
 обязательных блока: ST08_15C (выпуск 0.1.1), post-release review и контракт
 выхода 1.0.0, кандидат 1.0.0, финальный аудит и выполнение выпуска 1.0.0.
@@ -2159,10 +2167,10 @@ PyPI остаётся отдельным необязательным блоко
 
 ## 68. Задачи John
 
-1. После локального отчёта создать commit из точных 14 путей ST08_15B,
-   отправить ветвь, открыть PR в `main` и дождаться `assurance`, включающего
-   `final-evidence`.
-2. Передать URL exact-SHA запуска; не создавать tag или release `v0.1.1`.
-3. После успешной hosted проверки принять либо вернуть только ST08_15B.
+1. Создать завершающий evidence commit в существующем PR №23 и дождаться
+   повторного `assurance`, включающего `final-evidence`.
+2. После успешной exact-SHA проверки принять либо вернуть только ST08_15B; до
+   принятия не создавать tag или release `v0.1.1`.
+3. Только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 4. Отдельно решать авторизацию ST08_15C; текущий блок не разрешает GitHub
    Release, TestPyPI или PyPI.

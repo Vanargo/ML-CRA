@@ -76,9 +76,9 @@
       "SHA256SUMS": {"sha256": "87773d2486e97461081c7982d65a24ffad9e94450869454c69560c5f3dd7240e", "size_bytes": 182}
     },
     "ST08_15B_assets": {
-      "ml_cra-0.1.1.tar.gz": {"sha256": "9f11f27937f290e3e91369ab6b6d5cce4ac08bc464cdfed2805fe4bf998eeeca", "size_bytes": 97786},
+      "ml_cra-0.1.1.tar.gz": {"sha256": "72ef55e6938a2890b83c27a4c74c62dda247e9781b78dc794ba98ab0d0cb7e57", "size_bytes": 97850},
       "ml_cra-0.1.1-py3-none-any.whl": {"sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908", "size_bytes": 92270},
-      "SHA256SUMS": {"sha256": "421763af8897500ae0798b2b4e2d87d4408618d050b4003015b20e32164de7ae", "size_bytes": 182}
+      "SHA256SUMS": {"sha256": "35e03a0fff1c7c4f07c668e54b04da1dea12edca0e53947c8d9bb1a203894d4c", "size_bytes": 182}
     },
     "wheel_rule": "The ST08_15B wheel must remain byte-identical to ST08_15A because package code, package metadata and runtime behavior are outside the authorized change set.",
     "sdist_rule": "The normalized ST08_15B sdist must be reproducible; a changed digest is permitted only for registered tracked assurance tests or packaging-included governance files and must be explained by an inventory delta.",
