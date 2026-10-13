@@ -20,12 +20,23 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         self.assertEqual(result["planned_change_paths"], 18)
         self.assertEqual(result["protected"]["expected"], 18)
 
-    def test_prepared_evidence_is_fail_closed(self) -> None:
+    def test_current_evidence_is_fail_closed(self) -> None:
         result = assurance.validate_final_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["evidence"]["lifecycle_state"], assurance.PREPARED)
-        self.assertEqual(result["evidence"]["readiness"], "NOT_READY")
-        self.assertFalse(EVIDENCE["release_performed"])
+        self.assertIn(
+            result["evidence"]["lifecycle_state"],
+            (assurance.PREPARED, assurance.RELEASED_PENDING, assurance.RELEASED_CLOSED),
+        )
+        expected_readiness = (
+            "READY_FOR_JOHN_ACCEPTANCE"
+            if result["evidence"]["lifecycle_state"] == assurance.RELEASED_CLOSED
+            else "NOT_READY"
+        )
+        self.assertEqual(result["evidence"]["readiness"], expected_readiness)
+        self.assertEqual(
+            EVIDENCE["release_performed"],
+            EVIDENCE["lifecycle_state"] != assurance.PREPARED,
+        )
 
     def test_all_registered_mutations_are_rejected(self) -> None:
         result = assurance.run_mutations()
@@ -62,10 +73,10 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance.validate_workflow_text(text)
 
-    def test_prepared_evidence_rejects_release_claim(self) -> None:
+    def test_current_evidence_rejects_release_state_contradiction(self) -> None:
         bindings = assurance.validate_contract_bindings(CONTRACT)
         mutated = copy.deepcopy(EVIDENCE)
-        mutated["release_performed"] = True
+        mutated["release_performed"] = not EVIDENCE["release_performed"]
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance.validate_evidence(mutated, CONTRACT, bindings)
 

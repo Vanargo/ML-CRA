@@ -618,10 +618,14 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     labels.append(_expect_rejection("workflow_release_create", lambda: validate_workflow_text(workflow + "\ngh release create v0.1.1")))
     labels.append(_expect_rejection("workflow_clobber", lambda: validate_workflow_text(workflow + "\ngh release upload --clobber")))
     mutated = copy.deepcopy(evidence)
-    mutated["release_performed"] = True
+    mutated["release_performed"] = evidence.get("lifecycle_state") == PREPARED
     labels.append(_expect_rejection("premature_release_claim", lambda: validate_evidence(mutated, contract, bindings)))
     mutated = copy.deepcopy(evidence)
-    mutated["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
+    mutated["readiness"] = (
+        "NOT_READY"
+        if evidence.get("lifecycle_state") == RELEASED_CLOSED
+        else "READY_FOR_JOHN_ACCEPTANCE"
+    )
     labels.append(_expect_rejection("premature_readiness", lambda: validate_evidence(mutated, contract, bindings)))
     mutated = copy.deepcopy(evidence)
     mutated["PyPI_uploads"] = 1

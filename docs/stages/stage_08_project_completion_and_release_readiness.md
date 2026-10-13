@@ -2901,3 +2901,69 @@ packaging flow разделяет дерево исходников, сборк�
    агент запросит отдельное подтверждение John на слияние, предусмотренное
    контрактом ST08_15C.
 4. PyPI/TestPyPI и следующий проектный блок не авторизованы.
+
+## 84. ST08_15C — опубликованный и проверенный GitHub Release 0.1.1
+
+John отдельно разрешил слияние PR №24 и post-merge `assurance`. PR №24 с
+проверенным head `0dee198e0ef39bf9533b9ba35689bd1819c5abd6` объединён squash-методом
+в `main` как `1cfa920ec91d85341525f1ca6ef57a060dcb9cce`, Git tree
+`180aa516153724643d916f0db615f0adf333e23a`. Pre-release run `38405834387`,
+job `115325070944`, и post-merge run `38407353701`, job `115330340477`, имеют
+`success`; точный pull-request и точный main SHA прошли полный hosted
+`assurance`.
+
+Из чистого Git index объединённого `main` выполнены две нормализованные сборки.
+Они воспроизвели зарегистрированные `ml_cra-0.1.1.tar.gz`,
+`ml_cra-0.1.1-py3-none-any.whl` и `SHA256SUMS` побайтово. Непосредственно перед
+необратимым шагом повторно подтверждены отсутствие tag/release `v0.1.1`,
+неизменность `v0.1.0`, активные release immutability, secret scanning, push
+protection, private vulnerability reporting и ноль открытых Dependabot alerts.
+
+Draft — черновик — был направлен точно на объединённый commit, получил ровно
+три предварительно проверенных актива и сохранил детерминированное описание.
+После проверки target, текста, имён, размеров и GitHub SHA-256 digest draft
+однократно опубликован как latest GitHub Release. Каноническая запись
+`https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1` имеет release ID
+`411733338`, `publishedAt=2026-10-13T13:57:53Z`, `draft=false`,
+`prerelease=false`, `immutable=true`; tag указывает прямо на exact main commit.
+
+Команда `gh release verify` подтвердила GitHub release attestation формата
+`https://in-toto.io/attestation/release/v0.2`, exact commit и все три SHA-256.
+Три отдельные команды `gh release verify-asset` успешно сравнили локальные
+sdist, wheel и `SHA256SUMS` с неизменяемыми опубликованными активами. SHA-256
+доказывает идентичность байтов, а attestation — зарегистрированное
+происхождение выпуска; ни то ни другое не расширяет научную область claims —
+утверждений — ML-CRA.
+
+```text
+ST08_15C_profile: CHANGE
+ST08_15C_authorized: true
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_performed: true
+release_actions_performed: 3
+PyPI_uploads: 0
+TestPyPI_uploads: 0
+training_runs: 0
+scientific_artifact_changes: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Состояние `RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE` означает, что
+внешний выпуск успешно и неизменяемо опубликован, но обновлённая каноническая
+evidence-запись ещё должна пройти собственный защищённый PR и exact-SHA hosted
+`assurance`. Поэтому технический результат положителен, а готовность к принятию
+John пока отсутствует. Нули подтверждают, что TestPyPI/PyPI, обучение и
+научные артефакты не затрагивались. Отдельный checkpoint ZIP имеет `SKIPPED`:
+точный защищённый Git commit, immutable assets и проверенная attestation дают
+более прямую проверяемую связь и восстановление релизного состояния.
+
+## 85. Задачи John
+
+1. После передачи агентом точного индексированного evidence closure создать
+   commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться `assurance`, включающего ST08_15C `final-evidence`, и передать URL
+   PR агенту для проверки точного SHA.
+3. Не изменять и не удалять immutable tag, release body или активы `v0.1.1`.
+4. До технического закрытия ST08_15C не присваивать `ACCEPTED_BY_JOHN` и
+   `TASK_CLOSED`; следующий проектный блок и PyPI/TestPyPI не авторизованы.

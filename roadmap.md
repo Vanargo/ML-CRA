@@ -2224,3 +2224,50 @@ preflight с отдельным выполнением выпуска тольк
    проверит hosted evidence — размещённые доказательства — и запросит отдельное
    подтверждение слияния.
 4. PyPI/TestPyPI и следующий блок остаются неавторизованными.
+
+## 71. ST08_15C — v0.1.1 опубликован, evidence closure ожидает hosted gate
+
+PR №24 прошёл exact-head `assurance` run `38405834387`, job `115325070944`, и
+после отдельного разрешения John объединён в `main` как
+`1cfa920ec91d85341525f1ca6ef57a060dcb9cce`. Post-merge run `38407353701`, job
+`115330340477`, также завершился с `success`. Две сборки из точного main Git
+index воспроизвели зарегистрированные sdist, wheel и `SHA256SUMS`.
+
+После повторной проверки отсутствия `v0.1.1` и репозиторных controls — мер
+защиты — создан draft для exact main commit. Его точный двуязычный body —
+описание — и ровно три актива были проверены до публикации. Release однократно
+опубликован как latest и теперь неизменяем:
+
+- URL: `https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1`;
+- release ID: `411733338`;
+- published timestamp: `2026-10-13T13:57:53Z`;
+- commit/tree: `1cfa920ec91d85341525f1ca6ef57a060dcb9cce` /
+  `180aa516153724643d916f0db615f0adf333e23a`;
+- draft/prerelease/immutable: `false` / `false` / `true`.
+
+GitHub release attestation формата in-toto release v0.2 подтверждена; команда
+`gh release verify` и три команды `gh release verify-asset` завершились с
+кодом 0 и связали exact commit со всеми тремя зарегистрированными SHA-256.
+TestPyPI/PyPI, новое обучение, научные результаты и `v0.1.0` не изменялись.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_performed: true
+release_actions_performed: 3
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Выпуск уже существует и проверен, но блок ещё не принят: каноническое evidence
+closure должно пройти отдельный PR и hosted `final-evidence`. Только после его
+успеха состояние перейдёт в `RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED` и
+будет готово к решению John. Это не авторизует следующий блок или ещё один
+обычный релиз 0.1.x.
+
+## 72. Задачи John
+
+1. Создать commit из подготовленного evidence closure, отправить ветвь и
+   открыть PR в `main`.
+2. Дождаться обязательного `assurance` точного SHA и передать URL PR агенту.
+3. Не изменять immutable `v0.1.1`; следующий блок и PyPI/TestPyPI остаются
+   неавторизованными до отдельного решения.
