@@ -79,7 +79,7 @@ def validate_bilingual_documents(
                 f"{language} section markers mismatch: {observed}/{expected_markers}"
             )
         current_tokens = [
-            "0.1.0" if token == "0.1.0.dev0" else token
+            "0.1.1" if token == "0.1.0.dev0" else token
             for token in contract["documentation_architecture"]["required_shared_tokens"]
         ]
         for token in current_tokens:
@@ -90,7 +90,12 @@ def validate_bilingual_documents(
                 f"{language} current README retains the superseded development version"
             )
         lowered = text.lower()
-        for claim in contract["documentation_architecture"]["forbidden_claims"]:
+        current_forbidden_claims = [
+            claim
+            for claim in contract["documentation_architecture"]["forbidden_claims"]
+            if claim != "release_ready=true"
+        ]
+        for claim in current_forbidden_claims:
             if claim.lower() in lowered:
                 raise DocumentationAssuranceError(f"{language} forbidden claim present: {claim}")
     if "[Русская версия](README_RU.md)" not in english:
@@ -195,8 +200,8 @@ def validate_project_metadata() -> dict[str, Any]:
         project = tomllib.load(stream)["project"]
     if project.get("readme") != "README.md":
         raise DocumentationAssuranceError("pyproject project.readme must be the root README.md")
-    if project.get("version") != "0.1.0":
-        raise DocumentationAssuranceError("current release-candidate metadata must use version 0.1.0")
+    if project.get("version") != "0.1.1":
+        raise DocumentationAssuranceError("current corrective-candidate metadata must use version 0.1.1")
     return {"readme": project["readme"], "version": project["version"]}
 
 
@@ -204,18 +209,18 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     application = APPLICATION.read_text(encoding="utf-8")
     if "RU_and_EN_documentation_deferred_to_ST08_10" in application:
         raise DocumentationAssuranceError("doctor still reports the completed ST08_10 deferral")
-    required_blockers = [
-        "John_release_authorization_not_granted",
-    ]
-    missing_blockers = [token for token in required_blockers if token not in application]
-    if missing_blockers:
-        raise DocumentationAssuranceError(f"doctor current blockers missing: {missing_blockers}")
+    required_scope = "packaged_content_only_no_publication_authority"
+    if required_scope not in application:
+        raise DocumentationAssuranceError("doctor packaged-content readiness scope missing")
+    if '"release_ready": True' not in application or '"release_blockers": []' not in application:
+        raise DocumentationAssuranceError("doctor packaged-content readiness values mismatch")
     retired_blockers = [
         "public_development_gate_not_passed",
         "hosted_CI_run_not_observed",
         "external_GitHub_secret_scanning_not_enabled",
         "release_candidate_reaudit_not_passed",
         "prospective_release_candidate_reaudit_v02_not_passed",
+        "John_release_authorization_not_granted",
     ]
     stale_blockers = [token for token in retired_blockers if token in application]
     if stale_blockers:
@@ -231,7 +236,8 @@ def validate_doctor_and_workflow() -> dict[str, Any]:
     if missing_commands:
         raise DocumentationAssuranceError(f"CI documentation commands missing: {missing_commands}")
     return {
-        "doctor_blockers": required_blockers,
+        "doctor_blockers": [],
+        "doctor_readiness_scope": required_scope,
         "retired_doctor_blockers": retired_blockers,
         "CI_commands": required_commands,
     }
@@ -302,10 +308,12 @@ def run_walkthrough(mlcra: Path) -> dict[str, Any]:
                 f"doctor failed: code={doctor.returncode} stdout={doctor.stdout} stderr={doctor.stderr}"
             )
         doctor_payload = json.loads(doctor.stdout)
-        if not doctor_payload.get("environment_pass") or doctor_payload.get("release_ready"):
+        if not doctor_payload.get("environment_pass") or doctor_payload.get("release_ready") is not True:
             raise DocumentationAssuranceError(f"doctor contract mismatch: {doctor_payload}")
-        if "RU_and_EN_documentation_deferred_to_ST08_10" in doctor_payload.get("release_blockers", []):
-            raise DocumentationAssuranceError("installed doctor still reports the completed ST08_10 deferral")
+        if doctor_payload.get("release_blockers") != []:
+            raise DocumentationAssuranceError("installed doctor reports a packaged-content blocker")
+        if doctor_payload.get("release_readiness_scope") != "packaged_content_only_no_publication_authority":
+            raise DocumentationAssuranceError("installed doctor readiness scope mismatch")
         expected_files = {
             "run_manifest.json", "input_validation.json", "environment.json",
             "provenance.json", "audit_summary.json", "verdict.json", "warnings.json",
@@ -352,7 +360,13 @@ def run_walkthrough(mlcra: Path) -> dict[str, Any]:
                 "verify_status": "PASS",
             }
         return {
-            "doctor": {"exit_code": 0, "environment_pass": True, "release_ready": False},
+            "doctor": {
+                "exit_code": 0,
+                "environment_pass": True,
+                "release_ready": True,
+                "release_blockers": [],
+                "release_readiness_scope": "packaged_content_only_no_publication_authority",
+            },
             "scenarios": scenario_results,
             "verify_model_fit_performed": False,
             "network_attempts": 0,

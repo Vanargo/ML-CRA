@@ -204,15 +204,19 @@ class TestSt0808UniversalCli(unittest.TestCase):
         self.assertNotIn("Traceback", stderr)
         self.assertEqual(json.loads(stderr)["error_code"], "MLCRA_INTERNAL_INVARIANT_FAILURE")
 
-    def test_doctor_is_read_only_and_reports_release_blockers(self) -> None:
+    def test_doctor_is_read_only_and_reports_packaged_content_readiness(self) -> None:
         code, stdout, stderr = call_cli(["doctor", "--format", "json"])
         self.assertIn(code, {0, 5})
         self.assertEqual(stderr, "")
         report = json.loads(stdout)
         self.assertFalse(report["network_access_performed"])
         self.assertFalse(report["model_fit_performed"])
-        self.assertFalse(report["release_ready"])
-        self.assertGreater(len(report["release_blockers"]), 0)
+        self.assertTrue(report["release_ready"])
+        self.assertEqual(report["release_blockers"], [])
+        self.assertEqual(
+            report["release_readiness_scope"],
+            "packaged_content_only_no_publication_authority",
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,163 @@
+{
+  "schema_version": "st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01",
+  "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+  "recorded_at": "2026-10-09",
+  "profile": "CHANGE",
+  "status": "technical_pass_ready_for_john_acceptance_external_release_not_authorized",
+  "source_baseline": {
+    "git_commit": "76e342c43520b59d7b8ca199e4b0c9783771b517",
+    "project_version_before": "0.1.0",
+    "project_version_after": "0.1.1",
+    "accepted_previous_task": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+    "post_merge_assurance_run": 36386237140,
+    "post_merge_assurance_job": 108812098160,
+    "post_merge_assurance_conclusion": "success"
+  },
+  "implemented_semantics": {
+    "doctor_schema": "mlcra_doctor_report_v01",
+    "existing_keys_removed": [],
+    "release_ready": true,
+    "release_blockers": [],
+    "release_readiness_scope": "packaged_content_only_no_publication_authority",
+    "publication_authority_effect": "NONE",
+    "supported_command_changes": [],
+    "input_output_exit_code_changes": []
+  },
+  "successor_manifest": {
+    "paths": 356,
+    "hashed_paths": 354,
+    "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
+    "manifest_sha256": "dd2a770bf2ee2cde9a490edb46d15088dbc90d5e33daa9e9ed51b89777264b2c",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "candidate_assets": {
+    "SHA256SUMS": {
+      "sha256": "87773d2486e97461081c7982d65a24ffad9e94450869454c69560c5f3dd7240e",
+      "size_bytes": 182
+    },
+    "ml_cra-0.1.1-py3-none-any.whl": {
+      "sha256": "327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908",
+      "size_bytes": 92270
+    },
+    "ml_cra-0.1.1.tar.gz": {
+      "sha256": "4ca5682df9ca1a968aeb3142437da890efa2f277f6d8fdbcb2ac53633418bfc3",
+      "size_bytes": 97043
+    }
+  },
+  "observed_checks": {
+    "metadata_assurance": "PASS",
+    "doctor_compatibility": "PASS",
+    "candidate_builds": "PASS_2_of_2",
+    "normalized_sdist_byte_reproducibility": "PASS_2_of_2",
+    "wheel_byte_reproducibility": "PASS_2_of_2",
+    "archive_assurance": "PASS",
+    "registered_mutations": "PASS_10_of_10",
+    "focused_tests": "PASS_14_of_14",
+    "working_baseline": "PASS",
+    "published_baseline": "PASS",
+    "source_assurance": "PASS",
+    "documentation_assurance": "PASS",
+    "secret_pattern_scan": "PASS_zero_findings",
+    "protected_scientific_artifacts": "PASS_18_of_18",
+    "hosted_assurance_run_37899393731": "FAIL_3_known_vulnerabilities_in_urllib3_2_7_0",
+    "urllib3_2_8_0_lock_repair": "PASS_LOCAL_HASH_LOCK_INSTALL_AND_PIP_CHECK",
+    "dependency_audit_after_repair": "PASS_50_dependencies_zero_known_vulnerabilities",
+    "hosted_assurance_run_37900891670_dependency_audit": "PASS",
+    "hosted_assurance_run_37900891670_final_evidence": "PASS",
+    "hosted_assurance_run_37900891670_clean_install": "FAIL_installed_immutable_v0_1_0_wheel_instead_of_current_v0_1_1_candidate",
+    "clean_install_candidate_selector_repair": "PASS_LOCAL_AND_HOSTED",
+    "local_candidate_wheel_install_after_selector_repair": "PASS_INSTALLED_0_1_1_DOCTOR_READY_WITH_PACKAGED_CONTENT_SCOPE",
+    "hosted_assurance_run_37933588118": "PASS_ALL_22_PRIMARY_STEPS",
+    "hosted_clean_install_candidate_wheel": "PASS_INSTALLED_ML_CRA_0_1_1_OFFLINE",
+    "hosted_clean_install_doctor": "PASS_VERSION_0_1_1_READY_WITH_PACKAGED_CONTENT_SCOPE",
+    "hosted_published_baseline": "PASS_356_PATHS_354_HASHED_18_PROTECTED",
+    "hosted_evidence_closure_run_38348129189": "FAIL_NEGATIVE_TEST_13_DID_NOT_MUTATE_HOSTED_STATUS_AFTER_EVIDENCE_BECAME_PASS",
+    "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
+    "release_actions_performed": 0,
+    "training_runs": 0,
+    "scientific_artifact_changes": 0
+  },
+  "hosted_assurance": {
+    "status": "PASS",
+    "first_failed_run": 37899393731,
+    "first_failed_job": 113718150576,
+    "first_failed_step": "Audit known dependency vulnerabilities",
+    "first_failure_repair": "urllib3 assurance-tool lock advanced from vulnerable 2.7.0 to first patched 2.8.0",
+    "second_failed_run": 37900891670,
+    "second_failed_job": 113722930437,
+    "second_run_head_sha": "aeb86c1fc522d887985c90eb8be5ecd18cfb7f40",
+    "second_run_dependency_audit": "PASS",
+    "second_run_final_evidence": "PASS",
+    "second_failed_step": "Verify clean install and CLI",
+    "second_failure_expected_version": "0.1.1",
+    "second_failure_observed_version": "0.1.0",
+    "second_failure_observed_doctor_release_ready": false,
+    "root_cause": "The clean runtime installation selected the reconstructed immutable v0.1.0 wheel from dist/st08_14C-ci instead of the current v0.1.1 candidate wheel from dist/st08_15A-ci.",
+    "repair": "Select the current v0.1.1 wheel for clean installation and fail closed if the workflow reintroduces the predecessor-wheel selector.",
+    "repair_local_verification": "PASS: canonical-index wheel installed into an isolated target; imported application path was inside that target, distribution metadata was 0.1.1, and doctor reported release_ready=true with packaged-content-only scope.",
+    "successful_run": 37933588118,
+    "successful_job": 113830025480,
+    "successful_head_sha": "ae1b866919bcc7ccd032c3a1ff443e9896701486",
+    "successful_conclusion": "success",
+    "successful_primary_steps": 22,
+    "successful_final_evidence": "PASS",
+    "successful_clean_install_distribution": "ml-cra==0.1.1",
+    "successful_clean_install_doctor": {
+      "software_version": "0.1.1",
+      "release_ready": true,
+      "release_blockers": [],
+      "release_readiness_scope": "packaged_content_only_no_publication_authority"
+    },
+    "successful_published_baseline": {
+      "paths": 356,
+      "hashed_paths": 354,
+      "protected": 18,
+      "canonical_git_blob_inventory": "PASS"
+    },
+    "interpretation": "The complete hosted job passed after the clean-install selector repair, including final-evidence, reproducible candidate construction, immutable v0.1.0 verification, offline installation of ml-cra 0.1.1, CLI walkthrough and the deterministic published baseline."
+  },
+  "hosted_evidence_closure": {
+    "status": "PENDING_TEST_FIX_RUN",
+    "failed_run": 38348129189,
+    "failed_job": 115134166046,
+    "failed_head_sha": "f58eb377cf3d8d3d7975f6186f6c71b731db334c",
+    "dependency_audit": "PASS",
+    "contract": "PASS",
+    "mutations": "PASS_10_of_10",
+    "failed_test": "test_13_hosted_pending_cannot_be_ready_for_acceptance",
+    "root_cause": "After hosted_assurance.status became PASS, the negative test only reassigned readiness to its already valid READY_FOR_JOHN_ACCEPTANCE value and therefore no longer constructed the forbidden pending-hosted plus ready state.",
+    "repair": "Set hosted_assurance.status to PENDING_TEST in the test-only evidence copy while keeping readiness READY_FOR_JOHN_ACCEPTANCE, then require fail-closed rejection.",
+    "product_or_scientific_effect": "NONE"
+  },
+  "change_reconciliation": {
+    "planned_paths": 23,
+    "actual_paths": 23,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "limits": [
+    "No tag GitHub Release TestPyPI or PyPI action was performed.",
+    "release_ready describes packaged content only and cannot authorize publication.",
+    "The immutable v0.1.0 tag assets and notes were not changed.",
+    "No training scientific validation claim protocol result or verdict changed.",
+    "The optional aggregate pilot remains FAIL only because historical stage validators require absent legacy checkpoint ZIPs and pre-successor no-release states; current ST08_15A focused, working-baseline and published-baseline gates pass.",
+    "SHA-256 binds observed bytes but does not prove semantic correctness.",
+    "ST08_15B remains unauthorized."
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Reversible Git-isolated candidate with deterministic local asset regeneration; no stage or external release completed."
+  },
+  "release_authorized": false,
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
+}

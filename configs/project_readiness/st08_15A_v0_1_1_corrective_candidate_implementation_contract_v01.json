@@ -1,0 +1,176 @@
+{
+  "schema_version": "st08_15A_v0_1_1_corrective_candidate_implementation_contract_v01",
+  "contract_id": "st08_15A_v0_1_1_corrective_candidate_implementation_contract_v01",
+  "task_id": "ST08_15A_v0_1_1_corrective_candidate_implementation",
+  "recorded_at": "2026-10-09",
+  "profile": "CHANGE",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_design",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_15A_v0_1_1_corrective_candidate_implementation",
+    "candidate_implementation_authorized": true,
+    "package_version_0_1_1_authorized": true,
+    "local_candidate_asset_build_authorized": true,
+    "version_tag_authorized": false,
+    "GitHub_release_authorized": false,
+    "TestPyPI_publication_authorized": false,
+    "PyPI_publication_authorized": false,
+    "ST08_15B_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "measurable_outcome": "Implement one local ML-CRA 0.1.1 corrective candidate that preserves the doctor v01 and CLI compatibility surface, separates packaged-content readiness from owner publication authority, supplies bilingual current documentation, and yields two independently built byte-identical sdist and wheel assets plus SHA256SUMS without external publication.",
+  "source_baseline": {
+    "git_commit": "76e342c43520b59d7b8ca199e4b0c9783771b517",
+    "branch": "main",
+    "tracked_paths": 349,
+    "version": "0.1.0",
+    "accepted_previous_task": true,
+    "post_merge_assurance_run": 36386237140,
+    "post_merge_assurance_job": 108812098160,
+    "post_merge_assurance_conclusion": "success"
+  },
+  "mape_k": {
+    "monitor": [
+      "v0.1.0 is immutable and remains verifiable at its exact release commit",
+      "current source version is 0.1.0 and doctor retains the disclosed pre-release publication blocker",
+      "ST08_15 is accepted closed merged and post-merge assurance passed"
+    ],
+    "analyze": [
+      "Published v0.1.0 bytes must not be rewritten to conceal the documented limitation.",
+      "A runtime readiness flag cannot confer repository-owner publication authority.",
+      "The correction is compatible when existing commands inputs outputs exit codes schema identifier and doctor v01 keys are retained."
+    ],
+    "plan": "Advance current software metadata to 0.1.1, preserve the existing doctor schema and keys, add an explicit packaged-content-only scope, update bilingual documentation, add positive and negative regression tests, and build reproducible local assets.",
+    "execute": "Apply only the 23 registered path changes, including the in-scope repair of the assurance-tools lock after a newly published advisory blocked hosted CI; build from the canonical Git index twice, run focused and broad assurance, and stop before ST08_15B or publication.",
+    "knowledge": "Register exact compatibility relations, immutable predecessor bytes, current-tree manifest, build hashes, checks, limitations, authority gates and remaining uncertainty."
+  },
+  "corrective_semantics": {
+    "version": "0.1.1",
+    "doctor_schema": "mlcra_doctor_report_v01",
+    "preserved_doctor_keys": [
+      "schema_version",
+      "contract_version",
+      "environment_id",
+      "environment_pass",
+      "python_pass",
+      "platform_pass",
+      "installed_distribution_pass",
+      "dependency_status",
+      "network_access_performed",
+      "model_fit_performed",
+      "release_ready",
+      "release_blockers",
+      "environment"
+    ],
+    "added_doctor_key": "release_readiness_scope",
+    "release_ready": true,
+    "release_blockers": [],
+    "release_readiness_scope": "packaged_content_only_no_publication_authority",
+    "publication_authority_effect": "NONE",
+    "preserved_commands": ["audit", "verify", "doctor", "--version"],
+    "preserved_input_output_and_exit_code_contract": true,
+    "citation_date_released": "ABSENT_until_actual_release_execution"
+  },
+  "candidate_asset_contract": {
+    "output_directory_policy": "local_ignored_dist_subdirectory_only",
+    "source_representation": "canonical_Git_index_checkout",
+    "build_command": "python -m build --no-isolation",
+    "build_backend": "setuptools==83.0.0",
+    "build_frontend": "build==1.5.0",
+    "source_date_epoch": 1791504000,
+    "source_date_epoch_utc": "2026-10-09T00:00:00Z",
+    "independent_build_count": 2,
+    "sdist_normalization": "ST08_14A_preserve_file_bytes_and_normalize_container_metadata",
+    "required_assets": [
+      "ml_cra-0.1.1.tar.gz",
+      "ml_cra-0.1.1-py3-none-any.whl",
+      "SHA256SUMS"
+    ],
+    "digest_algorithm": "SHA-256",
+    "reproducibility_rule": "both independent normalized sdist digests and both wheel digests must be byte-identical",
+    "publication_effect": "NONE_local_candidate_assets_only"
+  },
+  "immutable_ST08_15": [
+    {"path": "configs/project_readiness/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_v01.json", "sha256": "be425f21dd41ae5a118eff263cc7a5efdb3388e7d00491fb5be29b8d3c96203b"},
+    {"path": "scripts/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_assurance.py", "sha256": "2d9f03bbbec87fd5957adc95eca596c53e85d834851a13c090ee2650987569c4"},
+    {"path": "tests/test_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_st08_15.py", "sha256": "e4c6ded3d86588c059d7ddd96758323578022b7d8340ffcb231e986c67a229d1"},
+    {"path": "data_registry/st08_15_v0_1_1_corrective_contract_manifest_v01.csv", "sha256": "85fda4e8ed99f2c034aa72b7657b353c22465eeb95765b59f5dcfb48f864cd94"},
+    {"path": "data_registry/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_evidence_v01.json", "sha256": "cea968c308587bead0d34a859ecdf52ff822ed1fa405a5df5d3631a6ee9346ac"},
+    {"path": "docs/agent/st08_15_v0_1_0_post_release_review_and_v0_1_1_corrective_contract_change_scope_v01.csv", "sha256": "68b79c321204d321d0d063dd5752c967f1b942f3458a99914fc8c32fd866f88c"}
+  ],
+  "immutable_release_0_1_0": {
+    "tag": "v0.1.0",
+    "commit": "9d530b60fd262f21cfe63eb2482722972a24c3d2",
+    "release_notes_path": "RELEASE_NOTES_0.1.0.md",
+    "release_notes_sha256": "bfc982dcea5e100da0edc6301fd1454d3e9ff29fb13e391d38d3fcc6faeca0ea",
+    "modification_authorized": false
+  },
+  "successor_manifest": {
+    "path": "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv",
+      "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json"
+    ]
+  },
+  "planned_changes": [
+    {"change_kind": "modified", "relative_path": "pyproject.toml"},
+    {"change_kind": "modified", "relative_path": "CITATION.cff"},
+    {"change_kind": "modified", "relative_path": "README.md"},
+    {"change_kind": "modified", "relative_path": "README_RU.md"},
+    {"change_kind": "modified", "relative_path": "src/mlcra/application.py"},
+    {"change_kind": "added", "relative_path": "RELEASE_NOTES_0.1.1.md"},
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_15A_v0_1_1_corrective_candidate_implementation_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py"},
+    {"change_kind": "added", "relative_path": "tests/test_v0_1_1_corrective_candidate_st08_15A.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_15A_v0_1_1_corrective_candidate_implementation_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "tests/test_cli_st08_08.py"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_10_documentation_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_documentation_st08_10.py"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"}
+  ],
+  "required_checks": [
+    "python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py contract",
+    "python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py mutations",
+    "python -m unittest -v tests.test_v0_1_1_corrective_candidate_st08_15A",
+    "python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py build-candidate --output-dir dist/st08_15A-candidate",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py final-evidence"
+  ],
+  "authoritative_support": [
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "Preserve published 0.1.0 bytes and identify the compatible corrective candidate as 0.1.1 while major version zero remains initial development."},
+    {"source": "Python Packaging version specifiers", "uri": "https://packaging.python.org/en/latest/specifications/version-specifiers/", "use": "Use the valid unique public version identifier 0.1.1 consistently."},
+    {"source": "Python Packaging flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "Separate local sdist and wheel construction from repository upload and publication."},
+    {"source": "Citation File Format schema guide 1.2.0", "uri": "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md", "use": "Record candidate version 0.1.1 while omitting date-released until actual release execution."},
+    {"source": "SOURCE_DATE_EPOCH specification", "uri": "https://reproducible-builds.org/specs/source-date-epoch/", "use": "Exchange a declared timestamp and test byte-for-byte build reproducibility."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Protect release provenance and verify changes through repeatable automated controls."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Bind candidate and source bytes with SHA-256 without treating hashes as correctness proof."},
+    {"source": "GitHub Advisory Database GHSA-gh4c-6fx4-qh6g and related urllib3 2.7.0 advisories", "uri": "https://github.com/advisories/GHSA-gh4c-6fx4-qh6g", "use": "Replace the vulnerable assurance-only urllib3 2.7.0 lock with the first patched version 2.8.0 after hosted pip-audit reported three current advisories."}
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED",
+    "reason": "This reversible candidate task is isolated in Git; local assets are deterministically reproducible and no stage or external release is completed."
+  },
+  "stop_conditions": [
+    "A tag GitHub Release TestPyPI or PyPI action would occur.",
+    "Published v0.1.0 bytes tag assets or release notes would change.",
+    "Existing doctor v01 keys commands inputs outputs or exit-code behavior would be removed or changed.",
+    "The two candidate builds would not match byte for byte after registered normalization.",
+    "A protected scientific artifact claim protocol result or verdict would change.",
+    "ST08_15B or any later block would start without separate John authorization."
+  ]
+}

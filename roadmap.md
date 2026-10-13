@@ -2018,3 +2018,94 @@ PyPI_or_TestPyPI_authorized: false
    принятии только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
 3. Отдельно решить, авторизовать ли ST08_15A. Текущий блок не разрешает его
    реализацию, версию `0.1.1`, тег, GitHub Release или PyPI/TestPyPI.
+
+## 65. ST08_15A — локальный корректирующий кандидат 0.1.1
+
+ST08_15 принят и закрыт John; PR №18 объединён, а post-merge `assurance` run
+`36386237140`, job `108812098160` завершился с `success` и
+`final-evidence=PASS`. John отдельно авторизовал только
+`ST08_15A_v0_1_1_corrective_candidate_implementation` с профилем `CHANGE`.
+
+```text
+ST08_15A_profile: CHANGE
+ST08_15A_status: technical_pass_ready_for_john_acceptance
+ST08_15B_authorized: false
+target_version: 0.1.1
+release_actions_performed: 0
+scientific_artifact_changes: 0
+```
+
+Блок реализует зарегистрированный корректирующий контракт: версия пакета,
+runtime и CFF становится `0.1.1`; `date-released` отсутствует до фактического
+выпуска; `mlcra_doctor_report_v01` и его существующие ключи сохраняются.
+`release_ready=true` и пустой `release_blockers` теперь относятся только к
+техническому содержимому пакета, что явно задано новым полем
+`release_readiness_scope=packaged_content_only_no_publication_authority`.
+Runtime-флаг не даёт полномочия на публикацию.
+
+Точный change set — набор изменений — после зарегистрированного security repair
+— ремонта безопасности — ограничен 23 путями. Два независимых
+локальных построения из канонического Git index должны воспроизводить
+`ml_cra-0.1.1.tar.gz`, `ml_cra-0.1.1-py3-none-any.whl` и `SHA256SUMS`.
+Исторический `v0.1.0`, его активы и примечания не меняются; CI сохраняет их
+точную реконструкцию и проверку, но текущий clean install использует кандидат
+`0.1.1`. TestPyPI, PyPI, тег и GitHub Release не разрешены.
+
+Задача основана на SemVer 2.0.0, спецификации версий и packaging flow PyPA,
+CFF 1.2.0, SOURCE_DATE_EPOCH, NIST SP 800-218 SSDF 1.1 и NIST FIPS 180-4.
+Checkpoint ZIP пропущен как непропорциональный обратимому веточному изменению;
+восстановление обеспечивают Git, successor manifest — манифест-преемник — и
+воспроизводимая локальная сборка.
+
+Локальные проверки завершены: новый gate — шлюз — имеет PASS, 10/10 мутаций
+отклонены, focused regressions — целевые регрессии — успешны, working/published
+baseline имеют PASS, 18/18 научных артефактов неизменны, секретов не найдено.
+Две сборки и финальная повторная сборка воспроизвели одни SHA-256:
+`4ca5682df9ca1a968aeb3142437da890efa2f277f6d8fdbcb2ac53633418bfc3` для
+sdist, `327e4cf9a2e3e4b54c75b373e6bee1005c7d8eff49b9f8381a778c5eb6a41908`
+для wheel и `87773d2486e97461081c7982d65a24ffad9e94450869454c69560c5f3dd7240e`
+для `SHA256SUMS`. Исторический aggregate pilot остаётся FAIL на отсутствующих
+legacy checkpoint ZIP и прежних no-release ожиданиях; текущие ST08_15A gates
+проходят, а диспозиция зарегистрирована в evidence.
+
+Первый hosted `assurance` PR №22 (run `37899393731`, job `113718150576`)
+остановился на трёх новых advisory `urllib3 2.7.0`. Все три исправлены в
+`2.8.0`. Минимальный ремонт меняет только assurance-tools lock и его
+канонические связи; runtime-зависимости продукта, функциональная поверхность и
+научное состояние не меняются. Повторный hosted run обязан пройти dependency
+audit и `final-evidence` до принятия ST08_15A.
+
+Повторный hosted `assurance` PR №22 (run `37900891670`, job `113722930437`,
+head `aeb86c1fc522d887985c90eb8be5ecd18cfb7f40`) подтвердил security repair:
+dependency audit и `final-evidence` прошли. Запуск остановился позже на clean
+install: workflow установил неизменяемый wheel `v0.1.0` из `dist/st08_14C-ci`
+вместо текущего кандидата `0.1.1` из `dist/st08_15A-ci`; наблюдаемый `doctor`
+точно сообщил `software_version=0.1.0` и `release_ready=false`. Минимальный
+ремонт меняет только источник устанавливаемого wheel и добавляет fail-closed
+регрессию против возврата этой подмены. Проверка исторического `v0.1.0`
+сохраняется; полный повторный hosted run остаётся обязательным.
+
+Итоговый hosted `assurance` PR №22, run `37933588118`, job `113830025480`,
+head `ae1b866919bcc7ccd032c3a1ff443e9896701486` завершился с `success`: прошли
+все 22 основных шага, включая `final-evidence`, двойную сборку `0.1.1`, точную
+проверку неизменяемого `v0.1.0`, офлайн-установку текущего wheel, CLI walkthrough
+— сквозной сценарий — и published baseline. Установленная версия и `doctor`
+подтвердили именно `0.1.1`; 356 путей, 354 хешированных пути и 18 защищённых
+артефактов согласованы. Блок готов к решению John, но не принят и не закрыт.
+
+Первый завершающий evidence run `38348129189`, job `115134166046`, head
+`f58eb377cf3d8d3d7975f6186f6c71b731db334c` прошёл dependency audit, контракт,
+документацию, re-audit и 10/10 мутаций, но выявил устаревшее предусловие
+отрицательного теста №13: после hosted `PASS` присваивание уже правильного READY
+не создавало запрещённого состояния. Минимальный ремонт явно мутирует hosted
+статус тестовой копии в `PENDING_TEST` при READY и требует fail-closed отказ;
+продукт и научные артефакты не меняются. Нужен новый exact-SHA hosted run.
+
+## 66. Задачи John
+
+1. Создать и отправить завершающий evidence commit — доказательный коммит — в
+   существующий PR №22 и дождаться повторного hosted `assurance` с
+   `final-evidence`.
+2. После успешного завершающего запуска принять либо вернуть только ST08_15A.
+3. Только после `ACCEPTED_BY_JOHN` и `TASK_CLOSED` отдельно решать авторизацию
+   ST08_15B; не создавать тег и не публиковать пакет в текущем блоке.
