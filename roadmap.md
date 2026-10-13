@@ -2109,3 +2109,68 @@ head `ae1b866919bcc7ccd032c3a1ff443e9896701486` завершился с `success
 2. После успешного завершающего запуска принять либо вернуть только ST08_15A.
 3. Только после `ACCEPTED_BY_JOHN` и `TASK_CLOSED` отдельно решать авторизацию
    ST08_15B; не создавать тег и не публиковать пакет в текущем блоке.
+
+## 67. ST08_15B — финальный preflight кандидата 0.1.1
+
+ST08_15A принят и закрыт John; PR №22 объединён в `main` как
+`deea8907e995a0e09420899ad69c8c0dc51334c4`. Post-merge `assurance` run
+`38350554254`, job `115141724561` завершился с `success`, включая
+`final-evidence`. Следующее контекстное `NEXT_BLOCK_AUTHORIZED` относится только
+к ранее точно названному
+`ST08_15B_v0_1_1_final_candidate_reaudit_and_security_preflight`.
+
+```text
+ST08_15B_profile: SCIENTIFIC_VALIDATION
+ST08_15B_status: technical_pass_ready_for_john_acceptance
+ST08_15C_authorized: false
+release_actions_performed: 0
+scientific_artifact_changes: 0
+```
+
+Новый fail-closed gate — шлюз с безопасным отказом — повторно связывает
+требования, принятый ST08_15A, совместимость, 18 защищённых научных артефактов,
+точное Git-дерево, воспроизводимые активы и read-only состояние безопасности
+GitHub. Репозиторий на момент наблюдения требует строгий `assurance` для
+`main`; secret scanning, push protection, private vulnerability reporting и
+immutable releases включены; открытых Dependabot alerts нет; `v0.1.1` ещё не
+имеет tag или release. Hosted проверка будущего SHA остаётся обязательной.
+
+Preflight выявил не дефект пакета, а обязательный переход состояния публикации:
+README, двуязычные release notes — примечания к выпуску — и отсутствие
+`date-released` в CFF сейчас корректно описывают неопубликованный кандидат.
+Публикация этих же байтов сделала бы описание ложным. Поэтому будущий отдельно
+авторизованный ST08_15C должен финализировать release-state тексты, получить
+exact-SHA hosted assurance, заново построить активы, создать draft, прикрепить и
+проверить активы и только затем один раз опубликовать immutable GitHub Release.
+Текущие preflight-активы не являются финальными upload-ready активами.
+
+Локальная проверка, 12/12 отрицательных мутаций, focused regressions, working и
+published baseline, воспроизводимость и точные SHA-256 регистрируются в evidence
+ST08_15B. Aggregate pilot имеет известный исторический FAIL на отсутствующих
+legacy checkpoint ZIP и прежних no-release ожиданиях; это не считается текущим
+регрессионным дефектом. Checkpoint ZIP пропущен как непропорциональный обратимой
+веточной задаче с successor manifest и воспроизводимой сборкой.
+
+Hosted `assurance` PR №23, run `38357411816`, job `115163401735`, exact head
+`67aaeb662bdbd109c005a8d953f367be191c59fa` завершился с `success`: все 23
+основных шага, включая ST08_15B `final-evidence`, прошли. Подтверждены 12/12
+мутаций, нулевые vulnerability/secret findings — находки уязвимостей и секретов,
+двойная сборка, clean install 0.1.1 и published baseline 363/361/18. Блок
+технически готов к решению John после повторной проверки завершающего evidence
+commit; публикация всё ещё не разрешена.
+
+После принятия ST08_15B до GitHub Release 1.0.0 номинально останутся четыре
+обязательных блока: ST08_15C (выпуск 0.1.1), post-release review и контракт
+выхода 1.0.0, кандидат 1.0.0, финальный аудит и выполнение выпуска 1.0.0.
+PyPI остаётся отдельным необязательным блоком; дополнительные обычные 0.1.x
+по-прежнему запрещены без конкретного блокера 1.0.0 и отдельной авторизации.
+
+## 68. Задачи John
+
+1. Создать завершающий evidence commit в существующем PR №23 и дождаться
+   повторного `assurance`, включающего `final-evidence`.
+2. После успешной exact-SHA проверки принять либо вернуть только ST08_15B; до
+   принятия не создавать tag или release `v0.1.1`.
+3. Только John присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED`.
+4. Отдельно решать авторизацию ST08_15C; текущий блок не разрешает GitHub
+   Release, TestPyPI или PyPI.

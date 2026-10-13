@@ -78,19 +78,28 @@ jobs:
           python -m unittest -v tests.test_release_candidate_reaudit_st08_13
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the v0.1.1 corrective candidate
+      - name: Validate the accepted v0.1.1 candidate metadata
         run: |
-          python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py contract
+          python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py metadata
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py mutations
+
+      - name: Re-audit the v0.1.1 final candidate preflight
+        run: |
+          python scripts/st08_15B_v0_1_1_final_candidate_preflight.py contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_v0_1_1_corrective_candidate_st08_15A
+          python scripts/st08_15B_v0_1_1_final_candidate_preflight.py mutations
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py final-evidence
+          python -m unittest -v tests.test_v0_1_1_final_candidate_preflight_st08_15B
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_15B_v0_1_1_final_candidate_preflight.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build the current v0.1.1 candidate twice
-        run: python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py build-candidate --output-dir dist/st08_15A-ci
+        run: |
+          python scripts/st08_15A_v0_1_1_corrective_candidate_assurance.py build-candidate --output-dir dist/st08_15A-ci
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_15B_v0_1_1_final_candidate_preflight.py validate-built --candidate-dir dist/st08_15A-ci
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Reconstruct the exact published release commit twice
         run: python scripts/st08_14C_release_execution_assurance.py build-release --output-dir dist/st08_14C-ci
