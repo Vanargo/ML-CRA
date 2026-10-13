@@ -84,6 +84,7 @@ class ST0815ACorrectiveCandidateTests(unittest.TestCase):
 
     def test_13_hosted_pending_cannot_be_ready_for_acceptance(self) -> None:
         evidence = assurance._load_json(assurance.EVIDENCE_PATH)
+        evidence["hosted_assurance"]["status"] = "PENDING_TEST"
         evidence["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
         bindings = assurance.validate_contract_bindings(CONTRACT)
         with self.assertRaises(assurance.CorrectiveCandidateError):

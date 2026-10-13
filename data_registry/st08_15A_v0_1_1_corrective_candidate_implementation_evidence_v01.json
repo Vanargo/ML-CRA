@@ -27,7 +27,7 @@
     "paths": 356,
     "hashed_paths": 354,
     "path_list_sha256": "761abeb3ea9900b3c3ce98e353a9bf3a87e69a9f0ad664effa3c7268334fcb9b",
-    "manifest_sha256": "eea58a12f33f0330a15951871765fa396b40f72349cc43e64652b68262a90b19",
+    "manifest_sha256": "dd2a770bf2ee2cde9a490edb46d15088dbc90d5e33daa9e9ed51b89777264b2c",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15A_v0_1_1_corrective_candidate_implementation_evidence_v01.json",
       "data_registry/st08_15A_v0_1_1_corrective_candidate_manifest_v01.csv"
@@ -36,7 +36,7 @@
   },
   "candidate_assets": {
     "SHA256SUMS": {
-      "sha256": "99d1b781bb9fd1cf4d3328a78c845639fbd2f405e557c6a9226c5a41442adbdb",
+      "sha256": "87773d2486e97461081c7982d65a24ffad9e94450869454c69560c5f3dd7240e",
       "size_bytes": 182
     },
     "ml_cra-0.1.1-py3-none-any.whl": {
@@ -44,8 +44,8 @@
       "size_bytes": 92270
     },
     "ml_cra-0.1.1.tar.gz": {
-      "sha256": "6ad29bab41d1cb0008e9090ba76fa94398dea33b4e27b709afc393e099ffa7c9",
-      "size_bytes": 97032
+      "sha256": "4ca5682df9ca1a968aeb3142437da890efa2f277f6d8fdbcb2ac53633418bfc3",
+      "size_bytes": 97043
     }
   },
   "observed_checks": {
@@ -75,6 +75,7 @@
     "hosted_clean_install_candidate_wheel": "PASS_INSTALLED_ML_CRA_0_1_1_OFFLINE",
     "hosted_clean_install_doctor": "PASS_VERSION_0_1_1_READY_WITH_PACKAGED_CONTENT_SCOPE",
     "hosted_published_baseline": "PASS_356_PATHS_354_HASHED_18_PROTECTED",
+    "hosted_evidence_closure_run_38348129189": "FAIL_NEGATIVE_TEST_13_DID_NOT_MUTATE_HOSTED_STATUS_AFTER_EVIDENCE_BECAME_PASS",
     "pilot_aggregate": "FAIL_non_current_historical_checkpoint_gates_explicitly_dispositioned",
     "release_actions_performed": 0,
     "training_runs": 0,
@@ -118,6 +119,19 @@
       "canonical_git_blob_inventory": "PASS"
     },
     "interpretation": "The complete hosted job passed after the clean-install selector repair, including final-evidence, reproducible candidate construction, immutable v0.1.0 verification, offline installation of ml-cra 0.1.1, CLI walkthrough and the deterministic published baseline."
+  },
+  "hosted_evidence_closure": {
+    "status": "PENDING_TEST_FIX_RUN",
+    "failed_run": 38348129189,
+    "failed_job": 115134166046,
+    "failed_head_sha": "f58eb377cf3d8d3d7975f6186f6c71b731db334c",
+    "dependency_audit": "PASS",
+    "contract": "PASS",
+    "mutations": "PASS_10_of_10",
+    "failed_test": "test_13_hosted_pending_cannot_be_ready_for_acceptance",
+    "root_cause": "After hosted_assurance.status became PASS, the negative test only reassigned readiness to its already valid READY_FOR_JOHN_ACCEPTANCE value and therefore no longer constructed the forbidden pending-hosted plus ready state.",
+    "repair": "Set hosted_assurance.status to PENDING_TEST in the test-only evidence copy while keeping readiness READY_FOR_JOHN_ACCEPTANCE, then require fail-closed rejection.",
+    "product_or_scientific_effect": "NONE"
   },
   "change_reconciliation": {
     "planned_paths": 23,
