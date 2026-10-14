@@ -2400,3 +2400,30 @@ READINESS: NOT_READY
 2. Дождаться ST08_16 `final-evidence` в hosted `assurance` и передать результат
    агенту.
 3. До отчёта агента не объединять PR, не принимать блок и не начинать ST08_16A.
+
+## 79. ST08_16 — exact-SHA hosted gate закрыт
+
+PR №26 имеет exact head `f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a`, открыт,
+`MERGEABLE/CLEAN` и не является draft. GitHub Actions run `38524768465`, job
+`115722411638`, завершился с `success`; все 23 основных шага прошли, включая
+ST08_16 `final-evidence`, immutable-release verification, clean offline install
+и published baseline.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 38524768465
+hosted_assurance_job_id: 115722411638
+future_blocks_authorized: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Блок технически готов к решению John, но ещё не принят и не закрыт. PR нельзя
+объединять до нового hosted запуска evidence-closure commit и отдельного
+решения John. Три следующих блока остаются только предложенными.
+
+## 80. Задачи John
+
+1. Создать evidence-closure commit в PR №26 и дождаться exact-SHA assurance.
+2. Передать новый результат агенту; до его отчёта не выполнять merge.
+3. Отдельно принять/закрыть ST08_16 и решить авторизацию ST08_16A.

@@ -22,10 +22,14 @@ class TestSt0816ExitContract(unittest.TestCase):
         self.assertEqual(result["registered"], 8)
         self.assertEqual(result["rejected"], 8)
 
-    def test_final_evidence_is_fail_closed_pending_hosted_assurance(self) -> None:
+    def test_final_evidence_is_hosted_closed_pending_John_acceptance(self) -> None:
         result = assurance.validate_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["readiness"], "NOT_READY")
+        self.assertEqual(
+            result["lifecycle_state"],
+            "CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
+        )
+        self.assertEqual(result["readiness"], "READY_FOR_JOHN_ACCEPTANCE")
         self.assertEqual(result["future_blocks_authorized"], 0)
 
     def test_future_authority_is_rejected(self) -> None:

@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "task_id": "ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design",
   "recorded_at": "2026-10-14",
-  "lifecycle_state": "CONTRACT_DESIGNED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE",
+  "lifecycle_state": "CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "profile": "CHANGE",
   "baseline": {
     "commit": "e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b",
@@ -62,7 +62,7 @@
     "paths": 375,
     "hashed_paths": 373,
     "path_list_sha256": "cf63dda1d09215f8b8154c0dc6b7ae79f7b24012f0b5200aebd3274d649b94a5",
-    "manifest_sha256": "ca4f4f850121f81002d1b7ccf7f559615b70ea15c29628ef154002c4caa2b916",
+    "manifest_sha256": "642d785c06aea5c66ef43b301febfe6eebaa9e9d8b812da43bafdd3f346fdd43",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json",
       "data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv"
@@ -82,14 +82,22 @@
     {"check_id": "focused_unit_tests", "status": "PASS", "result": "45 release-assurance ST08_15C and ST08_16 regression tests pass"},
     {"check_id": "product_and_scientific_boundary", "status": "PASS", "result": "no product source package scientific or release mutation"},
     {"check_id": "pilot_full_historical_aggregate", "status": "FAIL", "result": "current structural and scientific checks pass, but the aggregate command retains accepted historical FAIL gate records and exits 1", "disposition": "NON_BLOCKING_HISTORICAL_RECORDS_NOT_REWRITTEN"},
+    {"check_id": "hosted_exact_head_assurance", "status": "PASS", "result": "PR 26 exact head f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a passed all 23 primary hosted assurance steps"},
     {"check_id": "checkpoint", "status": "SKIPPED", "result": "reversible governance task with Git manifest branch protection and hosted assurance"}
   ],
   "hosted_assurance": {
-    "status": "PENDING",
-    "required_gate": "exact pull-request head must pass assurance including ST08_16 final-evidence",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null
+    "status": "PASS",
+    "run_id": 38524768465,
+    "job_id": 115722411638,
+    "head_sha": "f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a",
+    "event": "pull_request",
+    "conclusion": "success",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38524768465",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38524768465/job/115722411638",
+    "required_step": "Validate the finite v1.0.0 exit contract",
+    "required_step_conclusion": "success",
+    "primary_steps": 23,
+    "completed_at": "2026-10-14T06:59:54Z"
   },
   "actions": {
     "product_source_changes": 0,

@@ -480,6 +480,24 @@ def validate_evidence(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     else:
         if readiness != "READY_FOR_JOHN_ACCEPTANCE" or hosted.get("status") != "PASS":
             raise ExitContractError("closed evidence lacks hosted assurance")
+        if (
+            not isinstance(hosted.get("run_id"), int)
+            or not isinstance(hosted.get("job_id"), int)
+            or hosted.get("event") != "pull_request"
+            or hosted.get("conclusion") != "success"
+            or hosted.get("required_step")
+            != "Validate the finite v1.0.0 exit contract"
+            or hosted.get("required_step_conclusion") != "success"
+            or hosted.get("primary_steps") != 23
+            or not isinstance(hosted.get("head_sha"), str)
+            or len(hosted["head_sha"]) != 40
+            or any(character not in "0123456789abcdef" for character in hosted["head_sha"])
+            or hosted.get("run_url")
+            != f"https://github.com/Vanargo/ML-CRA/actions/runs/{hosted['run_id']}"
+            or hosted.get("job_url")
+            != f"{hosted['run_url']}/job/{hosted['job_id']}"
+        ):
+            raise ExitContractError("closed evidence hosted-run binding mismatch")
     if evidence.get("manifest") != contract_result["manifest"]:
         raise ExitContractError("evidence manifest summary mismatch")
     checks = evidence.get("checks", [])

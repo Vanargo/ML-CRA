@@ -3171,3 +3171,40 @@ John для принятия. Все нулевые значения подтв�
    технического отчёта агента.
 4. Не начинать ST08_16A, не создавать tag/release 1.0.0 и не публиковать в
    TestPyPI/PyPI без последующего отдельного решения.
+
+## 92. ST08_16 — exact-SHA hosted evidence closure
+
+John создал commit `f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a`, отправил ветвь
+`st08-16-v1-0-0-exit-contract` и открыл PR №26. PR открыт, не является draft,
+имеет состояния `MERGEABLE/CLEAN`, а его единственный head точно совпадает с
+этим commit.
+
+GitHub Actions run `38524768465`, job `115722411638`, завершился с `success`
+2026-10-14T06:59:54Z. Все 23 основных шага успешны. В частности, hosted среда
+приняла ST08_16 contract, 8/8 отрицательных мутаций, focused tests и
+`final-evidence`; повторно проверила immutable `v0.1.0`/`v0.1.1`, dependency
+audit, clean offline install, CLI и deterministic published baseline.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 38524768465
+hosted_assurance_job_id: 115722411638
+future_blocks_authorized: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+`TECHNICAL_STATUS: PASS` означает, что локальный и exact-SHA hosted контуры
+подтвердили контракт. `READY_FOR_JOHN_ACCEPTANCE` означает только готовность к
+решению John; это не само принятие, не закрытие задачи, не разрешение merge и
+не авторизация ST08_16A. Ноль будущих авторизованных блоков сохраняет границу
+полномочий. Исторический aggregate pilot `FAIL` остаётся явно записанным с
+неблокирующим disposition; принятые исторические записи не переписывались.
+
+## 93. Задачи John
+
+1. Создать и отправить evidence-closure commit в существующую ветвь PR №26.
+2. Дождаться нового exact-SHA `assurance` и передать результат агенту.
+3. После подтверждения агента принять либо вернуть ST08_16. Только John может
+   присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и отдельно разрешить merge.
+4. ST08_16A, tag/release 1.0.0 и TestPyPI/PyPI пока не авторизованы.
