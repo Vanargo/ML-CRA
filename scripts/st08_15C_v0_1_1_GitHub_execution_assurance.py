@@ -7,6 +7,7 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 import tempfile
 import tomllib
 from collections.abc import Mapping, Sequence
@@ -273,7 +274,7 @@ def validate_workflow_text(text: str) -> None:
         "st08_15C_v0_1_1_GitHub_execution_assurance.py contract",
         "st08_15C_v0_1_1_GitHub_execution_assurance.py mutations",
         "tests.test_v0_1_1_GitHub_execution_st08_15C",
-        "st08_15C_v0_1_1_GitHub_execution_assurance.py build-release",
+        "st08_15C_v0_1_1_GitHub_execution_assurance.py build-release --source lifecycle",
         "--verify-contract-assets",
         "st08_15C_v0_1_1_GitHub_execution_assurance.py final-evidence",
         "gh release verify v0.1.0 --repo Vanargo/ML-CRA",
@@ -386,20 +387,38 @@ def _asset_map(output_dir: Path) -> dict[str, dict[str, Any]]:
     }
 
 
-def build_release(
+def _release_source_spec(evidence: Mapping[str, Any]) -> dict[str, Any]:
+    state = evidence.get("lifecycle_state")
+    if state == PREPARED:
+        return {
+            "lifecycle_state": state,
+            "source_representation": "canonical_Git_index_checkout",
+            "commit": None,
+            "git_tree": None,
+        }
+    if state not in {RELEASED_PENDING, RELEASED_CLOSED}:
+        raise GitHubExecutionError(f"unknown lifecycle state for release build: {state}")
+    release = evidence.get("release")
+    if not isinstance(release, Mapping):
+        raise GitHubExecutionError("released lifecycle lacks release identity")
+    commit = release.get("commit")
+    git_tree = release.get("git_tree")
+    if not _is_git_sha(commit) or not _is_git_sha(git_tree):
+        raise GitHubExecutionError("released lifecycle lacks exact commit or tree SHA")
+    return {
+        "lifecycle_state": state,
+        "source_representation": "exact_released_commit_checkout",
+        "commit": commit,
+        "git_tree": git_tree,
+    }
+
+
+def _build_release_from_index(
     output_dir: Path,
-    root: Path = PROJECT_ROOT,
-    *,
-    verify_contract_assets: bool = False,
+    source_root: Path,
+    contract: Mapping[str, Any],
 ) -> dict[str, Any]:
-    contract = _load_json(root / CONTRACT_PATH.relative_to(PROJECT_ROOT))
-    validate_release_state(root)
-    output_dir = output_dir.resolve()
-    permitted = (root / "dist").resolve()
-    if output_dir == permitted or permitted not in output_dir.parents:
-        raise GitHubExecutionError("release output must be a dedicated dist subdirectory")
-    if output_dir.exists() and any(output_dir.iterdir()):
-        raise GitHubExecutionError("release output directory must be absent or empty")
+    validate_release_state(source_root)
     output_dir.mkdir(parents=True, exist_ok=True)
     epoch = int(contract["release_assets"]["source_date_epoch"])
     builds: list[dict[str, Any]] = []
@@ -409,8 +428,8 @@ def build_release(
             source = temporary_root / f"source_{index}"
             raw = temporary_root / f"raw_{index}"
             normalized = temporary_root / f"normalized_{index}.tar.gz"
-            build_base._checkout_index(source, root)
-            sdist, wheel = build_base._run_build(source, raw, epoch, root)
+            build_base._checkout_index(source, source_root)
+            sdist, wheel = build_base._run_build(source, raw, epoch, source_root)
             normalized_result = build_base.normalize_sdist(sdist, normalized, epoch)
             builds.append(
                 {
@@ -444,18 +463,85 @@ def build_release(
         output_dir / ASSET_NAMES[0], output_dir / ASSET_NAMES[1], checksums
     )
     observed = _asset_map(output_dir)
-    if verify_contract_assets and observed != _validate_asset_contract(contract):
-        raise GitHubExecutionError(f"release assets differ from contract: {observed}")
     return {
         "status": "PASS",
         "version": VERSION,
-        "source_representation": "canonical_Git_index_checkout",
         "source_date_epoch": epoch,
         "independent_builds": 2,
         "normalized_sdist_reproducible": True,
         "wheel_reproducible": True,
         "assets": observed,
     }
+
+
+def build_release(
+    output_dir: Path,
+    root: Path = PROJECT_ROOT,
+    *,
+    verify_contract_assets: bool = False,
+    source_policy: str = "lifecycle",
+) -> dict[str, Any]:
+    if source_policy != "lifecycle":
+        raise GitHubExecutionError("build-release source policy must be lifecycle")
+    contract = _load_json(root / CONTRACT_PATH.relative_to(PROJECT_ROOT))
+    evidence = _load_json(root / EVIDENCE_PATH.relative_to(PROJECT_ROOT))
+    source_spec = _release_source_spec(evidence)
+    output_dir = output_dir.resolve()
+    permitted = (root / "dist").resolve()
+    if output_dir == permitted or permitted not in output_dir.parents:
+        raise GitHubExecutionError("release output must be a dedicated dist subdirectory")
+    if output_dir.exists() and any(output_dir.iterdir()):
+        raise GitHubExecutionError("release output directory must be absent or empty")
+    with tempfile.TemporaryDirectory(prefix="st08_15C_source_") as temporary:
+        if source_spec["source_representation"] == "canonical_Git_index_checkout":
+            source_root = root
+        else:
+            source_root = Path(temporary) / "release-source"
+            process = subprocess.run(
+                ["git", "clone", "--quiet", "--no-hardlinks", "--local", str(root), str(source_root)],
+                cwd=root,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                check=False,
+            )
+            if process.returncode:
+                raise GitHubExecutionError(f"cannot clone release source: {process.stderr.strip()}")
+            for command in [
+                ["git", "checkout", "--quiet", "--detach", source_spec["commit"]],
+                ["git", "rev-parse", "HEAD"],
+                ["git", "rev-parse", "HEAD^{tree}"],
+            ]:
+                process = subprocess.run(
+                    command,
+                    cwd=source_root,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    check=False,
+                )
+                if process.returncode:
+                    raise GitHubExecutionError(
+                        f"release source command failed: {' '.join(command)}: {process.stderr.strip()}"
+                    )
+                if command[-1] == "HEAD" and process.stdout.strip() != source_spec["commit"]:
+                    raise GitHubExecutionError("released commit checkout mismatch")
+                if command[-1] == "HEAD^{tree}" and process.stdout.strip() != source_spec["git_tree"]:
+                    raise GitHubExecutionError("released Git tree checkout mismatch")
+            source_contract = _load_json(source_root / CONTRACT_PATH.relative_to(PROJECT_ROOT))
+            if source_contract.get("release_assets") != contract.get("release_assets"):
+                raise GitHubExecutionError("released source and current release-asset contracts differ")
+        build_output = output_dir if source_root == root else source_root / "dist/st08_15C-rebuild"
+        result = _build_release_from_index(build_output, source_root, contract)
+        if build_output != output_dir:
+            output_dir.mkdir(parents=True, exist_ok=True)
+            for name in ASSET_NAMES:
+                shutil.copy2(build_output / name, output_dir / name)
+            result["assets"] = _asset_map(output_dir)
+    if verify_contract_assets and result["assets"] != _validate_asset_contract(contract):
+        raise GitHubExecutionError(f"release assets differ from contract: {result['assets']}")
+    result.update(source_spec)
+    return result
 
 
 def render_release_body(commit: str, git_tree: str, assets: Mapping[str, Any], root: Path = PROJECT_ROOT) -> str:
@@ -650,6 +736,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--commit")
     parser.add_argument("--git-tree")
     parser.add_argument("--verify-contract-assets", action="store_true")
+    parser.add_argument("--source", choices=("lifecycle",), default="lifecycle")
     return parser
 
 
@@ -665,7 +752,11 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "build-release":
             if args.output_dir is None:
                 raise GitHubExecutionError("--output-dir is required for build-release")
-            result = build_release(args.output_dir, verify_contract_assets=args.verify_contract_assets)
+            result = build_release(
+                args.output_dir,
+                verify_contract_assets=args.verify_contract_assets,
+                source_policy=args.source,
+            )
         elif args.command == "write-release-body":
             if args.output_path is None or args.commit is None or args.git_tree is None:
                 raise GitHubExecutionError("--output-path --commit and --git-tree are required")

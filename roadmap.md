@@ -2271,3 +2271,41 @@ closure должно пройти отдельный PR и hosted `final-evidenc
 2. Дождаться обязательного `assurance` точного SHA и передать URL PR агенту.
 3. Не изменять immutable `v0.1.1`; следующий блок и PyPI/TestPyPI остаются
    неавторизованными до отдельного решения.
+
+## 73. ST08_15C — repair evidence closure после первого hosted отказа
+
+Первый exact-head запуск PR №25 (`38412508206`, job `115348216747`, head
+`344b6c605d9cbece39cc205319a9fc11888e41a2`) подтвердил contract,
+12/12 отрицательных мутаций, focused tests и `final-evidence`, но завершился
+отказом на повторной сборке `v0.1.1`. Причина локализована: после публикации CI
+пытался получить уже зарегистрированный sdist из текущего evidence-closure
+индекса, содержащего закономерные post-release изменения документации.
+
+Исправленная политика `--source lifecycle` разделяет два представления
+источника: до публикации — канонический Git index кандидата; после публикации —
+точный release commit/tree, записанный в evidence. SHA-256 contract не
+ослабляется, поэтому проверка по-прежнему доказывает байтовое совпадение с
+immutable активами, а не принимает новый post-release пакет. Tag, release body,
+assets, научные артефакты и PyPI/TestPyPI не изменяются.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+hosted_evidence_closure_attempt_1: FAIL
+repair_scope: lifecycle_source_selection_only
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`hosted_evidence_closure_attempt_1: FAIL` означает, что первый hosted gate не
+закрыл задачу; это не означает дефект или отзыв самого опубликованного
+`v0.1.1`. `TECHNICAL_STATUS: PASS` относится к локально проверенному ремонту:
+contract и `final-evidence` приняты, 12/12 мутаций отклонены, 35/35 focused unit
+tests прошли, две сборки из exact release commit воспроизвели все три
+зарегистрированных актива. Новый exact-SHA hosted run всё ещё обязателен, поэтому
+`READINESS: NOT_READY`, а принятие и слияние PR №25 преждевременны.
+
+## 74. Задачи John
+
+1. Отправить подготовленный агентом repair commit в существующий PR №25.
+2. Дождаться нового `assurance` и передать агенту URL или идентификатор run.
+3. Не объединять PR и не изменять immutable `v0.1.1` до следующего отчёта.

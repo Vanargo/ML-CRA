@@ -90,7 +90,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build the exact v0.1.1 release assets twice
-        run: python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py build-release --output-dir dist/st08_15C-ci --verify-contract-assets
+        run: python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py build-release --source lifecycle --output-dir dist/st08_15C-ci --verify-contract-assets
 
       - name: Reconstruct the exact published release commit twice
         run: python scripts/st08_14C_release_execution_assurance.py build-release --output-dir dist/st08_14C-ci

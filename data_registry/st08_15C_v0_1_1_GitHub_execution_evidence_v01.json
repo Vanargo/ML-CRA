@@ -28,7 +28,7 @@
     "paths": 369,
     "hashed_paths": 367,
     "path_list_sha256": "0c9417ffb87ac56bd59f41ea933272b9106df7048a29c94b0ff4e3872674340a",
-    "manifest_sha256": "b4d13edbf4cc92e80959328a2046abe1dd60b5d249e072124a77b1a0289f0fbe",
+    "manifest_sha256": "1f0d3137134f95759d20061587d836bc6e66a54a89587da378081fbcd811debb",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15C_v0_1_1_GitHub_execution_evidence_v01.json",
       "data_registry/st08_15C_v0_1_1_GitHub_execution_manifest_v01.csv"
@@ -171,6 +171,24 @@
       "status": "PASS"
     }
   ],
+  "hosted_assurance_attempts": [
+    {
+      "attempt": 1,
+      "status": "FAIL",
+      "run_id": 38412508206,
+      "job_id": 115348216747,
+      "head_sha": "344b6c605d9cbece39cc205319a9fc11888e41a2",
+      "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38412508206",
+      "conclusion": "failure",
+      "failed_step": "Build the exact v0.1.1 release assets twice",
+      "passed_preceding_steps": 13,
+      "observed_sdist_sha256": "57bf9a4f05f8d1adcb674305716f524f71992c986f4945a28a2bf35051a3132c",
+      "observed_sdist_size_bytes": 98578,
+      "observed_SHA256SUMS_sha256": "7dfa74102efbcdf3b025ef0f328cae1f94619217de5325594ae7eda0e90254a5",
+      "diagnosis": "The released lifecycle rebuilt from the evidence-closure Git index instead of the immutable release commit; post-release documentation changed the sdist bytes while the published release remained unchanged.",
+      "repair": "Select the canonical Git index only for PREPARED and reconstruct the exact evidence-bound release commit and tree for both RELEASED lifecycle states."
+    }
+  ],
   "hosted_assurance": {
     "status": "PENDING",
     "run_id": null,
@@ -201,7 +219,9 @@
     "hosted_exact_SHA_assurance": "PASS_PR_run_38405834387_job_115325070944_and_main_run_38407353701_job_115330340477",
     "release_execution": "PASS_immutable_latest_v0_1_1_release_411733338",
     "release_attestation": "PASS_in_toto_release_v0_2_exact_commit_and_three_assets",
-    "release_and_asset_verification": "PASS_4_of_4_GitHub_CLI_commands"
+    "release_and_asset_verification": "PASS_4_of_4_GitHub_CLI_commands",
+    "hosted_evidence_closure_attempt_1": "FAIL_run_38412508206_job_115348216747_release_rebuild_used_post_release_index",
+    "lifecycle_source_reconstruction_repair": "PASS_local_exact_commit_tree_and_3_asset_bindings_hosted_confirmation_pending"
   },
   "change_reconciliation": {
     "planned_paths": 18,

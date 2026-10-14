@@ -96,6 +96,36 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance._validate_asset_contract(mutated)
 
+    def test_prepared_lifecycle_builds_from_canonical_index(self) -> None:
+        prepared = copy.deepcopy(EVIDENCE)
+        prepared["lifecycle_state"] = assurance.PREPARED
+        prepared["release"] = {}
+        result = assurance._release_source_spec(prepared)
+        self.assertEqual(result["source_representation"], "canonical_Git_index_checkout")
+        self.assertIsNone(result["commit"])
+        self.assertIsNone(result["git_tree"])
+
+    def test_released_lifecycle_builds_from_exact_release_commit(self) -> None:
+        result = assurance._release_source_spec(EVIDENCE)
+        self.assertEqual(result["source_representation"], "exact_released_commit_checkout")
+        self.assertEqual(result["commit"], EVIDENCE["release"]["commit"])
+        self.assertEqual(result["git_tree"], EVIDENCE["release"]["git_tree"])
+
+    def test_released_lifecycle_rejects_missing_exact_tree(self) -> None:
+        mutated = copy.deepcopy(EVIDENCE)
+        mutated["release"]["git_tree"] = None
+        with self.assertRaises(assurance.GitHubExecutionError):
+            assurance._release_source_spec(mutated)
+
+    def test_workflow_requires_lifecycle_selected_release_source(self) -> None:
+        text = assurance.WORKFLOW_PATH.read_text(encoding="utf-8").replace(
+            "build-release --source lifecycle",
+            "build-release",
+            1,
+        )
+        with self.assertRaises(assurance.GitHubExecutionError):
+            assurance.validate_workflow_text(text)
+
 
 if __name__ == "__main__":
     unittest.main()
