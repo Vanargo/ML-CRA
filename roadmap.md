@@ -2309,3 +2309,33 @@ tests прошли, две сборки из exact release commit воспрои
 1. Отправить подготовленный агентом repair commit в существующий PR №25.
 2. Дождаться нового `assurance` и передать агенту URL или идентификатор run.
 3. Не объединять PR и не изменять immutable `v0.1.1` до следующего отчёта.
+
+## 75. ST08_15C — evidence closure прошло exact-SHA hosted gate
+
+Repair commit `0d19b76617201b4bcf61ecc3a61bb670a80d3ecc` в PR №25 прошёл
+GitHub Actions run `38517298286`, job `115698856166`. Run завершился с
+`success` 2026-10-14T05:40:08Z, а head SHA проверки точно совпадает с commit.
+Все шаги 1–22 успешны, включая `final-evidence`, двойную реконструкцию активов
+из immutable release commit, проверку обоих releases и assets, clean offline
+install и published baseline.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED
+hosted_assurance_run_id: 38517298286
+hosted_assurance_job_id: 115698856166
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Техническое evidence closure завершено. Эти значения не означают
+`ACCEPTED_BY_JOHN`, `TASK_CLOSED` или разрешение на merge: соответствующие
+решения принадлежат только John. Опубликованный `v0.1.1` не изменялся; обычный
+следующий 0.1.x, PyPI/TestPyPI и следующий блок не авторизованы.
+
+## 76. Задачи John
+
+1. Создать финальный evidence-state commit в PR №25 и дождаться нового
+   exact-SHA `assurance`.
+2. Передать результат агенту для проверки; затем принять либо вернуть ST08_15C.
+3. Отдельно решить merge PR №25. Следующий блок требует отдельного
+   `NEXT_BLOCK_AUTHORIZED`.

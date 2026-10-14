@@ -3007,3 +3007,42 @@ commit.
 2. Дождаться нового `assurance` точного SHA и передать результат агенту.
 3. Не объединять PR №25 до технического отчёта агента и отдельного решения
    John; immutable `v0.1.1` не изменять.
+
+## 88. ST08_15C — hosted evidence closure успешно закрыто
+
+Repair commit `0d19b76617201b4bcf61ecc3a61bb670a80d3ecc` отправлен в PR №25.
+GitHub Actions run `38517298286`, job `115698856166` завершился с `success`
+2026-10-14T05:40:08Z. PR остаётся открытым, не является draft, имеет состояние
+`MERGEABLE/CLEAN`, а проверенный head точно совпадает с repair commit.
+
+Все шаги 1–22 успешны. В частности, hosted среда приняла ST08_15C
+`final-evidence`, дважды реконструировала активы из exact release commit,
+подтвердила immutable `v0.1.0` и `v0.1.1` вместе с локальными активами,
+выполнила clean offline install и published baseline. Следовательно, первый
+отказ был устранён именно ремонтом выбора источника, а не ослаблением
+asset-contract или изменением опубликованного выпуска.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED
+release_performed: true
+release_actions_performed: 3
+hosted_assurance_run_id: 38517298286
+hosted_assurance_job_id: 115698856166
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+`TECHNICAL_STATUS: PASS` означает, что локальные и hosted технические критерии
+блока выполнены. `READY_FOR_JOHN_ACCEPTANCE` означает готовность результата к
+решению John, но не является самим принятием, закрытием задачи или разрешением
+на merge. TestPyPI/PyPI, новый научный claim, обучение и следующий проектный
+блок остаются неавторизованными.
+
+## 89. Задачи John
+
+1. Создать и отправить финальный evidence-state commit в существующий PR №25.
+2. Дождаться `assurance` exact SHA финального commit и передать результат агенту.
+3. После подтверждения агента принять либо вернуть только ST08_15C. Только John
+   присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED` и отдельно разрешает merge.
+4. Не изменять immutable `v0.1.1`; следующий блок и PyPI/TestPyPI не
+   авторизованы.
