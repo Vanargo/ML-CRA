@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design",
+  "profile": "CHANGE",
+  "recorded_at": "2026-10-14",
+  "authority": {
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design",
+    "post_release_review_and_exit_contract_design_authorized": true,
+    "product_source_or_runtime_change_authorized": false,
+    "package_version_or_classifier_change_authorized": false,
+    "tag_or_GitHub_release_authorized": false,
+    "TestPyPI_or_PyPI_publication_authorized": false,
+    "scientific_claim_protocol_result_or_verdict_change_authorized": false,
+    "future_block_authorized": false
+  },
+  "source_baseline": {
+    "branch": "main",
+    "commit": "e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b",
+    "git_tree": "9fa92e00835b58fcd2afe1e530bda42ff7b1827b",
+    "tracked_paths": 369,
+    "protected_artifacts": 18,
+    "baseline_command": "python scripts/agent_verify.py --mode baseline --inventory published",
+    "baseline_status": "PASS"
+  },
+  "task_intake": {
+    "chat_task": "ML-CRA/Продолжение работы",
+    "measurable_outcome": "Record an evidence-backed v0.1.1 post-release review and an unambiguous finite v1.0.0 exit contract without changing the product or publishing a release.",
+    "completion_criteria": [
+      "v0.1.1 release, repository, issue, security-alert and usage observations are classified without overstating evidence",
+      "the terminal v1.0.0 product definition and frozen public contract are explicit",
+      "exactly three ordinary future blocks are named and remain proposed_not_authorized",
+      "additional routine 0.1.x releases are forbidden unless a named exit criterion fails",
+      "the contract, mutations, focused tests, evidence and successor manifest pass locally and in hosted assurance"
+    ],
+    "protected_artifacts": [
+      "all 18 registered scientific artifacts",
+      "immutable GitHub Releases v0.1.0 and v0.1.1",
+      "v0.1.1 package metadata, CLI, schemas, artifacts and exit-code semantics",
+      "registered datasets, protocols, seeds, splits, metrics, rounding and verdict semantics"
+    ],
+    "stop_conditions": [
+      "a severity-high correctness, integrity, security or supported-cell compatibility defect is evidenced",
+      "the stable public contract cannot be stated without a breaking product change",
+      "a required change falls outside the planned change set or changes scientific scope",
+      "publication, tag creation, package-index upload or a future block would be required"
+    ]
+  },
+  "accepted_predecessor": {
+    "task_id": "ST08_15C_v0_1_1_GitHub_execution",
+    "John_decision": ["ACCEPTED_BY_JOHN", "TASK_CLOSED"],
+    "evidence_closure_PR": 25,
+    "evidence_closure_head": "7172b17646a9cfc8ffc00f9268720fc896b75071",
+    "merge_commit": "e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b",
+    "merge_tree": "9fa92e00835b58fcd2afe1e530bda42ff7b1827b",
+    "post_merge_assurance": {
+      "run_id": 38519742908,
+      "job_id": 115706471628,
+      "conclusion": "success"
+    }
+  },
+  "post_release_observations": {
+    "observation_time": "2026-10-14",
+    "GitHub_release": {
+      "repository": "Vanargo/ML-CRA",
+      "release_id": 411733338,
+      "tag": "v0.1.1",
+      "target_commit": "1cfa920ec91d85341525f1ca6ef57a060dcb9cce",
+      "git_tree": "180aa516153724643d916f0db615f0adf333e23a",
+      "published_at": "2026-10-13T13:57:53Z",
+      "draft": false,
+      "prerelease": false,
+      "immutable": true,
+      "assets": [
+        {"name": "ml_cra-0.1.1-py3-none-any.whl", "size_bytes": 92345, "sha256": "2ce7ffbc8d030b61623539b5707a160db290c5fe28363d9a33d977bb0f144dcb", "download_count": 0},
+        {"name": "ml_cra-0.1.1.tar.gz", "size_bytes": 98497, "sha256": "69316f4e99dc41de1d15a92c780ed4a22c77a73a64cdd5f750765463f0bb788a", "download_count": 0},
+        {"name": "SHA256SUMS", "size_bytes": 182, "sha256": "169022a8181f2d51ca7a795dc8ab138109c2b86500dc5197357ad265f80aaab2", "download_count": 0}
+      ]
+    },
+    "repository_controls": {
+      "main_ruleset_id": 21408995,
+      "ruleset_enforcement": "active",
+      "required_status_check": "assurance",
+      "strict_status_checks": true,
+      "required_pull_request": true,
+      "required_linear_history": true,
+      "deletion_and_non_fast_forward_prohibited": true,
+      "bypass_actors": 0,
+      "secret_scanning": "enabled",
+      "push_protection": "enabled",
+      "private_vulnerability_reporting": "enabled"
+    },
+    "feedback_and_security": {
+      "user_authored_GitHub_issues": 0,
+      "open_Dependabot_security_alerts": 0,
+      "open_Dependabot_version_update_PRs": 9,
+      "release_asset_downloads_total": 0,
+      "operational_adoption_evidence": "NOT_AVAILABLE",
+      "interpretation": "No user feedback or security alert is known, but zero downloads means field reliability and adoption cannot be inferred. Version-update PRs are maintenance proposals, not vulnerability evidence."
+    },
+    "review_verdict": "NO_NAMED_V1_0_0_EXIT_CRITERION_FAILED",
+    "uncertainty": "The repository has no external usage telemetry beyond GitHub counters; absence of reports is not evidence of absence of defects."
+  },
+  "terminal_product_definition": {
+    "target_version": "1.0.0",
+    "definition": "A stable bounded offline evidence auditor that determines whether registered experimental evidence supports a stated machine-learning claim; it is not a universal model-selection platform.",
+    "supported_cell": "Windows x64; CPython >=3.12,<3.13",
+    "required_product_surface": [
+      "versioned local UTF-8 CSV inputs and JSON claim specifications",
+      "bounded binary tabular classification with the fixed allowlisted model family",
+      "bounded exchangeable-row tabular regression with the fixed allowlisted model family",
+      "mlcra audit, verify, doctor and dashboard commands",
+      "deterministic integrity-verifiable bundles and fail-closed diagnostics",
+      "local static bilingual English/Russian dashboard",
+      "reproducible hash-bound sdist and wheel with immutable GitHub provenance",
+      "current security, legal, citation, dataset and scientific-scope disclosures"
+    ],
+    "explicit_non_goals": [
+      "a universally best model claim",
+      "multiclass, time-series, grouped or spatial protocols",
+      "arbitrary pickle, joblib, plugin imports or remote URLs",
+      "automatic hyperparameter search or open-ended model discovery",
+      "a hosted dashboard, service or telemetry platform",
+      "platforms or Python cells outside the declared support boundary"
+    ],
+    "completion_semantics": "After immutable GitHub v1.0.0 is verified and accepted, the declared project-development goal is complete. Later work is maintenance or separately authorized feature development, not an automatic continuation of this release train."
+  },
+  "public_contract_freeze": {
+    "effective_candidate": "1.0.0",
+    "commands": ["mlcra audit", "mlcra verify", "mlcra doctor", "mlcra dashboard"],
+    "claim_schemas": ["binary_classification_claim_v01", "tabular_regression_claim_v01"],
+    "report_schemas": ["mlcra_doctor_report_v01", "mlcra_dashboard_report_v01"],
+    "exit_codes": {"0": "success", "2": "usage_or_claim_validation_error", "3": "input_or_protocol_error", "4": "scientific_verdict_not_supported", "5": "integrity_verification_error", "6": "internal_error"},
+    "artifact_contract": ["audit bundle", "manifest with SHA-256", "machine-readable result", "static bilingual dashboard", "sdist", "wheel", "SHA256SUMS"],
+    "compatibility_rule": "ST08_16A may only finalize version, classifier and documentation surfaces. It must not break existing v0.1.1 commands, schemas, artifact meaning or exit-code semantics.",
+    "maturity_classifier_at_1_0_0": "Development Status :: 5 - Production/Stable",
+    "classifier_interpretation": "Stable within the explicitly bounded supported cell; it does not claim broad production adoption or support outside that cell."
+  },
+  "dependency_and_feedback_policy": {
+    "ordinary_version_update_PRs": "maintenance_backlog_not_a_release_blocker_when_exact_locked_audits_and_supported_cell_regressions_pass",
+    "blocking_conditions": [
+      "any unresolved high or critical dependency vulnerability affecting the supported cell",
+      "any failed hash-locked dependency audit",
+      "any supported-cell installation, compatibility or regression failure",
+      "any unresolved correctness or integrity defect mapped to an exit criterion"
+    ],
+    "usage_evidence_rule": "External adoption is reported when observed but is not a prerequisite for this bounded artifact-and-contract assurance release. Lack of telemetry remains a limitation."
+  },
+  "decision_matrix": {
+    "method": "weighted_sum_with_ordinal_1_to_5_scores_and_predeclared_criteria",
+    "criteria": [
+      {"criterion_id": "C1", "name": "terminal_goal_alignment", "weight": "0.30"},
+      {"criterion_id": "C2", "name": "evidence_and_risk_control", "weight": "0.30"},
+      {"criterion_id": "C3", "name": "scope_and_compatibility_preservation", "weight": "0.25"},
+      {"criterion_id": "C4", "name": "time_to_verified_completion", "weight": "0.15"}
+    ],
+    "options": [
+      {"option_id": "O01", "description": "continue routine 0.1.x releases", "scores": {"C1": 1, "C2": 3, "C3": 3, "C4": 1}, "weighted_score": "2.10", "disposition": "rejected"},
+      {"option_id": "O02", "description": "publish 1.0.0 immediately without candidate gates", "scores": {"C1": 4, "C2": 1, "C3": 2, "C4": 5}, "weighted_score": "2.75", "disposition": "rejected"},
+      {"option_id": "O03", "description": "wait indefinitely for external adoption", "scores": {"C1": 1, "C2": 3, "C3": 5, "C4": 1}, "weighted_score": "2.60", "disposition": "rejected"},
+      {"option_id": "O04", "description": "freeze the bounded public contract and execute three gated 1.0.0 blocks", "scores": {"C1": 5, "C2": 5, "C3": 5, "C4": 4}, "weighted_score": "4.85", "disposition": "selected"}
+    ],
+    "selected_option": "O04"
+  },
+  "v1_0_0_exit_criteria": [
+    {"criterion_id": "EXIT-01", "criterion": "v0.1.1 is immutable, verified, accepted and has no named unresolved high-severity defect", "current_status": "PASS"},
+    {"criterion_id": "EXIT-02", "criterion": "the bounded public command, schema, artifact and exit-code contracts are frozen and documented", "current_status": "PASS_BY_CONTRACT_PENDING_CANDIDATE_CONFIRMATION"},
+    {"criterion_id": "EXIT-03", "criterion": "v1.0.0 metadata and bilingual release surfaces are internally consistent without product-scope expansion", "current_status": "PENDING_ST08_16A"},
+    {"criterion_id": "EXIT-04", "criterion": "the exact v1.0.0 candidate passes protected-artifact, dependency, security, clean-install, CLI, dashboard and scientific-boundary re-audit", "current_status": "PENDING_ST08_16B"},
+    {"criterion_id": "EXIT-05", "criterion": "two normalized builds from the exact candidate produce byte-identical registered sdist, wheel and SHA256SUMS", "current_status": "PENDING_ST08_16B"},
+    {"criterion_id": "EXIT-06", "criterion": "John accepts API stability and separately authorizes exact-SHA immutable GitHub v1.0.0 execution", "current_status": "PENDING_OWNER_DECISIONS"},
+    {"criterion_id": "EXIT-07", "criterion": "the immutable GitHub v1.0.0 tag, release, assets and attestation are verified and evidence closure passes hosted assurance", "current_status": "PENDING_ST08_16C"}
+  ],
+  "finite_exit_plan": {
+    "ordinary_blocks_after_ST08_16_acceptance": 3,
+    "blocks": [
+      {"order": 1, "task_id": "ST08_16A_v1_0_0_candidate_finalization", "purpose": "finalize 1.0.0 metadata, stable bounded public-contract documentation and release notes", "status": "proposed_not_authorized"},
+      {"order": 2, "task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight", "purpose": "perform exact-candidate final re-audit, security preflight and reproducible asset registration", "status": "proposed_not_authorized"},
+      {"order": 3, "task_id": "ST08_16C_v1_0_0_GitHub_execution", "purpose": "after separate owner authorization, publish and verify immutable GitHub v1.0.0 and close evidence", "status": "proposed_not_authorized"}
+    ],
+    "additional_0_x_policy": "forbidden_without_a_named_failed_EXIT_criterion_a_bounded_corrective_contract_and_separate_John_authorization",
+    "feature_expansion_before_1_0_0": "forbidden",
+    "TestPyPI_or_PyPI": "optional_separate_post_completion_decision_not_a_v1_0_0_exit_criterion",
+    "automatic_successor_after_v1_0_0": "none"
+  },
+  "planned_changes": [
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml", "reason": "run the ST08_16 fail-closed gate in hosted assurance"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json", "reason": "register the authorized current-tree governance additions"},
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_v01.json", "reason": "record the bounded terminal product, review and finite exit contract"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json", "reason": "record observed review, verification and readiness evidence"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv", "reason": "bind the exact successor Git index except registered cycle breaks"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv", "reason": "register new public project assets"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_change_scope_v01.csv", "reason": "record the exact planned and actual change scope"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md", "reason": "record predecessor closure, current review and owner gate"},
+    {"change_kind": "modified", "relative_path": "roadmap.md", "reason": "record the finite three-block route to terminal v1.0.0"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py", "reason": "make the hosted workflow require ST08_16 commands"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py", "reason": "preserve accepted historical release-manifest evidence while requiring the current ST08_16 successor tree to bind all later bytes"},
+    {"change_kind": "added", "relative_path": "scripts/st08_16_v1_0_0_exit_contract_assurance.py", "reason": "validate contract, manifest, mutations and evidence fail-closed"},
+    {"change_kind": "added", "relative_path": "tests/test_v1_0_0_exit_contract_st08_16.py", "reason": "test positive and negative exit-contract behavior"}
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json",
+      "data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv"
+    ],
+    "representation": "canonical_git_index_blob"
+  },
+  "authoritative_support": [
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "1.0.0 defines the public API; released version contents are immutable; subsequent increments communicate compatibility"},
+    {"source": "PyPA Version Specifiers", "uri": "https://packaging.python.org/en/latest/specifications/version-specifiers/", "use": "valid unique public distribution versions and final-release ordering"},
+    {"source": "PyPI Trove Classifiers", "uri": "https://pypi.org/classifiers/", "use": "standard Development Status 5 Production/Stable classifier and its maturity-only interpretation"},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "integrate secure-development practices, vulnerability response and provenance into the lifecycle"},
+    {"source": "GitHub Immutable Releases", "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases", "use": "lock tag and assets and verify release integrity/attestation"},
+    {"source": "GitHub Dependabot Version Updates", "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-version-updates", "use": "distinguish ordinary version-update PRs from known-vulnerability security updates"},
+    {"source": "ISO/IEC/IEEE 29148:2018", "uri": "https://www.iso.org/standard/72089.html", "use": "verifiable unambiguous requirements and traceable acceptance criteria"},
+    {"source": "NIST AI RMF 1.0", "uri": "https://doi.org/10.6028/NIST.AI.100-1", "use": "bounded claim, documented limits, evidence and risk treatment"}
+  ],
+  "negative_mutations": [
+    "authorize_future_block",
+    "change_terminal_version",
+    "permit_routine_additional_0_x",
+    "remove_public_contract_command",
+    "treat_version_update_PR_as_security_alert",
+    "claim_operational_adoption_from_zero_downloads",
+    "omit_exit_criterion",
+    "remove_hosted_workflow_gate"
+  ],
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The task is reversible governance work; the exact Git-index manifest, protected branch, immutable releases and hosted assurance provide proportionate recovery and traceability."
+  }
+}
