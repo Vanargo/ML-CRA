@@ -2224,3 +2224,118 @@ preflight с отдельным выполнением выпуска тольк
    проверит hosted evidence — размещённые доказательства — и запросит отдельное
    подтверждение слияния.
 4. PyPI/TestPyPI и следующий блок остаются неавторизованными.
+
+## 71. ST08_15C — v0.1.1 опубликован, evidence closure ожидает hosted gate
+
+PR №24 прошёл exact-head `assurance` run `38405834387`, job `115325070944`, и
+после отдельного разрешения John объединён в `main` как
+`1cfa920ec91d85341525f1ca6ef57a060dcb9cce`. Post-merge run `38407353701`, job
+`115330340477`, также завершился с `success`. Две сборки из точного main Git
+index воспроизвели зарегистрированные sdist, wheel и `SHA256SUMS`.
+
+После повторной проверки отсутствия `v0.1.1` и репозиторных controls — мер
+защиты — создан draft для exact main commit. Его точный двуязычный body —
+описание — и ровно три актива были проверены до публикации. Release однократно
+опубликован как latest и теперь неизменяем:
+
+- URL: `https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1`;
+- release ID: `411733338`;
+- published timestamp: `2026-10-13T13:57:53Z`;
+- commit/tree: `1cfa920ec91d85341525f1ca6ef57a060dcb9cce` /
+  `180aa516153724643d916f0db615f0adf333e23a`;
+- draft/prerelease/immutable: `false` / `false` / `true`.
+
+GitHub release attestation формата in-toto release v0.2 подтверждена; команда
+`gh release verify` и три команды `gh release verify-asset` завершились с
+кодом 0 и связали exact commit со всеми тремя зарегистрированными SHA-256.
+TestPyPI/PyPI, новое обучение, научные результаты и `v0.1.0` не изменялись.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_performed: true
+release_actions_performed: 3
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Выпуск уже существует и проверен, но блок ещё не принят: каноническое evidence
+closure должно пройти отдельный PR и hosted `final-evidence`. Только после его
+успеха состояние перейдёт в `RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED` и
+будет готово к решению John. Это не авторизует следующий блок или ещё один
+обычный релиз 0.1.x.
+
+## 72. Задачи John
+
+1. Создать commit из подготовленного evidence closure, отправить ветвь и
+   открыть PR в `main`.
+2. Дождаться обязательного `assurance` точного SHA и передать URL PR агенту.
+3. Не изменять immutable `v0.1.1`; следующий блок и PyPI/TestPyPI остаются
+   неавторизованными до отдельного решения.
+
+## 73. ST08_15C — repair evidence closure после первого hosted отказа
+
+Первый exact-head запуск PR №25 (`38412508206`, job `115348216747`, head
+`344b6c605d9cbece39cc205319a9fc11888e41a2`) подтвердил contract,
+12/12 отрицательных мутаций, focused tests и `final-evidence`, но завершился
+отказом на повторной сборке `v0.1.1`. Причина локализована: после публикации CI
+пытался получить уже зарегистрированный sdist из текущего evidence-closure
+индекса, содержащего закономерные post-release изменения документации.
+
+Исправленная политика `--source lifecycle` разделяет два представления
+источника: до публикации — канонический Git index кандидата; после публикации —
+точный release commit/tree, записанный в evidence. SHA-256 contract не
+ослабляется, поэтому проверка по-прежнему доказывает байтовое совпадение с
+immutable активами, а не принимает новый post-release пакет. Tag, release body,
+assets, научные артефакты и PyPI/TestPyPI не изменяются.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+hosted_evidence_closure_attempt_1: FAIL
+repair_scope: lifecycle_source_selection_only
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`hosted_evidence_closure_attempt_1: FAIL` означает, что первый hosted gate не
+закрыл задачу; это не означает дефект или отзыв самого опубликованного
+`v0.1.1`. `TECHNICAL_STATUS: PASS` относится к локально проверенному ремонту:
+contract и `final-evidence` приняты, 12/12 мутаций отклонены, 35/35 focused unit
+tests прошли, две сборки из exact release commit воспроизвели все три
+зарегистрированных актива. Новый exact-SHA hosted run всё ещё обязателен, поэтому
+`READINESS: NOT_READY`, а принятие и слияние PR №25 преждевременны.
+
+## 74. Задачи John
+
+1. Отправить подготовленный агентом repair commit в существующий PR №25.
+2. Дождаться нового `assurance` и передать агенту URL или идентификатор run.
+3. Не объединять PR и не изменять immutable `v0.1.1` до следующего отчёта.
+
+## 75. ST08_15C — evidence closure прошло exact-SHA hosted gate
+
+Repair commit `0d19b76617201b4bcf61ecc3a61bb670a80d3ecc` в PR №25 прошёл
+GitHub Actions run `38517298286`, job `115698856166`. Run завершился с
+`success` 2026-10-14T05:40:08Z, а head SHA проверки точно совпадает с commit.
+Все шаги 1–22 успешны, включая `final-evidence`, двойную реконструкцию активов
+из immutable release commit, проверку обоих releases и assets, clean offline
+install и published baseline.
+
+```text
+ST08_15C_lifecycle_state: RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED
+hosted_assurance_run_id: 38517298286
+hosted_assurance_job_id: 115698856166
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Техническое evidence closure завершено. Эти значения не означают
+`ACCEPTED_BY_JOHN`, `TASK_CLOSED` или разрешение на merge: соответствующие
+решения принадлежат только John. Опубликованный `v0.1.1` не изменялся; обычный
+следующий 0.1.x, PyPI/TestPyPI и следующий блок не авторизованы.
+
+## 76. Задачи John
+
+1. Создать финальный evidence-state commit в PR №25 и дождаться нового
+   exact-SHA `assurance`.
+2. Передать результат агенту для проверки; затем принять либо вернуть ST08_15C.
+3. Отдельно решить merge PR №25. Следующий блок требует отдельного
+   `NEXT_BLOCK_AUTHORIZED`.

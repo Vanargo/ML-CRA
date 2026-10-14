@@ -20,12 +20,23 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         self.assertEqual(result["planned_change_paths"], 18)
         self.assertEqual(result["protected"]["expected"], 18)
 
-    def test_prepared_evidence_is_fail_closed(self) -> None:
+    def test_current_evidence_is_fail_closed(self) -> None:
         result = assurance.validate_final_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["evidence"]["lifecycle_state"], assurance.PREPARED)
-        self.assertEqual(result["evidence"]["readiness"], "NOT_READY")
-        self.assertFalse(EVIDENCE["release_performed"])
+        self.assertIn(
+            result["evidence"]["lifecycle_state"],
+            (assurance.PREPARED, assurance.RELEASED_PENDING, assurance.RELEASED_CLOSED),
+        )
+        expected_readiness = (
+            "READY_FOR_JOHN_ACCEPTANCE"
+            if result["evidence"]["lifecycle_state"] == assurance.RELEASED_CLOSED
+            else "NOT_READY"
+        )
+        self.assertEqual(result["evidence"]["readiness"], expected_readiness)
+        self.assertEqual(
+            EVIDENCE["release_performed"],
+            EVIDENCE["lifecycle_state"] != assurance.PREPARED,
+        )
 
     def test_all_registered_mutations_are_rejected(self) -> None:
         result = assurance.run_mutations()
@@ -62,10 +73,10 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance.validate_workflow_text(text)
 
-    def test_prepared_evidence_rejects_release_claim(self) -> None:
+    def test_current_evidence_rejects_release_state_contradiction(self) -> None:
         bindings = assurance.validate_contract_bindings(CONTRACT)
         mutated = copy.deepcopy(EVIDENCE)
-        mutated["release_performed"] = True
+        mutated["release_performed"] = not EVIDENCE["release_performed"]
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance.validate_evidence(mutated, CONTRACT, bindings)
 
@@ -84,6 +95,36 @@ class TestSt0815CGitHubExecution(unittest.TestCase):
         mutated["release_assets"]["assets"][assurance.ASSET_NAMES[0]]["size_bytes"] = 0
         with self.assertRaises(assurance.GitHubExecutionError):
             assurance._validate_asset_contract(mutated)
+
+    def test_prepared_lifecycle_builds_from_canonical_index(self) -> None:
+        prepared = copy.deepcopy(EVIDENCE)
+        prepared["lifecycle_state"] = assurance.PREPARED
+        prepared["release"] = {}
+        result = assurance._release_source_spec(prepared)
+        self.assertEqual(result["source_representation"], "canonical_Git_index_checkout")
+        self.assertIsNone(result["commit"])
+        self.assertIsNone(result["git_tree"])
+
+    def test_released_lifecycle_builds_from_exact_release_commit(self) -> None:
+        result = assurance._release_source_spec(EVIDENCE)
+        self.assertEqual(result["source_representation"], "exact_released_commit_checkout")
+        self.assertEqual(result["commit"], EVIDENCE["release"]["commit"])
+        self.assertEqual(result["git_tree"], EVIDENCE["release"]["git_tree"])
+
+    def test_released_lifecycle_rejects_missing_exact_tree(self) -> None:
+        mutated = copy.deepcopy(EVIDENCE)
+        mutated["release"]["git_tree"] = None
+        with self.assertRaises(assurance.GitHubExecutionError):
+            assurance._release_source_spec(mutated)
+
+    def test_workflow_requires_lifecycle_selected_release_source(self) -> None:
+        text = assurance.WORKFLOW_PATH.read_text(encoding="utf-8").replace(
+            "build-release --source lifecycle",
+            "build-release",
+            1,
+        )
+        with self.assertRaises(assurance.GitHubExecutionError):
+            assurance.validate_workflow_text(text)
 
 
 if __name__ == "__main__":

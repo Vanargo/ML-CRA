@@ -4,8 +4,8 @@
   "task_id": "ST08_15C_v0_1_1_GitHub_execution",
   "recorded_at": "2026-10-13",
   "profile": "CHANGE",
-  "status": "prepared_pending_exact_SHA_assurance_merge_and_release",
-  "lifecycle_state": "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE",
+  "status": "released_verified_and_hosted_evidence_closed",
+  "lifecycle_state": "RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED: ST08_15C_v0_1_1_GitHub_execution",
     "release_state_finalization_authorized": true,
@@ -28,7 +28,7 @@
     "paths": 369,
     "hashed_paths": 367,
     "path_list_sha256": "0c9417ffb87ac56bd59f41ea933272b9106df7048a29c94b0ff4e3872674340a",
-    "manifest_sha256": "a0a78786f74aba29da28a9ceec2fd539beb4aaaf97ee377cff7fb1d5ad83ffeb",
+    "manifest_sha256": "b9fc66eddade79502abd5a2311306c4a89e319d16d8fd1cdf4ed54ceccb4c371",
     "cycle_breaking_exclusions": [
       "data_registry/st08_15C_v0_1_1_GitHub_execution_evidence_v01.json",
       "data_registry/st08_15C_v0_1_1_GitHub_execution_manifest_v01.csv"
@@ -85,31 +85,139 @@
     "v0_1_0_immutable": true
   },
   "pre_release_assurance": {
-    "status": "PENDING",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "run_url": null,
-    "conclusion": null
+    "status": "PASS",
+    "run_id": 38405834387,
+    "job_id": 115325070944,
+    "head_sha": "0dee198e0ef39bf9533b9ba35689bd1819c5abd6",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38405834387",
+    "conclusion": "success",
+    "primary_steps": 22
   },
   "post_merge_assurance": {
-    "status": "PENDING",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "run_url": null,
-    "conclusion": null
+    "status": "PASS",
+    "run_id": 38407353701,
+    "job_id": 115330340477,
+    "head_sha": "1cfa920ec91d85341525f1ca6ef57a060dcb9cce",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38407353701",
+    "conclusion": "success",
+    "primary_steps": 22
   },
-  "release": null,
-  "attestation": null,
-  "verification_commands": [],
+  "release": {
+    "repository": "Vanargo/ML-CRA",
+    "release_id": 411733338,
+    "release_node_id": "RE_kwDOUDYwq84Yio1a",
+    "url": "https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1",
+    "tag": "v0.1.1",
+    "title": "ML-CRA 0.1.1",
+    "latest": true,
+    "draft": false,
+    "prerelease": false,
+    "immutable": true,
+    "tag_ref_type": "commit",
+    "commit": "1cfa920ec91d85341525f1ca6ef57a060dcb9cce",
+    "git_tree": "180aa516153724643d916f0db615f0adf333e23a",
+    "created_at": "2026-10-13T13:43:50Z",
+    "published_at": "2026-10-13T13:57:53Z",
+    "body_sha256": "513b85b6a56a61b919d77af38e8b277d666925365e207a74d0a1e890fdf6101e",
+    "assets": {
+      "ml_cra-0.1.1.tar.gz": {
+        "sha256": "69316f4e99dc41de1d15a92c780ed4a22c77a73a64cdd5f750765463f0bb788a",
+        "size_bytes": 98497
+      },
+      "ml_cra-0.1.1-py3-none-any.whl": {
+        "sha256": "2ce7ffbc8d030b61623539b5707a160db290c5fe28363d9a33d977bb0f144dcb",
+        "size_bytes": 92345
+      },
+      "SHA256SUMS": {
+        "sha256": "169022a8181f2d51ca7a795dc8ab138109c2b86500dc5197357ad265f80aaab2",
+        "size_bytes": 182
+      }
+    }
+  },
+  "attestation": {
+    "status": "PASS",
+    "predicate_type": "https://in-toto.io/attestation/release/v0.2",
+    "purl": "pkg:github/Vanargo/ML-CRA@v0.1.1",
+    "release_database_id": "411733338",
+    "release_commit": "1cfa920ec91d85341525f1ca6ef57a060dcb9cce",
+    "asset_sha256": {
+      "ml_cra-0.1.1.tar.gz": "69316f4e99dc41de1d15a92c780ed4a22c77a73a64cdd5f750765463f0bb788a",
+      "ml_cra-0.1.1-py3-none-any.whl": "2ce7ffbc8d030b61623539b5707a160db290c5fe28363d9a33d977bb0f144dcb",
+      "SHA256SUMS": "169022a8181f2d51ca7a795dc8ab138109c2b86500dc5197357ad265f80aaab2"
+    },
+    "certificate_issuer": "CN=Fulcio Intermediate l1,O=GitHub, Inc.",
+    "certificate_subject_alternative_name": "https://dotcom.releases.github.com",
+    "verified_timestamp": "2026-10-13T13:57:54Z"
+  },
+  "verification_commands": [
+    {
+      "command": "gh release verify v0.1.1 --repo Vanargo/ML-CRA",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "gh release verify-asset v0.1.1 .\\dist\\st08_15C-release\\ml_cra-0.1.1.tar.gz --repo Vanargo/ML-CRA",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "gh release verify-asset v0.1.1 .\\dist\\st08_15C-release\\ml_cra-0.1.1-py3-none-any.whl --repo Vanargo/ML-CRA",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "gh release verify-asset v0.1.1 .\\dist\\st08_15C-release\\SHA256SUMS --repo Vanargo/ML-CRA",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "hosted_assurance_attempts": [
+    {
+      "attempt": 1,
+      "status": "FAIL",
+      "run_id": 38412508206,
+      "job_id": 115348216747,
+      "head_sha": "344b6c605d9cbece39cc205319a9fc11888e41a2",
+      "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38412508206",
+      "conclusion": "failure",
+      "failed_step": "Build the exact v0.1.1 release assets twice",
+      "passed_preceding_steps": 13,
+      "observed_sdist_sha256": "57bf9a4f05f8d1adcb674305716f524f71992c986f4945a28a2bf35051a3132c",
+      "observed_sdist_size_bytes": 98578,
+      "observed_SHA256SUMS_sha256": "7dfa74102efbcdf3b025ef0f328cae1f94619217de5325594ae7eda0e90254a5",
+      "diagnosis": "The released lifecycle rebuilt from the evidence-closure Git index instead of the immutable release commit; post-release documentation changed the sdist bytes while the published release remained unchanged.",
+      "repair": "Select the canonical Git index only for PREPARED and reconstruct the exact evidence-bound release commit and tree for both RELEASED lifecycle states."
+    },
+    {
+      "attempt": 2,
+      "status": "PASS",
+      "run_id": 38517298286,
+      "job_id": 115698856166,
+      "head_sha": "0d19b76617201b4bcf61ecc3a61bb670a80d3ecc",
+      "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38517298286",
+      "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38517298286/job/115698856166",
+      "conclusion": "success",
+      "primary_steps": 22,
+      "completed_at": "2026-10-14T05:40:08Z",
+      "verified_controls": [
+        "ST08_15C_final_evidence",
+        "exact_release_commit_double_build",
+        "immutable_release_and_asset_verification",
+        "clean_offline_install",
+        "published_baseline"
+      ]
+    }
+  ],
   "hosted_assurance": {
-    "status": "PENDING",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "run_url": null,
-    "conclusion": null
+    "status": "PASS",
+    "run_id": 38517298286,
+    "job_id": 115698856166,
+    "head_sha": "0d19b76617201b4bcf61ecc3a61bb670a80d3ecc",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38517298286",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38517298286/job/115698856166",
+    "conclusion": "success",
+    "primary_steps": 22,
+    "completed_at": "2026-10-14T05:40:08Z"
   },
   "observed_checks": {
     "source_baseline": "PASS_accepted_ST08_15B_post_merge_main",
@@ -118,7 +226,7 @@
     "protected_scientific_artifacts": "PASS_18_of_18_unchanged",
     "contract": "PASS",
     "negative_mutations": "PASS_12_of_12_rejected",
-    "focused_unit_tests": "PASS_31_of_31_current_ST08_15C_and_release_assurance",
+    "focused_unit_tests": "PASS_35_of_35_current_ST08_15C_and_release_assurance",
     "release_build_reproducibility": "PASS_2_of_2_registered_assets",
     "working_source_and_baseline": "PASS_414_paths_18_protected",
     "published_source_and_baseline": "PASS_369_paths_367_hashed_18_protected",
@@ -130,8 +238,13 @@
     "aggregate_stage8_reaudit": "PASS_validator_reproduced_historical_D03_D08_FAIL_D04_BLOCKED_without_current_regression",
     "optional_agent_pilot": "FAIL_historical_verdict_aggregation_not_a_ST08_15C_required_check_current_checks_passed",
     "historical_ST08_15B_direct_replay": "SKIPPED_as_current_gate_after_observed_expected_4_errors_from_authorized_successor_release_note_transition",
-    "hosted_exact_SHA_assurance": "PENDING",
-    "release_execution": "PENDING"
+    "hosted_exact_SHA_assurance": "PASS_PR_run_38405834387_job_115325070944_and_main_run_38407353701_job_115330340477",
+    "release_execution": "PASS_immutable_latest_v0_1_1_release_411733338",
+    "release_attestation": "PASS_in_toto_release_v0_2_exact_commit_and_three_assets",
+    "release_and_asset_verification": "PASS_4_of_4_GitHub_CLI_commands",
+    "hosted_evidence_closure_attempt_1": "FAIL_run_38412508206_job_115348216747_release_rebuild_used_post_release_index",
+    "lifecycle_source_reconstruction_repair": "PASS_local_and_hosted_exact_commit_tree_and_3_asset_bindings",
+    "hosted_evidence_closure": "PASS_run_38517298286_job_115698856166_exact_head_0d19b76617201b4bcf61ecc3a61bb670a80d3ecc"
   },
   "change_reconciliation": {
     "planned_paths": 18,
@@ -141,22 +254,23 @@
     "status": "PASS_exact_planned_path_set"
   },
   "limits": [
-    "The prepared branch is not a published release and cannot become one without exact-SHA assurance protected main merge fresh builds and external verification.",
+    "The immutable GitHub release exists and is externally verified; task acceptance and pull-request merge remain decisions reserved for John.",
     "SHA-256 establishes byte identity but does not prove correctness security or scientific validity.",
-    "The absence of date-released avoids a guessed timestamp; exact external publication time will be recorded by GitHub and closure evidence.",
+    "CITATION.cff intentionally omits date-released while the exact GitHub publication timestamp is recorded in this closure evidence.",
     "No new training model comparison scientific result protocol or verdict is produced."
   ],
   "checkpoint": {
-    "status": "PENDING_RELEASE_VERIFICATION",
-    "reason": "A separate ZIP will be skipped only if protected remote Git immutable assets and the release attestation provide verified recovery."
+    "status": "SKIPPED",
+    "reason": "Protected remote Git exact commit immutable release assets and the verified GitHub release attestation provide tested identity and recovery; no separate ZIP criterion remains."
   },
-  "release_performed": false,
-  "release_actions_performed": 0,
+  "release_performed": true,
+  "release_actions_performed": 3,
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "PyPI_uploads": 0,
   "TestPyPI_uploads": 0,
   "v0_1_0_mutations": 0,
   "technical_status": "PASS",
-  "readiness": "NOT_READY"
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "hosted_evidence_closed_at": "2026-10-14T05:40:08Z"
 }
