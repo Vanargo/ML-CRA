@@ -180,6 +180,54 @@ def validate_manifest(root: Path, contract: Mapping[str, Any]) -> dict[str, Any]
         raise GitHubExecutionError("successor manifest paths must be unique and ordinally sorted")
     exclusions = sorted(contract["successor_manifest"]["cycle_breaking_exclusions"])
     tracked = _tracked_paths(root, contract)
+    active_manifest = release_assurance.PUBLICATION_TREE_MANIFEST.relative_to(
+        PROJECT_ROOT
+    ).as_posix()
+    historical_manifest = MANIFEST_PATH.relative_to(PROJECT_ROOT).as_posix()
+    if active_manifest != historical_manifest:
+        current = release_assurance.validate_publication_tree(root)
+        historical_paths = sorted(paths + exclusions)
+        if not set(historical_paths).issubset(set(current["included_paths"])):
+            raise GitHubExecutionError(
+                "historical ST08_15C manifest is not retained by the current successor tree"
+            )
+        evidence = _load_json(root / EVIDENCE_PATH.relative_to(PROJECT_ROOT))
+        recorded = evidence.get("successor_manifest", {})
+        manifest_payload = release_assurance.git_index_blob_bytes(
+            historical_manifest, root
+        )
+        if (
+            recorded.get("paths") != len(historical_paths)
+            or recorded.get("hashed_paths") != len(rows)
+            or recorded.get("path_list_sha256") != _path_list_sha256(historical_paths)
+            or recorded.get("manifest_sha256") != _sha256_bytes(manifest_payload)
+            or recorded.get("cycle_breaking_exclusions") != exclusions
+        ):
+            raise GitHubExecutionError(
+                "historical ST08_15C manifest no longer matches its accepted evidence"
+            )
+        for row in rows:
+            if not re.fullmatch(r"[0-9a-f]{64}", row["sha256"]):
+                raise GitHubExecutionError(
+                    f"historical manifest digest is invalid: {row['relative_path']}"
+                )
+            try:
+                size = int(row["size_bytes"])
+            except ValueError as error:
+                raise GitHubExecutionError(
+                    f"historical manifest size is invalid: {row['relative_path']}"
+                ) from error
+            if size < 0:
+                raise GitHubExecutionError(
+                    f"historical manifest size is negative: {row['relative_path']}"
+                )
+        return {
+            "paths": recorded["paths"],
+            "hashed_paths": recorded["hashed_paths"],
+            "path_list_sha256": recorded["path_list_sha256"],
+            "manifest_sha256": recorded["manifest_sha256"],
+            "cycle_breaking_exclusions": exclusions,
+        }
     if paths != sorted(set(tracked) - set(exclusions)):
         raise GitHubExecutionError("successor manifest path set mismatch")
     for row in rows:

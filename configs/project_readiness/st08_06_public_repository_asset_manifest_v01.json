@@ -3,7 +3,7 @@
   "manifest_id": "st08_06_public_repository_asset_manifest_v01",
   "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
   "recorded_at": "2026-08-20",
-  "status": "v0_1_1_release_execution_prepared_pending_exact_SHA_assurance",
+  "status": "v1_0_0_exit_contract_designed_pending_exact_SHA_assurance",
   "authority": {
     "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
     "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
@@ -51,8 +51,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 414,
-    "approved_path_list_sha256": "bb681cfbb107fd40deb09223ac27793e85382b11bd971c6ab7e05a96084ccdb3",
+    "approved_path_count": 420,
+    "approved_path_list_sha256": "ef27d0d12fa2cf398d1bb664f7fa542dc14d574545285ebfdc6ed2d320fecb56",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -145,10 +145,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 196,
-    "ST08-06-MANIFEST-07": 173,
+    "ST08-06-MANIFEST-06": 197,
+    "ST08-06-MANIFEST-07": 178,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 414
+    "TOTAL": 420
   },
   "inventory_refreshes": [
     {
@@ -258,6 +258,12 @@
       "recorded_at": "2026-10-13",
       "reason": "Authorized release execution adds a successor manifest, fail-closed lifecycle validator, tests, evidence and exact scope; finalizes only release-state documentation and prepares exact-SHA immutable GitHub publication without PyPI or scientific change.",
       "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design",
+      "recorded_at": "2026-10-14",
+      "reason": "Authorized post-release review adds a bounded terminal-product contract, fail-closed validator, tests, evidence, successor manifest and exact scope while preserving v0.1.1, product code and scientific artifacts and performing no release action.",
+      "external_publication_performed": false
     }
   ],
   "mandatory_public_legal_artifacts": [
@@ -270,10 +276,11 @@
     "st08_06_legal_artifacts_condition": "SATISFIED_AFTER_VALIDATION",
     "public_development_gate": "SATISFIED_BY_ST08_13B",
     "remaining_blockers": [
-      "exact_pull_request_SHA_assurance_not_observed",
-      "protected_main_merge_not_confirmed_or_executed",
-      "post_merge_assurance_not_observed",
-      "immutable_v0_1_1_release_not_executed"
+      "ST08_16_exact_pull_request_SHA_assurance_not_observed",
+      "ST08_16_not_accepted_by_John",
+      "ST08_16A_v1_0_0_candidate_not_finalized",
+      "ST08_16B_v1_0_0_final_reaudit_and_security_preflight_not_passed",
+      "ST08_16C_immutable_v1_0_0_release_not_authorized_or_executed"
     ],
     "external_actions_performed": 0
   },

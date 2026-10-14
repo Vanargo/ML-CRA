@@ -155,3 +155,9 @@ added,tests/test_v0_1_1_GitHub_execution_st08_15C.py,ST08_15C positive lifecycle
 added,data_registry/st08_15C_v0_1_1_GitHub_execution_manifest_v01.csv,ST08_15C successor canonical Git path SHA-256 and size manifest
 added,data_registry/st08_15C_v0_1_1_GitHub_execution_evidence_v01.json,ST08_15C authorization preparation release attestation verification and closure evidence
 added,docs/agent/st08_15C_v0_1_1_GitHub_execution_change_scope_v01.csv,ST08_15C exact planned and actual change scope
+added,configs/project_readiness/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_v01.json,ST08_16 post-release observation terminal product public-contract freeze and finite exit contract
+added,scripts/st08_16_v1_0_0_exit_contract_assurance.py,ST08_16 fail-closed contract manifest mutation and evidence assurance
+added,tests/test_v1_0_0_exit_contract_st08_16.py,ST08_16 focused positive and negative exit-contract tests
+added,data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv,ST08_16 successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json,ST08_16 review decision finite route verification and limitation evidence
+added,docs/agent/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_change_scope_v01.csv,ST08_16 exact planned and actual change scope

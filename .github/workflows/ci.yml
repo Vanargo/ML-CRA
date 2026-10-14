@@ -89,6 +89,17 @@ jobs:
           python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Validate the finite v1.0.0 exit contract
+        run: |
+          python scripts/st08_16_v1_0_0_exit_contract_assurance.py contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16_v1_0_0_exit_contract_assurance.py mutations
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_v1_0_0_exit_contract_st08_16
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16_v1_0_0_exit_contract_assurance.py final-evidence
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Build the exact v0.1.1 release assets twice
         run: python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py build-release --source lifecycle --output-dir dist/st08_15C-ci --verify-contract-assets
 

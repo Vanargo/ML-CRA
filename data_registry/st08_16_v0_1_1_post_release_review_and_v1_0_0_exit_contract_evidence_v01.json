@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design",
+  "recorded_at": "2026-10-14",
+  "lifecycle_state": "CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "profile": "CHANGE",
+  "baseline": {
+    "commit": "e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b",
+    "git_tree": "9fa92e00835b58fcd2afe1e530bda42ff7b1827b",
+    "tracked_paths": 369,
+    "protected_artifacts": 18,
+    "status": "PASS"
+  },
+  "accepted_predecessor": {
+    "task_id": "ST08_15C_v0_1_1_GitHub_execution",
+    "evidence_closure_PR": 25,
+    "merge_commit": "e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b",
+    "post_merge_run_id": 38519742908,
+    "post_merge_job_id": 115706471628,
+    "status": "PASS"
+  },
+  "observations": {
+    "immutable_v0_1_1_release": "PASS",
+    "release_id": 411733338,
+    "release_assets": 3,
+    "release_asset_downloads_total": 0,
+    "user_authored_GitHub_issues": 0,
+    "open_Dependabot_security_alerts": 0,
+    "open_Dependabot_version_update_PRs": 9,
+    "operational_adoption_evidence": "NOT_AVAILABLE",
+    "v1_0_0_exit_criteria_failed": 0,
+    "interpretation": "The release and repository controls are verified, but zero downloads cannot establish field reliability or adoption. Version-update pull requests are maintenance backlog rather than known-vulnerability evidence."
+  },
+  "decision": {
+    "method": "weighted_sum_with_ordinal_1_to_5_scores_and_predeclared_criteria",
+    "selected_option": "O04",
+    "selected_score": 4.85,
+    "ordinary_blocks_after_acceptance": 3,
+    "additional_routine_0_x": "FORBIDDEN",
+    "future_blocks_authorized": 0,
+    "status": "PASS"
+  },
+  "exit_contract": {
+    "target_version": "1.0.0",
+    "terminal_goal": "stable bounded offline ML-claim evidence auditor",
+    "public_contract_frozen": true,
+    "exit_criteria": 7,
+    "future_blocks": [
+      "ST08_16A_v1_0_0_candidate_finalization",
+      "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
+      "ST08_16C_v1_0_0_GitHub_execution"
+    ],
+    "future_status": "PROPOSED_NOT_AUTHORIZED",
+    "project_completion_after_verified_accepted_v1_0_0": true,
+    "automatic_successor": "NONE",
+    "status": "PASS"
+  },
+  "manifest": {
+    "status": "PASS",
+    "paths": 375,
+    "hashed_paths": 373,
+    "path_list_sha256": "cf63dda1d09215f8b8154c0dc6b7ae79f7b24012f0b5200aebd3274d649b94a5",
+    "manifest_sha256": "642d785c06aea5c66ef43b301febfe6eebaa9e9d8b812da43bafdd3f346fdd43",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json",
+      "data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv"
+    ]
+  },
+  "checks": [
+    {"check_id": "authority", "status": "PASS", "result": "only ST08_16 design is authorized"},
+    {"check_id": "source_baseline", "status": "PASS", "result": "accepted main baseline and protected inventory verified"},
+    {"check_id": "v0_1_1_release_observation", "status": "PASS", "result": "immutable release identity and three asset digests match ST08_15C evidence"},
+    {"check_id": "feedback_security_classification", "status": "PASS", "result": "zero user issues and security alerts separated from nine version updates; telemetry limit disclosed"},
+    {"check_id": "terminal_product_definition", "status": "PASS", "result": "bounded stable offline auditor and explicit non-goals recorded"},
+    {"check_id": "public_contract_freeze", "status": "PASS", "result": "commands schemas artifacts supported cell and exit-code semantics registered"},
+    {"check_id": "finite_exit_plan", "status": "PASS", "result": "exactly three future blocks proposed and none authorized"},
+    {"check_id": "decision_matrix", "status": "PASS", "result": "O04 uniquely selected at 4.85 of 5"},
+    {"check_id": "negative_mutations", "status": "PASS", "result": "8 of 8 registered contract mutations rejected"},
+    {"check_id": "historical_manifest_successor_bridge", "status": "PASS", "result": "accepted ST08_15C manifest remains bound to its evidence while current bytes require the ST08_16 successor manifest"},
+    {"check_id": "focused_unit_tests", "status": "PASS", "result": "45 release-assurance ST08_15C and ST08_16 regression tests pass"},
+    {"check_id": "product_and_scientific_boundary", "status": "PASS", "result": "no product source package scientific or release mutation"},
+    {"check_id": "pilot_full_historical_aggregate", "status": "FAIL", "result": "current structural and scientific checks pass, but the aggregate command retains accepted historical FAIL gate records and exits 1", "disposition": "NON_BLOCKING_HISTORICAL_RECORDS_NOT_REWRITTEN"},
+    {"check_id": "hosted_exact_head_assurance", "status": "PASS", "result": "PR 26 exact head f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a passed all 23 primary hosted assurance steps"},
+    {"check_id": "checkpoint", "status": "SKIPPED", "result": "reversible governance task with Git manifest branch protection and hosted assurance"}
+  ],
+  "hosted_assurance": {
+    "status": "PASS",
+    "run_id": 38524768465,
+    "job_id": 115722411638,
+    "head_sha": "f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a",
+    "event": "pull_request",
+    "conclusion": "success",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38524768465",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/38524768465/job/115722411638",
+    "required_step": "Validate the finite v1.0.0 exit contract",
+    "required_step_conclusion": "success",
+    "primary_steps": 23,
+    "completed_at": "2026-10-14T06:59:54Z"
+  },
+  "actions": {
+    "product_source_changes": 0,
+    "scientific_artifact_changes": 0,
+    "training_runs": 0,
+    "tag_or_release_actions": 0,
+    "TestPyPI_or_PyPI_uploads": 0,
+    "future_blocks_authorized": 0
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The task is reversible governance work and is bound by an exact successor Git-index manifest, protected main, immutable release evidence and hosted assurance."
+  },
+  "uncertainty": [
+    "No external usage telemetry exists beyond GitHub counters.",
+    "No absence-of-defects claim is made from the absence of user reports.",
+    "Future dependency versions are not presumed compatible; only the exact locked and tested cell is supported."
+  ],
+  "John_reserved_decisions": [
+    "accept or return ST08_16 after hosted assurance",
+    "close the task",
+    "authorize ST08_16A separately",
+    "authorize any future tag release or package-index publication separately"
+  ]
+}
