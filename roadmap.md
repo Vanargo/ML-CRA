@@ -2427,3 +2427,97 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
 1. Создать evidence-closure commit в PR №26 и дождаться exact-SHA assurance.
 2. Передать новый результат агенту; до его отчёта не выполнять merge.
 3. Отдельно принять/закрыть ST08_16 и решить авторизацию ST08_16A.
+
+## 81. ST08_16A — локальный кандидат стабильного ограниченного контракта 1.0.0
+
+John принял и закрыл ST08_16 после слияния и успешной post-merge проверки
+канонического `main` `e2991bff81348799fd1f961bf8af185d14d5aa6a`, затем отдельно
+авторизовал `ST08_16A_v1_0_0_candidate_finalization`.
+
+```text
+ST08_16A_profile: CHANGE
+ST08_16A_authorized: true
+ST08_16B_authorized: false
+candidate_version: 1.0.0
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+scientific_artifact_changes: 0
+```
+
+Версия package/runtime/CFF стала `1.0.0`, classifier —
+`Development Status :: 5 - Production/Stable`, а `date-released` отсутствует.
+Двуязычные README и `RELEASE_NOTES_1.0.0.md` определяют стабильность только в
+поддерживаемой ячейке Windows x64 / CPython `>=3.12,<3.13`, сохраняют `v0.1.1`
+текущим опубликованным выпуском и не заявляют массового применения.
+
+Публичный контракт сохраняет без расширения четыре команды, две claim-схемы,
+doctor/dashboard schemas, коды 0/2/3/4/5/6 и смысл артефактов. Финальный
+re-audit, security preflight и воспроизводимые активы относятся только к
+будущему отдельно авторизуемому ST08_16B. SemVer 2.0.0, официальная PyPA
+спецификация `pyproject.toml`, PyPI classifiers и CFF являются внешними
+нормативными опорами metadata-решений; локальные проверки доказывают только
+наблюдаемое состояние репозитория.
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Локальный кандидат технически согласован, но exact-SHA hosted gate ещё не
+наблюдался. Текущий блок не принят, `ST08_16B` не разрешён.
+
+## 82. Задачи John
+
+1. Создать commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться exact-SHA `assurance` с ST08_16A `final-evidence` и передать
+   результат агенту.
+3. До следующего отчёта не выполнять merge, не принимать ST08_16A и не начинать
+   ST08_16B или публикацию `v1.0.0`.
+
+## 83. ST08_16A — exact-SHA hosted gate закрыт
+
+PR №27 открыт в `main`, не является draft и имеет состояния
+`MERGEABLE/CLEAN`. Его base точно равен принятому каноническому
+`e2991bff81348799fd1f961bf8af185d14d5aa6a`, а head — candidate commit
+`b7cb928d2ceb70f547153d29b79460dec8f21043`. Локальный `HEAD`, upstream и
+удалённая ветвь совпали; рабочее дерево было чистым.
+
+GitHub Actions run `39385375464`, job `118503826256`, завершился с `success`
+2026-10-20T07:21:47Z. Все 23 основных шага успешны, включая ST08_16A
+`final-evidence`, hash-locked dependency audit, secret-pattern scan, 10/10
+отрицательных мутаций, двуязычную документацию, immutable-release проверки,
+чистую offline-установку и deterministic published baseline.
+
+Инженерная цепочка доказательства разделяет идентичность и выполнение: SHA-256
+и Git head связывают проверку с точными байтами, но не доказывают корректность
+сами по себе; корректность в установленной области подтверждает наблюдаемый
+успешный hosted gate. Это соответствует зарегистрированным опорам
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) и
+[NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final) и не расширяет их
+смысл.
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 39385375464
+hosted_assurance_job_id: 118503826256
+hosted_assurance_head_sha: b7cb928d2ceb70f547153d29b79460dec8f21043
+ST08_16B_authorized: false
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Техническое evidence closure — закрытие доказательств — подготовлено, но новый
+closure commit должен сам пройти повторный exact-SHA `assurance`. До этого
+нельзя принимать или объединять PR. Готовность не разрешает ST08_16B, сборку
+активов, тег, GitHub Release или TestPyPI/PyPI.
+
+## 84. Задачи John
+
+1. После передачи агентом индексированного набора создать evidence-closure
+   commit в существующей ветви PR №27 и отправить его.
+2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
+3. До следующего отчёта не объединять PR, не присваивать
+   `ACCEPTED_BY_JOHN`/`TASK_CLOSED` и не начинать ST08_16B.

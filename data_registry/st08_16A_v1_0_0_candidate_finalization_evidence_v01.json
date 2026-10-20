@@ -1,0 +1,94 @@
+{
+  "schema_version": "st08_16A_v1_0_0_candidate_finalization_evidence_v01",
+  "task_id": "ST08_16A_v1_0_0_candidate_finalization",
+  "recorded_at": "2026-10-20",
+  "profile": "CHANGE",
+  "lifecycle_state": "CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
+  "technical_status": "PASS",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
+  "baseline": {
+    "branch": "main",
+    "commit": "e2991bff81348799fd1f961bf8af185d14d5aa6a",
+    "git_tree": "f7e09312db3aed019d1897b41bb42b70f8da588e",
+    "tracked_paths": 375,
+    "accepted_ST08_16": true,
+    "post_merge_assurance": "success_as_stated_by_John"
+  },
+  "candidate": {
+    "version_before": "0.1.1",
+    "version_after": "1.0.0",
+    "classifier_before": "Development Status :: 3 - Alpha",
+    "classifier_after": "Development Status :: 5 - Production/Stable",
+    "citation_date_released": "ABSENT",
+    "published_release_current": "v0.1.1",
+    "v1_0_0_release_status": "NOT_PUBLISHED_LOCAL_CANDIDATE",
+    "public_contract_changes": [],
+    "product_behavior_changes": []
+  },
+  "manifest": {
+    "status": "PASS",
+    "paths": 382,
+    "hashed_paths": 380,
+    "path_list_sha256": "e8c751d8c607b35f506f1699dab6d863076bd7e97e638880ad1e651b77d35032",
+    "manifest_sha256": "034aefaab8084865722e01246e1609623f498602a5cff48594dbea2ce5b6f1c5",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json",
+      "data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv"
+    ]
+  },
+  "checks": [
+    {"check_id": "metadata_contract", "status": "PASS", "result": "1.0.0 package runtime citation and bounded stable classifier agree; release date absent"},
+    {"check_id": "frozen_public_contract", "status": "PASS", "result": "four commands two claim schemas two report schemas six exit codes and artifact meanings preserved"},
+    {"check_id": "bilingual_candidate_notes", "status": "PASS", "result": "English and Russian candidate status supported cell scientific limits and remaining gates recorded"},
+    {"check_id": "registered_mutations", "status": "PASS", "result": "10 of 10 registered mutations rejected"},
+    {"check_id": "system_python_focused_suite", "status": "BLOCKED", "result": "system Python lacked the declared PyYAML assurance dependency; the same full suite was rerun successfully in the required local ml-cra-venv"},
+    {"check_id": "focused_tests", "status": "PASS", "result": "50 focused candidate exit-contract documentation and release-assurance tests passed in ml-cra-venv"},
+    {"check_id": "CLI_dashboard_regressions", "status": "PASS", "result": "28 classification regression dashboard behavior and fail-closed tests passed; one non-failing local CPU-topology warning was emitted"},
+    {"check_id": "working_baseline", "status": "PASS", "result": "baseline_and_change_scope PASS; manifest rows 158 scope files 53 missing 0 out_of_scope 0 scope_errors 0"},
+    {"check_id": "published_baseline", "status": "PASS", "result": "382 paths 380 hashed paths and 18 protected canonical Git blobs passed"},
+    {"check_id": "protected_scientific_artifacts", "status": "PASS", "result": "18 of 18 canonical Git blobs unchanged"},
+    {"check_id": "candidate_asset_build", "status": "SKIPPED", "result": "reserved for separately authorized ST08_16B"},
+    {"check_id": "checkpoint", "status": "SKIPPED", "result": "reversible Git change with exact successor manifest; stage and release remain incomplete"},
+    {"check_id": "hosted_exact_head_assurance", "status": "PASS", "result": "PR 27 exact head b7cb928d2ceb70f547153d29b79460dec8f21043 passed all 23 primary hosted assurance steps"},
+    {"check_id": "evidence_closure_local_verification", "status": "PASS", "result": "closure contract and final-evidence passed; 10 of 10 mutations rejected; 52 focused tests and both working and published baselines passed in ml-cra-venv"}
+  ],
+  "hosted_assurance": {
+    "status": "PASS",
+    "pull_request": 27,
+    "run_id": 39385375464,
+    "job_id": 118503826256,
+    "head_sha": "b7cb928d2ceb70f547153d29b79460dec8f21043",
+    "event": "pull_request",
+    "conclusion": "success",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39385375464",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39385375464/job/118503826256",
+    "required_step": "Validate the v1.0.0 candidate finalization",
+    "required_step_conclusion": "success",
+    "primary_steps": 23,
+    "completed_at": "2026-10-20T07:21:47Z"
+  },
+  "change_reconciliation": {
+    "planned_paths": 23,
+    "actual_paths": 23,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "actions": {
+    "candidate_asset_builds": 0,
+    "scientific_artifact_changes": 0,
+    "training_runs": 0,
+    "tag_or_release_actions": 0,
+    "TestPyPI_or_PyPI_uploads": 0,
+    "ST08_16B_authorized": false
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "The candidate change is reversible in protected Git and bound by exact evidence and a canonical successor manifest; no stage or external release is complete."
+  },
+  "uncertainty": [
+    "No field reliability or adoption inference is made from absent external telemetry.",
+    "Final asset reproducibility dependency security and clean-install re-audit remain reserved for ST08_16B."
+  ],
+  "next_proposed_task_not_authorized": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight"
+}

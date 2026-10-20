@@ -78,17 +78,6 @@ jobs:
           python -m unittest -v tests.test_release_candidate_reaudit_st08_13
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the authorized v0.1.1 release tree
-        run: |
-          python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py contract
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py mutations
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_v0_1_1_GitHub_execution_st08_15C
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py final-evidence
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
       - name: Validate the finite v1.0.0 exit contract
         run: |
           python scripts/st08_16_v1_0_0_exit_contract_assurance.py contract
@@ -98,6 +87,17 @@ jobs:
           python -m unittest -v tests.test_v1_0_0_exit_contract_st08_16
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/st08_16_v1_0_0_exit_contract_assurance.py final-evidence
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Validate the v1.0.0 candidate finalization
+        run: |
+          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py mutations
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_v1_0_0_candidate_finalization_st08_16A
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build the exact v0.1.1 release assets twice

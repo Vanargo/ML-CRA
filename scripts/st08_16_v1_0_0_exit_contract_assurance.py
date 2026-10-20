@@ -134,6 +134,18 @@ def write_manifest(root: Path = PROJECT_ROOT) -> dict[str, Any]:
 
 
 def validate_manifest(root: Path, contract: Mapping[str, Any]) -> dict[str, Any]:
+    successor_contract = root / "configs/project_readiness/st08_16A_v1_0_0_candidate_finalization_contract_v01.json"
+    if successor_contract.is_file():
+        evidence = _load_json(root / EVIDENCE_PATH.relative_to(PROJECT_ROOT))
+        registered = evidence.get("manifest")
+        if not isinstance(registered, dict) or registered.get("status") != "PASS":
+            raise ExitContractError("accepted ST08_16 manifest evidence is unavailable")
+        manifest_payload = release_assurance.git_index_blob_bytes(
+            MANIFEST_PATH.relative_to(PROJECT_ROOT).as_posix(), root
+        )
+        if _sha256(manifest_payload) != registered.get("manifest_sha256"):
+            raise ExitContractError("accepted ST08_16 manifest bytes changed")
+        return dict(registered)
     fields, rows = _load_csv(root / MANIFEST_PATH.relative_to(PROJECT_ROOT))
     if fields != contract["successor_manifest"]["fields"]:
         raise ExitContractError("successor manifest schema mismatch")
@@ -197,12 +209,19 @@ def _validate_baseline(contract: Mapping[str, Any], root: Path) -> None:
     )
     if process.returncode != 0:
         raise ExitContractError("registered source baseline is not an ancestor of HEAD")
-    with (root / "pyproject.toml").open("rb") as stream:
-        project = tomllib.load(stream)["project"]
+    metadata_process = subprocess.run(
+        ["git", "-C", str(root), "show", f"{baseline['commit']}:pyproject.toml"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if metadata_process.returncode != 0:
+        raise ExitContractError("registered baseline pyproject metadata is unavailable")
+    project = tomllib.loads(metadata_process.stdout.decode("utf-8"))["project"]
     if project.get("version") != "0.1.1":
-        raise ExitContractError("ST08_16 must not change the current package version")
+        raise ExitContractError("ST08_16 baseline package version mismatch")
     if "Development Status :: 3 - Alpha" not in project.get("classifiers", []):
-        raise ExitContractError("ST08_16 must not pre-apply the 1.0.0 maturity classifier")
+        raise ExitContractError("ST08_16 baseline maturity classifier mismatch")
     release_assurance.validate_protected_hashes(root, inventory="published")
 
 

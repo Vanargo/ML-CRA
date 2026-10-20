@@ -17,6 +17,9 @@ class TestSt0816ExitContract(unittest.TestCase):
         self.assertEqual(result["terminal"]["future_blocks"], 3)
         self.assertEqual(result["future_blocks_authorized"], 0)
 
+    def test_registered_baseline_metadata_remains_bound_after_successor(self) -> None:
+        assurance._validate_baseline(CONTRACT, assurance.PROJECT_ROOT)
+
     def test_registered_mutations_are_all_rejected(self) -> None:
         result = assurance.run_registered_mutations()
         self.assertEqual(result["registered"], 8)

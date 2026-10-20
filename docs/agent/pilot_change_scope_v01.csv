@@ -161,3 +161,10 @@ added,tests/test_v1_0_0_exit_contract_st08_16.py,ST08_16 focused positive and ne
 added,data_registry/st08_16_v1_0_0_exit_contract_manifest_v01.csv,ST08_16 successor canonical Git path SHA-256 and size manifest
 added,data_registry/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_evidence_v01.json,ST08_16 review decision finite route verification and limitation evidence
 added,docs/agent/st08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_change_scope_v01.csv,ST08_16 exact planned and actual change scope
+added,RELEASE_NOTES_1.0.0.md,ST08_16A bilingual stable bounded local candidate notes and remaining release gates
+added,configs/project_readiness/st08_16A_v1_0_0_candidate_finalization_contract_v01.json,ST08_16A authority metadata frozen public contract evidence and stop-condition contract
+added,scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py,ST08_16A fail-closed metadata manifest mutation and evidence assurance
+added,tests/test_v1_0_0_candidate_finalization_st08_16A.py,ST08_16A focused positive and negative candidate-finalization tests
+added,data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv,ST08_16A successor canonical Git candidate path hash and size manifest
+added,data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json,ST08_16A observed candidate finalization verification limits and reconciliation evidence
+added,docs/agent/st08_16A_v1_0_0_candidate_finalization_change_scope_v01.csv,ST08_16A exact planned and actual change scope
