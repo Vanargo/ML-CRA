@@ -2521,3 +2521,57 @@ closure commit должен сам пройти повторный exact-SHA `as
 2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
 3. До следующего отчёта не объединять PR, не присваивать
    `ACCEPTED_BY_JOHN`/`TASK_CLOSED` и не начинать ST08_16B.
+
+## 85. ST08_16B — финальный повторный аудит кандидата 1.0.0
+
+John принял и закрыл ST08_16A, разрешил merge PR №27 и post-merge проверку.
+Канонический `main` теперь равен
+`236bc4c48ef4ff40b170b68c860b600e788a7710`, tree
+`f12fab356046274a48fba06754d256b8c71cd7b9`; run `39389976539`, job
+`118518862872`, завершил все 23 основных шага с `success`. Затем отдельно
+авторизован только `ST08_16B_v1_0_0_final_reaudit_and_security_preflight`.
+
+```text
+ST08_16B_profile: SCIENTIFIC_VALIDATION
+ST08_16B_authorized: true
+ST08_16C_authorized: false
+release_actions_performed: 0
+training_runs: 0
+scientific_artifact_changes: 0
+```
+
+Блок связывает семь принятых ST08_16A-артефактов с canonical Git blobs,
+повторяет требования и protected-science checks, выполняет secret/dependency
+security controls, чистую offline-установку и CLI/dashboard regressions. Две
+независимые сборки точного Git index при фиксированном `SOURCE_DATE_EPOCH`
+обязаны дать побайтово одинаковые normalized sdist и wheel; финальные локальные
+активы и `SHA256SUMS` регистрируются, но не публикуются.
+
+Актуальное read-only наблюдение GitHub подтверждает строгий `assurance` ruleset,
+secret scanning, push protection, private vulnerability reporting, release
+immutability, ноль открытых Dependabot alerts и неизменяемость `v0.1.0` и
+`v0.1.1`; `v1.0.0` отсутствует. Методы основаны на PyPA packaging flow и sdist
+specification, SOURCE_DATE_EPOCH, NIST SSDF 1.1, NIST FIPS 180-4, GitHub
+immutable-release guidance и SemVer 2.0.0. Внешние источники обосновывают
+метод; успех локальных вычислений доказывается только наблюдаемыми проверками.
+
+```text
+ST08_16B_lifecycle_state: LOCAL_PREFLIGHT_PASS_PENDING_EXACT_SHA_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+EXIT-04: PASS_LOCAL_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+EXIT-05: PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Candidate-state четырёх release-state поверхностей сохраняется намеренно.
+Принятие стабильности ограниченного API, финализация этих поверхностей,
+ST08_16C, tag/release `v1.0.0` и любые uploads пока не разрешены.
+
+## 86. Задачи John
+
+1. Создать commit подготовленного индексированного набора, отправить ветвь и
+   открыть PR в `main`.
+2. Передать результат exact-SHA hosted `assurance`; до следующего отчёта не
+   выполнять merge и не принимать блок.
+3. После evidence closure отдельно решить API-stability acceptance и
+   `NEXT_BLOCK_AUTHORIZED` для ST08_16C. PyPI/TestPyPI остаются вне критерия.

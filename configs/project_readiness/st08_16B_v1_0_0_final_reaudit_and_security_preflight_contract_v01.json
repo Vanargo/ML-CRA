@@ -1,0 +1,347 @@
+{
+  "schema_version": "st08_16B_v1_0_0_final_reaudit_and_security_preflight_contract_v01",
+  "contract_id": "st08_16B_v1_0_0_final_reaudit_and_security_preflight_contract_v01",
+  "task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
+  "recorded_at": "2026-10-20",
+  "profile": "SCIENTIFIC_VALIDATION",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_16A_v1_0_0_candidate_finalization",
+    "authorized_decision": "NEXT_BLOCK_AUTHORIZED",
+    "resolved_context_task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
+    "resolution_basis": "John explicitly sent NEXT_BLOCK_AUTHORIZED: ST08_16B_v1_0_0_final_reaudit_and_security_preflight after accepting and closing ST08_16A and authorizing and completing the PR 27 merge plus post-merge main verification.",
+    "final_candidate_reaudit_authorized": true,
+    "local_candidate_rebuild_authorized": true,
+    "read_only_GitHub_observation_authorized": true,
+    "product_source_change_authorized": false,
+    "version_tag_authorized": false,
+    "GitHub_release_authorized": false,
+    "artifact_upload_authorized": false,
+    "TestPyPI_publication_authorized": false,
+    "PyPI_publication_authorized": false,
+    "ST08_16C_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": "Re-audit the exact current 1.0.0 stable bounded candidate against the registered public-contract, requirements, scientific-boundary, security, clean-install, CLI/dashboard and reproducibility controls; fail closed on drift; and register the mandatory release-state transition for a future separately authorized ST08_16C without creating a tag, release, upload or package publication.",
+  "completion_criteria": [
+    "the accepted ST08_16A implementation and seven core candidate artifacts are bound to canonical Git blob hashes",
+    "two independent builds from the exact canonical Git index produce byte-identical normalized sdist and wheel assets and an exactly registered SHA256SUMS",
+    "all 24 current Stage 8 requirements, frozen public-contract checks, protected scientific hashes, secret scan, dependency audit, clean installation, CLI and dashboard checks pass within their registered boundaries",
+    "the active main ruleset, required assurance, repository security controls, immutable v0.1.0 and v0.1.1 releases, and absence of v1.0.0 are observed read-only and unknown cannot pass",
+    "candidate-only README, release-note and citation wording is identified as an intentional transition prerequisite rather than published as false release-state text",
+    "the future ST08_16C state machine requires John API-stability acceptance, release-state finalization, exact-SHA hosted assurance and asset verification before publication",
+    "the exact planned path set, successor manifest and evidence record pass local assurance while release actions remain zero"
+  ],
+  "source_baseline": {
+    "git_commit": "236bc4c48ef4ff40b170b68c860b600e788a7710",
+    "git_tree": "f12fab356046274a48fba06754d256b8c71cd7b9",
+    "branch": "main",
+    "tracked_paths": 382,
+    "project_version": "1.0.0",
+    "accepted_previous_task": true,
+    "predecessor_pull_request": 27,
+    "predecessor_head_sha": "2d95d3ca6d6b4e013d7fcbc240519d69caf137e6",
+    "merged_at": "2026-10-20T07:57:18Z",
+    "post_merge_assurance_run": 39389976539,
+    "post_merge_assurance_job": 118518862872,
+    "post_merge_assurance_conclusion": "success",
+    "post_merge_assurance_primary_steps": 23
+  },
+  "validation_question": "Does the exact current 1.0.0 candidate preserve the accepted bounded ML-CRA scientific state and satisfy the registered compatibility, integrity, security and reproducibility controls strongly enough to define a fail-closed future release execution transition?",
+  "validated_claim": {
+    "claim": "The exact 1.0.0 stable bounded candidate preserves the accepted scientific artifacts and frozen public interfaces and is reproducibly buildable under the registered environment, while external publication remains unauthorized and requires John API-stability acceptance, a release-state transition, and exact-SHA hosted assurance.",
+    "scope": "Windows x64 with CPython >=3.12,<3.13; the registered binary-classification and exchangeable-row regression protocols; the four supported CLI commands; the local bilingual dashboard; the canonical Git candidate; and GitHub repository controls observed read-only on 2026-10-20.",
+    "forbidden_interpretations": [
+      "universal best-model selection",
+      "new scientific validation or broader dataset generalization",
+      "cross-platform or unregistered Python support",
+      "field reliability, adoption, or universal production fitness",
+      "runtime or preflight authority to publish"
+    ]
+  },
+  "decision_policy": {
+    "alternatives": [
+      "PASS",
+      "FAIL",
+      "BLOCKED"
+    ],
+    "PASS": "All registered local controls pass, external read-only controls are positively observed, protected science is unchanged, reproducible assets satisfy exact relations, and the release-state transition is explicit and fail-closed.",
+    "FAIL": "Any registered compatibility, integrity, security, reproducibility or protected-artifact condition is observably violated.",
+    "BLOCKED": "A mandatory control is unknown, unavailable, or depends on an owner decision not granted for this task.",
+    "unknown_is_pass": false,
+    "hosted_acceptance_rule": "Local evidence may be technically PASS but readiness remains NOT_READY until hosted assurance succeeds for the exact candidate commit.",
+    "scientific_effect": "NONE_no_new_training_claim_protocol_result_or_verdict"
+  },
+  "candidate_preflight": {
+    "version": "1.0.0",
+    "source_representation": "canonical_Git_index_checkout",
+    "source_date_epoch": 1792483037,
+    "independent_build_count": 2,
+    "ST08_16B_assets": {
+      "ml_cra-1.0.0.tar.gz": {
+        "sha256": "337f9a0b245f1530498e2e9ae1469b557d046351682f9bb5fa8bf2ef2a9c2ad7",
+        "size_bytes": 100480
+      },
+      "ml_cra-1.0.0-py3-none-any.whl": {
+        "sha256": "8af6001263fdb4fbe6e97a3060a1b42bb4f8dc5b2bb99a7e81f1a300010a3aca",
+        "size_bytes": 92555
+      },
+      "SHA256SUMS": {
+        "sha256": "e7764f9cfd1491078c6b8528cd0a0bdd760435c42685a7cd50669ec7dbda836d",
+        "size_bytes": 182
+      }
+    },
+    "reproducibility_rule": "Both normalized sdists and both wheels built from separate canonical Git-index checkouts under the same declared SOURCE_DATE_EPOCH must be byte-identical; the registered output assets must exactly match those bytes.",
+    "archive_rule": "The registered sdist and wheel must have canonical 1.0.0 filenames, matching embedded metadata, required license and entry-point content, and no unsafe archive members.",
+    "required_assets": [
+      "ml_cra-1.0.0.tar.gz",
+      "ml_cra-1.0.0-py3-none-any.whl",
+      "SHA256SUMS"
+    ],
+    "publication_effect": "NONE_local_ignored_preflight_assets_only"
+  },
+  "release_state_transition": {
+    "current_state": "candidate_only_not_safe_to_publish_as_final_release_text",
+    "observed_transitional_surfaces": [
+      "README.md",
+      "README_RU.md",
+      "RELEASE_NOTES_1.0.0.md",
+      "CITATION.cff"
+    ],
+    "risk": "Publishing the current tree unchanged would make candidate-only statements false and repeat the documented v0.1.0 release-state wording defect.",
+    "required_future_action": "A separately authorized ST08_16C must finalize release-state wording and any actual CFF release date, commit those exact bytes through pull-request assurance, rebuild and re-audit the exact final assets, and only then create the tag and draft release.",
+    "current_product_change_performed": false,
+    "current_publication_blocker": "ST08_16C_release_state_finalization_and_exact_SHA_assurance_not_authorized_or_executed"
+  },
+  "repository_preflight": {
+    "repository": "Vanargo/ML-CRA",
+    "default_branch": "main",
+    "required_status_check": "assurance",
+    "ruleset_id": 21408995,
+    "required_rules": [
+      "pull_request_required",
+      "linear_history_required",
+      "conversation_resolution_required",
+      "strict_assurance_status_required",
+      "force_push_blocked",
+      "deletion_blocked",
+      "bypass_list_empty"
+    ],
+    "required_security_controls": [
+      "secret_scanning_enabled",
+      "push_protection_enabled",
+      "private_vulnerability_reporting_enabled",
+      "dependabot_alerts_enabled",
+      "zero_open_dependabot_alerts",
+      "release_immutability_enabled"
+    ],
+    "required_existing_tags": [
+      "v0.1.0",
+      "v0.1.1"
+    ],
+    "required_existing_releases": [
+      "v0.1.0",
+      "v0.1.1"
+    ],
+    "forbidden_existing_tag_or_release": "v1.0.0",
+    "unknown_is_pass": false
+  },
+  "future_ST08_16C_state_machine": [
+    "obtain_John_acceptance_of_ST08_16B_and_explicit_stable_API_acceptance",
+    "obtain_separate_NEXT_BLOCK_AUTHORIZED_for_ST08_16C",
+    "finalize_README_README_RU_RELEASE_NOTES_and_actual_CFF_release_date_without_changing_scientific_scope",
+    "commit_and_open_pull_request_for_the_exact_release_state_tree",
+    "require_successful_assurance_for_the_exact_candidate_commit",
+    "rebuild_twice_and_register_exact_sdist_wheel_and_SHA256SUMS",
+    "verify_zero_existing_v1_0_0_tag_and_release_and_recheck_repository_security_controls",
+    "create_draft_GitHub_release_for_new_tag_v1_0_0_targeting_the_exact_verified_commit",
+    "attach_all_three_assets_before_publication",
+    "verify_asset_names_sizes_and_SHA256SUMS_before_publication",
+    "publish_once_with_release_immutability_enabled",
+    "verify_release_and_assets_with_GitHub_CLI_and_record_attestation"
+  ],
+  "immutable_ST08_16A": [
+    {
+      "path": "RELEASE_NOTES_1.0.0.md",
+      "sha256": "2f8b71c7c679be6a8d8a98c9b77270cc1008ea2db38b7afa45750e059d198bc7"
+    },
+    {
+      "path": "configs/project_readiness/st08_16A_v1_0_0_candidate_finalization_contract_v01.json",
+      "sha256": "e1d265da385960c5fbd21d1331a118c978af5bb0108a3a03b8b520cfb6887ed4"
+    },
+    {
+      "path": "scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py",
+      "sha256": "ab8a4913422079744ebebd3b657c724929652dbdec9d4465a366866ce22da422"
+    },
+    {
+      "path": "tests/test_v1_0_0_candidate_finalization_st08_16A.py",
+      "sha256": "39fc38e4eea2f14c90bc4e9e3b3938c65e40082b15e82bd10bd35d208c60a428"
+    },
+    {
+      "path": "data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv",
+      "sha256": "034aefaab8084865722e01246e1609623f498602a5cff48594dbea2ce5b6f1c5"
+    },
+    {
+      "path": "data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json",
+      "sha256": "745e1f5804f26c1cf9b025e3f7911e62c97a71f8da09da5aa0cfe613912eacc8"
+    },
+    {
+      "path": "docs/agent/st08_16A_v1_0_0_candidate_finalization_change_scope_v01.csv",
+      "sha256": "aa122721e7b40e9261c2741e9b77c0f3b98fee1929d8b954daf86401ea3da39d"
+    }
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv",
+    "fields": [
+      "relative_path",
+      "sha256",
+      "size_bytes"
+    ],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv",
+      "data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json"
+    ]
+  },
+  "planned_changes": [
+    {
+      "change_kind": "added",
+      "relative_path": "configs/project_readiness/st08_16B_v1_0_0_final_reaudit_and_security_preflight_contract_v01.json"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "tests/test_v1_0_0_final_reaudit_and_security_preflight_st08_16B.py"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "docs/agent/st08_16B_v1_0_0_final_reaudit_and_security_preflight_change_scope_v01.csv"
+    },
+    {
+      "change_kind": "added",
+      "relative_path": "docs/release/release_1_0_0_GitHub_execution_runbook_v01.md"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": ".github/workflows/ci.yml"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "scripts/st08_09_release_assurance.py"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "tests/test_release_assurance_st08_09.py"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "docs/agent/pilot_change_scope_v01.csv"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"
+    },
+    {
+      "change_kind": "modified",
+      "relative_path": "roadmap.md"
+    }
+  ],
+  "required_checks": [
+    "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract",
+    "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py mutations",
+    "python -m unittest -v tests.test_v1_0_0_final_reaudit_and_security_preflight_st08_16B",
+    "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py build-preflight --output-dir dist/st08_16B-candidate",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_09_release_assurance.py dependencies --output-dir .tmp_st08_09_st08_16B_dependency_audits",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/st08_13_release_candidate_reaudit.py --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py final-evidence",
+    "hosted GitHub assurance for the exact committed candidate SHA"
+  ],
+  "authoritative_support": [
+    {
+      "source": "Python Packaging User Guide - The Packaging Flow",
+      "uri": "https://packaging.python.org/en/latest/flow/",
+      "use": "Keep source-tree transition, distribution build, validation and external upload as distinct controlled states."
+    },
+    {
+      "source": "Python Packaging User Guide - Source distribution format",
+      "uri": "https://packaging.python.org/en/latest/specifications/source-distribution-format/",
+      "use": "Validate the single-root sdist and recognize that an sdist may include tests and documentation."
+    },
+    {
+      "source": "GitHub - Immutable releases",
+      "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases",
+      "use": "Require draft, attach-before-publish ordering and immutable tag/assets with automatic release attestation."
+    },
+    {
+      "source": "GitHub - Verifying release integrity",
+      "uri": "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity",
+      "use": "Require GitHub CLI verification of the future immutable release and every local asset."
+    },
+    {
+      "source": "GitHub REST repositories API - immutable releases",
+      "uri": "https://docs.github.com/en/rest/repos/repos",
+      "use": "Use authenticated read-only observation and treat unknown or unauthorized responses as non-PASS."
+    },
+    {
+      "source": "NIST SP 800-218 SSDF 1.1",
+      "uri": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "use": "Integrate repeatable security checks, provenance protection and controlled release practices into the lifecycle."
+    },
+    {
+      "source": "NIST FIPS 180-4",
+      "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+      "use": "Bind exact bytes with SHA-256 without treating a digest as proof of correctness, security or scientific validity."
+    },
+    {
+      "source": "SOURCE_DATE_EPOCH specification",
+      "uri": "https://reproducible-builds.org/specs/source-date-epoch/",
+      "use": "Use a declared timestamp input for repeatable archive construction."
+    },
+    {
+      "source": "Semantic Versioning 2.0.0",
+      "uri": "https://semver.org/",
+      "use": "Treat 1.0.0 as the declaration of the bounded public API while preserving exact released-version immutability and requiring a new version for later changes."
+    }
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_if_protected_remote_Git_and_reproducible_assets_pass",
+    "reason": "This is a reversible preflight with no release side effect; protected remote Git, the successor manifest and deterministic ignored assets provide recovery."
+  },
+  "stop_conditions": [
+    "A product source, version, current README, release note, citation file or scientific artifact would change in ST08_16B.",
+    "A tag, GitHub Release, asset upload, TestPyPI or PyPI action would occur.",
+    "A mandatory local or authenticated repository control is unknown or fails.",
+    "Either pair of independent 1.0.0 builds is not byte-identical or the registered assets do not match the exact build outputs.",
+    "Any immutable ST08_16A or protected scientific artifact changes.",
+    "ST08_16C, API-stability acceptance, or release-state finalization is presumed without a separate explicit John decision."
+  ],
+  "exit_contract_disposition": {
+    "EXIT-02": "PASS_ST08_16A_exact_candidate_and_hosted_assurance_closed",
+    "EXIT-03": "PASS_frozen_public_contract_preserved",
+    "EXIT-04": "PENDING_ST08_16B_observed_checks",
+    "EXIT-05": "PENDING_ST08_16B_two_build_registration",
+    "EXIT-06": "PENDING_JOHN_API_stability_acceptance_and_separate_ST08_16C_authorization",
+    "EXIT-07": "PENDING_ST08_16C_immutable_release_verification"
+  }
+}

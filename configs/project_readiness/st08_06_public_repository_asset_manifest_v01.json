@@ -3,7 +3,7 @@
   "manifest_id": "st08_06_public_repository_asset_manifest_v01",
   "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
   "recorded_at": "2026-08-20",
-  "status": "v1_0_0_candidate_finalized_pending_exact_SHA_assurance",
+  "status": "v1_0_0_final_reaudit_local_pass_pending_exact_SHA_hosted_assurance",
   "authority": {
     "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
     "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
@@ -51,8 +51,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 427,
-    "approved_path_list_sha256": "303c5c182e3d25d2c04f8dd90111e7b9505c111ea30458fd4ba045dc4540ad5e",
+    "approved_path_count": 434,
+    "approved_path_list_sha256": "40b81eb7c6d43d6a9d9f4782e67f1b9286122165f10f2985e8c71eec10143aed",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -145,10 +145,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 199,
-    "ST08-06-MANIFEST-07": 183,
+    "ST08-06-MANIFEST-06": 200,
+    "ST08-06-MANIFEST-07": 189,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 427
+    "TOTAL": 434
   },
   "inventory_refreshes": [
     {
@@ -264,6 +264,12 @@
       "recorded_at": "2026-10-14",
       "reason": "Authorized post-release review adds a bounded terminal-product contract, fail-closed validator, tests, evidence, successor manifest and exact scope while preserving v0.1.1, product code and scientific artifacts and performing no release action.",
       "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
+      "recorded_at": "2026-10-20",
+      "reason": "Authorized final re-audit adds a successor manifest, fail-closed validator, tests, evidence, exact scope and future execution runbook while preserving product and scientific bytes and performing no release action.",
+      "external_publication_performed": false
     }
   ],
   "mandatory_public_legal_artifacts": [
@@ -276,10 +282,9 @@
     "st08_06_legal_artifacts_condition": "SATISFIED_AFTER_VALIDATION",
     "public_development_gate": "SATISFIED_BY_ST08_13B",
     "remaining_blockers": [
-      "ST08_16_exact_pull_request_SHA_assurance_not_observed",
-      "ST08_16_not_accepted_by_John",
-      "ST08_16A_v1_0_0_candidate_not_finalized",
-      "ST08_16B_v1_0_0_final_reaudit_and_security_preflight_not_passed",
+      "ST08_16B_exact_pull_request_SHA_assurance_not_observed",
+      "ST08_16B_not_accepted_by_John",
+      "John_stable_bounded_API_acceptance_not_granted",
       "ST08_16C_immutable_v1_0_0_release_not_authorized_or_executed"
     ],
     "external_actions_performed": 0

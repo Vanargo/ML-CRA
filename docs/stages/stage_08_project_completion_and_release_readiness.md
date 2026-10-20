@@ -3324,3 +3324,78 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
    John может присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и разрешить merge.
 4. Не начинать ST08_16B и не создавать `v1.0.0` tag/release без отдельного
    `NEXT_BLOCK_AUTHORIZED` после закрытия текущего блока.
+
+## 98. ST08_16B — финальный повторный аудит и security preflight 1.0.0
+
+John принял и закрыл ST08_16A, разрешил merge PR №27 и обязательную
+post-merge проверку. PR №27 объединён squash-commit
+`236bc4c48ef4ff40b170b68c860b600e788a7710` с tree
+`f12fab356046274a48fba06754d256b8c71cd7b9`; GitHub Actions run
+`39389976539`, job `118518862872`, успешно завершил все 23 основных шага для
+точного `main`. После этого John отдельно авторизовал только
+`ST08_16B_v1_0_0_final_reaudit_and_security_preflight`.
+
+```text
+ACCEPTED_BY_JOHN: ST08_16A_v1_0_0_candidate_finalization
+TASK_CLOSED: ST08_16A_v1_0_0_candidate_finalization
+NEXT_BLOCK_AUTHORIZED: ST08_16B_v1_0_0_final_reaudit_and_security_preflight
+ST08_16B_profile: SCIENTIFIC_VALIDATION
+ST08_16C_authorized: false
+release_actions_performed: 0
+training_runs: 0
+scientific_artifact_changes: 0
+```
+
+Повторный аудит строит sdist и wheel дважды из отдельных materialization —
+материализаций — точного Git index при фиксированном `SOURCE_DATE_EPOCH`,
+нормализует sdist и требует побайтового совпадения обеих пар. Зарегистрированные
+активы затем проходят проверку имён, embedded metadata, лицензии, entry point,
+безопасности путей архива и `SHA256SUMS`. Отдельные контуры проверяют 18
+защищённых научных артефактов, frozen public contract, зависимости, шаблоны
+секретов, чистую offline-установку, CLI/dashboard и все 24 требования Stage 8.
+
+Read-only наблюдение GitHub от 2026-10-20 подтвердило активный ruleset `main`
+№21408995 со строгим обязательным `assurance`, запретом удаления/force-push и
+линейной историей; secret scanning, push protection, private vulnerability
+reporting и release immutability включены; открытых Dependabot alerts нет.
+`v0.1.0` и `v0.1.1` прошли `gh release verify`, а tag/release `v1.0.0`
+отсутствует.
+
+PyPA определяет sdist и wheel как отдельные дистрибутивные артефакты и требует
+совпадения имени/версии sdist с metadata
+(https://packaging.python.org/en/latest/specifications/source-distribution-format/).
+Спецификация SOURCE_DATE_EPOCH задаёт детерминированный timestamp-вход
+(https://reproducible-builds.org/specs/source-date-epoch/). NIST SSDF 1.1
+поддерживает повторяемые security practices в жизненном цикле
+(https://csrc.nist.gov/pubs/sp/800/218/final), а GitHub рекомендует для
+immutable release порядок draft → attach assets → publish и последующую
+проверку release/asset
+(https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases).
+
+Текущие README, `RELEASE_NOTES_1.0.0.md` и `CITATION.cff` намеренно остаются в
+candidate-state. Их финализация, принятие John стабильности ограниченного API,
+exact-SHA hosted gate и публикация относятся только к будущему отдельно
+авторизуемому ST08_16C. PyPI/TestPyPI не входят в критерии 1.0.0.
+
+```text
+ST08_16B_lifecycle_state: LOCAL_PREFLIGHT_PASS_PENDING_EXACT_SHA_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+EXIT-04: PASS_LOCAL_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+EXIT-05: PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локально наблюдаемым проверкам точного индексированного
+кандидата. `NOT_READY` означает, что новый commit ещё не прошёл hosted
+`assurance`; это не принятие API-стабильности и не разрешение ST08_16C.
+
+## 99. Задачи John
+
+1. После передачи агентом подготовленного индексированного набора создать
+   commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться hosted `assurance`, включающего ST08_16B `final-evidence` и две
+   воспроизводимые сборки, затем передать URL PR или run агенту.
+3. Не объединять PR и не принимать ST08_16B до следующего технического отчёта.
+4. После полного evidence closure отдельно решить принятие стабильности
+   ограниченного API и авторизацию ST08_16C; tag/release и PyPI/TestPyPI пока
+   не разрешены.

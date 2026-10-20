@@ -100,6 +100,21 @@ jobs:
           python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Validate the v1.0.0 final re-audit and security preflight
+        run: |
+          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py mutations
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m unittest -v tests.test_v1_0_0_final_reaudit_and_security_preflight_st08_16B
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py build-preflight --output-dir dist/st08_16B-ci
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py validate-built --candidate-dir dist/st08_16B-ci
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py final-evidence
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
       - name: Build the exact v0.1.1 release assets twice
         run: python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py build-release --source lifecycle --output-dir dist/st08_15C-ci --verify-contract-assets
 
@@ -108,8 +123,8 @@ jobs:
 
       - name: Validate sdist and wheel inventories
         run: |
-          $sdist = Get-ChildItem -LiteralPath dist/st08_15C-ci -Filter *.tar.gz
-          $wheel = Get-ChildItem -LiteralPath dist/st08_15C-ci -Filter *.whl
+          $sdist = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.tar.gz
+          $wheel = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.whl
           if ($sdist.Count -ne 1 -or $wheel.Count -ne 1) { throw "Expected exactly one sdist and one wheel" }
           python scripts/st08_09_release_assurance.py archives --sdist $sdist.FullName --wheel $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -153,7 +168,7 @@ jobs:
         run: |
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $wheel = Get-ChildItem -LiteralPath dist/st08_15C-ci -Filter *.whl
+          $wheel = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.whl
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 

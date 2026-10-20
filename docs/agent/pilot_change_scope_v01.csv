@@ -168,3 +168,10 @@ added,tests/test_v1_0_0_candidate_finalization_st08_16A.py,ST08_16A focused posi
 added,data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv,ST08_16A successor canonical Git candidate path hash and size manifest
 added,data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json,ST08_16A observed candidate finalization verification limits and reconciliation evidence
 added,docs/agent/st08_16A_v1_0_0_candidate_finalization_change_scope_v01.csv,ST08_16A exact planned and actual change scope
+added,configs/project_readiness/st08_16B_v1_0_0_final_reaudit_and_security_preflight_contract_v01.json,ST08_16B authority validation security reproducibility transition and stop-condition contract
+added,scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py,ST08_16B fail-closed manifest build external-evidence mutation and verdict assurance
+added,tests/test_v1_0_0_final_reaudit_and_security_preflight_st08_16B.py,ST08_16B focused positive and negative preflight regression tests
+added,data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv,ST08_16B successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json,ST08_16B local hosted repository-security transition and interpretation evidence
+added,docs/agent/st08_16B_v1_0_0_final_reaudit_and_security_preflight_change_scope_v01.csv,ST08_16B exact planned and actual change scope
+added,docs/release/release_1_0_0_GitHub_execution_runbook_v01.md,Future owner-authorized API acceptance release-state finalization and immutable GitHub Release procedure

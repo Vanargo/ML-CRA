@@ -182,6 +182,18 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
 
+    def test_workflow_requires_st08_16B_final_preflight_gate(self) -> None:
+        mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
+            "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract",
+            "# removed ST08_16B final preflight gate",
+            1,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "ci.yml"
+            path.write_text(mutated, encoding="utf-8")
+            with self.assertRaises(assurance.AssuranceError):
+                assurance.validate_workflow(path, CONTRACT)
+
     def test_publication_manifest_digest_uses_canonical_git_blob(self) -> None:
         result = assurance.validate_publication_tree()
         payload = assurance.git_index_blob_bytes(
