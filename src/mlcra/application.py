@@ -41,7 +41,7 @@ CLAIM_SCHEMA_RESOURCES = {
     BINARY_CLAIM_SCHEMA_VERSION: "binary_classification_claim_v01.schema.json",
     REGRESSION_CLAIM_SCHEMA_VERSION: "tabular_regression_claim_v01.schema.json",
 }
-PROJECT_VERSION = "0.1.1"
+PROJECT_VERSION = "1.0.0"
 REQUIRED_BUNDLE_FILES = (
     "run_manifest.json",
     "input_validation.json",

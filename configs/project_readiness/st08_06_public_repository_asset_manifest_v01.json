@@ -3,7 +3,7 @@
   "manifest_id": "st08_06_public_repository_asset_manifest_v01",
   "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
   "recorded_at": "2026-08-20",
-  "status": "v1_0_0_exit_contract_designed_pending_exact_SHA_assurance",
+  "status": "v1_0_0_candidate_finalized_pending_exact_SHA_assurance",
   "authority": {
     "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
     "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
@@ -28,9 +28,9 @@
     "author": "Иван Полищук",
     "orcid": "https://orcid.org/0009-0005-6596-0605",
     "repository_code": "https://github.com/Vanargo/ML-CRA",
-    "release_version": "0.1.1",
+    "release_version": "1.0.0",
     "release_date_intentionally_omitted": true,
-    "reason": "The exact external publication timestamp cannot exist before the protected release-state tree is committed and verified; date-released remains absent rather than guessed, while GitHub and ST08_15C evidence register the actual publication time."
+    "reason": "The 1.0.0 metadata describes an unreleased local candidate. Its exact external publication timestamp does not yet exist, so date-released remains absent rather than guessed; immutable v0.1.1 publication remains recorded separately by GitHub and ST08_15C evidence."
   },
   "inventory_universe": {
     "root": ".",
@@ -51,8 +51,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 420,
-    "approved_path_list_sha256": "ef27d0d12fa2cf398d1bb664f7fa542dc14d574545285ebfdc6ed2d320fecb56",
+    "approved_path_count": 427,
+    "approved_path_list_sha256": "303c5c182e3d25d2c04f8dd90111e7b9505c111ea30458fd4ba045dc4540ad5e",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -145,10 +145,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 197,
-    "ST08-06-MANIFEST-07": 178,
+    "ST08-06-MANIFEST-06": 199,
+    "ST08-06-MANIFEST-07": 183,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 420
+    "TOTAL": 427
   },
   "inventory_refreshes": [
     {

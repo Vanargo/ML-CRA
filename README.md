@@ -9,13 +9,17 @@ ML-CRA audits whether experimental evidence supports a **bounded**
 machine-learning claim. It does not choose a universally best model and does not
 turn one dataset result into a general recommendation.
 
-Version `0.1.1` is the current GitHub release. Its
-[release notes](RELEASE_NOTES_0.1.1.md) describe the bounded correction and
-verification procedure, and the canonical distribution record is the
+Version `1.0.0` is the unreleased local candidate for the stable bounded public
+contract. Its [candidate release notes](RELEASE_NOTES_1.0.0.md) define that
+contract and the remaining verification gates. No `v1.0.0` tag or GitHub
+Release exists yet, and candidate metadata does not authorize publication.
+
+Version `0.1.1` remains the current GitHub release. Its canonical distribution
+record is the
 [immutable `v0.1.1` GitHub Release](https://github.com/Vanargo/ML-CRA/releases/tag/v0.1.1).
-If that release record is absent, release execution has not completed and no
-publication should be inferred. Version `0.1.1` has not been uploaded to
-TestPyPI or PyPI. In `mlcra doctor`, `release_ready=true` means only that no
+Its [release notes](RELEASE_NOTES_0.1.1.md) describe the bounded correction and
+verification procedure. Neither `0.1.1` nor the `1.0.0` candidate has been
+uploaded to TestPyPI or PyPI. In `mlcra doctor`, `release_ready=true` means only that no
 known static blocker remains in the packaged content; the accompanying
 `release_readiness_scope=packaged_content_only_no_publication_authority` makes
 explicit that this value never authorizes publication. Publication remains an
@@ -237,7 +241,12 @@ registered historical FAIL rows with no new failure. The `0.1.0` candidate was
 finalized by ST08_14A and published by the separately authorized ST08_14C as
 the first immutable GitHub Release. Version `0.1.1` corrects its disclosed
 release-state wording limitation without changing the bounded scientific
-results. Package-index publication remains deferred.
+results. The unreleased `1.0.0` candidate freezes the four commands, two claim
+schemas, report schemas, artifact meanings, and exit-code semantics already
+documented above; it adds no model, protocol, platform, or scientific claim.
+Final re-audit, reproducible asset registration, owner acceptance, and
+immutable GitHub publication remain separate gates. Package-index publication
+remains deferred.
 Real-dataset regression validation and the local static dashboard remain valid
 bounded results; neither authorizes broader scientific claims or a release.
 

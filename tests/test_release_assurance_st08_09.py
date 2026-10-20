@@ -170,10 +170,10 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
 
-    def test_workflow_requires_st08_15C_hosted_release_tree_gate(self) -> None:
+    def test_workflow_requires_st08_16A_hosted_candidate_gate(self) -> None:
         mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
-            "python scripts/st08_15C_v0_1_1_GitHub_execution_assurance.py contract",
-            "# removed ST08_15C hosted release-tree gate",
+            "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract",
+            "# removed ST08_16A hosted candidate gate",
             1,
         )
         with tempfile.TemporaryDirectory() as temporary:

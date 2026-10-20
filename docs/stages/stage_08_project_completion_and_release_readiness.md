@@ -3208,3 +3208,66 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
 3. После подтверждения агента принять либо вернуть ST08_16. Только John может
    присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и отдельно разрешить merge.
 4. ST08_16A, tag/release 1.0.0 и TestPyPI/PyPI пока не авторизованы.
+
+## 94. ST08_16A — финализация локального кандидата 1.0.0
+
+John принял и закрыл ST08_16, его изменения объединены в `main` как
+`e2991bff81348799fd1f961bf8af185d14d5aa6a`, а post-merge проверка успешна.
+После этого John отдельно авторизовал только
+`ST08_16A_v1_0_0_candidate_finalization`.
+
+```text
+ACCEPTED_BY_JOHN: ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design
+TASK_CLOSED: ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design
+NEXT_BLOCK_AUTHORIZED: ST08_16A_v1_0_0_candidate_finalization
+ST08_16A_profile: CHANGE
+ST08_16A_authorized: true
+ST08_16B_authorized: false
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+scientific_artifact_changes: 0
+```
+
+Кандидат теперь согласован как `1.0.0` в `pyproject.toml`, runtime-константе и
+`CITATION.cff`; дата выпуска не выдумана. Классификатор
+`Development Status :: 5 - Production/Stable` означает стабильность только
+явно ограниченного контракта в ячейке Windows x64 / CPython `>=3.12,<3.13`, а
+не массовое эксплуатационное принятие. Английский и русский README сохраняют
+`v0.1.1` как текущий опубликованный GitHub Release и прямо называют `1.0.0`
+неопубликованным локальным кандидатом.
+
+Заморожены команды `audit`, `verify`, `doctor`, `dashboard`, две claim-схемы,
+схемы doctor/dashboard, коды 0/2/3/4/5/6 и существующий смысл артефактов.
+Изменений поведения, моделей, протоколов, поддерживаемой платформы или научных
+выводов нет. Двуязычный `RELEASE_NOTES_1.0.0.md` фиксирует эти границы и
+оставляет финальный повторный аудит, security preflight и две воспроизводимые
+сборки отдельному неавторизованному ST08_16B.
+
+Методологическое основание: SemVer 2.0.0 связывает `1.0.0` с определением
+публичного API (https://semver.org/); PyPA определяет статические поля version
+и classifiers в `pyproject.toml`
+(https://packaging.python.org/en/latest/specifications/pyproject-toml/), а
+официальный реестр PyPI содержит выбранный classifier
+(https://pypi.org/classifiers/). CFF хранит машиночитаемые данные цитирования
+(https://citation-file-format.github.io/), поэтому версия обновлена, но
+`date-released` остаётся отсутствующей до наблюдаемого выпуска.
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локальной программной верификации согласованности кандидата,
+а не к финальному аудиту или выпуску. `NOT_READY` означает, что exact-SHA
+hosted `assurance` ещё не наблюдался; принятие текущего блока преждевременно.
+
+## 95. Задачи John
+
+1. Создать commit из подготовленного индексированного набора, отправить ветвь и
+   открыть PR в `main`.
+2. Дождаться `assurance`, включающего ST08_16A `final-evidence`, и передать URL
+   PR или run агенту для проверки exact SHA.
+3. Не объединять PR и не принимать ST08_16A до следующего технического отчёта.
+4. Не начинать ST08_16B и не создавать tag/release `v1.0.0`; TestPyPI/PyPI
+   также остаются неавторизованными.

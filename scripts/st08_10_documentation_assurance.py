@@ -79,7 +79,7 @@ def validate_bilingual_documents(
                 f"{language} section markers mismatch: {observed}/{expected_markers}"
             )
         current_tokens = [
-            "0.1.1" if token == "0.1.0.dev0" else token
+            "1.0.0" if token == "0.1.0.dev0" else token
             for token in contract["documentation_architecture"]["required_shared_tokens"]
         ]
         for token in current_tokens:
@@ -200,8 +200,8 @@ def validate_project_metadata() -> dict[str, Any]:
         project = tomllib.load(stream)["project"]
     if project.get("readme") != "README.md":
         raise DocumentationAssuranceError("pyproject project.readme must be the root README.md")
-    if project.get("version") != "0.1.1":
-        raise DocumentationAssuranceError("current corrective-candidate metadata must use version 0.1.1")
+    if project.get("version") != "1.0.0":
+        raise DocumentationAssuranceError("current stable bounded candidate metadata must use version 1.0.0")
     return {"readme": project["readme"], "version": project["version"]}
 
 

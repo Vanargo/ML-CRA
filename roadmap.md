@@ -2427,3 +2427,50 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
 1. Создать evidence-closure commit в PR №26 и дождаться exact-SHA assurance.
 2. Передать новый результат агенту; до его отчёта не выполнять merge.
 3. Отдельно принять/закрыть ST08_16 и решить авторизацию ST08_16A.
+
+## 81. ST08_16A — локальный кандидат стабильного ограниченного контракта 1.0.0
+
+John принял и закрыл ST08_16 после слияния и успешной post-merge проверки
+канонического `main` `e2991bff81348799fd1f961bf8af185d14d5aa6a`, затем отдельно
+авторизовал `ST08_16A_v1_0_0_candidate_finalization`.
+
+```text
+ST08_16A_profile: CHANGE
+ST08_16A_authorized: true
+ST08_16B_authorized: false
+candidate_version: 1.0.0
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+scientific_artifact_changes: 0
+```
+
+Версия package/runtime/CFF стала `1.0.0`, classifier —
+`Development Status :: 5 - Production/Stable`, а `date-released` отсутствует.
+Двуязычные README и `RELEASE_NOTES_1.0.0.md` определяют стабильность только в
+поддерживаемой ячейке Windows x64 / CPython `>=3.12,<3.13`, сохраняют `v0.1.1`
+текущим опубликованным выпуском и не заявляют массового применения.
+
+Публичный контракт сохраняет без расширения четыре команды, две claim-схемы,
+doctor/dashboard schemas, коды 0/2/3/4/5/6 и смысл артефактов. Финальный
+re-audit, security preflight и воспроизводимые активы относятся только к
+будущему отдельно авторизуемому ST08_16B. SemVer 2.0.0, официальная PyPA
+спецификация `pyproject.toml`, PyPI classifiers и CFF являются внешними
+нормативными опорами metadata-решений; локальные проверки доказывают только
+наблюдаемое состояние репозитория.
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Локальный кандидат технически согласован, но exact-SHA hosted gate ещё не
+наблюдался. Текущий блок не принят, `ST08_16B` не разрешён.
+
+## 82. Задачи John
+
+1. Создать commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться exact-SHA `assurance` с ST08_16A `final-evidence` и передать
+   результат агенту.
+3. До следующего отчёта не выполнять merge, не принимать ST08_16A и не начинать
+   ST08_16B или публикацию `v1.0.0`.
