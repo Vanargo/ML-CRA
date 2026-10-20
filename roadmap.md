@@ -2474,3 +2474,50 @@ READINESS: NOT_READY
    результат агенту.
 3. До следующего отчёта не выполнять merge, не принимать ST08_16A и не начинать
    ST08_16B или публикацию `v1.0.0`.
+
+## 83. ST08_16A — exact-SHA hosted gate закрыт
+
+PR №27 открыт в `main`, не является draft и имеет состояния
+`MERGEABLE/CLEAN`. Его base точно равен принятому каноническому
+`e2991bff81348799fd1f961bf8af185d14d5aa6a`, а head — candidate commit
+`b7cb928d2ceb70f547153d29b79460dec8f21043`. Локальный `HEAD`, upstream и
+удалённая ветвь совпали; рабочее дерево было чистым.
+
+GitHub Actions run `39385375464`, job `118503826256`, завершился с `success`
+2026-10-20T07:21:47Z. Все 23 основных шага успешны, включая ST08_16A
+`final-evidence`, hash-locked dependency audit, secret-pattern scan, 10/10
+отрицательных мутаций, двуязычную документацию, immutable-release проверки,
+чистую offline-установку и deterministic published baseline.
+
+Инженерная цепочка доказательства разделяет идентичность и выполнение: SHA-256
+и Git head связывают проверку с точными байтами, но не доказывают корректность
+сами по себе; корректность в установленной области подтверждает наблюдаемый
+успешный hosted gate. Это соответствует зарегистрированным опорам
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) и
+[NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final) и не расширяет их
+смысл.
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 39385375464
+hosted_assurance_job_id: 118503826256
+hosted_assurance_head_sha: b7cb928d2ceb70f547153d29b79460dec8f21043
+ST08_16B_authorized: false
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Техническое evidence closure — закрытие доказательств — подготовлено, но новый
+closure commit должен сам пройти повторный exact-SHA `assurance`. До этого
+нельзя принимать или объединять PR. Готовность не разрешает ST08_16B, сборку
+активов, тег, GitHub Release или TestPyPI/PyPI.
+
+## 84. Задачи John
+
+1. После передачи агентом индексированного набора создать evidence-closure
+   commit в существующей ветви PR №27 и отправить его.
+2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
+3. До следующего отчёта не объединять PR, не присваивать
+   `ACCEPTED_BY_JOHN`/`TASK_CLOSED` и не начинать ST08_16B.

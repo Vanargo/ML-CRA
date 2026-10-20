@@ -29,6 +29,13 @@ STAGE_PATH = PROJECT_ROOT / "docs/stages/stage_08_project_completion_and_release
 ROADMAP_PATH = PROJECT_ROOT / "roadmap.md"
 VERSION = "1.0.0"
 CLASSIFIER = "Development Status :: 5 - Production/Stable"
+HOSTED_PULL_REQUEST = 27
+HOSTED_RUN_ID = 39385375464
+HOSTED_JOB_ID = 118503826256
+HOSTED_HEAD_SHA = "b7cb928d2ceb70f547153d29b79460dec8f21043"
+HOSTED_REQUIRED_STEP = "Validate the v1.0.0 candidate finalization"
+HOSTED_PRIMARY_STEPS = 23
+HOSTED_COMPLETED_AT = "2026-10-20T07:21:47Z"
 
 
 class CandidateFinalizationError(RuntimeError):
@@ -214,7 +221,14 @@ def validate_contract_bindings(contract: Mapping[str, Any], root: Path = PROJECT
         raise CandidateFinalizationError("workflow gained publication authority")
     for relative in [STAGE_PATH, ROADMAP_PATH]:
         text = (root / relative.relative_to(PROJECT_ROOT)).read_text(encoding="utf-8")
-        for token in [contract["task_id"], "ST08_16B_authorized: false", "candidate_asset_builds: 0"]:
+        for token in [
+            contract["task_id"],
+            "ST08_16B_authorized: false",
+            "candidate_asset_builds: 0",
+            "CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
+            f"hosted_assurance_run_id: {HOSTED_RUN_ID}",
+            f"hosted_assurance_job_id: {HOSTED_JOB_ID}",
+        ]:
             if token not in text:
                 raise CandidateFinalizationError(f"canonical registration missing: {relative}/{token}")
     manifest = validate_manifest(root, contract)
@@ -251,10 +265,14 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     return {"status": "PASS", "registered": len(contract["negative_mutations"]), "rejected": len(rejected), "mutation_ids": rejected}
 
 
-def validate_evidence(root: Path = PROJECT_ROOT) -> dict[str, Any]:
+def validate_evidence(
+    root: Path = PROJECT_ROOT,
+    *,
+    evidence_data: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
     contract = _load_json(root / CONTRACT_PATH.relative_to(PROJECT_ROOT))
     bindings = validate_contract_bindings(contract, root)
-    evidence = _load_json(root / EVIDENCE_PATH.relative_to(PROJECT_ROOT))
+    evidence = dict(evidence_data) if evidence_data is not None else _load_json(root / EVIDENCE_PATH.relative_to(PROJECT_ROOT))
     if evidence.get("task_id") != contract["task_id"] or evidence.get("profile") != "CHANGE":
         raise CandidateFinalizationError("evidence identity mismatch")
     if evidence.get("manifest") != bindings["manifest"]:
@@ -263,11 +281,49 @@ def validate_evidence(root: Path = PROJECT_ROOT) -> dict[str, Any]:
         raise CandidateFinalizationError("change reconciliation mismatch")
     if evidence.get("actions") != {"candidate_asset_builds": 0, "scientific_artifact_changes": 0, "training_runs": 0, "tag_or_release_actions": 0, "TestPyPI_or_PyPI_uploads": 0, "ST08_16B_authorized": False}:
         raise CandidateFinalizationError("evidence action boundary mismatch")
-    if evidence.get("technical_status") != "PASS" or evidence.get("readiness") != "NOT_READY":
-        raise CandidateFinalizationError("local evidence status mismatch")
+    lifecycle = evidence.get("lifecycle_state")
+    readiness = evidence.get("readiness")
+    hosted = evidence.get("hosted_assurance", {})
+    if evidence.get("technical_status") != "PASS":
+        raise CandidateFinalizationError("technical evidence status mismatch")
+    if lifecycle != "CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE":
+        raise CandidateFinalizationError("candidate evidence lifecycle is not hosted-closed")
+    if readiness != "READY_FOR_JOHN_ACCEPTANCE" or hosted.get("status") != "PASS":
+        raise CandidateFinalizationError("hosted-closed evidence readiness mismatch")
+    expected_hosted = {
+        "status": "PASS",
+        "pull_request": HOSTED_PULL_REQUEST,
+        "run_id": HOSTED_RUN_ID,
+        "job_id": HOSTED_JOB_ID,
+        "head_sha": HOSTED_HEAD_SHA,
+        "event": "pull_request",
+        "conclusion": "success",
+        "run_url": f"https://github.com/Vanargo/ML-CRA/actions/runs/{HOSTED_RUN_ID}",
+        "job_url": f"https://github.com/Vanargo/ML-CRA/actions/runs/{HOSTED_RUN_ID}/job/{HOSTED_JOB_ID}",
+        "required_step": HOSTED_REQUIRED_STEP,
+        "required_step_conclusion": "success",
+        "primary_steps": HOSTED_PRIMARY_STEPS,
+        "completed_at": HOSTED_COMPLETED_AT,
+    }
+    if hosted != expected_hosted:
+        raise CandidateFinalizationError("hosted assurance binding mismatch")
+    checks = {item.get("check_id"): item for item in evidence.get("checks", [])}
+    hosted_check = checks.get("hosted_exact_head_assurance", {})
+    if hosted_check.get("status") != "PASS" or HOSTED_HEAD_SHA not in hosted_check.get("result", ""):
+        raise CandidateFinalizationError("hosted assurance check is not exact-head PASS")
+    uncertainty = evidence.get("uncertainty", [])
+    if any("not yet been observed" in item for item in uncertainty):
+        raise CandidateFinalizationError("closed evidence retains pending hosted uncertainty")
     if evidence.get("checkpoint", {}).get("status") != "SKIPPED":
         raise CandidateFinalizationError("checkpoint disposition mismatch")
-    return {"status": "PASS", "readiness": "NOT_READY", "checks": len(evidence.get("checks", [])), "candidate_asset_builds": 0}
+    return {
+        "status": "PASS",
+        "lifecycle_state": lifecycle,
+        "readiness": readiness,
+        "checks": len(evidence.get("checks", [])),
+        "candidate_asset_builds": 0,
+        "hosted_head_sha": hosted["head_sha"],
+    }
 
 
 def _parser() -> argparse.ArgumentParser:

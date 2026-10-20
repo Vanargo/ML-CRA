@@ -8,6 +8,7 @@ from scripts import st08_16A_v1_0_0_candidate_finalization_assurance as assuranc
 
 
 CONTRACT = json.loads(assurance.CONTRACT_PATH.read_text(encoding="utf-8"))
+EVIDENCE = json.loads(assurance.EVIDENCE_PATH.read_text(encoding="utf-8"))
 
 
 class TestSt0816ACandidateFinalization(unittest.TestCase):
@@ -23,11 +24,28 @@ class TestSt0816ACandidateFinalization(unittest.TestCase):
         self.assertEqual(result["registered"], 10)
         self.assertEqual(result["rejected"], 10)
 
-    def test_final_evidence_is_local_pending_hosted_assurance(self) -> None:
+    def test_final_evidence_is_hosted_closed_pending_John_acceptance(self) -> None:
         result = assurance.validate_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["readiness"], "NOT_READY")
+        self.assertEqual(
+            result["lifecycle_state"],
+            "CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
+        )
+        self.assertEqual(result["readiness"], "READY_FOR_JOHN_ACCEPTANCE")
+        self.assertEqual(result["hosted_head_sha"], assurance.HOSTED_HEAD_SHA)
         self.assertEqual(result["candidate_asset_builds"], 0)
+
+    def test_hosted_closure_binding_is_fail_closed(self) -> None:
+        mutated = copy.deepcopy(EVIDENCE)
+        mutated["hosted_assurance"]["job_id"] += 1
+        with self.assertRaises(assurance.CandidateFinalizationError):
+            assurance.validate_evidence(evidence_data=mutated)
+
+    def test_pending_lifecycle_cannot_claim_hosted_readiness(self) -> None:
+        mutated = copy.deepcopy(EVIDENCE)
+        mutated["lifecycle_state"] = "CANDIDATE_FINALIZED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE"
+        with self.assertRaises(assurance.CandidateFinalizationError):
+            assurance.validate_evidence(evidence_data=mutated)
 
     def test_future_block_authority_is_rejected(self) -> None:
         mutated = copy.deepcopy(CONTRACT)

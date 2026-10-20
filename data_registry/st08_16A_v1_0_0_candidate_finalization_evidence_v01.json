@@ -3,9 +3,9 @@
   "task_id": "ST08_16A_v1_0_0_candidate_finalization",
   "recorded_at": "2026-10-20",
   "profile": "CHANGE",
-  "lifecycle_state": "CANDIDATE_FINALIZED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE",
+  "lifecycle_state": "CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE",
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "baseline": {
     "branch": "main",
     "commit": "e2991bff81348799fd1f961bf8af185d14d5aa6a",
@@ -30,7 +30,7 @@
     "paths": 382,
     "hashed_paths": 380,
     "path_list_sha256": "e8c751d8c607b35f506f1699dab6d863076bd7e97e638880ad1e651b77d35032",
-    "manifest_sha256": "faebbc0182ea410034b767a7b9f2d21f2abc2b00b531edb983c5cb10945f6d9c",
+    "manifest_sha256": "034aefaab8084865722e01246e1609623f498602a5cff48594dbea2ce5b6f1c5",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json",
       "data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv"
@@ -49,8 +49,24 @@
     {"check_id": "protected_scientific_artifacts", "status": "PASS", "result": "18 of 18 canonical Git blobs unchanged"},
     {"check_id": "candidate_asset_build", "status": "SKIPPED", "result": "reserved for separately authorized ST08_16B"},
     {"check_id": "checkpoint", "status": "SKIPPED", "result": "reversible Git change with exact successor manifest; stage and release remain incomplete"},
-    {"check_id": "hosted_exact_head_assurance", "status": "SKIPPED", "result": "not yet observed; readiness remains NOT_READY"}
+    {"check_id": "hosted_exact_head_assurance", "status": "PASS", "result": "PR 27 exact head b7cb928d2ceb70f547153d29b79460dec8f21043 passed all 23 primary hosted assurance steps"},
+    {"check_id": "evidence_closure_local_verification", "status": "PASS", "result": "closure contract and final-evidence passed; 10 of 10 mutations rejected; 52 focused tests and both working and published baselines passed in ml-cra-venv"}
   ],
+  "hosted_assurance": {
+    "status": "PASS",
+    "pull_request": 27,
+    "run_id": 39385375464,
+    "job_id": 118503826256,
+    "head_sha": "b7cb928d2ceb70f547153d29b79460dec8f21043",
+    "event": "pull_request",
+    "conclusion": "success",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39385375464",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39385375464/job/118503826256",
+    "required_step": "Validate the v1.0.0 candidate finalization",
+    "required_step_conclusion": "success",
+    "primary_steps": 23,
+    "completed_at": "2026-10-20T07:21:47Z"
+  },
   "change_reconciliation": {
     "planned_paths": 23,
     "actual_paths": 23,
@@ -71,7 +87,6 @@
     "reason": "The candidate change is reversible in protected Git and bound by exact evidence and a canonical successor manifest; no stage or external release is complete."
   },
   "uncertainty": [
-    "Hosted exact-SHA assurance has not yet been observed for this candidate.",
     "No field reliability or adoption inference is made from absent external telemetry.",
     "Final asset reproducibility dependency security and clean-install re-audit remain reserved for ST08_16B."
   ],

@@ -3271,3 +3271,56 @@ hosted `assurance` ещё не наблюдался; принятие текущ
 3. Не объединять PR и не принимать ST08_16A до следующего технического отчёта.
 4. Не начинать ST08_16B и не создавать tag/release `v1.0.0`; TestPyPI/PyPI
    также остаются неавторизованными.
+
+## 96. ST08_16A — exact-SHA hosted evidence closure
+
+John создал candidate commit `b7cb928d2ceb70f547153d29b79460dec8f21043`,
+отправил ветвь `st08-16a-v1-0-0-candidate-finalization` и открыл PR №27 в
+`main`. PR открыт, не является draft, имеет состояния `MERGEABLE/CLEAN`, base
+`e2991bff81348799fd1f961bf8af185d14d5aa6a` и exact head, совпадающий с
+candidate commit. Локальный `HEAD`, upstream и удалённая ветвь также совпали;
+индекс, рабочее дерево и множество untracked paths были пусты.
+
+GitHub Actions run `39385375464`, job `118503826256`, завершился с `success`
+2026-10-20T07:21:47Z. Успешны все 23 основных шага. В частности, hosted среда
+проверила ST08_16A contract, 10/10 отрицательных мутаций и `final-evidence`,
+hash-locked зависимости, отсутствие известных секретных шаблонов, двуязычную
+документацию, неизменяемые `v0.1.0`/`v0.1.1`, чистую offline-установку CLI и
+deterministic published baseline.
+
+Метод верификации использует две независимые составляющие: криптографическую
+привязку точной ревизии и наблюдаемое выполнение проверок.
+[NIST FIPS 180-4](https://csrc.nist.gov/pubs/fips/180-4/upd1/final)
+поддерживает SHA-256-привязку, но хеш не считается доказательством
+корректности; наблюдаемый hosted run предоставляет отдельное исполняемое
+доказательство по повторяемому процессу
+[NIST SSDF 1.1](https://csrc.nist.gov/pubs/sp/800/218/final).
+
+```text
+ST08_16A_lifecycle_state: CANDIDATE_FINALIZED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_pull_request: 27
+hosted_assurance_run_id: 39385375464
+hosted_assurance_job_id: 118503826256
+hosted_assurance_head_sha: b7cb928d2ceb70f547153d29b79460dec8f21043
+ST08_16B_authorized: false
+candidate_asset_builds: 0
+tag_or_release_actions: 0
+scientific_artifact_changes: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+`PASS` означает, что локальный candidate-контур и первый exact-SHA hosted gate
+выполнены. `READY_FOR_JOHN_ACCEPTANCE` означает готовность доказательного
+состояния к завершающей фиксации, но не принятие: сам evidence-closure commit
+ещё должен пройти повторный exact-SHA `assurance`. Практически PR пока нельзя
+объединять; ST08_16B, активы, тег/release и TestPyPI/PyPI не разрешены.
+
+## 97. Задачи John
+
+1. Создать и отправить evidence-closure commit в существующий PR №27.
+2. Дождаться повторного exact-SHA `assurance` и передать URL PR или run агенту.
+3. После следующего технического отчёта принять либо вернуть ST08_16A; только
+   John может присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и разрешить merge.
+4. Не начинать ST08_16B и не создавать `v1.0.0` tag/release без отдельного
+   `NEXT_BLOCK_AUTHORIZED` после закрытия текущего блока.
