@@ -84,15 +84,15 @@
     "independent_build_count": 2,
     "ST08_16B_assets": {
       "ml_cra-1.0.0.tar.gz": {
-        "sha256": "be0a8d474dee039af3c3f422f64427a95b8adac6588d3f02c8367a99d4c39d1d",
-        "size_bytes": 100556
+        "sha256": "7289ab2e75c1b7042b01d02421d412223e66644391a78f106a778479660cd8ef",
+        "size_bytes": 100581
       },
       "ml_cra-1.0.0-py3-none-any.whl": {
         "sha256": "8af6001263fdb4fbe6e97a3060a1b42bb4f8dc5b2bb99a7e81f1a300010a3aca",
         "size_bytes": 92555
       },
       "SHA256SUMS": {
-        "sha256": "6e168cfafc38a7e776c8e36a18b93b6de594bb07d80331af44d96fc6ddad85ff",
+        "sha256": "e82165c2acd5dcf4544db9c7c1e8664f2518f790211daf2c4ac8bc5a3dd095d4",
         "size_bytes": 182
       }
     },
@@ -344,8 +344,8 @@
   "exit_contract_disposition": {
     "EXIT-02": "PASS_ST08_16A_exact_candidate_and_hosted_assurance_closed",
     "EXIT-03": "PASS_frozen_public_contract_preserved",
-    "EXIT-04": "PENDING_ST08_16B_observed_checks",
-    "EXIT-05": "PENDING_ST08_16B_two_build_registration",
+    "EXIT-04": "PASS_ST08_16B_local_and_exact_SHA_hosted_assurance",
+    "EXIT-05": "PASS_ST08_16B_two_build_registration_and_exact_SHA_hosted_assurance",
     "EXIT-06": "PENDING_JOHN_API_stability_acceptance_and_separate_ST08_16C_authorization",
     "EXIT-07": "PENDING_ST08_16C_immutable_release_verification"
   }

@@ -3,7 +3,7 @@
   "task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
   "profile": "SCIENTIFIC_VALIDATION",
   "recorded_at": "2026-10-20",
-  "status": "local_corrective_preflight_pass_exact_hosted_recheck_pending_no_release",
+  "status": "corrective_exact_SHA_hosted_assurance_closed_pending_evidence_closure_commit_and_John_acceptance",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED",
     "resolved_context_task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
@@ -23,7 +23,7 @@
     "paths": 389,
     "hashed_paths": 387,
     "path_list_sha256": "0f6cd8bd12e1c21f78933c486d22852f98af7ba3c8ce58ff815438aea5b667a8",
-    "manifest_sha256": "0335dbe6945f497b778f9044a912fb3185ef897a5fbb29ec4fd62cead1b30c6a",
+    "manifest_sha256": "a8217c3a3a4cf1f7a2769a86b0e3acade5d68bf7de9d19e4840c2ac214b2d32e",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv",
       "data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json"
@@ -32,15 +32,15 @@
   },
   "candidate_assets": {
     "ml_cra-1.0.0.tar.gz": {
-      "sha256": "be0a8d474dee039af3c3f422f64427a95b8adac6588d3f02c8367a99d4c39d1d",
-      "size_bytes": 100556
+      "sha256": "7289ab2e75c1b7042b01d02421d412223e66644391a78f106a778479660cd8ef",
+      "size_bytes": 100581
     },
     "ml_cra-1.0.0-py3-none-any.whl": {
       "sha256": "8af6001263fdb4fbe6e97a3060a1b42bb4f8dc5b2bb99a7e81f1a300010a3aca",
       "size_bytes": 92555
     },
     "SHA256SUMS": {
-      "sha256": "6e168cfafc38a7e776c8e36a18b93b6de594bb07d80331af44d96fc6ddad85ff",
+      "sha256": "e82165c2acd5dcf4544db9c7c1e8664f2518f790211daf2c4ac8bc5a3dd095d4",
       "size_bytes": 182
     }
   },
@@ -108,19 +108,27 @@
     "repository_security_preflight": "PASS_authenticated_read_only_observation",
     "release_state_transition": "REQUIRED_BEFORE_PUBLICATION",
     "aggregate_pilot": "PASS_expected_disposition_exactly_8_registered_historical_FAIL_and_no_new_failure",
-    "hosted_exact_SHA_assurance": "FAIL_attempt_1_superseded_ST08_16A_gate_then_PENDING_CORRECTIVE_EXACT_SHA"
+    "hosted_exact_SHA_assurance": "PASS_attempt_2_exact_SHA_after_registered_attempt_1_failure_and_correction"
   },
   "hosted_assurance": {
-    "status": "PENDING_CORRECTIVE_EXACT_SHA",
-    "run_id": null,
-    "job_id": null,
-    "head_sha": null,
-    "run_url": null,
-    "job_url": null,
-    "conclusion": null,
-    "final_evidence": "PENDING",
-    "primary_steps": "PENDING",
-    "completed_at": null
+    "status": "PASS",
+    "pull_request": 28,
+    "run_id": 39427719949,
+    "job_id": 118644381949,
+    "head_sha": "646e39e5f45cafce0a9b6662c2615992d9c5a1da",
+    "event": "pull_request",
+    "conclusion": "success",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949/job/118644381949",
+    "required_step": "Validate the v1.0.0 final re-audit and security preflight",
+    "required_step_conclusion": "success",
+    "final_evidence": "PASS",
+    "primary_steps": 22,
+    "completed_at": "2026-10-20T13:13:40Z",
+    "pr_state": "OPEN",
+    "is_draft": false,
+    "mergeable": "MERGEABLE",
+    "merge_state_status": "CLEAN"
   },
   "hosted_attempts": [
     {
@@ -143,6 +151,24 @@
       "completed_at": "2026-10-20T12:51:51Z",
       "root_cause": "superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_successor_tree",
       "corrective_disposition": "remove_legacy_execution_preserve_immutable_hash_verification_require_new_exact_SHA_run"
+    },
+    {
+      "attempt": 2,
+      "status": "PASS",
+      "pull_request": 28,
+      "run_id": 39427719949,
+      "job_id": 118644381949,
+      "head_sha": "646e39e5f45cafce0a9b6662c2615992d9c5a1da",
+      "event": "pull_request",
+      "conclusion": "success",
+      "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949",
+      "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949/job/118644381949",
+      "required_step": "Validate the v1.0.0 final re-audit and security preflight",
+      "required_step_number": 14,
+      "required_step_conclusion": "success",
+      "successful_github_steps": 23,
+      "skipped_github_steps": 0,
+      "completed_at": "2026-10-20T13:13:40Z"
     }
   ],
   "validation_verdict": {
@@ -159,7 +185,7 @@
     "status": "PASS_exact_planned_path_set"
   },
   "limits": [
-    "A successful local corrective preflight does not replace the failed first hosted attempt or prove hosted assurance for the corrective commit SHA.",
+    "The successful corrective hosted run does not erase the failed first attempt and does not itself verify the later evidence-closure commit SHA.",
     "SHA-256 establishes byte identity, not scientific or software correctness.",
     "The registered v1.0.0 candidate assets are preflight artifacts and are not upload-ready until the release-state transition and exact rebuild occur.",
     "No new training, model comparison, scientific result, protocol or verdict was produced."
@@ -174,14 +200,14 @@
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "technical_status": "PASS",
-  "readiness": "NOT_READY",
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE",
   "proposed_next_block": "ST08_16C_v1_0_0_GitHub_execution",
   "next_block_authorized": false,
   "exit_contract_disposition": {
     "EXIT-02": "PASS_ST08_16A_exact_candidate_and_hosted_assurance_closed",
     "EXIT-03": "PASS_frozen_public_contract_preserved",
-    "EXIT-04": "PASS_LOCAL_PENDING_EXACT_SHA_HOSTED_ASSURANCE",
-    "EXIT-05": "PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_PENDING_EXACT_SHA_HOSTED_ASSURANCE",
+    "EXIT-04": "PASS_LOCAL_AND_EXACT_SHA_HOSTED_ASSURANCE",
+    "EXIT-05": "PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_AND_EXACT_SHA_HOSTED_ASSURANCE",
     "EXIT-06": "PENDING_JOHN_API_stability_acceptance_and_separate_ST08_16C_authorization",
     "EXIT-07": "PENDING_ST08_16C_immutable_release_verification"
   },
@@ -205,7 +231,7 @@
       "tag_release_and_package_index_publication_outside_authorized_scope"
     ],
     "PENDING": [
-      "hosted_assurance_for_exact_corrective_committed_SHA",
+      "hosted_assurance_for_the_evidence_closure_commit_SHA",
       "John_acceptance_and_stable_bounded_API_decision"
     ]
   }

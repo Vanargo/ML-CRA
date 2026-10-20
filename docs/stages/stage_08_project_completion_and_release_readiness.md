@@ -3437,3 +3437,38 @@ hosted запуск остаётся зарегистрированным `FAIL`
 2. Передать результат нового exact-SHA hosted `assurance` агенту.
 3. До следующего отчёта не выполнять merge, не принимать ST08_16B и не
    авторизовывать ST08_16C или публикацию `v1.0.0`.
+
+## 102. ST08_16B — корректирующий exact-SHA hosted gate закрыт
+
+Корректирующий commit `646e39e5f45cafce0a9b6662c2615992d9c5a1da` проверен в PR №28.
+GitHub Actions run `39427719949`, job `118644381949`, завершился с `success`
+2026-10-20T13:13:40Z. Все 22 объявленных workflow steps успешны
+(GitHub numbering 2–23; служебный `Set up job` имеет номер 1); обязательный шаг
+`Validate the v1.0.0 final re-audit and security preflight` также завершился
+с `success`. PR наблюдался как `OPEN`, `MERGEABLE/CLEAN`, не draft.
+
+Первый failed run сохранён в evidence и не переинтерпретирован. Второй run
+доказывает исправление orchestration defect на точном корректирующем SHA.
+Product source, protected science, training, tag, release и uploads не менялись.
+
+```text
+hosted_attempt_1: FAIL_REGISTERED
+hosted_attempt_2: PASS
+hosted_success_run_id: 39427719949
+hosted_success_job_id: 118644381949
+hosted_success_head_sha: 646e39e5f45cafce0a9b6662c2615992d9c5a1da
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Готовность относится к проверенному кандидату и означает готовность к решению
+John, а не само принятие, merge или разрешение ST08_16C. Подготовленный
+evidence-closure commit должен сам пройти повторный exact-SHA hosted gate.
+
+## 103. Задачи John
+
+1. Создать и отправить evidence-closure commit в существующую ветвь PR №28.
+2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
+3. До финального отчёта не выполнять merge и не присваивать
+   `ACCEPTED_BY_JOHN`/`TASK_CLOSED`.

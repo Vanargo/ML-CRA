@@ -2604,3 +2604,32 @@ READINESS: NOT_READY
 1. Создать и отправить корректирующий commit после локальной передачи агента.
 2. Передать новый exact-SHA hosted результат; до него не выполнять merge.
 3. Не принимать ST08_16B и не начинать ST08_16C или выпуск `v1.0.0`.
+
+## 89. ST08_16B — corrective hosted assurance закрыт
+
+PR №28 на exact head `646e39e5f45cafce0a9b6662c2615992d9c5a1da` прошёл GitHub Actions run
+`39427719949`, job `118644381949`, с `success`. Все 22 объявленных workflow
+steps успешны (GitHub numbering 2–23; служебный `Set up job` — номер 1),
+включая ST08_16B final re-audit, две воспроизводимые сборки, immutable-release
+verification, clean offline install и published baseline. PR наблюдался как
+`OPEN`, `MERGEABLE/CLEAN`, не draft.
+
+Первый failed attempt остаётся зарегистрированным; второй exact-SHA run
+подтверждает исправление successor-gate orchestration. Изменений продукта,
+scientific scope или публикационных действий нет.
+
+```text
+hosted_attempt_1: FAIL_REGISTERED
+hosted_attempt_2: PASS
+evidence_closure_commit: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+## 90. Задачи John
+
+1. Создать и отправить evidence-closure commit в PR №28.
+2. Передать результат повторного exact-SHA hosted `assurance`.
+3. До финального отчёта не выполнять merge, не принимать ST08_16B и не
+   авторизовывать ST08_16C или выпуск `v1.0.0`.

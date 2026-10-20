@@ -20,11 +20,15 @@ class TestSt0816BFinalReauditAndSecurityPreflight(unittest.TestCase):
         self.assertEqual(result["immutable_ST08_16A"], 7)
         self.assertEqual(result["change_scope"], 14)
 
-    def test_final_evidence_is_fail_closed_pending_exact_hosted_run(self) -> None:
+    def test_final_evidence_binds_exact_successful_corrective_hosted_run(self) -> None:
         result = preflight.validate_final_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["evidence"]["hosted_status"], "PENDING_CORRECTIVE_EXACT_SHA")
-        self.assertEqual(EVIDENCE["readiness"], "NOT_READY")
+        self.assertEqual(result["evidence"]["hosted_status"], "PASS")
+        self.assertEqual(EVIDENCE["readiness"], "READY_FOR_JOHN_ACCEPTANCE")
+        self.assertEqual(
+            EVIDENCE["hosted_assurance"]["head_sha"],
+            "646e39e5f45cafce0a9b6662c2615992d9c5a1da",
+        )
         self.assertEqual(
             EVIDENCE["source_baseline"]["git_commit"],
             "236bc4c48ef4ff40b170b68c860b600e788a7710",
@@ -74,11 +78,10 @@ class TestSt0816BFinalReauditAndSecurityPreflight(unittest.TestCase):
         with self.assertRaises(preflight.FinalCandidatePreflightError):
             preflight.validate_workflow_text(text)
 
-    def test_evidence_rejects_ready_state_while_hosted_run_is_pending(self) -> None:
+    def test_evidence_rejects_non_exact_hosted_closure(self) -> None:
         bindings = preflight.validate_contract_bindings(CONTRACT)
         mutated = copy.deepcopy(EVIDENCE)
-        mutated["hosted_assurance"]["status"] = "PENDING_TEST"
-        mutated["readiness"] = "READY_FOR_JOHN_ACCEPTANCE"
+        mutated["hosted_assurance"]["job_id"] += 1
         with self.assertRaises(preflight.FinalCandidatePreflightError):
             preflight.validate_evidence(mutated, CONTRACT, bindings)
 

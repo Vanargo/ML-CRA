@@ -605,10 +605,48 @@ def validate_evidence(evidence: Mapping[str, Any], contract: Mapping[str, Any], 
         "root_cause": "superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_successor_tree",
         "corrective_disposition": "remove_legacy_execution_preserve_immutable_hash_verification_require_new_exact_SHA_run",
     }
-    if evidence.get("hosted_attempts") != [expected_failed_attempt]:
-        raise FinalCandidatePreflightError("failed hosted attempt evidence mismatch")
-    if hosted.get("status") not in {"PENDING_CORRECTIVE_EXACT_SHA", "PASS"}:
-        raise FinalCandidatePreflightError("unexpected hosted assurance lifecycle status")
+    expected_successful_attempt = {
+        "attempt": 2,
+        "status": "PASS",
+        "pull_request": 28,
+        "run_id": 39427719949,
+        "job_id": 118644381949,
+        "head_sha": "646e39e5f45cafce0a9b6662c2615992d9c5a1da",
+        "event": "pull_request",
+        "conclusion": "success",
+        "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949",
+        "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949/job/118644381949",
+        "required_step": "Validate the v1.0.0 final re-audit and security preflight",
+        "required_step_number": 14,
+        "required_step_conclusion": "success",
+        "successful_github_steps": 23,
+        "skipped_github_steps": 0,
+        "completed_at": "2026-10-20T13:13:40Z",
+    }
+    if evidence.get("hosted_attempts") != [expected_failed_attempt, expected_successful_attempt]:
+        raise FinalCandidatePreflightError("hosted attempt sequence evidence mismatch")
+    expected_hosted = {
+        "status": "PASS",
+        "pull_request": 28,
+        "run_id": 39427719949,
+        "job_id": 118644381949,
+        "head_sha": "646e39e5f45cafce0a9b6662c2615992d9c5a1da",
+        "event": "pull_request",
+        "conclusion": "success",
+        "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949",
+        "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39427719949/job/118644381949",
+        "required_step": "Validate the v1.0.0 final re-audit and security preflight",
+        "required_step_conclusion": "success",
+        "final_evidence": "PASS",
+        "primary_steps": 22,
+        "completed_at": "2026-10-20T13:13:40Z",
+        "pr_state": "OPEN",
+        "is_draft": False,
+        "mergeable": "MERGEABLE",
+        "merge_state_status": "CLEAN",
+    }
+    if hosted != expected_hosted:
+        raise FinalCandidatePreflightError("successful hosted assurance binding mismatch")
     expected_readiness = "READY_FOR_JOHN_ACCEPTANCE" if hosted.get("status") == "PASS" else "NOT_READY"
     if evidence.get("technical_status") != "PASS" or evidence.get("readiness") != expected_readiness:
         raise FinalCandidatePreflightError("technical status or hosted-dependent readiness mismatch")
