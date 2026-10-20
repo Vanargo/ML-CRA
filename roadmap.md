@@ -2339,3 +2339,91 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
 2. Передать результат агенту для проверки; затем принять либо вернуть ST08_15C.
 3. Отдельно решить merge PR №25. Следующий блок требует отдельного
    `NEXT_BLOCK_AUTHORIZED`.
+
+## 77. ST08_16 — конечный маршрут от принятого v0.1.1 к v1.0.0
+
+John принял и закрыл ST08_15C, отдельно разрешил merge PR №25 и post-merge
+`assurance`, затем авторизовал
+`ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design`. PR №25
+объединён в `main` как `e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b`; run
+`38519742908`, job `115706471628`, имеет `success`.
+
+```text
+ACCEPTED_BY_JOHN: ST08_15C_v0_1_1_GitHub_execution
+TASK_CLOSED: ST08_15C_v0_1_1_GitHub_execution
+NEXT_BLOCK_AUTHORIZED: ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design
+ordinary_blocks_after_ST08_16_acceptance: 3
+future_blocks_authorized: 0
+```
+
+Immutable `v0.1.1` и три актива повторно подтверждены. Пользовательских issues
+и открытых Dependabot security alerts нет; девять открытых Dependabot PR —
+обычные version updates. Загрузок активов пока нет, поэтому эксплуатационная
+надёжность и adoption — внешнее принятие — не доказаны. Это явно записанное
+ограничение, но не бесконечный blocker: цель 1.0.0 определяется стабильным
+ограниченным контрактом, воспроизводимыми артефактами и проверяемой цепочкой
+поставки, а не неизвестным числом будущих загрузок.
+
+Публичный контракт 1.0.0 замораживает `audit`, `verify`, `doctor`, `dashboard`,
+две зарегистрированные claim-схемы, коды 0/2/3/4/5/6, смысл bundles и
+поддерживаемую ячейку Windows x64 / CPython `>=3.12,<3.13`. Он не расширяет
+модели, научные claims, протоколы или платформы. SemVer связывает 1.0.0 с
+определённым публичным API (https://semver.org/); безопасность и происхождение
+сохраняются по NIST SSDF и GitHub immutable-release controls.
+
+После принятия ST08_16 остаются ровно три штатных блока:
+
+1. `ST08_16A_v1_0_0_candidate_finalization`;
+2. `ST08_16B_v1_0_0_final_reaudit_and_security_preflight`;
+3. `ST08_16C_v1_0_0_GitHub_execution`.
+
+Все три имеют статус `proposed_not_authorized`. Дополнительный 0.x допустим
+только при названном провале одного из семи exit criteria, ограниченном
+corrective contract и отдельной авторизации John. PyPI/TestPyPI не входит в
+критерии завершения. После проверенного и принятого immutable GitHub v1.0.0
+цель разработки ML-CRA считается достигнутой; автоматического следующего
+release train нет.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Локальный контракт положителен, но `NOT_READY` сохраняется до exact-SHA hosted
+`assurance`. Это не принятие текущей задачи и не разрешение ST08_16A.
+
+## 78. Задачи John
+
+1. Создать commit из подготовленного индексированного набора, отправить ветвь
+   и открыть PR в `main`.
+2. Дождаться ST08_16 `final-evidence` в hosted `assurance` и передать результат
+   агенту.
+3. До отчёта агента не объединять PR, не принимать блок и не начинать ST08_16A.
+
+## 79. ST08_16 — exact-SHA hosted gate закрыт
+
+PR №26 имеет exact head `f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a`, открыт,
+`MERGEABLE/CLEAN` и не является draft. GitHub Actions run `38524768465`, job
+`115722411638`, завершился с `success`; все 23 основных шага прошли, включая
+ST08_16 `final-evidence`, immutable-release verification, clean offline install
+и published baseline.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 38524768465
+hosted_assurance_job_id: 115722411638
+future_blocks_authorized: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Блок технически готов к решению John, но ещё не принят и не закрыт. PR нельзя
+объединять до нового hosted запуска evidence-closure commit и отдельного
+решения John. Три следующих блока остаются только предложенными.
+
+## 80. Задачи John
+
+1. Создать evidence-closure commit в PR №26 и дождаться exact-SHA assurance.
+2. Передать новый результат агенту; до его отчёта не выполнять merge.
+3. Отдельно принять/закрыть ST08_16 и решить авторизацию ST08_16A.

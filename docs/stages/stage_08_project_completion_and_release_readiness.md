@@ -3046,3 +3046,165 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
    присваивает `ACCEPTED_BY_JOHN` и `TASK_CLOSED` и отдельно разрешает merge.
 4. Не изменять immutable `v0.1.1`; следующий блок и PyPI/TestPyPI не
    авторизованы.
+
+## 90. ST08_16 — post-release review 0.1.1 и конечный контракт выхода 1.0.0
+
+John присвоил ST08_15C `ACCEPTED_BY_JOHN` и `TASK_CLOSED`, отдельно разрешил
+слияние PR №25 и post-merge `assurance`. Проверенный head
+`7172b17646a9cfc8ffc00f9268720fc896b75071` объединён squash-методом в `main`
+как `e22d3db4cf4576da8ce12d58ce2cc4f4f28f030b`, Git tree
+`9fa92e00835b58fcd2afe1e530bda42ff7b1827b`. Post-merge run `38519742908`,
+job `115706471628`, завершился с `success`. После этого John точно
+авторизовал только
+`ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design`.
+
+```text
+ACCEPTED_BY_JOHN: ST08_15C_v0_1_1_GitHub_execution
+TASK_CLOSED: ST08_15C_v0_1_1_GitHub_execution
+NEXT_BLOCK_AUTHORIZED: ST08_16_v0_1_1_post_release_review_and_v1_0_0_exit_contract_design
+ST08_16_profile: CHANGE
+ST08_16_authorized: true
+ordinary_blocks_after_ST08_16_acceptance: 3
+future_blocks_authorized: 0
+```
+
+Эти значения означают: предыдущий выпускной блок принят и закрыт; текущий
+блок вправе только провести review — разбор — и спроектировать контракт;
+после его принятия до неизменяемого GitHub Release 1.0.0 остаются ровно три
+штатных блока, но ни один из них текущей меткой не разрешён.
+
+Повторное наблюдение 14 октября 2026 года подтвердило immutable GitHub Release
+`v0.1.1` с release ID `411733338`, exact commit/tree
+`1cfa920ec91d85341525f1ca6ef57a060dcb9cce` /
+`180aa516153724643d916f0db615f0adf333e23a` и тремя прежними активами. Открытых
+пользовательских GitHub Issues и Dependabot security alerts нет. Девять
+открытых Dependabot PR являются version updates — предложениями обновить
+версии, а не свидетельствами известных уязвимостей. Все три release assets
+имеют ноль загрузок. Поэтому нельзя делать вывод ни о полевой надёжности, ни о
+внешнем принятии продукта; отсутствие телеметрии явно остаётся ограничением.
+
+Этот недостаток наблюдений не превращён в бесконечный release gate — шлюз
+выпуска. Цель ML-CRA является проверяемой по артефактам и контрактам: стабильный
+ограниченный офлайн-аудитор того, поддерживают ли зарегистрированные
+экспериментальные доказательства заявленное ML-утверждение. Это не
+универсальная система выбора лучшей модели. Поддерживаемая ячейка остаётся
+Windows x64 и CPython `>=3.12,<3.13`; обязательны локальные UTF-8 inputs,
+бинарная классификация, регрессия с обменными строками, команды `audit`,
+`verify`, `doctor`, `dashboard`, проверяемые bundles — пакеты результатов — и
+двуязычная статическая панель.
+
+SemVer требует точного публичного API и связывает `1.0.0` с его определением
+(https://semver.org/). PyPA требует уникального корректного public version
+identifier — идентификатора публичной версии —
+(https://packaging.python.org/en/latest/specifications/version-specifiers/).
+Официальный перечень PyPI содержит classifier
+`Development Status :: 5 - Production/Stable`
+(https://pypi.org/classifiers/); здесь он означает стабильность заявленного
+ограниченного контракта, а не доказанную массовую эксплуатацию. NIST SSDF
+требует встраивать secure-development practices — практики безопасной
+разработки — в жизненный цикл
+(https://csrc.nist.gov/pubs/sp/800/218/final). GitHub прямо различает version
+updates без известной уязвимости и security updates
+(https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-version-updates),
+а immutable releases блокируют изменение tag и assets после публикации
+(https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases).
+
+Публичный контракт-кандидат 1.0.0 замораживает четыре команды, две claim-схемы,
+схемы doctor/dashboard, значения и смысл кодов 0/2/3/4/5/6, состав основных
+артефактов и научную область. ST08_16A сможет изменить только версии,
+классификатор зрелости, release notes и согласованные описания; расширение
+функций, платформ, моделей, протоколов или claims до 1.0.0 запрещено.
+
+Семь критериев выхода разделяют: принятое состояние v0.1.1; точное описание
+публичного контракта; согласованность метаданных 1.0.0; полный повторный аудит
+безопасности, зависимостей, чистой установки, CLI, dashboard и научных границ;
+две побайтово совпадающие сборки; отдельное принятие John стабильности API и
+разрешение необратимого действия; проверенный immutable GitHub Release и
+hosted evidence closure.
+
+Штатный конечный маршрут после принятия текущего блока:
+
+1. `ST08_16A_v1_0_0_candidate_finalization` — метаданные, стабильный
+   ограниченный публичный контракт и двуязычные release notes;
+2. `ST08_16B_v1_0_0_final_reaudit_and_security_preflight` — exact-candidate
+   re-audit, security preflight и регистрация воспроизводимых активов;
+3. `ST08_16C_v1_0_0_GitHub_execution` — только после отдельного решения John
+   неизменяемая публикация GitHub 1.0.0 и закрытие evidence.
+
+Обычные дополнительные 0.x запрещены. Исключение возможно только при
+конкретно названном проваленном `EXIT-01`–`EXIT-07`, ограниченном корректирующем
+контракте и отдельной авторизации John. PyPI/TestPyPI не является критерием
+завершения 1.0.0 и остаётся отдельным опциональным решением. После принятого и
+проверенного immutable v1.0.0 цель текущей разработки проекта завершена;
+автоматического следующего release train — цикла выпусков — нет.
+
+Взвешенная матрица с заранее объявленными весами выбрала этот маршрут с
+результатом 4.85/5 против 2.10 для обычных 0.1.x, 2.75 для немедленного 1.0.0
+без шлюзов и 2.60 для неопределённого ожидания внешнего использования. Это
+инженерный инструмент выбора, а не научный результат продукта.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_PENDING_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+product_source_changes: 0
+scientific_artifact_changes: 0
+training_runs: 0
+tag_or_release_actions: 0
+TestPyPI_or_PyPI_uploads: 0
+future_blocks_authorized: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локально проверенному контракту и не доказывает будущий
+выпуск 1.0.0. `NOT_READY` означает, что текущая ветвь ещё должна пройти
+exact-SHA hosted `assurance`; только после этого результат может быть передан
+John для принятия. Все нулевые значения подтверждают сохранение продуктовой и
+научной границы, отсутствие публикации и отсутствие разрешения будущего блока.
+
+## 91. Задачи John
+
+1. После передачи агентом подготовленного индексированного набора создать
+   commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться `assurance`, включающего ST08_16 `final-evidence`, и передать URL
+   PR или run агенту для проверки exact SHA.
+3. Не объединять PR и не присваивать `ACCEPTED_BY_JOHN`/`TASK_CLOSED` до
+   технического отчёта агента.
+4. Не начинать ST08_16A, не создавать tag/release 1.0.0 и не публиковать в
+   TestPyPI/PyPI без последующего отдельного решения.
+
+## 92. ST08_16 — exact-SHA hosted evidence closure
+
+John создал commit `f6f0e5429dd2ab5f5101ff8e486a68a3b2ac8c6a`, отправил ветвь
+`st08-16-v1-0-0-exit-contract` и открыл PR №26. PR открыт, не является draft,
+имеет состояния `MERGEABLE/CLEAN`, а его единственный head точно совпадает с
+этим commit.
+
+GitHub Actions run `38524768465`, job `115722411638`, завершился с `success`
+2026-10-14T06:59:54Z. Все 23 основных шага успешны. В частности, hosted среда
+приняла ST08_16 contract, 8/8 отрицательных мутаций, focused tests и
+`final-evidence`; повторно проверила immutable `v0.1.0`/`v0.1.1`, dependency
+audit, clean offline install, CLI и deterministic published baseline.
+
+```text
+ST08_16_lifecycle_state: CONTRACT_DESIGNED_HOSTED_ASSURANCE_CLOSED_PENDING_JOHN_ACCEPTANCE
+hosted_assurance_run_id: 38524768465
+hosted_assurance_job_id: 115722411638
+future_blocks_authorized: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+`TECHNICAL_STATUS: PASS` означает, что локальный и exact-SHA hosted контуры
+подтвердили контракт. `READY_FOR_JOHN_ACCEPTANCE` означает только готовность к
+решению John; это не само принятие, не закрытие задачи, не разрешение merge и
+не авторизация ST08_16A. Ноль будущих авторизованных блоков сохраняет границу
+полномочий. Исторический aggregate pilot `FAIL` остаётся явно записанным с
+неблокирующим disposition; принятые исторические записи не переписывались.
+
+## 93. Задачи John
+
+1. Создать и отправить evidence-closure commit в существующую ветвь PR №26.
+2. Дождаться нового exact-SHA `assurance` и передать результат агенту.
+3. После подтверждения агента принять либо вернуть ST08_16. Только John может
+   присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и отдельно разрешить merge.
+4. ST08_16A, tag/release 1.0.0 и TestPyPI/PyPI пока не авторизованы.
