@@ -3324,3 +3324,151 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
    John может присвоить `ACCEPTED_BY_JOHN`, `TASK_CLOSED` и разрешить merge.
 4. Не начинать ST08_16B и не создавать `v1.0.0` tag/release без отдельного
    `NEXT_BLOCK_AUTHORIZED` после закрытия текущего блока.
+
+## 98. ST08_16B — финальный повторный аудит и security preflight 1.0.0
+
+John принял и закрыл ST08_16A, разрешил merge PR №27 и обязательную
+post-merge проверку. PR №27 объединён squash-commit
+`236bc4c48ef4ff40b170b68c860b600e788a7710` с tree
+`f12fab356046274a48fba06754d256b8c71cd7b9`; GitHub Actions run
+`39389976539`, job `118518862872`, успешно завершил все 23 основных шага для
+точного `main`. После этого John отдельно авторизовал только
+`ST08_16B_v1_0_0_final_reaudit_and_security_preflight`.
+
+```text
+ACCEPTED_BY_JOHN: ST08_16A_v1_0_0_candidate_finalization
+TASK_CLOSED: ST08_16A_v1_0_0_candidate_finalization
+NEXT_BLOCK_AUTHORIZED: ST08_16B_v1_0_0_final_reaudit_and_security_preflight
+ST08_16B_profile: SCIENTIFIC_VALIDATION
+ST08_16C_authorized: false
+release_actions_performed: 0
+training_runs: 0
+scientific_artifact_changes: 0
+```
+
+Повторный аудит строит sdist и wheel дважды из отдельных materialization —
+материализаций — точного Git index при фиксированном `SOURCE_DATE_EPOCH`,
+нормализует sdist и требует побайтового совпадения обеих пар. Зарегистрированные
+активы затем проходят проверку имён, embedded metadata, лицензии, entry point,
+безопасности путей архива и `SHA256SUMS`. Отдельные контуры проверяют 18
+защищённых научных артефактов, frozen public contract, зависимости, шаблоны
+секретов, чистую offline-установку, CLI/dashboard и все 24 требования Stage 8.
+
+Read-only наблюдение GitHub от 2026-10-20 подтвердило активный ruleset `main`
+№21408995 со строгим обязательным `assurance`, запретом удаления/force-push и
+линейной историей; secret scanning, push protection, private vulnerability
+reporting и release immutability включены; открытых Dependabot alerts нет.
+`v0.1.0` и `v0.1.1` прошли `gh release verify`, а tag/release `v1.0.0`
+отсутствует.
+
+PyPA определяет sdist и wheel как отдельные дистрибутивные артефакты и требует
+совпадения имени/версии sdist с metadata
+(https://packaging.python.org/en/latest/specifications/source-distribution-format/).
+Спецификация SOURCE_DATE_EPOCH задаёт детерминированный timestamp-вход
+(https://reproducible-builds.org/specs/source-date-epoch/). NIST SSDF 1.1
+поддерживает повторяемые security practices в жизненном цикле
+(https://csrc.nist.gov/pubs/sp/800/218/final), а GitHub рекомендует для
+immutable release порядок draft → attach assets → publish и последующую
+проверку release/asset
+(https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases).
+
+Текущие README, `RELEASE_NOTES_1.0.0.md` и `CITATION.cff` намеренно остаются в
+candidate-state. Их финализация, принятие John стабильности ограниченного API,
+exact-SHA hosted gate и публикация относятся только к будущему отдельно
+авторизуемому ST08_16C. PyPI/TestPyPI не входят в критерии 1.0.0.
+
+```text
+ST08_16B_lifecycle_state: LOCAL_PREFLIGHT_PASS_PENDING_EXACT_SHA_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+EXIT-04: PASS_LOCAL_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+EXIT-05: PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локально наблюдаемым проверкам точного индексированного
+кандидата. `NOT_READY` означает, что новый commit ещё не прошёл hosted
+`assurance`; это не принятие API-стабильности и не разрешение ST08_16C.
+
+## 99. Задачи John
+
+1. После передачи агентом подготовленного индексированного набора создать
+   commit, отправить ветвь и открыть PR в `main`.
+2. Дождаться hosted `assurance`, включающего ST08_16B `final-evidence` и две
+   воспроизводимые сборки, затем передать URL PR или run агенту.
+3. Не объединять PR и не принимать ST08_16B до следующего технического отчёта.
+4. После полного evidence closure отдельно решить принятие стабильности
+   ограниченного API и авторизацию ST08_16C; tag/release и PyPI/TestPyPI пока
+   не разрешены.
+
+## 100. ST08_16B — первый exact-SHA hosted запуск и корректирующее действие
+
+PR №28 проверил точный head
+`9980b274c9c9b3f4da8f8fcb752b6527f40391e4`. GitHub Actions run
+`39425088682`, job `118635516629`, завершился с `failure`: шаги 1–13 прошли,
+а шаг 14 `Validate the v1.0.0 candidate finalization` воспроизвёл ожидаемое
+несовпадение исторического ST08_16A successor manifest с выросшим деревом
+ST08_16B. Шаги 15–24 были пропущены после fail-fast остановки.
+
+Причина относится к оркестрации CI, а не к продукту или научным артефактам:
+старый state-dependent валидатор был ошибочно сохранён как активный gate после
+появления его преемника. Семь ST08_16A-артефактов остаются неизменными и
+проверяются актуальным ST08_16B по зарегистрированным SHA-256. Активный workflow
+теперь запускает successor-compatible ST08_16B gate и fail-closed запрещает
+повторное включение исторического ST08_16A-вызова.
+
+```text
+failed_hosted_run_id: 39425088682
+failed_hosted_job_id: 118635516629
+failed_head_sha: 9980b274c9c9b3f4da8f8fcb752b6527f40391e4
+root_cause: superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_tree
+product_or_scientific_change: false
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локально проверенному корректирующему изменению. Первый
+hosted запуск остаётся зарегистрированным `FAIL`; готовность не повышается до
+успешного повторного hosted `assurance` для нового точного commit SHA.
+
+## 101. Задачи John
+
+1. После передачи агентом исправленного индексированного набора создать
+   корректирующий commit и отправить его в существующую ветвь PR №28.
+2. Передать результат нового exact-SHA hosted `assurance` агенту.
+3. До следующего отчёта не выполнять merge, не принимать ST08_16B и не
+   авторизовывать ST08_16C или публикацию `v1.0.0`.
+
+## 102. ST08_16B — корректирующий exact-SHA hosted gate закрыт
+
+Корректирующий commit `646e39e5f45cafce0a9b6662c2615992d9c5a1da` проверен в PR №28.
+GitHub Actions run `39427719949`, job `118644381949`, завершился с `success`
+2026-10-20T13:13:40Z. Все 22 объявленных workflow steps успешны
+(GitHub numbering 2–23; служебный `Set up job` имеет номер 1); обязательный шаг
+`Validate the v1.0.0 final re-audit and security preflight` также завершился
+с `success`. PR наблюдался как `OPEN`, `MERGEABLE/CLEAN`, не draft.
+
+Первый failed run сохранён в evidence и не переинтерпретирован. Второй run
+доказывает исправление orchestration defect на точном корректирующем SHA.
+Product source, protected science, training, tag, release и uploads не менялись.
+
+```text
+hosted_attempt_1: FAIL_REGISTERED
+hosted_attempt_2: PASS
+hosted_success_run_id: 39427719949
+hosted_success_job_id: 118644381949
+hosted_success_head_sha: 646e39e5f45cafce0a9b6662c2615992d9c5a1da
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Готовность относится к проверенному кандидату и означает готовность к решению
+John, а не само принятие, merge или разрешение ST08_16C. Подготовленный
+evidence-closure commit должен сам пройти повторный exact-SHA hosted gate.
+
+## 103. Задачи John
+
+1. Создать и отправить evidence-closure commit в существующую ветвь PR №28.
+2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
+3. До финального отчёта не выполнять merge и не присваивать
+   `ACCEPTED_BY_JOHN`/`TASK_CLOSED`.

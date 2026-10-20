@@ -2521,3 +2521,115 @@ closure commit должен сам пройти повторный exact-SHA `as
 2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
 3. До следующего отчёта не объединять PR, не присваивать
    `ACCEPTED_BY_JOHN`/`TASK_CLOSED` и не начинать ST08_16B.
+
+## 85. ST08_16B — финальный повторный аудит кандидата 1.0.0
+
+John принял и закрыл ST08_16A, разрешил merge PR №27 и post-merge проверку.
+Канонический `main` теперь равен
+`236bc4c48ef4ff40b170b68c860b600e788a7710`, tree
+`f12fab356046274a48fba06754d256b8c71cd7b9`; run `39389976539`, job
+`118518862872`, завершил все 23 основных шага с `success`. Затем отдельно
+авторизован только `ST08_16B_v1_0_0_final_reaudit_and_security_preflight`.
+
+```text
+ST08_16B_profile: SCIENTIFIC_VALIDATION
+ST08_16B_authorized: true
+ST08_16C_authorized: false
+release_actions_performed: 0
+training_runs: 0
+scientific_artifact_changes: 0
+```
+
+Блок связывает семь принятых ST08_16A-артефактов с canonical Git blobs,
+повторяет требования и protected-science checks, выполняет secret/dependency
+security controls, чистую offline-установку и CLI/dashboard regressions. Две
+независимые сборки точного Git index при фиксированном `SOURCE_DATE_EPOCH`
+обязаны дать побайтово одинаковые normalized sdist и wheel; финальные локальные
+активы и `SHA256SUMS` регистрируются, но не публикуются.
+
+Актуальное read-only наблюдение GitHub подтверждает строгий `assurance` ruleset,
+secret scanning, push protection, private vulnerability reporting, release
+immutability, ноль открытых Dependabot alerts и неизменяемость `v0.1.0` и
+`v0.1.1`; `v1.0.0` отсутствует. Методы основаны на PyPA packaging flow и sdist
+specification, SOURCE_DATE_EPOCH, NIST SSDF 1.1, NIST FIPS 180-4, GitHub
+immutable-release guidance и SemVer 2.0.0. Внешние источники обосновывают
+метод; успех локальных вычислений доказывается только наблюдаемыми проверками.
+
+```text
+ST08_16B_lifecycle_state: LOCAL_PREFLIGHT_PASS_PENDING_EXACT_SHA_HOSTED_ASSURANCE_AND_JOHN_ACCEPTANCE
+EXIT-04: PASS_LOCAL_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+EXIT-05: PASS_LOCAL_TWO_BYTE_IDENTICAL_BUILDS_PENDING_EXACT_SHA_HOSTED_ASSURANCE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+Candidate-state четырёх release-state поверхностей сохраняется намеренно.
+Принятие стабильности ограниченного API, финализация этих поверхностей,
+ST08_16C, tag/release `v1.0.0` и любые uploads пока не разрешены.
+
+## 86. Задачи John
+
+1. Создать commit подготовленного индексированного набора, отправить ветвь и
+   открыть PR в `main`.
+2. Передать результат exact-SHA hosted `assurance`; до следующего отчёта не
+   выполнять merge и не принимать блок.
+3. После evidence closure отдельно решить API-stability acceptance и
+   `NEXT_BLOCK_AUTHORIZED` для ST08_16C. PyPI/TestPyPI остаются вне критерия.
+
+## 87. ST08_16B — hosted failure triage и successor-gate correction
+
+Первый exact-SHA запуск PR №28 (`39425088682`, job `118635516629`, head
+`9980b274c9c9b3f4da8f8fcb752b6527f40391e4`) завершился с `failure` на
+историческом ST08_16A validator: его manifest корректно описывает принятый
+предыдущий снимок и поэтому не равен расширенному дереву ST08_16B. До отказа
+успешно завершились шаги 1–13; последующие шаги были пропущены.
+
+Коррекция не меняет продукт, scientific scope или принятые ST08_16A bytes.
+Текущий ST08_16B валидатор уже проверяет семь immutable predecessor artifacts
+по SHA-256 и собственный successor manifest, поэтому активный CI должен
+исполнять только этот successor-compatible gate. Release assurance теперь
+запрещает возврат state-dependent ST08_16A-вызова.
+
+```text
+hosted_attempt_1: FAIL
+corrective_commit: PENDING
+corrective_exact_SHA_assurance: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 88. Задачи John
+
+1. Создать и отправить корректирующий commit после локальной передачи агента.
+2. Передать новый exact-SHA hosted результат; до него не выполнять merge.
+3. Не принимать ST08_16B и не начинать ST08_16C или выпуск `v1.0.0`.
+
+## 89. ST08_16B — corrective hosted assurance закрыт
+
+PR №28 на exact head `646e39e5f45cafce0a9b6662c2615992d9c5a1da` прошёл GitHub Actions run
+`39427719949`, job `118644381949`, с `success`. Все 22 объявленных workflow
+steps успешны (GitHub numbering 2–23; служебный `Set up job` — номер 1),
+включая ST08_16B final re-audit, две воспроизводимые сборки, immutable-release
+verification, clean offline install и published baseline. PR наблюдался как
+`OPEN`, `MERGEABLE/CLEAN`, не draft.
+
+Первый failed attempt остаётся зарегистрированным; второй exact-SHA run
+подтверждает исправление successor-gate orchestration. Изменений продукта,
+scientific scope или публикационных действий нет.
+
+```text
+hosted_attempt_1: FAIL_REGISTERED
+hosted_attempt_2: PASS
+evidence_closure_commit: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+## 90. Задачи John
+
+1. Создать и отправить evidence-closure commit в PR №28.
+2. Передать результат повторного exact-SHA hosted `assurance`.
+3. До финального отчёта не выполнять merge, не принимать ST08_16B и не
+   авторизовывать ST08_16C или выпуск `v1.0.0`.

@@ -21,8 +21,8 @@ PROTECTED_SOURCE = PROJECT_ROOT / "data_registry/st08_04_public_product_scope_an
 RUNTIME_LOCK = PROJECT_ROOT / "requirements/locks/st08_07-py312-windows-x86_64.txt"
 TOOLS_LOCK = PROJECT_ROOT / "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"
 WORKFLOW = PROJECT_ROOT / ".github/workflows/ci.yml"
-PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_16A_v1_0_0_candidate_manifest_v01.csv"
-PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_16A_v1_0_0_candidate_finalization_evidence_v01.json"
+PUBLICATION_TREE_MANIFEST = PROJECT_ROOT / "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv"
+PUBLICATION_EVIDENCE = PROJECT_ROOT / "data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json"
 PUBLICATION_CONTRACT = PROJECT_ROOT / "configs/project_readiness/st08_13B_public_repository_bootstrap_hosted_CI_and_repository_security_contract_v01.json"
 
 
@@ -295,6 +295,7 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "pull_request_target", "workflow_run:", "${{ secrets.", "actions/upload-artifact",
         "contents: write", "id-token: write", "attestations: write", "gh release create",
         "pypa/gh-action-pypi-publish",
+        "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py",
     ]
     if any(token in raw for token in forbidden):
         raise AssuranceError("workflow contains a forbidden privileged, secret or artifact-upload construct")
@@ -317,10 +318,12 @@ def validate_workflow(path: Path = WORKFLOW, contract: dict[str, Any] | None = N
         "st08_16_v1_0_0_exit_contract_assurance.py mutations",
         "tests.test_v1_0_0_exit_contract_st08_16",
         "st08_16_v1_0_0_exit_contract_assurance.py final-evidence",
-        "st08_16A_v1_0_0_candidate_finalization_assurance.py contract",
-        "st08_16A_v1_0_0_candidate_finalization_assurance.py mutations",
-        "tests.test_v1_0_0_candidate_finalization_st08_16A",
-        "st08_16A_v1_0_0_candidate_finalization_assurance.py final-evidence",
+        "st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract",
+        "st08_16B_v1_0_0_final_reaudit_and_security_preflight.py mutations",
+        "tests.test_v1_0_0_final_reaudit_and_security_preflight_st08_16B",
+        "st08_16B_v1_0_0_final_reaudit_and_security_preflight.py build-preflight",
+        "st08_16B_v1_0_0_final_reaudit_and_security_preflight.py validate-built",
+        "st08_16B_v1_0_0_final_reaudit_and_security_preflight.py final-evidence",
         "gh release verify v0.1.0 --repo Vanargo/ML-CRA",
         "gh release verify-asset v0.1.0",
         "gh release verify v0.1.1 --repo Vanargo/ML-CRA",
