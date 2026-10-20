@@ -3399,3 +3399,41 @@ READINESS: NOT_READY
 4. После полного evidence closure отдельно решить принятие стабильности
    ограниченного API и авторизацию ST08_16C; tag/release и PyPI/TestPyPI пока
    не разрешены.
+
+## 100. ST08_16B — первый exact-SHA hosted запуск и корректирующее действие
+
+PR №28 проверил точный head
+`9980b274c9c9b3f4da8f8fcb752b6527f40391e4`. GitHub Actions run
+`39425088682`, job `118635516629`, завершился с `failure`: шаги 1–13 прошли,
+а шаг 14 `Validate the v1.0.0 candidate finalization` воспроизвёл ожидаемое
+несовпадение исторического ST08_16A successor manifest с выросшим деревом
+ST08_16B. Шаги 15–24 были пропущены после fail-fast остановки.
+
+Причина относится к оркестрации CI, а не к продукту или научным артефактам:
+старый state-dependent валидатор был ошибочно сохранён как активный gate после
+появления его преемника. Семь ST08_16A-артефактов остаются неизменными и
+проверяются актуальным ST08_16B по зарегистрированным SHA-256. Активный workflow
+теперь запускает successor-compatible ST08_16B gate и fail-closed запрещает
+повторное включение исторического ST08_16A-вызова.
+
+```text
+failed_hosted_run_id: 39425088682
+failed_hosted_job_id: 118635516629
+failed_head_sha: 9980b274c9c9b3f4da8f8fcb752b6527f40391e4
+root_cause: superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_tree
+product_or_scientific_change: false
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` относится к локально проверенному корректирующему изменению. Первый
+hosted запуск остаётся зарегистрированным `FAIL`; готовность не повышается до
+успешного повторного hosted `assurance` для нового точного commit SHA.
+
+## 101. Задачи John
+
+1. После передачи агентом исправленного индексированного набора создать
+   корректирующий commit и отправить его в существующую ветвь PR №28.
+2. Передать результат нового exact-SHA hosted `assurance` агенту.
+3. До следующего отчёта не выполнять merge, не принимать ST08_16B и не
+   авторизовывать ST08_16C или публикацию `v1.0.0`.

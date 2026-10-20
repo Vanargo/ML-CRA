@@ -170,11 +170,9 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
 
-    def test_workflow_requires_st08_16A_hosted_candidate_gate(self) -> None:
-        mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
-            "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract",
-            "# removed ST08_16A hosted candidate gate",
-            1,
+    def test_workflow_rejects_superseded_st08_16A_state_dependent_gate(self) -> None:
+        mutated = assurance.WORKFLOW.read_text(encoding="utf-8") + (
+            "\n# python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract\n"
         )
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "ci.yml"

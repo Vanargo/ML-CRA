@@ -32,6 +32,11 @@
     "the future ST08_16C state machine requires John API-stability acceptance, release-state finalization, exact-SHA hosted assurance and asset verification before publication",
     "the exact planned path set, successor manifest and evidence record pass local assurance while release actions remain zero"
   ],
+  "legacy_gate_disposition": {
+    "ST08_16A_artifacts": "immutable_hash_verified_by_ST08_16B",
+    "ST08_16A_state_dependent_validator": "historical_not_executed_against_successor_tree",
+    "active_hosted_gate": "ST08_16B_successor_compatible"
+  },
   "source_baseline": {
     "git_commit": "236bc4c48ef4ff40b170b68c860b600e788a7710",
     "git_tree": "f12fab356046274a48fba06754d256b8c71cd7b9",
@@ -79,15 +84,15 @@
     "independent_build_count": 2,
     "ST08_16B_assets": {
       "ml_cra-1.0.0.tar.gz": {
-        "sha256": "337f9a0b245f1530498e2e9ae1469b557d046351682f9bb5fa8bf2ef2a9c2ad7",
-        "size_bytes": 100480
+        "sha256": "be0a8d474dee039af3c3f422f64427a95b8adac6588d3f02c8367a99d4c39d1d",
+        "size_bytes": 100556
       },
       "ml_cra-1.0.0-py3-none-any.whl": {
         "sha256": "8af6001263fdb4fbe6e97a3060a1b42bb4f8dc5b2bb99a7e81f1a300010a3aca",
         "size_bytes": 92555
       },
       "SHA256SUMS": {
-        "sha256": "e7764f9cfd1491078c6b8528cd0a0bdd760435c42685a7cd50669ec7dbda836d",
+        "sha256": "6e168cfafc38a7e776c8e36a18b93b6de594bb07d80331af44d96fc6ddad85ff",
         "size_bytes": 182
       }
     },

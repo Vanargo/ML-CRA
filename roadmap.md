@@ -2575,3 +2575,32 @@ ST08_16C, tag/release `v1.0.0` и любые uploads пока не разреш�
    выполнять merge и не принимать блок.
 3. После evidence closure отдельно решить API-stability acceptance и
    `NEXT_BLOCK_AUTHORIZED` для ST08_16C. PyPI/TestPyPI остаются вне критерия.
+
+## 87. ST08_16B — hosted failure triage и successor-gate correction
+
+Первый exact-SHA запуск PR №28 (`39425088682`, job `118635516629`, head
+`9980b274c9c9b3f4da8f8fcb752b6527f40391e4`) завершился с `failure` на
+историческом ST08_16A validator: его manifest корректно описывает принятый
+предыдущий снимок и поэтому не равен расширенному дереву ST08_16B. До отказа
+успешно завершились шаги 1–13; последующие шаги были пропущены.
+
+Коррекция не меняет продукт, scientific scope или принятые ST08_16A bytes.
+Текущий ST08_16B валидатор уже проверяет семь immutable predecessor artifacts
+по SHA-256 и собственный successor manifest, поэтому активный CI должен
+исполнять только этот successor-compatible gate. Release assurance теперь
+запрещает возврат state-dependent ST08_16A-вызова.
+
+```text
+hosted_attempt_1: FAIL
+corrective_commit: PENDING
+corrective_exact_SHA_assurance: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 88. Задачи John
+
+1. Создать и отправить корректирующий commit после локальной передачи агента.
+2. Передать новый exact-SHA hosted результат; до него не выполнять merge.
+3. Не принимать ST08_16B и не начинать ST08_16C или выпуск `v1.0.0`.

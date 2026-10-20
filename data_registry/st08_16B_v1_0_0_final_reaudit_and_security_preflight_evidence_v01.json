@@ -3,7 +3,7 @@
   "task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
   "profile": "SCIENTIFIC_VALIDATION",
   "recorded_at": "2026-10-20",
-  "status": "local_preflight_pass_exact_hosted_assurance_pending_no_release",
+  "status": "local_corrective_preflight_pass_exact_hosted_recheck_pending_no_release",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED",
     "resolved_context_task_id": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
@@ -23,7 +23,7 @@
     "paths": 389,
     "hashed_paths": 387,
     "path_list_sha256": "0f6cd8bd12e1c21f78933c486d22852f98af7ba3c8ce58ff815438aea5b667a8",
-    "manifest_sha256": "e6a33ab983e0bae4266ae7b1efb31f49bd8765a4000ac5cf1d6a92c487fb7b56",
+    "manifest_sha256": "0335dbe6945f497b778f9044a912fb3185ef897a5fbb29ec4fd62cead1b30c6a",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv",
       "data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json"
@@ -32,15 +32,15 @@
   },
   "candidate_assets": {
     "ml_cra-1.0.0.tar.gz": {
-      "sha256": "337f9a0b245f1530498e2e9ae1469b557d046351682f9bb5fa8bf2ef2a9c2ad7",
-      "size_bytes": 100480
+      "sha256": "be0a8d474dee039af3c3f422f64427a95b8adac6588d3f02c8367a99d4c39d1d",
+      "size_bytes": 100556
     },
     "ml_cra-1.0.0-py3-none-any.whl": {
       "sha256": "8af6001263fdb4fbe6e97a3060a1b42bb4f8dc5b2bb99a7e81f1a300010a3aca",
       "size_bytes": 92555
     },
     "SHA256SUMS": {
-      "sha256": "e7764f9cfd1491078c6b8528cd0a0bdd760435c42685a7cd50669ec7dbda836d",
+      "sha256": "6e168cfafc38a7e776c8e36a18b93b6de594bb07d80331af44d96fc6ddad85ff",
       "size_bytes": 182
     }
   },
@@ -92,8 +92,8 @@
     "published_baseline_registered_venv": "PASS_389_paths_387_hashed_18_protected",
     "protected_scientific_artifacts": "PASS_18_of_18_unchanged",
     "contract": "PASS",
-    "negative_mutations": "PASS_12_of_12_rejected",
-    "focused_regressions": "PASS_33_of_33_ST08_16B_and_release_assurance",
+    "negative_mutations": "PASS_13_of_13_rejected_including_legacy_gate_reintroduction",
+    "focused_regressions": "PASS_34_of_34_ST08_16B_and_release_assurance",
     "candidate_reproducibility": "PASS_2_of_2_normalized_sdist_and_wheel_byte_identical",
     "registered_assets": "PASS_exact_sdist_wheel_SHA256SUMS_binding",
     "archive_and_checksum_assurance": "PASS_46_sdist_files_22_wheel_files_metadata_licenses_entrypoint_and_safe_paths",
@@ -108,10 +108,10 @@
     "repository_security_preflight": "PASS_authenticated_read_only_observation",
     "release_state_transition": "REQUIRED_BEFORE_PUBLICATION",
     "aggregate_pilot": "PASS_expected_disposition_exactly_8_registered_historical_FAIL_and_no_new_failure",
-    "hosted_exact_SHA_assurance": "PENDING_EXACT_COMMITTED_SHA"
+    "hosted_exact_SHA_assurance": "FAIL_attempt_1_superseded_ST08_16A_gate_then_PENDING_CORRECTIVE_EXACT_SHA"
   },
   "hosted_assurance": {
-    "status": "PENDING_EXACT_COMMITTED_SHA",
+    "status": "PENDING_CORRECTIVE_EXACT_SHA",
     "run_id": null,
     "job_id": null,
     "head_sha": null,
@@ -122,6 +122,29 @@
     "primary_steps": "PENDING",
     "completed_at": null
   },
+  "hosted_attempts": [
+    {
+      "attempt": 1,
+      "status": "FAIL",
+      "pull_request": 28,
+      "run_id": 39425088682,
+      "job_id": 118635516629,
+      "head_sha": "9980b274c9c9b3f4da8f8fcb752b6527f40391e4",
+      "event": "pull_request",
+      "conclusion": "failure",
+      "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39425088682",
+      "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39425088682/job/118635516629",
+      "failed_step": "Validate the v1.0.0 candidate finalization",
+      "failed_step_number": 14,
+      "failed_command": "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract",
+      "error": "successor manifest differs from the canonical Git index",
+      "successful_github_steps_before_failure": 13,
+      "skipped_github_steps_after_failure": 10,
+      "completed_at": "2026-10-20T12:51:51Z",
+      "root_cause": "superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_successor_tree",
+      "corrective_disposition": "remove_legacy_execution_preserve_immutable_hash_verification_require_new_exact_SHA_run"
+    }
+  ],
   "validation_verdict": {
     "preflight": "PASS_WITH_REQUIRED_RELEASE_STATE_TRANSITION",
     "scientific_effect": "NONE",
@@ -136,7 +159,7 @@
     "status": "PASS_exact_planned_path_set"
   },
   "limits": [
-    "A successful local preflight does not prove hosted assurance for the future commit SHA.",
+    "A successful local corrective preflight does not replace the failed first hosted attempt or prove hosted assurance for the corrective commit SHA.",
     "SHA-256 establishes byte identity, not scientific or software correctness.",
     "The registered v1.0.0 candidate assets are preflight artifacts and are not upload-ready until the release-state transition and exact rebuild occur.",
     "No new training, model comparison, scientific result, protocol or verdict was produced."
@@ -164,7 +187,7 @@
   },
   "check_dispositions": {
     "PASS": [
-      "contract_and_12_negative_mutations",
+      "contract_and_13_negative_mutations",
       "two_byte_identical_builds_and_registered_assets",
       "source_secret_dependency_documentation_and_archive_assurance",
       "working_and_published_baselines",
@@ -173,14 +196,16 @@
       "authenticated_repository_security_observations",
       "aggregate_pilot_with_exact_registered_historical_failure_set"
     ],
-    "FAIL": [],
+    "FAIL": [
+      "hosted_attempt_1_run_39425088682_superseded_ST08_16A_state_dependent_gate"
+    ],
     "BLOCKED": [],
     "SKIPPED": [
       "checkpoint_ZIP_not_required_for_reversible_preflight",
       "tag_release_and_package_index_publication_outside_authorized_scope"
     ],
     "PENDING": [
-      "hosted_assurance_for_exact_future_committed_SHA",
+      "hosted_assurance_for_exact_corrective_committed_SHA",
       "John_acceptance_and_stable_bounded_API_decision"
     ]
   }

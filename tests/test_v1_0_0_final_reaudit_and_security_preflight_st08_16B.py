@@ -23,7 +23,7 @@ class TestSt0816BFinalReauditAndSecurityPreflight(unittest.TestCase):
     def test_final_evidence_is_fail_closed_pending_exact_hosted_run(self) -> None:
         result = preflight.validate_final_evidence()
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["evidence"]["hosted_status"], "PENDING_EXACT_COMMITTED_SHA")
+        self.assertEqual(result["evidence"]["hosted_status"], "PENDING_CORRECTIVE_EXACT_SHA")
         self.assertEqual(EVIDENCE["readiness"], "NOT_READY")
         self.assertEqual(
             EVIDENCE["source_baseline"]["git_commit"],
@@ -32,8 +32,8 @@ class TestSt0816BFinalReauditAndSecurityPreflight(unittest.TestCase):
 
     def test_all_registered_mutations_are_rejected(self) -> None:
         result = preflight.run_mutations()
-        self.assertEqual(result["mutations_rejected"], 12)
-        self.assertEqual(len(set(result["labels"])), 12)
+        self.assertEqual(result["mutations_rejected"], 13)
+        self.assertEqual(len(set(result["labels"])), 13)
 
     def test_authority_rejects_release_permission(self) -> None:
         mutated = copy.deepcopy(CONTRACT)
@@ -63,6 +63,13 @@ class TestSt0816BFinalReauditAndSecurityPreflight(unittest.TestCase):
     def test_workflow_rejects_write_authority(self) -> None:
         text = preflight.WORKFLOW_PATH.read_text(encoding="utf-8").replace(
             "contents: read", "contents: write", 1
+        )
+        with self.assertRaises(preflight.FinalCandidatePreflightError):
+            preflight.validate_workflow_text(text)
+
+    def test_workflow_rejects_superseded_st08_16A_state_dependent_gate(self) -> None:
+        text = preflight.WORKFLOW_PATH.read_text(encoding="utf-8") + (
+            "\npython scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract\n"
         )
         with self.assertRaises(preflight.FinalCandidatePreflightError):
             preflight.validate_workflow_text(text)

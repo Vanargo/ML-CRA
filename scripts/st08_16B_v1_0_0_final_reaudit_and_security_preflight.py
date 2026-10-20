@@ -287,6 +287,7 @@ def validate_workflow_text(text: str) -> None:
         "gh release create",
         "pypa/gh-action-pypi-publish",
         "pull_request_target",
+        "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py",
     ]
     if any(token in text for token in forbidden):
         raise FinalCandidatePreflightError("assurance workflow gained release or unsafe authority")
@@ -518,6 +519,12 @@ def validate_contract_bindings(contract: Mapping[str, Any], root: Path = PROJECT
     _assert_authority(contract)
     if contract.get("decision_policy", {}).get("scientific_effect") != "NONE_no_new_training_claim_protocol_result_or_verdict":
         raise FinalCandidatePreflightError("scientific-effect boundary missing")
+    if contract.get("legacy_gate_disposition") != {
+        "ST08_16A_artifacts": "immutable_hash_verified_by_ST08_16B",
+        "ST08_16A_state_dependent_validator": "historical_not_executed_against_successor_tree",
+        "active_hosted_gate": "ST08_16B_successor_compatible",
+    }:
+        raise FinalCandidatePreflightError("legacy predecessor gate disposition mismatch")
     _validate_immutable_predecessor(contract, root)
     metadata = candidate_assurance.validate_metadata(root)
     protected = release_assurance.validate_protected_hashes(root, inventory="published")
@@ -577,6 +584,31 @@ def validate_evidence(evidence: Mapping[str, Any], contract: Mapping[str, Any], 
     hosted = evidence.get("hosted_assurance")
     if not isinstance(hosted, Mapping):
         raise FinalCandidatePreflightError("hosted assurance evidence missing")
+    expected_failed_attempt = {
+        "attempt": 1,
+        "status": "FAIL",
+        "pull_request": 28,
+        "run_id": 39425088682,
+        "job_id": 118635516629,
+        "head_sha": "9980b274c9c9b3f4da8f8fcb752b6527f40391e4",
+        "event": "pull_request",
+        "conclusion": "failure",
+        "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39425088682",
+        "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39425088682/job/118635516629",
+        "failed_step": "Validate the v1.0.0 candidate finalization",
+        "failed_step_number": 14,
+        "failed_command": "python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract",
+        "error": "successor manifest differs from the canonical Git index",
+        "successful_github_steps_before_failure": 13,
+        "skipped_github_steps_after_failure": 10,
+        "completed_at": "2026-10-20T12:51:51Z",
+        "root_cause": "superseded_state_dependent_ST08_16A_gate_executed_on_ST08_16B_successor_tree",
+        "corrective_disposition": "remove_legacy_execution_preserve_immutable_hash_verification_require_new_exact_SHA_run",
+    }
+    if evidence.get("hosted_attempts") != [expected_failed_attempt]:
+        raise FinalCandidatePreflightError("failed hosted attempt evidence mismatch")
+    if hosted.get("status") not in {"PENDING_CORRECTIVE_EXACT_SHA", "PASS"}:
+        raise FinalCandidatePreflightError("unexpected hosted assurance lifecycle status")
     expected_readiness = "READY_FOR_JOHN_ACCEPTANCE" if hosted.get("status") == "PASS" else "NOT_READY"
     if evidence.get("technical_status") != "PASS" or evidence.get("readiness") != expected_readiness:
         raise FinalCandidatePreflightError("technical status or hosted-dependent readiness mismatch")
@@ -618,6 +650,7 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     mutations.append(_expect_rejection("workflow_write", lambda: validate_workflow_text(workflow.replace("contents: read", "contents: write"))))
     mutations.append(_expect_rejection("workflow_upload", lambda: validate_workflow_text(workflow + "\nactions/upload-artifact")))
     mutations.append(_expect_rejection("shallow_checkout", lambda: validate_workflow_text(workflow.replace("fetch-depth: 0", "fetch-depth: 1"))))
+    mutations.append(_expect_rejection("legacy_ST08_16A_gate", lambda: validate_workflow_text(workflow + "\npython scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract")))
     mutations.append(_expect_rejection("missing_transition_order", lambda: validate_runbook_text(runbook.replace("2. Зафиксировать переход", "2. Removed"))))
     mutated = copy.deepcopy(contract)
     mutated["planned_changes"].pop()
@@ -633,8 +666,8 @@ def run_mutations(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     mutated_evidence["release_actions_performed"] = 1
     bindings = validate_contract_bindings(contract, root)
     mutations.append(_expect_rejection("release_side_effect", lambda: validate_evidence(mutated_evidence, contract, bindings)))
-    if len(mutations) != 12 or len(set(mutations)) != 12:
-        raise FinalCandidatePreflightError("mutation inventory must contain exactly 12 unique rejections")
+    if len(mutations) != 13 or len(set(mutations)) != 13:
+        raise FinalCandidatePreflightError("mutation inventory must contain exactly 13 unique rejections")
     return {"status": "PASS", "mutations_rejected": len(mutations), "labels": mutations}
 
 

@@ -89,17 +89,6 @@ jobs:
           python scripts/st08_16_v1_0_0_exit_contract_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the v1.0.0 candidate finalization
-        run: |
-          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py contract
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py mutations
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_v1_0_0_candidate_finalization_st08_16A
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16A_v1_0_0_candidate_finalization_assurance.py final-evidence
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
       - name: Validate the v1.0.0 final re-audit and security preflight
         run: |
           python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract
