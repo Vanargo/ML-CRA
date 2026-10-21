@@ -3605,3 +3605,46 @@ READINESS: NOT_READY
 1. Дождаться отчёта о повторном exact-SHA `assurance` для evidence-closure commit.
 2. После этого отдельно разрешить либо запретить merge PR №29.
 3. Не создавать вручную tag/release `v1.0.0` и не выполнять TestPyPI/PyPI publication.
+
+## 111. ST08_16C — merge PR №29, post-merge PASS и immutable GitHub Release 1.0.0
+
+John отдельно разрешил merge PR №29 и обязательную post-merge проверку. PR объединён
+squash-коммитом `b4e73889f4931c8b187f19e52dc890c50353a2dd`, tree
+`e125b3512f89d9c9a4a2ea17e91290ba5ff1fd9d`. Post-merge GitHub Actions run
+`39555395005`, job `119073870207`, прошёл все 22 объявленных workflow steps и
+служебные шаги для точного SHA `main`.
+
+Из чистого Git index этого commit дважды построены и сверены зарегистрированные
+sdist, wheel и `SHA256SUMS`. Затем повторно подтверждены отсутствие `v1.0.0`,
+неизменяемость v0.1.0/v0.1.1 и обязательные repository controls. Draft release ID
+`419229464` был направлен на точный commit, получил ровно три проверенных актива и
+детерминированный body; после предпубликационной сверки он опубликован один раз.
+
+GitHub Release `v1.0.0` опубликован `2026-10-21T06:34:39Z` как Latest, non-draft,
+non-prerelease и immutable. Tag является прямым commit ref на `b4e73889...`.
+`gh release verify` и три отдельных `gh release verify-asset` прошли; attestation
+использует predicate `https://in-toto.io/attestation/release/v0.2` и связывает commit
+со всеми тремя SHA-256.
+
+```text
+ST08_16C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_id: 419229464
+release_url: https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0
+release_actions_performed: 3
+TestPyPI_uploads: 0
+PyPI_uploads: 0
+training_runs: 0
+scientific_artifact_changes: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` означает, что неизменяемый выпуск и его байты доказательно проверены.
+`NOT_READY` сохраняется до второго защищённого PR, фиксирующего эти внешние
+доказательства, и его повторного exact-SHA hosted gate.
+
+## 112. Задачи John
+
+1. Дождаться второго PR с release evidence и двухфазного exact-SHA closure gate.
+2. До отдельного технического отчёта не выполнять merge этого closure PR.
+3. Не изменять и не заменять tag или активы `v1.0.0`; TestPyPI/PyPI остаются вне scope.

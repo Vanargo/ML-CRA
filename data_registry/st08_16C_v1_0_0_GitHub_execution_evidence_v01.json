@@ -4,8 +4,8 @@
   "task_id": "ST08_16C_v1_0_0_GitHub_execution",
   "recorded_at": "2026-10-21",
   "profile": "CHANGE",
-  "status": "prepared_exact_SHA_assurance_pass_pending_John_merge_confirmation",
-  "lifecycle_state": "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE",
+  "status": "released_verified_pending_hosted_evidence_closure",
+  "lifecycle_state": "RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution",
     "stable_bounded_public_API_acceptance": "ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API",
@@ -28,7 +28,7 @@
     "paths": 395,
     "hashed_paths": 393,
     "path_list_sha256": "2a0754e6430c0af1dbc7be0ae6e94451fa1489a0e7390db66d8949b011b51b37",
-    "manifest_sha256": "38705306ac4c454af9880408b0eb63f608fc89ddd4443dbf26965ae1486838f9",
+    "manifest_sha256": "48b8b24a1e9f2c2b5cac6839378d3ec62f891fd02aced08b63918887ee80b2c1",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json",
       "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"
@@ -87,10 +87,67 @@
     "declared_workflow_steps": 22,
     "all_declared_and_service_steps_successful": true
   },
-  "post_merge_assurance": {"status": "PENDING"},
-  "release": {},
-  "attestation": {},
-  "verification_commands": [],
+  "pre_release_evidence_closure_assurance": {
+    "status": "PASS",
+    "conclusion": "success",
+    "run_id": 39553999002,
+    "job_id": 119069387162,
+    "head_sha": "dc83ef25d29d022ffd1766231690b4fdbb619de6",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39553999002",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39553999002/job/119069387162",
+    "declared_workflow_steps": 22,
+    "all_declared_and_service_steps_successful": true
+  },
+  "post_merge_assurance": {
+    "status": "PASS",
+    "conclusion": "success",
+    "run_id": 39555395005,
+    "job_id": 119073870207,
+    "head_sha": "b4e73889f4931c8b187f19e52dc890c50353a2dd",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39555395005",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39555395005/job/119073870207",
+    "declared_workflow_steps": 22,
+    "all_declared_and_service_steps_successful": true
+  },
+  "release": {
+    "repository": "Vanargo/ML-CRA",
+    "release_id": 419229464,
+    "url": "https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0",
+    "tag": "v1.0.0",
+    "title": "ML-CRA 1.0.0",
+    "draft": false,
+    "prerelease": false,
+    "latest": true,
+    "immutable": true,
+    "published_at": "2026-10-21T06:34:39Z",
+    "tag_ref_type": "commit",
+    "commit": "b4e73889f4931c8b187f19e52dc890c50353a2dd",
+    "git_tree": "e125b3512f89d9c9a4a2ea17e91290ba5ff1fd9d",
+    "body_sha256": "bc7768bf2f7bfd5fa113858d6a00001a5cbfcc4d8d8644037decc91c1e0c162a",
+    "assets": {
+      "ml_cra-1.0.0.tar.gz": {"sha256": "4d33f5d951af0a4f03c5583937de91a09a7673cab7aa5fca28487daa80019451", "size_bytes": 100875},
+      "ml_cra-1.0.0-py3-none-any.whl": {"sha256": "4444cfe3c06d7b3fa68ddb88c73b055edce0fbce89b100e927b47556c9e586ee", "size_bytes": 92611},
+      "SHA256SUMS": {"sha256": "797612bb6e88a17a3e7b70a06f76202b74edd8da48be79c95071b753d6ca3417", "size_bytes": 182}
+    }
+  },
+  "attestation": {
+    "predicate_type": "https://in-toto.io/attestation/release/v0.2",
+    "statement_type": "https://in-toto.io/Statement/v1",
+    "release_commit": "b4e73889f4931c8b187f19e52dc890c50353a2dd",
+    "verified_timestamp": "2026-10-21T06:34:40Z",
+    "certificate_subject_alternative_name": "https://dotcom.releases.github.com",
+    "asset_sha256": {
+      "ml_cra-1.0.0.tar.gz": "4d33f5d951af0a4f03c5583937de91a09a7673cab7aa5fca28487daa80019451",
+      "ml_cra-1.0.0-py3-none-any.whl": "4444cfe3c06d7b3fa68ddb88c73b055edce0fbce89b100e927b47556c9e586ee",
+      "SHA256SUMS": "797612bb6e88a17a3e7b70a06f76202b74edd8da48be79c95071b753d6ca3417"
+    }
+  },
+  "verification_commands": [
+    {"command": "gh release verify v1.0.0 --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v1.0.0 dist/st08_16C-release/ml_cra-1.0.0.tar.gz --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v1.0.0 dist/st08_16C-release/ml_cra-1.0.0-py3-none-any.whl --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
+    {"command": "gh release verify-asset v1.0.0 dist/st08_16C-release/SHA256SUMS --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"}
+  ],
   "hosted_assurance": {"status": "PENDING"},
   "observed_checks": {
     "source_baseline": "PASS_accepted_ST08_16B_post_merge_main",
@@ -108,8 +165,8 @@
     "working_baseline": "PASS_system_and_ml_cra_venv",
     "published_baseline": "PASS_ml_cra_venv_after_system_Python_missing_PyYAML_prerequisite",
     "dependency_audit": "PASS_15_runtime_and_35_assurance_dependencies_zero_known_vulnerabilities_after_certifi_2026_10_19_remediation",
-    "hosted_exact_SHA_assurance": "PASS_initial_PR_head_e45aa036c809382d6681ce74a1c40312d82e9eae_pending_closure_commit_recheck",
-    "release_execution": "PENDING"
+    "hosted_exact_SHA_assurance": "PASS_initial_and_evidence_closure_PR_heads_then_exact_post_merge_main",
+    "release_execution": "PASS_draft_attach_verify_publish_once_immutable_attestation_and_three_asset_verifications"
   },
   "change_reconciliation": {
     "planned_paths": 19,
@@ -125,12 +182,12 @@
     "EXIT-04": "PASS",
     "EXIT-05": "PASS",
     "EXIT-06": "PASS_JOHN_API_STABILITY_ACCEPTED_AND_ST08_16C_AUTHORIZED",
-    "EXIT-07": "PENDING_EXACT_SHA_MERGE_IMMUTABLE_RELEASE_AND_EVIDENCE_CLOSURE"
+    "EXIT-07": "PASS_IMMUTABLE_RELEASE_PENDING_HOSTED_EVIDENCE_CLOSURE"
   },
   "limits": [
-    "Prepared local evidence does not prove exact-SHA hosted assurance or immutable publication.",
+    "The immutable GitHub release and local asset bytes are verified; the second protected evidence-closure pull request is still pending.",
     "SHA-256 establishes byte identity but does not prove correctness security or scientific validity.",
-    "CITATION.cff intentionally omits date-released while the future exact GitHub publication timestamp must be recorded in closure evidence.",
+    "CITATION.cff intentionally omits date-released; the exact GitHub publication timestamp is recorded in this closure evidence.",
     "No new training model comparison scientific result protocol or verdict is produced."
   ],
   "emergent_security_change": {
@@ -145,8 +202,8 @@
     "status": "SKIPPED",
     "reason": "Before publication the change is reversible in protected Git; after publication exact remote Git immutable assets and release attestation are the proportionate recovery evidence."
   },
-  "release_performed": false,
-  "release_actions_performed": 0,
+  "release_performed": true,
+  "release_actions_performed": 3,
   "training_runs": 0,
   "scientific_artifact_changes": 0,
   "PyPI_uploads": 0,

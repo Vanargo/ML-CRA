@@ -2725,3 +2725,29 @@ READINESS: NOT_READY
 1. Дождаться повторного exact-SHA PASS для evidence-closure commit PR №29.
 2. Затем отдельно решить merge PR №29.
 3. До отдельного решения не создавать tag/release `v1.0.0`.
+
+## 98. ST08_16C — immutable release выполнен, evidence closure ожидается
+
+PR №29 объединён в `main` как `b4e73889f4931c8b187f19e52dc890c50353a2dd`;
+post-merge run `39555395005`, job `119073870207`, прошёл весь assurance. Из точного
+дерева `e125b3512f89d9c9a4a2ea17e91290ba5ff1fd9d` воспроизведены зарегистрированные
+активы. Draft release ID `419229464` прошёл сверку identity/body/assets и опубликован
+один раз как Latest immutable GitHub Release `v1.0.0` в `2026-10-21T06:34:39Z`.
+Release attestation и три локальных актива проверены отдельными GitHub CLI командами.
+
+```text
+ST08_16C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_url: https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0
+immutable: true
+release_actions_performed: 3
+TestPyPI_uploads: 0
+PyPI_uploads: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 99. Задачи John
+
+1. Дождаться второго защищённого PR, содержащего только каноническое release evidence.
+2. После повторного exact-SHA closure gate принять отдельное решение о merge.
+3. Не изменять immutable `v1.0.0` и не начинать неавторизованный successor.
