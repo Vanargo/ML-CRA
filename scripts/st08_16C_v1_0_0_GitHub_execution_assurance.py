@@ -668,6 +668,11 @@ def validate_evidence(evidence: Mapping[str, Any], contract: Mapping[str, Any], 
             raise GitHubExecutionError("prepared evidence overstates release execution")
         if evidence.get("readiness") != "NOT_READY" or evidence.get("hosted_assurance", {}).get("status") != "PENDING":
             raise GitHubExecutionError("prepared evidence readiness or hosted state mismatch")
+        pre_release = evidence.get("pre_release_assurance", {})
+        if pre_release.get("status") == "PASS":
+            _validate_hosted_run(pre_release, "pre-release")
+        elif pre_release.get("status") != "PENDING":
+            raise GitHubExecutionError("prepared evidence has an unknown pre-release assurance state")
         release = evidence.get("release")
         if release not in ({}, None):
             raise GitHubExecutionError("prepared evidence must not invent a release object")

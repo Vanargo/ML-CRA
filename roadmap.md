@@ -2704,3 +2704,24 @@ READINESS: NOT_READY
 1. Дождаться PR и успешного exact-SHA hosted `assurance`.
 2. После технического отчёта отдельно принять решение о merge.
 3. Не создавать `v1.0.0` вручную и не выполнять TestPyPI/PyPI publication.
+
+## 96. ST08_16C — exact-SHA hosted gate PR №29
+
+Первый head PR №29 `e45aa036c809382d6681ce74a1c40312d82e9eae` прошёл GitHub Actions
+run `39552247860`, job `119063845850`: все 22 объявленных workflow steps и служебные
+шаги успешны. Результат переносится в canonical evidence; следующий evidence-closure
+commit обязан пройти тот же exact-SHA gate повторно.
+
+```text
+initial_PR_head_assurance: PASS
+evidence_closure_commit: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 97. Задачи John
+
+1. Дождаться повторного exact-SHA PASS для evidence-closure commit PR №29.
+2. Затем отдельно решить merge PR №29.
+3. До отдельного решения не создавать tag/release `v1.0.0`.

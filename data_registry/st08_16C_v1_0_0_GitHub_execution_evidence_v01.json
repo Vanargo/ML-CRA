@@ -4,7 +4,7 @@
   "task_id": "ST08_16C_v1_0_0_GitHub_execution",
   "recorded_at": "2026-10-21",
   "profile": "CHANGE",
-  "status": "prepared_local_pass_pending_exact_SHA_assurance_merge_and_release",
+  "status": "prepared_exact_SHA_assurance_pass_pending_John_merge_confirmation",
   "lifecycle_state": "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution",
@@ -28,7 +28,7 @@
     "paths": 395,
     "hashed_paths": 393,
     "path_list_sha256": "2a0754e6430c0af1dbc7be0ae6e94451fa1489a0e7390db66d8949b011b51b37",
-    "manifest_sha256": "a8186e7326a484ced03286cea3df5230cf8a1c634c2df26ee009d02e9c3ad67b",
+    "manifest_sha256": "38705306ac4c454af9880408b0eb63f608fc89ddd4443dbf26965ae1486838f9",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json",
       "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"
@@ -76,7 +76,17 @@
     "v0_1_0_immutable": true,
     "v0_1_1_immutable": true
   },
-  "pre_release_assurance": {"status": "PENDING"},
+  "pre_release_assurance": {
+    "status": "PASS",
+    "conclusion": "success",
+    "run_id": 39552247860,
+    "job_id": 119063845850,
+    "head_sha": "e45aa036c809382d6681ce74a1c40312d82e9eae",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39552247860",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39552247860/job/119063845850",
+    "declared_workflow_steps": 22,
+    "all_declared_and_service_steps_successful": true
+  },
   "post_merge_assurance": {"status": "PENDING"},
   "release": {},
   "attestation": {},
@@ -98,7 +108,7 @@
     "working_baseline": "PASS_system_and_ml_cra_venv",
     "published_baseline": "PASS_ml_cra_venv_after_system_Python_missing_PyYAML_prerequisite",
     "dependency_audit": "PASS_15_runtime_and_35_assurance_dependencies_zero_known_vulnerabilities_after_certifi_2026_10_19_remediation",
-    "hosted_exact_SHA_assurance": "PENDING",
+    "hosted_exact_SHA_assurance": "PASS_initial_PR_head_e45aa036c809382d6681ce74a1c40312d82e9eae_pending_closure_commit_recheck",
     "release_execution": "PENDING"
   },
   "change_reconciliation": {

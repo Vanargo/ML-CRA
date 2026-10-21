@@ -3583,3 +3583,25 @@ post-merge assurance, immutable release и evidence closure ещё не выпо
 1. Дождаться созданного PR и успешного `assurance` для точного SHA его вершины.
 2. После отчёта агента отдельно разрешить либо запретить merge этого PR.
 3. До такого решения не создавать tag/release `v1.0.0` и не публиковать в TestPyPI/PyPI.
+
+## 109. ST08_16C — первый exact-SHA hosted gate и evidence closure
+
+PR №29 открыт на commit `e45aa036c809382d6681ce74a1c40312d82e9eae`. GitHub Actions run
+`39552247860`, job `119063845850`, завершился с `success`: все 22 объявленных workflow
+steps и служебные шаги прошли. PR наблюдался как `OPEN`, `MERGEABLE/CLEAN`, не draft.
+Этот внешний результат записан в evidence; evidence-closure commit должен сам пройти
+повторный exact-SHA `assurance`, чтобы изменение доказательств не осталось непроверенным.
+
+```text
+initial_PR_head_assurance: PASS
+initial_PR_head_sha: e45aa036c809382d6681ce74a1c40312d82e9eae
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 110. Задачи John
+
+1. Дождаться отчёта о повторном exact-SHA `assurance` для evidence-closure commit.
+2. После этого отдельно разрешить либо запретить merge PR №29.
+3. Не создавать вручную tag/release `v1.0.0` и не выполнять TestPyPI/PyPI publication.
