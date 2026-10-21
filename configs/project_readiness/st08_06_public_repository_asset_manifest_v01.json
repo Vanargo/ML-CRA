@@ -3,7 +3,7 @@
   "manifest_id": "st08_06_public_repository_asset_manifest_v01",
   "task_id": "ST08_06_project_license_citation_and_public_repository_legal_artifacts",
   "recorded_at": "2026-08-20",
-  "status": "v1_0_0_final_reaudit_local_pass_pending_exact_SHA_hosted_assurance",
+  "status": "v1_0_0_release_state_prepared_pending_exact_SHA_assurance_merge_and_immutable_release",
   "authority": {
     "accepted_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
     "closed_previous_task": "ST08_05_miniboone_lineage_license_attribution_and_release_asset_disposition",
@@ -30,7 +30,7 @@
     "repository_code": "https://github.com/Vanargo/ML-CRA",
     "release_version": "1.0.0",
     "release_date_intentionally_omitted": true,
-    "reason": "The 1.0.0 metadata describes an unreleased local candidate. Its exact external publication timestamp does not yet exist, so date-released remains absent rather than guessed; immutable v0.1.1 publication remains recorded separately by GitHub and ST08_15C evidence."
+    "reason": "The exact external v1.0.0 publication timestamp does not exist in the prepared lifecycle state, so date-released remains absent rather than guessed; the eventual timestamp must be recorded by GitHub and ST08_16C closure evidence."
   },
   "inventory_universe": {
     "root": ".",
@@ -51,8 +51,8 @@
     "default_disposition": "BLOCK_UNMAPPED",
     "exactly_one_highest_priority_rule_required": true,
     "publication_requires_zero_unmapped_paths": true,
-    "approved_path_count": 434,
-    "approved_path_list_sha256": "40b81eb7c6d43d6a9d9f4782e67f1b9286122165f10f2985e8c71eec10143aed",
+    "approved_path_count": 440,
+    "approved_path_list_sha256": "296dee0fe05d9380d04812d20842733eb94167fece81c13f7b35a355d82c1d20",
     "approved_path_list_algorithm": "SHA256_of_UTF8_sorted_repository_relative_path_LF",
     "publication_requires_exact_path_count_and_digest_match": true
   },
@@ -145,10 +145,10 @@
     "ST08-06-MANIFEST-03": 4,
     "ST08-06-MANIFEST-04": 38,
     "ST08-06-MANIFEST-05": 0,
-    "ST08-06-MANIFEST-06": 200,
-    "ST08-06-MANIFEST-07": 189,
+    "ST08-06-MANIFEST-06": 201,
+    "ST08-06-MANIFEST-07": 194,
     "BLOCK_UNMAPPED": 0,
-    "TOTAL": 434
+    "TOTAL": 440
   },
   "inventory_refreshes": [
     {
@@ -270,6 +270,12 @@
       "recorded_at": "2026-10-20",
       "reason": "Authorized final re-audit adds a successor manifest, fail-closed validator, tests, evidence, exact scope and future execution runbook while preserving product and scientific bytes and performing no release action.",
       "external_publication_performed": false
+    },
+    {
+      "task_id": "ST08_16C_v1_0_0_GitHub_execution",
+      "recorded_at": "2026-10-21",
+      "reason": "Authorized terminal release execution adds a successor manifest, fail-closed lifecycle validator, tests, evidence and exact scope; finalizes only release-state documentation and prepares exact-SHA immutable GitHub publication without PyPI or scientific change.",
+      "external_publication_performed": false
     }
   ],
   "mandatory_public_legal_artifacts": [
@@ -282,10 +288,10 @@
     "st08_06_legal_artifacts_condition": "SATISFIED_AFTER_VALIDATION",
     "public_development_gate": "SATISFIED_BY_ST08_13B",
     "remaining_blockers": [
-      "ST08_16B_exact_pull_request_SHA_assurance_not_observed",
-      "ST08_16B_not_accepted_by_John",
-      "John_stable_bounded_API_acceptance_not_granted",
-      "ST08_16C_immutable_v1_0_0_release_not_authorized_or_executed"
+      "ST08_16C_exact_pull_request_SHA_assurance_not_observed",
+      "ST08_16C_protected_main_merge_not_confirmed_or_executed",
+      "ST08_16C_post_merge_assurance_not_observed",
+      "ST08_16C_immutable_v1_0_0_release_not_executed_or_verified"
     ],
     "external_actions_performed": 0
   },

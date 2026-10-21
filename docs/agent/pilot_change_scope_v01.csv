@@ -175,3 +175,9 @@ added,data_registry/st08_16B_v1_0_0_final_candidate_manifest_v01.csv,ST08_16B su
 added,data_registry/st08_16B_v1_0_0_final_reaudit_and_security_preflight_evidence_v01.json,ST08_16B local hosted repository-security transition and interpretation evidence
 added,docs/agent/st08_16B_v1_0_0_final_reaudit_and_security_preflight_change_scope_v01.csv,ST08_16B exact planned and actual change scope
 added,docs/release/release_1_0_0_GitHub_execution_runbook_v01.md,Future owner-authorized API acceptance release-state finalization and immutable GitHub Release procedure
+added,configs/project_readiness/st08_16C_v1_0_0_GitHub_execution_contract_v01.json,ST08_16C authority lifecycle release identity asset verification terminal evidence and stop-condition contract
+added,scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py,ST08_16C fail-closed release-state build manifest evidence body and mutation assurance
+added,tests/test_v1_0_0_GitHub_execution_st08_16C.py,ST08_16C positive lifecycle and negative mutation regression tests
+added,data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv,ST08_16C successor canonical Git path SHA-256 and size manifest
+added,data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json,ST08_16C authorization preparation release attestation verification terminal closure and exit-criterion evidence
+added,docs/agent/st08_16C_v1_0_0_GitHub_execution_change_scope_v01.csv,ST08_16C exact planned and actual change scope

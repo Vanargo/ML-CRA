@@ -3472,3 +3472,114 @@ evidence-closure commit должен сам пройти повторный exac
 2. Дождаться повторного exact-SHA `assurance` и передать результат агенту.
 3. До финального отчёта не выполнять merge и не присваивать
    `ACCEPTED_BY_JOHN`/`TASK_CLOSED`.
+
+## 104. ST08_16B — принятие, merge и обязательная post-merge проверка
+
+John принял и закрыл ST08_16B и разрешил merge PR №28 с обязательной
+post-merge проверкой. PR объединён squash-commit
+`5b8baeb7e67dc5de50f0bea51a2efaf7c266d815` с tree
+`adcac8551e437bfd84f447160899a895db4f0c0f`; GitHub Actions run
+`39434349063`, job `118667307373`, завершился с `success` для точного `main`.
+Все 22 объявленных workflow steps и служебные шаги успешны, включая финальный
+повторный аудит, две сборки, offline-установку, CLI и опубликованный baseline.
+
+```text
+ACCEPTED_BY_JOHN: ST08_16B_v1_0_0_final_reaudit_and_security_preflight
+TASK_CLOSED: ST08_16B_v1_0_0_final_reaudit_and_security_preflight
+post_merge_main_sha: 5b8baeb7e67dc5de50f0bea51a2efaf7c266d815
+post_merge_assurance: PASS
+```
+
+Это закрывает EXIT-04 и EXIT-05 наблюдаемыми локальными и hosted
+доказательствами, но само по себе не являлось принятием API или публикацией.
+
+## 105. ST08_16C — исполнение immutable GitHub Release 1.0.0
+
+John отдельными решениями принял стабильность ограниченного публичного API и
+авторизовал только `ST08_16C_v1_0_0_GitHub_execution`. Публичный контракт
+ограничен Windows x64 / CPython 3.12, четырьмя командами, зарегистрированными
+схемами, форматами артефактов и кодами завершения; универсальная модельная или
+межплатформенная гарантия не заявляется.
+
+```text
+ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API
+NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution
+ST08_16C_profile: CHANGE
+ST08_16C_authorized: true
+protected_main_merge_requires_separate_John_confirmation: true
+TestPyPI_authorized: false
+PyPI_authorized: false
+training_runs: 0
+scientific_artifact_changes: 0
+release_actions_performed: 0
+```
+
+ST08_16C переводит README, README_RU, release notes и SECURITY из candidate-
+состояния в правдивое финальное состояние с absence guard — защитой на случай
+ещё не завершённого выпуска. `CITATION.cff` сохраняет версию 1.0.0 без
+выдуманной `date-released`; точный внешний timestamp должен быть записан после
+публикации. Затем отдельный защищённый PR обязан пройти exact-SHA `assurance`.
+Его merge требует отдельного подтверждения John; только после post-merge PASS
+можно дважды собрать exact main, создать draft, прикрепить и сверить три актива,
+единожды опубликовать и проверить неизменяемость и attestation.
+
+SemVer 2.0.0 связывает 1.0.0 с объявленным публичным API и запрещает менять
+содержимое уже выпущенной версии (https://semver.org/). GitHub рекомендует для
+immutable release порядок draft → attach assets → publish и создаёт release
+attestation после публикации
+(https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases).
+
+```text
+ST08_16C_lifecycle_state: PREPARED_PENDING_LOCAL_VERIFICATION_AND_EXACT_SHA_ASSURANCE
+EXIT-06: PASS_JOHN_API_STABILITY_ACCEPTED_AND_ST08_16C_AUTHORIZED
+EXIT-07: PENDING_EXACT_SHA_MERGE_IMMUTABLE_RELEASE_AND_EVIDENCE_CLOSURE
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` пока относится только к однозначности полномочий и исходного baseline.
+`NOT_READY` означает, что локальные проверки, exact-SHA PR, merge, post-merge
+assurance, неизменяемая публикация и evidence closure ещё не завершены.
+
+## 106. Задачи John
+
+1. После локального отчёта дождаться созданного PR и его exact-SHA
+   `assurance`.
+2. Только после следующего технического отчёта отдельно разрешить либо
+   запретить merge подготовленного release-state PR.
+3. Не создавать вручную tag/release `v1.0.0` и не публиковать в
+   TestPyPI/PyPI.
+
+## 107. ST08_16C — локальное закрытие подготовки и экстренное security-уточнение
+
+Локальная подготовка release-state завершена. Live-аудит зависимостей обнаружил в ранее
+закреплённом assurance-инструментарии `certifi==2026.7.22` критическое уведомление
+`GHSA-6q48-6c7w-9gw2`. Это было обязательным release-blocker, поэтому change set
+(набор изменений) контролируемо расширен с 18 до 19 путей: только lock-файл обновлён до
+`certifi==2026.10.19`, а официальный SHA-256 wheel с PyPI независимо подтверждён.
+Повторный аудит обеих lock-групп дал 0 известных уязвимостей для 15 runtime- и 35
+assurance-зависимостей. Научные артефакты и публичный API не изменялись.
+
+Контракт, 12 отрицательных мутаций, 38 модульных тестов, две независимые сборки,
+source/secret/documentation assurance, реаудит и working/published baseline прошли.
+Системный Python не имел PyYAML для published baseline; та же обязательная проверка
+успешно выполнена в зарегистрированном `ml-cra-venv`, содержащем assurance lock.
+
+```text
+ST08_16C_lifecycle_state: PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE
+planned_change_paths: 19
+known_dependency_vulnerabilities: 0
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` означает, что локальный release-state воспроизводим и согласован. `NOT_READY`
+сохраняется, потому что exact-SHA hosted assurance, отдельное решение John о merge,
+post-merge assurance, immutable release и evidence closure ещё не выполнены.
+
+## 108. Задачи John
+
+1. Дождаться созданного PR и успешного `assurance` для точного SHA его вершины.
+2. После отчёта агента отдельно разрешить либо запретить merge этого PR.
+3. До такого решения не создавать tag/release `v1.0.0` и не публиковать в TestPyPI/PyPI.

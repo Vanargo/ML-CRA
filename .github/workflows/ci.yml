@@ -89,19 +89,17 @@ jobs:
           python scripts/st08_16_v1_0_0_exit_contract_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Validate the v1.0.0 final re-audit and security preflight
+      - name: Validate the v1.0.0 GitHub execution lifecycle
         run: |
-          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract
+          python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py contract
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py mutations
+          python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py mutations
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m unittest -v tests.test_v1_0_0_final_reaudit_and_security_preflight_st08_16B
+          python -m unittest -v tests.test_v1_0_0_GitHub_execution_st08_16C
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py build-preflight --output-dir dist/st08_16B-ci
+          python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py build-release --source lifecycle --output-dir dist/st08_16C-ci --verify-contract-assets
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py validate-built --candidate-dir dist/st08_16B-ci
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py final-evidence
+          python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py final-evidence
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Build the exact v0.1.1 release assets twice
@@ -112,8 +110,8 @@ jobs:
 
       - name: Validate sdist and wheel inventories
         run: |
-          $sdist = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.tar.gz
-          $wheel = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.whl
+          $sdist = Get-ChildItem -LiteralPath dist/st08_16C-ci -Filter *.tar.gz
+          $wheel = Get-ChildItem -LiteralPath dist/st08_16C-ci -Filter *.whl
           if ($sdist.Count -ne 1 -or $wheel.Count -ne 1) { throw "Expected exactly one sdist and one wheel" }
           python scripts/st08_09_release_assurance.py archives --sdist $sdist.FullName --wheel $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -144,6 +142,20 @@ jobs:
           } elseif ($state -ne "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE") {
             throw "Unknown ST08_15C lifecycle state: $state"
           }
+          $v100State = (Get-Content -LiteralPath data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json -Raw | ConvertFrom-Json).lifecycle_state
+          $v100ReleasedStates = @("RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE", "RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED")
+          if ($v100ReleasedStates -contains $v100State) {
+            gh release verify v1.0.0 --repo Vanargo/ML-CRA
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            gh release verify-asset v1.0.0 .\dist\st08_16C-ci\ml_cra-1.0.0.tar.gz --repo Vanargo/ML-CRA
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            gh release verify-asset v1.0.0 .\dist\st08_16C-ci\ml_cra-1.0.0-py3-none-any.whl --repo Vanargo/ML-CRA
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            gh release verify-asset v1.0.0 .\dist\st08_16C-ci\SHA256SUMS --repo Vanargo/ML-CRA
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          } elseif ($v100State -ne "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE") {
+            throw "Unknown ST08_16C lifecycle state: $v100State"
+          }
 
       - name: Prepare hash-verified runtime wheelhouse
         run: >-
@@ -157,7 +169,7 @@ jobs:
         run: |
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --find-links .tmp_st08_09_ci_runtime_wheels -r requirements/locks/st08_07-py312-windows-x86_64.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $wheel = Get-ChildItem -LiteralPath dist/st08_16B-ci -Filter *.whl
+          $wheel = Get-ChildItem -LiteralPath dist/st08_16C-ci -Filter *.whl
           .tmp_st08_09_ci_runtime\Scripts\python.exe -m pip install --no-index --no-deps $wheel.FullName
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
