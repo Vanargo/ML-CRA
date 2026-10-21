@@ -1,0 +1,208 @@
+{
+  "schema_version": "st08_16C_v1_0_0_GitHub_execution_contract_v01",
+  "contract_id": "st08_16C_v1_0_0_GitHub_execution_contract_v01",
+  "task_id": "ST08_16C_v1_0_0_GitHub_execution",
+  "recorded_at": "2026-10-21",
+  "profile": "CHANGE",
+  "authority": {
+    "accepted_and_closed_previous_task": "ST08_16B_v1_0_0_final_reaudit_and_security_preflight",
+    "stable_bounded_public_API_acceptance": "ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API",
+    "authorized_task_label": "NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution",
+    "release_state_finalization_authorized": true,
+    "exact_SHA_pull_request_assurance_authorized": true,
+    "GitHub_release_v1_0_0_execution_authorized": true,
+    "draft_creation_and_asset_upload_authorized": true,
+    "immutable_publication_authorized_after_all_gates": true,
+    "protected_main_merge_requires_separate_John_confirmation": true,
+    "tag_or_asset_replacement_authorized": false,
+    "v0_1_x_change_authorized": false,
+    "TestPyPI_publication_authorized": false,
+    "PyPI_publication_authorized": false,
+    "scientific_change_authorized": false,
+    "new_training_authorized": false
+  },
+  "measurable_outcome": "Finalize the exact v1.0.0 release-state tree, obtain protected exact-SHA and post-merge assurance, reproducibly build and bind three final assets, create a draft targeting the exact main commit, attach and verify every asset, publish once with release immutability enabled, verify the release attestation and local assets, and register terminal evidence closure without PyPI or scientific change.",
+  "completion_criteria": [
+    "README.md README_RU.md RELEASE_NOTES_1.0.0.md and SECURITY.md truthfully describe the v1.0.0 GitHub channel and continued PyPI deferral",
+    "CITATION.cff remains valid version 1.0.0 metadata and omits a guessed pre-publication date",
+    "the exact release-state tree passes a protected pull request and post-merge assurance on main",
+    "two independent normalized builds reproduce the registered sdist wheel and SHA256SUMS bytes",
+    "v1.0.0 is absent before execution and v0.1.0 plus v0.1.1 remain immutable and unchanged",
+    "the draft targets the exact assured main commit and contains all three verified assets before publication",
+    "the published v1.0.0 release is immutable non-draft non-prerelease and all four GitHub CLI verification commands pass",
+    "the successor manifest evidence and actual change log reconcile exactly while TestPyPI PyPI training and scientific changes remain zero"
+  ],
+  "source_baseline": {
+    "branch": "origin/main",
+    "commit": "5b8baeb7e67dc5de50f0bea51a2efaf7c266d815",
+    "git_tree": "adcac8551e437bfd84f447160899a895db4f0c0f",
+    "tracked_paths": 389,
+    "accepted_ST08_16B": true,
+    "stable_bounded_public_API_accepted": true,
+    "post_merge_assurance_run_id": 39434349063,
+    "post_merge_assurance_job_id": 118667307373,
+    "post_merge_assurance_conclusion": "success",
+    "post_merge_assurance_primary_steps": 22
+  },
+  "mape_k": {
+    "monitor": [
+      "ST08_16B is accepted and its exact merged main SHA passed all 22 declared hosted assurance steps",
+      "John explicitly accepted the stable bounded public API and separately authorized ST08_16C",
+      "v1.0.0 tag and release are absent while v0.1.0 and v0.1.1 remain immutable",
+      "the repository requires strict assurance and has release immutability secret scanning push protection private reporting and zero open Dependabot alerts",
+      "candidate-only wording and the supported-release statement must transition before publication",
+      "the 2026-10-21 live dependency audit identified critical GHSA-6q48-6c7w-9gw2 in the previously locked certifi 2026.7.22 assurance dependency"
+    ],
+    "analyze": [
+      "publishing candidate wording or a stale SECURITY current-version statement would make repository documentation false",
+      "publishing before exact-SHA and post-merge assurance would break the registered provenance chain",
+      "immutable publication makes an incorrect tag or asset difficult to recover from",
+      "a draft-first attach-verify-publish sequence contains errors while objects remain mutable"
+    ],
+    "plan": "Finalize only release-state documentation, protect it through exact-SHA review and main merge, build twice from the exact tree, verify the draft completely, publish once, then record immutable terminal evidence.",
+    "execute": "Use the two-state PREPARED and RELEASED lifecycle enforced by the ST08_16C validator; never let an unknown or partial external state pass.",
+    "knowledge": "Bind owner decisions source commit tree assets public release attestation repository controls command outcomes limitations exit criteria and the exact planned path set."
+  },
+  "release_identity": {
+    "repository": "Vanargo/ML-CRA",
+    "version": "1.0.0",
+    "tag": "v1.0.0",
+    "title": "ML-CRA 1.0.0",
+    "prerelease": false,
+    "latest": true,
+    "immutable_required": true,
+    "required_assets": [
+      "ml_cra-1.0.0.tar.gz",
+      "ml_cra-1.0.0-py3-none-any.whl",
+      "SHA256SUMS"
+    ],
+    "release_body_source": "deterministic_ST08_16C_renderer_from_tracked_notes_exact_commit_tree_and_registered_asset_digests",
+    "CITATION_date_released_disposition": "ABSENT_not_guessed_exact_GitHub_publication_timestamp_registered_in_closure_evidence"
+  },
+  "release_assets": {
+    "source_representation": "canonical_Git_index_or_exact_release_commit_checkout",
+    "source_date_epoch": 1792540800,
+    "source_date_epoch_utc": "2026-10-21T00:00:00Z",
+    "independent_build_count": 2,
+    "assets": {
+      "ml_cra-1.0.0.tar.gz": {"sha256": "4d33f5d951af0a4f03c5583937de91a09a7673cab7aa5fca28487daa80019451", "size_bytes": 100875},
+      "ml_cra-1.0.0-py3-none-any.whl": {"sha256": "4444cfe3c06d7b3fa68ddb88c73b055edce0fbce89b100e927b47556c9e586ee", "size_bytes": 92611},
+      "SHA256SUMS": {"sha256": "797612bb6e88a17a3e7b70a06f76202b74edd8da48be79c95071b753d6ca3417", "size_bytes": 182}
+    }
+  },
+  "execution_state_machine": [
+    "finalize_release_state_without_scientific_or_runtime_change",
+    "commit_push_and_open_protected_pull_request",
+    "require_assurance_success_for_exact_pull_request_SHA",
+    "obtain_separate_John_confirmation_and_merge_to_main",
+    "require_post_merge_assurance_success_for_exact_main_SHA",
+    "build_twice_from_exact_main_commit_and_match_registered_assets",
+    "recheck_zero_existing_v1_0_0_tag_or_release_and_all_repository_controls",
+    "create_draft_release_for_v1_0_0_targeting_exact_main_SHA",
+    "upload_three_assets_without_clobber",
+    "verify_draft_identity_asset_names_sizes_digests_and_SHA256SUMS",
+    "publish_draft_once_with_immutability_enabled",
+    "verify_release_attestation_and_three_local_assets_with_GitHub_CLI",
+    "record_release_evidence_and_close_through_a_second_protected_pull_request"
+  ],
+  "lifecycle_policy": {
+    "allowed_evidence_states": [
+      "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE",
+      "RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE",
+      "RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED"
+    ],
+    "unknown_is_pass": false,
+    "pre_release_readiness": "NOT_READY",
+    "released_before_closure_readiness": "NOT_READY",
+    "closed_readiness": "READY_FOR_JOHN_ACCEPTANCE"
+  },
+  "protected_boundaries": {
+    "v0_1_0_and_v0_1_1_tags_releases_and_assets": "MUST_NOT_CHANGE",
+    "scientific_claims_protocols_datasets_seeds_splits_metrics_results_verdicts": "MUST_NOT_CHANGE",
+    "supported_commands_inputs_outputs_exit_codes_and_report_v01_keys": "MUST_NOT_CHANGE",
+    "supported_cell": "Windows_x64_CPython_3_12_only",
+    "TestPyPI_and_PyPI": "OUT_OF_SCOPE_NOT_AUTHORIZED",
+    "universal_model_or_platform_claim": "FORBIDDEN"
+  },
+  "immutable_ST08_16B": [
+    {"path": "configs/project_readiness/st08_16B_v1_0_0_final_reaudit_and_security_preflight_contract_v01.json", "sha256": "14e42a8143463c4b6f65475c4bc31956b53795cd974feca594ead0d77b0abdc9"},
+    {"path": "scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py", "sha256": "a2900c61272d87c7a67088c81b5e3b1b29577c6062da3f101f379301433f6a0b"},
+    {"path": "tests/test_v1_0_0_final_reaudit_and_security_preflight_st08_16B.py", "sha256": "25b492546668ae5b43890508af05ad9653eabff18b087c1b95d109bebb96d6aa"},
+    {"path": "docs/agent/st08_16B_v1_0_0_final_reaudit_and_security_preflight_change_scope_v01.csv", "sha256": "6c31b311a65fc90855c39ae871670b7b5aa011b6db44b8a4004de415cf429a4b"}
+  ],
+  "successor_manifest": {
+    "path": "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv",
+    "fields": ["relative_path", "sha256", "size_bytes"],
+    "algorithm": "SHA-256 over canonical Git index blob bytes",
+    "path_order": "ascending_ordinal",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json",
+      "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"
+    ]
+  },
+  "planned_changes": [
+    {"change_kind": "added", "relative_path": "configs/project_readiness/st08_16C_v1_0_0_GitHub_execution_contract_v01.json"},
+    {"change_kind": "added", "relative_path": "scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py"},
+    {"change_kind": "added", "relative_path": "tests/test_v1_0_0_GitHub_execution_st08_16C.py"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"},
+    {"change_kind": "added", "relative_path": "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json"},
+    {"change_kind": "added", "relative_path": "docs/agent/st08_16C_v1_0_0_GitHub_execution_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": ".github/workflows/ci.yml"},
+    {"change_kind": "modified", "relative_path": "scripts/st08_09_release_assurance.py"},
+    {"change_kind": "modified", "relative_path": "tests/test_release_assurance_st08_09.py"},
+    {"change_kind": "modified", "relative_path": "configs/project_readiness/st08_06_public_repository_asset_manifest_v01.json"},
+    {"change_kind": "modified", "relative_path": "docs/agent/pilot_change_scope_v01.csv"},
+    {"change_kind": "modified", "relative_path": "README.md"},
+    {"change_kind": "modified", "relative_path": "README_RU.md"},
+    {"change_kind": "modified", "relative_path": "RELEASE_NOTES_1.0.0.md"},
+    {"change_kind": "modified", "relative_path": "SECURITY.md"},
+    {"change_kind": "modified", "relative_path": "docs/release/release_1_0_0_GitHub_execution_runbook_v01.md"},
+    {"change_kind": "modified", "relative_path": "docs/stages/stage_08_project_completion_and_release_readiness.md"},
+    {"change_kind": "modified", "relative_path": "roadmap.md"},
+    {"change_kind": "modified", "relative_path": "requirements/locks/st08_09-assurance-tools-py312-windows-x86_64.txt"}
+  ],
+  "required_checks": [
+    "python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py contract",
+    "python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py mutations",
+    "python -m unittest -v tests.test_v1_0_0_GitHub_execution_st08_16C tests.test_release_assurance_st08_09",
+    "python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py build-release --source lifecycle --output-dir dist/st08_16C-release --verify-contract-assets",
+    "python scripts/st08_09_release_assurance.py source --inventory published",
+    "python scripts/st08_09_release_assurance.py secrets --inventory published",
+    "python scripts/st08_09_release_assurance.py dependencies --output-dir .tmp_st08_16C_dependency_audits",
+    "python scripts/st08_10_documentation_assurance.py source --inventory published",
+    "python scripts/st08_13_release_candidate_reaudit.py --inventory published",
+    "python scripts/agent_verify.py --mode baseline",
+    "python scripts/agent_verify.py --mode baseline --inventory published",
+    "python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py final-evidence",
+    "hosted assurance for the exact pull-request SHA and exact post-merge main SHA",
+    "gh release verify v1.0.0 and three gh release verify-asset commands after publication"
+  ],
+  "authoritative_support": [
+    {"source": "Semantic Versioning 2.0.0", "uri": "https://semver.org/", "use": "Treat 1.0.0 as the declaration of the bounded public API and never mutate released version contents."},
+    {"source": "GitHub immutable releases", "uri": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases", "use": "Use draft attach publish ordering and rely on post-publication protection of the tag and assets plus automatic release attestation."},
+    {"source": "GitHub verifying release integrity", "uri": "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/verify-release-integrity", "use": "Verify the immutable release and each exact local asset with GitHub CLI."},
+    {"source": "GitHub CLI gh release create", "uri": "https://cli.github.com/manual/gh_release_create", "use": "Target the exact commit and create a draft before publication."},
+    {"source": "GitHub CLI gh release upload", "uri": "https://cli.github.com/manual/gh_release_upload", "use": "Upload without clobber because clobber deletes an existing asset before replacement."},
+    {"source": "Python Packaging User Guide - The Packaging Flow", "uri": "https://packaging.python.org/en/latest/flow/", "use": "Keep source tree metadata build artifacts and external publication as distinct controlled states."},
+    {"source": "SOURCE_DATE_EPOCH specification", "uri": "https://reproducible-builds.org/specs/source-date-epoch/", "use": "Use one deterministic timestamp input and require two byte-identical builds."},
+    {"source": "NIST SP 800-218 SSDF 1.1", "uri": "https://csrc.nist.gov/pubs/sp/800/218/final", "use": "Integrate provenance protection repeatable security checks and controlled release practices into the lifecycle."},
+    {"source": "NIST FIPS 180-4", "uri": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "use": "Use SHA-256 for byte identity without treating it as correctness or scientific proof."},
+    {"source": "GitHub Security Advisory GHSA-6q48-6c7w-9gw2", "uri": "https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2", "use": "Treat the compromised emSign intermediate-key condition in the prior certifi trust bundle as a release-blocking security finding."},
+    {"source": "PyPI certifi 2026.10.19 JSON API", "uri": "https://pypi.org/pypi/certifi/2026.10.19/json", "use": "Bind the patched non-vulnerable universal wheel version filename and official SHA-256 before updating the hash lock."}
+  ],
+  "checkpoint_policy": {
+    "status": "SKIPPED_if_immutable_release_remote_Git_and_attestation_verification_pass",
+    "reason": "The exact protected Git history immutable tag three downloadable hash-bound assets release attestation and successor manifest provide independently stored recovery evidence; another ZIP would duplicate the release payload."
+  },
+  "stop_conditions": [
+    "A protected scientific runtime API protocol result or verdict would change.",
+    "The exact pull-request or post-merge assurance is missing failed stale or unknown.",
+    "John has not separately confirmed the protected PR merge.",
+    "The final assets are not reproducible or do not match the registered hashes and sizes.",
+    "Any v1.0.0 tag or release exists before the guarded execution step.",
+    "Any mandatory repository security control is unknown or fails.",
+    "The draft identity target body or assets differ from the verified plan.",
+    "TestPyPI PyPI v0.1.x mutation asset clobber or tag replacement would occur.",
+    "Publication succeeds but any release or asset verification fails; stop and record the exact immutable state without inventing repair authority."
+  ]
+}

@@ -180,10 +180,20 @@ class TestSt0809ReleaseAssurance(unittest.TestCase):
             with self.assertRaises(assurance.AssuranceError):
                 assurance.validate_workflow(path, CONTRACT)
 
-    def test_workflow_requires_st08_16B_final_preflight_gate(self) -> None:
+    def test_workflow_rejects_superseded_st08_16B_state_dependent_gate(self) -> None:
+        mutated = assurance.WORKFLOW.read_text(encoding="utf-8") + (
+            "\n# python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract\n"
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "ci.yml"
+            path.write_text(mutated, encoding="utf-8")
+            with self.assertRaises(assurance.AssuranceError):
+                assurance.validate_workflow(path, CONTRACT)
+
+    def test_workflow_requires_st08_16C_release_lifecycle_gate(self) -> None:
         mutated = assurance.WORKFLOW.read_text(encoding="utf-8").replace(
-            "python scripts/st08_16B_v1_0_0_final_reaudit_and_security_preflight.py contract",
-            "# removed ST08_16B final preflight gate",
+            "python scripts/st08_16C_v1_0_0_GitHub_execution_assurance.py contract",
+            "# removed ST08_16C release lifecycle gate",
             1,
         )
         with tempfile.TemporaryDirectory() as temporary:

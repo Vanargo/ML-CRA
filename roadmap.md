@@ -2633,3 +2633,95 @@ READINESS: READY_FOR_JOHN_ACCEPTANCE
 2. Передать результат повторного exact-SHA hosted `assurance`.
 3. До финального отчёта не выполнять merge, не принимать ST08_16B и не
    авторизовывать ST08_16C или выпуск `v1.0.0`.
+
+## 91. ST08_16B — принятие и post-merge closure
+
+John принял и закрыл ST08_16B. PR №28 объединён в `main` как
+`5b8baeb7e67dc5de50f0bea51a2efaf7c266d815`; post-merge run `39434349063`,
+job `118667307373`, прошёл все 22 объявленных workflow steps и служебные шаги.
+
+```text
+ST08_16B: ACCEPTED_BY_JOHN_AND_TASK_CLOSED
+post_merge_assurance: PASS
+EXIT-04: PASS
+EXIT-05: PASS
+```
+
+## 92. ST08_16C — авторизованная финальная GitHub-транзакция 1.0.0
+
+John отдельно принял стабильность ограниченного API и авторизовал
+`ST08_16C_v1_0_0_GitHub_execution`. Это разрешает финализацию release-state и
+последующую immutable GitHub-публикацию только после защищённого exact-SHA PR,
+отдельного решения John на merge и успешной post-merge проверки exact `main`.
+
+```text
+ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API
+NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution
+ST08_16C_profile: CHANGE
+ST08_16C_authorized: true
+release_actions_performed: 0
+TestPyPI_authorized: false
+PyPI_authorized: false
+ST08_16C_lifecycle_state: PREPARED_PENDING_LOCAL_VERIFICATION_AND_EXACT_SHA_ASSURANCE
+```
+
+План является конечной fail-closed транзакцией: четыре правдивые release-state
+поверхности, неизменённый CFF без выдуманной даты, successor manifest, две
+сборки exact main, повторная проверка отсутствия v1.0.0, draft, три актива,
+предпубликационная сверка, единственная публикация, release/asset attestation и
+второй evidence-closure PR. PyPI/TestPyPI и новые научные действия исключены.
+
+## 93. Задачи John
+
+1. После локального отчёта дождаться exact-SHA `assurance` подготовленного PR.
+2. Затем отдельно решить merge release-state PR; до этого tag/release не
+   создаются.
+3. Не начинать никакой автоматический successor после v1.0.0: контракт
+   определяет завершение текущей цели проекта после проверенного и принятого
+   immutable выпуска.
+
+## 94. ST08_16C — локальный PASS перед exact-SHA PR
+
+Подготовленный release-state прошёл контракт, 12/12 отрицательных мутаций, 38/38
+модульных тестов, две воспроизводимые сборки, source/secret/documentation assurance,
+реаудит и обе baseline-проверки. Обнаруженное live-аудитом критическое уведомление
+`GHSA-6q48-6c7w-9gw2` устранено контролируемым обновлением assurance lock с
+`certifi==2026.7.22` до официально hash-bound (привязанной хешем) версии
+`certifi==2026.10.19`; повторный аудит 50 закреплённых зависимостей дал 0 известных
+уязвимостей. Итоговый change set содержит 19 путей, научные артефакты и публичный API
+не менялись.
+
+```text
+ST08_16C_lifecycle_state: PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE
+local_verification: PASS
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 95. Задачи John
+
+1. Дождаться PR и успешного exact-SHA hosted `assurance`.
+2. После технического отчёта отдельно принять решение о merge.
+3. Не создавать `v1.0.0` вручную и не выполнять TestPyPI/PyPI publication.
+
+## 96. ST08_16C — exact-SHA hosted gate PR №29
+
+Первый head PR №29 `e45aa036c809382d6681ce74a1c40312d82e9eae` прошёл GitHub Actions
+run `39552247860`, job `119063845850`: все 22 объявленных workflow steps и служебные
+шаги успешны. Результат переносится в canonical evidence; следующий evidence-closure
+commit обязан пройти тот же exact-SHA gate повторно.
+
+```text
+initial_PR_head_assurance: PASS
+evidence_closure_commit: PENDING
+release_actions_performed: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+## 97. Задачи John
+
+1. Дождаться повторного exact-SHA PASS для evidence-closure commit PR №29.
+2. Затем отдельно решить merge PR №29.
+3. До отдельного решения не создавать tag/release `v1.0.0`.

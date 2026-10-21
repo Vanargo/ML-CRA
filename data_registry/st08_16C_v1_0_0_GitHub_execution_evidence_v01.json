@@ -1,0 +1,157 @@
+{
+  "schema_version": "st08_16C_v1_0_0_GitHub_execution_evidence_v01",
+  "evidence_id": "st08_16C_v1_0_0_GitHub_execution_evidence_v01",
+  "task_id": "ST08_16C_v1_0_0_GitHub_execution",
+  "recorded_at": "2026-10-21",
+  "profile": "CHANGE",
+  "status": "prepared_exact_SHA_assurance_pass_pending_John_merge_confirmation",
+  "lifecycle_state": "PREPARED_PENDING_EXACT_SHA_ASSURANCE_MERGE_AND_RELEASE",
+  "authority": {
+    "decision_received": "NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution",
+    "stable_bounded_public_API_acceptance": "ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API",
+    "release_state_finalization_authorized": true,
+    "GitHub_release_v1_0_0_execution_authorized": true,
+    "protected_main_merge_requires_separate_John_confirmation": true,
+    "TestPyPI_or_PyPI_authorized": false,
+    "scientific_change_authorized": false
+  },
+  "source_baseline": {
+    "branch": "origin/main",
+    "commit": "5b8baeb7e67dc5de50f0bea51a2efaf7c266d815",
+    "git_tree": "adcac8551e437bfd84f447160899a895db4f0c0f",
+    "tracked_paths": 389,
+    "post_merge_assurance_run_id": 39434349063,
+    "post_merge_assurance_job_id": 118667307373,
+    "post_merge_assurance_conclusion": "success"
+  },
+  "successor_manifest": {
+    "paths": 395,
+    "hashed_paths": 393,
+    "path_list_sha256": "2a0754e6430c0af1dbc7be0ae6e94451fa1489a0e7390db66d8949b011b51b37",
+    "manifest_sha256": "38705306ac4c454af9880408b0eb63f608fc89ddd4443dbf26965ae1486838f9",
+    "cycle_breaking_exclusions": [
+      "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json",
+      "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"
+    ],
+    "status": "PASS"
+  },
+  "release_state_transition": {
+    "README.md": "FINAL_GITHUB_RELEASE_CHANNEL_WITH_ABSENCE_GUARD",
+    "README_RU.md": "FINAL_GITHUB_RELEASE_CHANNEL_WITH_ABSENCE_GUARD",
+    "RELEASE_NOTES_1.0.0.md": "FINAL_BILINGUAL_GITHUB_RELEASE_NOTES",
+    "SECURITY.md": "V1_0_0_CURRENT_SUPPORTED_RELEASE_WITH_ABSENCE_GUARD",
+    "CITATION.cff": "VERSION_1_0_0_DATE_RELEASED_ABSENT_NOT_GUESSED",
+    "PyPI_claim": false,
+    "universal_model_or_platform_claim": false,
+    "status": "PASS"
+  },
+  "release_assets": {
+    "ml_cra-1.0.0.tar.gz": {"sha256": "4d33f5d951af0a4f03c5583937de91a09a7673cab7aa5fca28487daa80019451", "size_bytes": 100875},
+    "ml_cra-1.0.0-py3-none-any.whl": {"sha256": "4444cfe3c06d7b3fa68ddb88c73b055edce0fbce89b100e927b47556c9e586ee", "size_bytes": 92611},
+    "SHA256SUMS": {"sha256": "797612bb6e88a17a3e7b70a06f76202b74edd8da48be79c95071b753d6ca3417", "size_bytes": 182}
+  },
+  "external_preparation_observations": {
+    "observed_at": "2026-10-21",
+    "repository": "Vanargo/ML-CRA",
+    "default_branch": "main",
+    "main_commit": "5b8baeb7e67dc5de50f0bea51a2efaf7c266d815",
+    "ruleset_id": 21408995,
+    "strict_required_assurance": true,
+    "pull_request_required": true,
+    "linear_history_required": true,
+    "conversation_resolution_required": true,
+    "force_push_blocked": true,
+    "deletion_blocked": true,
+    "bypass_list_empty": true,
+    "secret_scanning_enabled": true,
+    "push_protection_enabled": true,
+    "private_vulnerability_reporting_enabled": true,
+    "dependabot_alerts_available": true,
+    "open_dependabot_alerts": 0,
+    "release_immutability_enabled": true,
+    "existing_tags": ["v0.1.0", "v0.1.1"],
+    "existing_releases": ["v0.1.0", "v0.1.1"],
+    "v1_0_0_tag_exists": false,
+    "v1_0_0_release_exists": false,
+    "v0_1_0_immutable": true,
+    "v0_1_1_immutable": true
+  },
+  "pre_release_assurance": {
+    "status": "PASS",
+    "conclusion": "success",
+    "run_id": 39552247860,
+    "job_id": 119063845850,
+    "head_sha": "e45aa036c809382d6681ce74a1c40312d82e9eae",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39552247860",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39552247860/job/119063845850",
+    "declared_workflow_steps": 22,
+    "all_declared_and_service_steps_successful": true
+  },
+  "post_merge_assurance": {"status": "PENDING"},
+  "release": {},
+  "attestation": {},
+  "verification_commands": [],
+  "hosted_assurance": {"status": "PENDING"},
+  "observed_checks": {
+    "source_baseline": "PASS_accepted_ST08_16B_post_merge_main",
+    "owner_decisions": "PASS_ST08_16B_closed_API_stability_accepted_ST08_16C_authorized",
+    "release_state_surfaces": "PASS_four_final_surfaces_and_unchanged_CITATION_version_without_guessed_date",
+    "protected_scientific_artifacts": "PASS_18_of_18_canonical_Git_blobs",
+    "contract": "PASS_19_planned_paths_395_manifest_paths_393_hashed_paths",
+    "negative_mutations": "PASS_12_of_12_rejected",
+    "focused_unittests": "PASS_38_of_38",
+    "release_build_reproducibility": "PASS_two_independent_builds_exact_registered_asset_bytes",
+    "source_assurance": "PASS_published_inventory",
+    "secret_scan": "PASS_395_files_zero_findings",
+    "documentation_assurance": "PASS_zero_broken_links_bilingual_command_parity",
+    "candidate_reaudit_validator": "PASS_observed_historical_relations_preserved",
+    "working_baseline": "PASS_system_and_ml_cra_venv",
+    "published_baseline": "PASS_ml_cra_venv_after_system_Python_missing_PyYAML_prerequisite",
+    "dependency_audit": "PASS_15_runtime_and_35_assurance_dependencies_zero_known_vulnerabilities_after_certifi_2026_10_19_remediation",
+    "hosted_exact_SHA_assurance": "PASS_initial_PR_head_e45aa036c809382d6681ce74a1c40312d82e9eae_pending_closure_commit_recheck",
+    "release_execution": "PENDING"
+  },
+  "change_reconciliation": {
+    "planned_paths": 19,
+    "actual_paths": 19,
+    "unplanned_paths": [],
+    "omitted_paths": [],
+    "status": "PASS_exact_planned_path_set"
+  },
+  "exit_contract_disposition": {
+    "EXIT-01": "PASS",
+    "EXIT-02": "PASS",
+    "EXIT-03": "PASS",
+    "EXIT-04": "PASS",
+    "EXIT-05": "PASS",
+    "EXIT-06": "PASS_JOHN_API_STABILITY_ACCEPTED_AND_ST08_16C_AUTHORIZED",
+    "EXIT-07": "PENDING_EXACT_SHA_MERGE_IMMUTABLE_RELEASE_AND_EVIDENCE_CLOSURE"
+  },
+  "limits": [
+    "Prepared local evidence does not prove exact-SHA hosted assurance or immutable publication.",
+    "SHA-256 establishes byte identity but does not prove correctness security or scientific validity.",
+    "CITATION.cff intentionally omits date-released while the future exact GitHub publication timestamp must be recorded in closure evidence.",
+    "No new training model comparison scientific result protocol or verdict is produced."
+  ],
+  "emergent_security_change": {
+    "observed_at": "2026-10-21",
+    "initial_audit": "FAIL_one_known_vulnerability",
+    "advisory": "GHSA-6q48-6c7w-9gw2",
+    "affected_lock_entry": "certifi==2026.7.22",
+    "required_remediation": "certifi==2026.10.19_with_official_PyPI_wheel_SHA256_and_repeat_audit",
+    "scope_disposition": "necessary_for_authorized_security_preflight_no_scientific_or_public_API_change"
+  },
+  "checkpoint": {
+    "status": "SKIPPED",
+    "reason": "Before publication the change is reversible in protected Git; after publication exact remote Git immutable assets and release attestation are the proportionate recovery evidence."
+  },
+  "release_performed": false,
+  "release_actions_performed": 0,
+  "training_runs": 0,
+  "scientific_artifact_changes": 0,
+  "PyPI_uploads": 0,
+  "TestPyPI_uploads": 0,
+  "v0_1_0_mutations": 0,
+  "technical_status": "PASS",
+  "readiness": "NOT_READY"
+}

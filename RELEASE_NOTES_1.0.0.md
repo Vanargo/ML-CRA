@@ -1,9 +1,9 @@
-# ML-CRA 1.0.0 candidate release notes
+# ML-CRA 1.0.0 release notes
 
-These tracked notes describe an unreleased local candidate. They do not claim
-that tag `v1.0.0`, a GitHub Release, TestPyPI publication, or PyPI publication
-exists. Publication requires separate owner acceptance and authorization after
-the final candidate re-audit.
+These tracked notes define the owner-authorized immutable GitHub Release
+`v1.0.0`. The canonical distribution record is
+https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0; if that record is absent,
+release execution has not completed. TestPyPI and PyPI remain deferred.
 
 ## English
 
@@ -34,22 +34,22 @@ automatic model discovery remain out of scope. Existing MiniBooNE and UCI Wine
 Quality findings remain limited to their registered data, protocols, seeds,
 splits, metrics, rounding rules, and verdict policies.
 
-### Remaining release gates
+### Release execution and verification
 
-This candidate has consistent `1.0.0` package, runtime, citation, maturity, and
-bilingual documentation metadata. It is not a release asset. A separately
-authorized final re-audit must still verify protected artifacts, dependencies,
-security, clean installation, CLI/dashboard behavior, scientific boundaries,
-and two byte-identical builds before John can accept API stability and
-authorize immutable GitHub publication. TestPyPI and PyPI are not part of the
+John accepted the stable bounded API after the final candidate re-audit.
+ST08_16C builds the exact protected release tree twice with one declared
+`SOURCE_DATE_EPOCH`, requires byte-identical normalized sdist and wheel output,
+binds all three assets with SHA-256, and verifies the published immutable
+release attestation. TestPyPI and PyPI remain deferred and are not part of the
 `1.0.0` completion criteria.
 
 ## Русский
 
-Эти отслеживаемые примечания описывают неопубликованный локальный кандидат.
-Они не утверждают существование тега `v1.0.0`, GitHub Release или публикации в
-TestPyPI/PyPI. Публикация требует отдельного принятия и разрешения владельца
-после финального повторного аудита кандидата.
+Эти отслеживаемые примечания определяют авторизованный владельцем неизменяемый
+GitHub Release `v1.0.0`. Каноническая запись распространения находится по
+адресу https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0; если она
+отсутствует, выполнение выпуска ещё не завершено. TestPyPI и PyPI остаются
+отложенными.
 
 ### Стабильный ограниченный публичный контракт
 
@@ -80,13 +80,11 @@ TestPyPI/PyPI. Публикация требует отдельного прин
 зарегистрированными данными, протоколами, зернами, разбиениями, метриками,
 правилами округления и политиками вердикта.
 
-### Оставшиеся шлюзы выпуска
+### Выполнение и проверка выпуска
 
-У кандидата согласованы версия пакета и runtime, данные цитирования,
-классификатор зрелости и двуязычная документация `1.0.0`. Он не является
-активом выпуска. Отдельно авторизованный финальный повторный аудит ещё должен
-проверить защищённые артефакты, зависимости, безопасность, чистую установку,
-поведение CLI/dashboard, научные границы и две побайтово совпадающие сборки.
-Только после этого John сможет принять стабильность API и разрешить
-неизменяемую публикацию GitHub. TestPyPI и PyPI не входят в критерии завершения
-`1.0.0`.
+John принял стабильный ограниченный API после финального повторного аудита
+кандидата. ST08_16C дважды собирает точное защищённое дерево выпуска с одним
+объявленным `SOURCE_DATE_EPOCH`, требует побайтового совпадения нормализованных
+sdist и wheel, связывает все три актива SHA-256 и проверяет аттестацию
+опубликованного неизменяемого выпуска. TestPyPI и PyPI остаются отложенными и
+не входят в критерии завершения `1.0.0`.
