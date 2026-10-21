@@ -4,8 +4,8 @@
   "task_id": "ST08_16C_v1_0_0_GitHub_execution",
   "recorded_at": "2026-10-21",
   "profile": "CHANGE",
-  "status": "released_verified_pending_hosted_evidence_closure",
-  "lifecycle_state": "RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE",
+  "status": "released_verified_and_hosted_evidence_closed",
+  "lifecycle_state": "RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED",
   "authority": {
     "decision_received": "NEXT_BLOCK_AUTHORIZED: ST08_16C_v1_0_0_GitHub_execution",
     "stable_bounded_public_API_acceptance": "ACCEPTED_BY_JOHN: ML_CRA_v1_0_0_stable_bounded_public_API",
@@ -28,7 +28,7 @@
     "paths": 395,
     "hashed_paths": 393,
     "path_list_sha256": "2a0754e6430c0af1dbc7be0ae6e94451fa1489a0e7390db66d8949b011b51b37",
-    "manifest_sha256": "48b8b24a1e9f2c2b5cac6839378d3ec62f891fd02aced08b63918887ee80b2c1",
+    "manifest_sha256": "66d40e25ab0c3a7f357089b505f007260b54485acc3b6856b3bbdcb975ab639b",
     "cycle_breaking_exclusions": [
       "data_registry/st08_16C_v1_0_0_GitHub_execution_evidence_v01.json",
       "data_registry/st08_16C_v1_0_0_GitHub_execution_manifest_v01.csv"
@@ -148,7 +148,17 @@
     {"command": "gh release verify-asset v1.0.0 dist/st08_16C-release/ml_cra-1.0.0-py3-none-any.whl --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"},
     {"command": "gh release verify-asset v1.0.0 dist/st08_16C-release/SHA256SUMS --repo Vanargo/ML-CRA", "exit_code": 0, "status": "PASS"}
   ],
-  "hosted_assurance": {"status": "PENDING"},
+  "hosted_assurance": {
+    "status": "PASS",
+    "conclusion": "success",
+    "run_id": 39581307310,
+    "job_id": 119159317760,
+    "head_sha": "6f1593109259fcb20bd0fcc34249dcb0cf7c3601",
+    "run_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39581307310",
+    "job_url": "https://github.com/Vanargo/ML-CRA/actions/runs/39581307310/job/119159317760",
+    "declared_workflow_steps": 22,
+    "all_declared_and_service_steps_successful": true
+  },
   "observed_checks": {
     "source_baseline": "PASS_accepted_ST08_16B_post_merge_main",
     "owner_decisions": "PASS_ST08_16B_closed_API_stability_accepted_ST08_16C_authorized",
@@ -182,10 +192,11 @@
     "EXIT-04": "PASS",
     "EXIT-05": "PASS",
     "EXIT-06": "PASS_JOHN_API_STABILITY_ACCEPTED_AND_ST08_16C_AUTHORIZED",
-    "EXIT-07": "PASS_IMMUTABLE_RELEASE_PENDING_HOSTED_EVIDENCE_CLOSURE"
+    "EXIT-07": "PASS_IMMUTABLE_RELEASE_AND_HOSTED_EVIDENCE_CLOSED"
   },
   "limits": [
-    "The immutable GitHub release and local asset bytes are verified; the second protected evidence-closure pull request is still pending.",
+    "The immutable GitHub release and local asset bytes are verified; the second protected evidence-closure pull request remains unmerged.",
+    "This canonical record binds the first exact-SHA closure run; the final closure commit requires a repeated exact-SHA gate before John acceptance.",
     "SHA-256 establishes byte identity but does not prove correctness security or scientific validity.",
     "CITATION.cff intentionally omits date-released; the exact GitHub publication timestamp is recorded in this closure evidence.",
     "No new training model comparison scientific result protocol or verdict is produced."
@@ -210,5 +221,5 @@
   "TestPyPI_uploads": 0,
   "v0_1_0_mutations": 0,
   "technical_status": "PASS",
-  "readiness": "NOT_READY"
+  "readiness": "READY_FOR_JOHN_ACCEPTANCE"
 }

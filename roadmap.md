@@ -2751,3 +2751,32 @@ READINESS: NOT_READY
 1. Дождаться второго защищённого PR, содержащего только каноническое release evidence.
 2. После повторного exact-SHA closure gate принять отдельное решение о merge.
 3. Не изменять immutable `v1.0.0` и не начинать неавторизованный successor.
+
+## 100. ST08_16C — release evidence закрыто первым exact-SHA gate PR №30
+
+Первый commit второго защищённого PR №30
+`6f1593109259fcb20bd0fcc34249dcb0cf7c3601` прошёл GitHub Actions run
+`39581307310`, job `119159317760`: все 22 объявленных шага и служебные шаги
+успешны. Точный внешний результат внесён в canonical evidence; итоговый closure
+commit обязан пройти повторный exact-SHA gate и не изменяет immutable release.
+
+```text
+ST08_16C_lifecycle_state: RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED
+closure_PR: 30
+first_closure_assurance: PASS
+release_actions_performed: 3
+TestPyPI_uploads: 0
+PyPI_uploads: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+Готовность относится к отдельному решению John по блоку после повторной проверки
+итогового SHA. Она не означает автоматический merge PR №30 или переход к successor.
+
+## 101. Задачи John
+
+1. Дождаться повторного exact-SHA PASS итогового closure commit PR №30.
+2. Принять либо вернуть блок ST08_16C.
+3. После принятия отдельно решить merge PR №30 и post-merge проверку `main`.
+4. Не изменять immutable `v1.0.0` и не начинать следующий блок без отдельного `NEXT_BLOCK_AUTHORIZED`.
