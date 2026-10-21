@@ -3605,3 +3605,83 @@ READINESS: NOT_READY
 1. Дождаться отчёта о повторном exact-SHA `assurance` для evidence-closure commit.
 2. После этого отдельно разрешить либо запретить merge PR №29.
 3. Не создавать вручную tag/release `v1.0.0` и не выполнять TestPyPI/PyPI publication.
+
+## 111. ST08_16C — merge PR №29, post-merge PASS и immutable GitHub Release 1.0.0
+
+John отдельно разрешил merge PR №29 и обязательную post-merge проверку. PR объединён
+squash-коммитом `b4e73889f4931c8b187f19e52dc890c50353a2dd`, tree
+`e125b3512f89d9c9a4a2ea17e91290ba5ff1fd9d`. Post-merge GitHub Actions run
+`39555395005`, job `119073870207`, прошёл все 22 объявленных workflow steps и
+служебные шаги для точного SHA `main`.
+
+Из чистого Git index этого commit дважды построены и сверены зарегистрированные
+sdist, wheel и `SHA256SUMS`. Затем повторно подтверждены отсутствие `v1.0.0`,
+неизменяемость v0.1.0/v0.1.1 и обязательные repository controls. Draft release ID
+`419229464` был направлен на точный commit, получил ровно три проверенных актива и
+детерминированный body; после предпубликационной сверки он опубликован один раз.
+
+GitHub Release `v1.0.0` опубликован `2026-10-21T06:34:39Z` как Latest, non-draft,
+non-prerelease и immutable. Tag является прямым commit ref на `b4e73889...`.
+`gh release verify` и три отдельных `gh release verify-asset` прошли; attestation
+использует predicate `https://in-toto.io/attestation/release/v0.2` и связывает commit
+со всеми тремя SHA-256.
+
+```text
+ST08_16C_lifecycle_state: RELEASED_VERIFIED_PENDING_HOSTED_EVIDENCE_CLOSURE
+release_id: 419229464
+release_url: https://github.com/Vanargo/ML-CRA/releases/tag/v1.0.0
+release_actions_performed: 3
+TestPyPI_uploads: 0
+PyPI_uploads: 0
+training_runs: 0
+scientific_artifact_changes: 0
+TECHNICAL_STATUS: PASS
+READINESS: NOT_READY
+```
+
+`PASS` означает, что неизменяемый выпуск и его байты доказательно проверены.
+`NOT_READY` сохраняется до второго защищённого PR, фиксирующего эти внешние
+доказательства, и его повторного exact-SHA hosted gate.
+
+## 112. Задачи John
+
+1. Дождаться второго PR с release evidence и двухфазного exact-SHA closure gate.
+2. До отдельного технического отчёта не выполнять merge этого closure PR.
+3. Не изменять и не заменять tag или активы `v1.0.0`; TestPyPI/PyPI остаются вне scope.
+
+## 113. ST08_16C — первый exact-SHA gate PR №30 и закрытие release evidence
+
+Второй защищённый PR №30 открыт только для канонической фиксации уже выполненного
+immutable GitHub Release. Его первый commit
+`6f1593109259fcb20bd0fcc34249dcb0cf7c3601` прошёл GitHub Actions run
+`39581307310`, job `119159317760`: conclusion `success`, все 22 объявленных workflow
+steps и служебные шаги успешны. На момент наблюдения PR был `OPEN`,
+`MERGEABLE/CLEAN`, non-draft.
+
+Это внешнее доказательство записано в evidence. Итоговый closure commit не меняет
+tag, release или активы и должен пройти повторный exact-SHA gate, устраняя
+самоссылку между доказательством и проверяемым commit.
+
+```text
+ST08_16C_lifecycle_state: RELEASED_VERIFIED_AND_HOSTED_EVIDENCE_CLOSED
+closure_PR: 30
+first_closure_head_sha: 6f1593109259fcb20bd0fcc34249dcb0cf7c3601
+first_closure_assurance: PASS
+release_actions_performed: 3
+TestPyPI_uploads: 0
+PyPI_uploads: 0
+TECHNICAL_STATUS: PASS
+READINESS: READY_FOR_JOHN_ACCEPTANCE
+```
+
+`PASS` означает, что выпуск, байты активов, attestation и первый exact-SHA gate
+доказательно подтверждены. `READY_FOR_JOHN_ACCEPTANCE` означает готовность блока к
+решению John только после успешного повторного gate итогового closure commit; это
+не разрешение на merge и не закрытие задачи агентом.
+
+## 114. Задачи John
+
+1. Дождаться технического отчёта о повторном exact-SHA PASS итогового commit PR №30.
+2. Затем принять либо вернуть `ST08_16C_v1_0_0_GitHub_execution`.
+3. Только после принятия отдельно разрешить либо запретить merge PR №30 и post-merge проверку `main`.
+4. Не изменять immutable `v1.0.0` и не авторизовывать следующий блок неявно.
